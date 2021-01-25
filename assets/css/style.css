@@ -904,7 +904,6 @@ section {
 # Team
 --------------------------------------------------------------*/
 .team {
-  background: url("../img/team-bg.jpg") center center no-repeat;
   background-size: cover;
   padding: 60px 0;
   position: relative;

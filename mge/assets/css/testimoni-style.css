@@ -1,0 +1,62 @@
+/*--------------------------------------------------------------
+# testimoni
+--------------------------------------------------------------*/
+.testimoni {
+  padding: 40px;
+}
+
+@media (max-width: 992px) {
+  .testimoni {
+    padding: 15px;
+  }
+}
+
+.testimoni .card-testimoni {
+  transition: 0.3s;
+  height: 100%;
+  overflow: hidden;
+  padding: 12px;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #f0f3ff;
+}
+.testimoni .card-testimoni:hover {
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+}
+.testimoni .card-testimoni .testimoni-img {
+  overflow: hidden;
+  position: relative;
+  border-radius: 12px;
+}
+.testimoni .card-testimoni .testimoni-img img {
+  transition: 0.5s;
+}
+.testimoni .card-testimoni .testimoni-title {
+  margin-top: 18px;
+  font-size: 24px;
+  color: #000000;
+  font-weight: 700;
+  margin-bottom: 8px;
+  position: relative;
+  transition: 0.3s;
+}
+.testimoni .card-testimoni .testimoni-category {
+  font-size: 16px;
+  font-weight: 600;
+  color: #393939;
+  display: block;
+  margin-bottom: 8px;
+}
+.testimoni .card-testimoni .testimoni-deskripsi {
+  font-size: 14px;
+  color: #393939;
+  font-weight: 400;
+  margin-bottom: 12px;
+  line-height: 19px;
+  transition: 0.3s;
+}
+.testimoni .card-testimoni:hover .testimoni-img img {
+  transform: rotate(6deg) scale(1.2);
+}

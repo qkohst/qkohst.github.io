@@ -1,0 +1,111 @@
+/*--------------------------------------------------------------
+# Promo
+--------------------------------------------------------------*/
+.promo {
+  padding: 40px;
+}
+
+.promo h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4154f1;
+  text-transform: uppercase;
+}
+.promo h2 {
+  font-size: 44px;
+  font-weight: 700;
+  color: #000000;
+}
+.promo p {
+  margin: 15px 0 30px 0;
+  line-height: 38px;
+  font-size: 32px;
+  color: #565656;
+}
+.promo .btn-read-more {
+  height: 43px;
+  padding: 12px 12px;
+  border-radius: 12px;
+  transition: 0.5s;
+  color: #fff;
+  background: #4154f1;
+  box-shadow: 0px 5px 25px rgba(65, 84, 241, 0.3);
+}
+.promo .btn-read-more span {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+.promo .btn-read-more i {
+  margin-left: 5px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+.promo .btn-read-more:hover i {
+  transform: translateX(5px);
+}
+
+/*--------------------------------------------------------------
+# Best
+--------------------------------------------------------------*/
+.best {
+  padding: 40px;
+}
+
+.best .card-left {
+  background-color: #f6f9ff;
+  padding: 40px;
+  margin-right: 20px;
+  height: 100%;
+}
+
+.best h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4154f1;
+  text-transform: uppercase;
+}
+.best h2 {
+  font-size: 44px;
+  font-weight: 800;
+  color: #000000;
+}
+.best p {
+  margin: 15px 0 30px 0;
+  line-height: 38px;
+  font-size: 32px;
+  color: #565656;
+}
+
+/*--------------------------------------------------------------
+  # Alur
+  --------------------------------------------------------------*/
+.alur {
+  padding: 40px;
+}
+
+.alur .box {
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+  height: 100%;
+  background: #f0f3ff;
+  border-radius: 12px;
+}
+.alur .box img {
+  transition: 0.5s;
+}
+.alur .box h3 {
+  font-size: 30px;
+  color: #000000;
+  font-weight: 700;
+  margin-bottom: 18px;
+  margin-top: 18px;
+  vertical-align: middle;
+}
+.alur .box:hover {
+  box-shadow: 0px 0px 12px rgba(39, 38, 38, 0.25);
+}
+.alur .box:hover img {
+  transform: scale(1);
+}

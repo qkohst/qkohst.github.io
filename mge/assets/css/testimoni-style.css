@@ -14,7 +14,6 @@
 .testimoni .card-testimoni {
   transition: 0.3s;
   height: 100%;
-  overflow: hidden;
   padding: 12px;
   border-radius: 12px;
   position: relative;
@@ -26,12 +25,29 @@
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
 }
 .testimoni .card-testimoni .testimoni-img {
-  overflow: hidden;
-  position: relative;
   border-radius: 12px;
+  background: #ffffff;
+  height: 235px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
 }
 .testimoni .card-testimoni .testimoni-img img {
   transition: 0.5s;
+  max-height: 195px;
+  margin: auto;
+}
+.testimoni .card-testimoni .testimoni-img .emblem {
+  position: absolute;
+  top: -8px;
+  right: 24px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ff9800;
+  content: url(../img/emblem.png);
+  padding: 7px;
 }
 .testimoni .card-testimoni .testimoni-title {
   margin-top: 18px;
@@ -58,5 +74,5 @@
   transition: 0.3s;
 }
 .testimoni .card-testimoni:hover .testimoni-img img {
-  transform: rotate(6deg) scale(1.2);
+  transform: rotate(6deg) scale(1.1);
 }

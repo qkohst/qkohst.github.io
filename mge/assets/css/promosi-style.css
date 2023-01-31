@@ -5,12 +5,6 @@
   padding: 40px;
 }
 
-@media (max-width: 992px) {
-  .promo {
-    padding: 15px;
-  }
-}
-
 .promo .card-promo {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
   height: 100%;
@@ -76,4 +70,29 @@
 
 .promo .card-promo:hover .promo-img img {
   transform: rotate(6deg) scale(1.2);
+}
+
+@media (max-width: 992px) {
+  .promo {
+    padding: 15px;
+  }
+  .hero .img-fluid {
+    width: 50%;
+    margin: auto;
+  }
+  .hero .hero-img {
+    width: 50%;
+  }
+  .hero h1 {
+    font-size: 28px;
+  }
+  .hero h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero .hero-img {
+    display: none;
+  }
 }

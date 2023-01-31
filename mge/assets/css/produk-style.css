@@ -5,12 +5,6 @@
   padding: 40px;
 }
 
-@media (max-width: 992px) {
-  .produk {
-    padding: 0px;
-  }
-}
-
 .produk .nav-pills {
   padding: 0;
   margin: 0 auto 25px auto;
@@ -62,6 +56,10 @@
   padding: 12px;
   background: #ffffff;
   border-radius: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
 }
 .produk .card-produk .deskripsi-produk .name-produk {
   color: #000000;
@@ -76,12 +74,13 @@
   line-height: 20px;
   margin-top: 20px;
 }
+
 .produk .card-produk .deskripsi-produk .price-produk {
   color: #000000;
   font-weight: 700;
   font-size: 24px;
   line-height: 12px;
-  margin-top: 16px;
+  margin-top: auto;
 }
 .produk .card-produk .deskripsi-produk .btn-call-me {
   padding: 8px;
@@ -133,33 +132,128 @@
   color: #000000;
 }
 
+@media (max-width: 992px) {
+  .produk {
+    padding: 15px;
+  }
+  .hero .container h2 {
+    text-align: center;
+  }
+  .produk .section-header p {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 720px) {
+  .produk {
+    padding: 0px;
+  }
+  .produk .tab-content {
+    padding: 15px;
+  }
+  .produk .nav-pills li {
+    padding: 4px 1px 4px 1px;
+  }
+  .produk .nav-link {
+    margin-right: 0px;
+  }
+}
+
 /* Produk Promo  */
-.produk-promo {
+
+.produk-promo .produk-promo-item {
+  border-radius: 24px;
   padding: 40px;
 }
-.produk-promo .title {
+.produk-promo .produk-promo-item .col-4 {
+  z-index: 2;
+}
+.produk-promo .produk-promo-item .title {
   font-style: normal;
   color: #000000;
   font-weight: 800;
   font-size: 40px;
   line-height: 72px;
+  margin-top: 24px;
 }
-.produk-promo .deskripsi {
+.produk-promo .produk-promo-item .deskripsi {
   font-style: italic;
   font-weight: 550;
   font-size: 28px;
   line-height: 32px;
   color: #565656;
 }
-.produk-promo .card-promo {
-  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.25));
-  overflow: hidden;
-  text-align: center;
-  border-radius: 12px;
-  background: #fff;
-  transition: 0.3s;
+.produk-promo .produk-promo-item .promo-img {
+  border-radius: 24px;
+  width: 100%;
 }
-.produk-promo .card-promo .promo-img {
+
+.produk-promo .produk-promo-item .border-image:after {
+  position: absolute;
+  content: "";
+  left: -120px;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background: url(../img/Rectangle.png) no-repeat bottom;
+  background-size: contain;
+  z-index: 1;
+}
+
+.produk-promo-slider .swiper-pagination {
+  margin-top: 14px;
   position: relative;
-  overflow: hidden;
+}
+.produk-promo-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  opacity: 1;
+  border: 1px solid #4154f1;
+}
+.produk-promo-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #4154f1;
+}
+
+@media (max-width: 992px) {
+  .produk-promo .produk-promo-item {
+    padding: 0px 20px;
+    border-radius: 12px;
+  }
+  .produk-promo .produk-promo-item .promo-img {
+    border-radius: 12px;
+  }
+  .produk-promo .produk-promo-item .border-image:after {
+    left: -50px;
+    height: 120%;
+  }
+  .produk-promo .produk-promo-item .title {
+    font-weight: 800;
+    font-size: 24px;
+    margin-top: 12px;
+  }
+  .produk-promo .produk-promo-item .deskripsi {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+
+@media (max-width: 720px) {
+  .produk-promo .produk-promo-item .promo-img {
+    border-radius: 12px;
+  }
+  .produk-promo .produk-promo-item .border-image:after {
+    left: -30px;
+    height: 110%;
+  }
+  .produk-promo .produk-promo-item .title {
+    font-weight: 800;
+    font-size: 12px;
+    margin-top: 0px;
+    line-height: 16px;
+  }
+  .produk-promo .produk-promo-item .deskripsi {
+    font-size: 8px;
+    line-height: 9px;
+  }
 }

@@ -282,6 +282,24 @@
   });
 
   /**
+   * Produk Promo  slider
+   */
+  new Swiper('.produk-promo-slider', {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
+
+  /**
    * About  slider
    */
   new Swiper('.about-slider', {
@@ -318,7 +336,6 @@
     breakpoints: {
       320: {
         slidesPerView: 1,
-        // spaceBetween: 40
       },
 
       1200: {

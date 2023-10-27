@@ -351,7 +351,7 @@
 
             let pemakaian_sebelumnya = $('#pemakaian_sebelumnya').autoNumeric('get');
             let pemakaian_saat_ini = $('#pemakaian_saat_ini').autoNumeric('get');
-            if (pemakaian_saat_ini <= pemakaian_sebelumnya) {
+            if (pemakaian_sebelumnya != '' && pemakaian_saat_ini <= pemakaian_sebelumnya) {
                 $('#pemakaian_saat_ini-invalid-message').text('Pemakaian saat ini harus lebih besar dari pemakaian sebelumnya');
                 $('#pemakaian_saat_ini').focus();
                 result = false;

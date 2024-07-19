@@ -48,6 +48,13 @@ h6 {
   z-index: 99999;
 }
 
+@media screen and (max-width: 768px) {
+  .back-to-top {
+    right: 22px;
+    bottom: 89px;
+  }
+}
+
 .back-to-top i {
   font-size: 24px;
   position: absolute;

@@ -253,9 +253,9 @@
                                             <table class="table table-striped hidden" id="siswa-table">
                                                 <thead>
                                                     <tr>
-                                                        <th>Username</th>
-                                                        <th>Role</th>
-                                                        <th>Status Memilih</th>
+                                                        <th>NIS</th>
+                                                        <th>Nama</th>
+                                                        <th>Status</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="siswa-list">
@@ -272,9 +272,9 @@
                                             <table class="table table-striped hidden" id="guru-table">
                                                 <thead>
                                                     <tr>
-                                                        <th>Username</th>
-                                                        <th>Role</th>
-                                                        <th>Status Memilih</th>
+                                                        <th>NIP</th>
+                                                        <th>Nama</th>
+                                                        <th>Status</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="guru-list">
@@ -364,97 +364,33 @@
         let selectedCandidateId = null;
         let usersData = [];
         
-        // Fungsi untuk memanggil API Google Apps Script dengan pendekatan JSONP
-        function callGoogleAppsScript(action, method = 'GET', data = null, callback = null) {
-            return new Promise((resolve, reject) => {
-                // Untuk GET requests, kita bisa menggunakan JSONP
-                if (method === 'GET') {
-                    const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
-                    const script = document.createElement('script');
-                    
-                    window[callbackName] = function(data) {
-                        delete window[callbackName];
-                        document.body.removeChild(script);
-                        resolve(data);
-                    };
-                    
-                    let url = `${WEB_APP_URL}?action=${action}&callback=${callbackName}`;
-                    
-                    script.src = url;
-                    document.body.appendChild(script);
-                    
-                    // Timeout handling
-                    setTimeout(() => {
-                        if (window[callbackName]) {
-                            delete window[callbackName];
-                            document.body.removeChild(script);
-                            reject(new Error('Request timeout'));
-                        }
-                    }, 10000);
-                } 
-                // Untuk POST requests, kita perlu menggunakan form submission
-                else if (method === 'POST') {
-                    const form = document.createElement('form');
-                    form.method = 'POST';
-                    form.action = `${WEB_APP_URL}?action=${action}`;
-                    form.target = '_self';
-                    
-                    // Tambahkan input fields untuk data
-                    if (data) {
-                        for (const key in data) {
-                            const input = document.createElement('input');
-                            input.type = 'hidden';
-                            input.name = key;
-                            input.value = data[key];
-                            form.appendChild(input);
-                        }
+        // Fungsi untuk memanggil API Google Apps Script
+        async function callGoogleAppsScript(action, method = 'GET', data = null) {
+            try {
+                let url = `${WEB_APP_URL}?action=${action}`;
+                let options = {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json'
                     }
-                    
-                    // Untuk menerima response, kita perlu redirect handling
-                    // Dalam kasus ini, kita akan menggunakan pendekatan yang berbeda
-                    document.body.appendChild(form);
-                    form.submit();
-                    document.body.removeChild(form);
-                    
-                    // Karena kita tidak bisa mudah mendapatkan response dari form submission,
-                    // kita akan menggunakan pendekatan simulasi untuk demo
-                    // Dalam produksi, Anda mungkin perlu menggunakan Google Apps Script Web App dengan redirect
-                    setTimeout(() => {
-                        resolve({success: true, message: 'Request submitted (simulated)'});
-                    }, 1000);
+                };
+                
+                if (method === 'POST' && data) {
+                    options.body = JSON.stringify(data);
                 }
-            });
-        }
-
-        // Fungsi untuk menangani login dengan pendekatan form
-        async function handleLoginWithForm(username, password) {
-            return new Promise((resolve) => {
-                // Simulasi login karena masalah CORS
-                // Dalam aplikasi nyata, ini akan diganti dengan integrasi yang tepat
-                const users = [
-                    {username: 'siswa1', password: 'pass123', role: 'siswa', has_voted: 'FALSE'},
-                    {username: 'guru1', password: 'pass123', role: 'guru', has_voted: 'FALSE'},
-                    {username: 'admin1', password: 'pass123', role: 'admin', has_voted: 'FALSE'}
-                ];
                 
-                const user = users.find(u => u.username === username && u.password === password);
+                const response = await fetch(url, options);
+                const result = await response.json();
                 
-                if (user) {
-                    resolve({
-                        success: true,
-                        data: {
-                            username: user.username,
-                            role: user.role,
-                            hasVoted: user.has_voted === 'TRUE'
-                        }
-                    });
+                if (result.success) {
+                    return result;
                 } else {
-                    resolve({
-                        success: false,
-                        message: 'Invalid credentials'
-                    });
+                    throw new Error(result.message || 'Terjadi kesalahan pada server');
                 }
-            });
+            } catch (error) {
+                console.error('Error calling Google Apps Script:', error);
+                throw error;
+            }
         }
 
         // Fungsi untuk inisialisasi aplikasi
@@ -493,19 +429,19 @@
             const role = document.getElementById('role').value;
             
             try {
-                // Gunakan pendekatan form karena masalah CORS
-                const result = await handleLoginWithForm(username, password);
+                const result = await callGoogleAppsScript('login', 'POST', {
+                    username: username,
+                    password: password
+                });
                 
                 if (result.success) {
                     currentUser = result.data;
                     localStorage.setItem('ekatos_user', JSON.stringify(currentUser));
                     showHomePage();
-                } else {
-                    throw new Error(result.message);
                 }
             } catch (error) {
                 const errorElement = document.getElementById('login-error');
-                errorElement.textContent = error.message || 'Login gagal. Silakan coba lagi.';
+                errorElement.textContent = error.message;
                 errorElement.classList.remove('hidden');
             }
         }
@@ -556,17 +492,8 @@
                 document.getElementById('loading-candidates').classList.remove('hidden');
                 document.getElementById('candidates-container').classList.add('hidden');
                 
-                // Simulasi data karena masalah CORS
-                const simulatedCandidates = [
-                    {id: 1, name: "Ahmad Rizki", class: "XII TKJ 1", image_url: "https://via.placeholder.com/300x200?text=Ahmad+Rizki", vision: "Mewujudkan OSIS yang aktif dan kreatif"},
-                    {id: 2, name: "Siti Nurhaliza", class: "XII MM 2", image_url: "https://via.placeholder.com/300x200?text=Siti+Nurhaliza", vision: "Menjadikan OSIS sebagai wadah pengembangan bakat"}
-                ];
-                
-                candidates = simulatedCandidates;
-                
-                // Jika tidak masalah CORS, gunakan ini:
-                // const result = await callGoogleAppsScript('get_candidates');
-                // candidates = result.data;
+                const result = await callGoogleAppsScript('get_candidates');
+                candidates = result.data;
                 
                 renderCandidates();
                 
@@ -697,37 +624,31 @@
             if (!selectedCandidateId) return;
             
             try {
-                // Simulasi voting karena masalah CORS
-                alert('Terima kasih! Vote Anda telah tercatat (simulasi).');
-                
-                // Update status pengguna
-                currentUser.hasVoted = true;
-                localStorage.setItem('ekatos_user', JSON.stringify(currentUser));
-                
-                // Jika tidak masalah CORS, gunakan ini:
-                // const result = await callGoogleAppsScript('vote', 'POST', {
-                //     voter_id: currentUser.username,
-                //     voter_type: currentUser.role,
-                //     candidate_id: selectedCandidateId
-                // });
-                
-                // if (result.success) {
-                //     alert('Terima kasih! Vote Anda telah tercatat.');
-                //     currentUser.hasVoted = true;
-                //     localStorage.setItem('ekatos_user', JSON.stringify(currentUser));
-                // }
-                
-                // Tutup modal
-                const voteModal = bootstrap.Modal.getInstance(document.getElementById('voteModal'));
-                voteModal.hide();
-                
-                // Nonaktifkan tombol vote
-                document.querySelectorAll('.btn-vote-candidate').forEach(btn => {
-                    btn.disabled = true;
-                    btn.textContent = 'Sudah Memilih';
-                    btn.classList.remove('btn-primary');
-                    btn.classList.add('btn-secondary');
+                const result = await callGoogleAppsScript('vote', 'POST', {
+                    voter_id: currentUser.username,
+                    voter_type: currentUser.role,
+                    candidate_id: selectedCandidateId
                 });
+                
+                if (result.success) {
+                    alert('Terima kasih! Vote Anda telah tercatat.');
+                    
+                    // Update status pengguna
+                    currentUser.hasVoted = true;
+                    localStorage.setItem('ekatos_user', JSON.stringify(currentUser));
+                    
+                    // Tutup modal
+                    const voteModal = bootstrap.Modal.getInstance(document.getElementById('voteModal'));
+                    voteModal.hide();
+                    
+                    // Nonaktifkan tombol vote
+                    document.querySelectorAll('.btn-vote-candidate').forEach(btn => {
+                        btn.disabled = true;
+                        btn.textContent = 'Sudah Memilih';
+                        btn.classList.remove('btn-primary');
+                        btn.classList.add('btn-secondary');
+                    });
+                }
             } catch (error) {
                 alert(`Gagal melakukan voting: ${error.message}`);
             }
@@ -739,38 +660,13 @@
                 document.getElementById('loading-stats').classList.remove('hidden');
                 document.getElementById('stats-content').classList.add('hidden');
                 
-                // Simulasi data karena masalah CORS
-                const simulatedStats = {
-                    siswa: {
-                        total: 150,
-                        voted: 120,
-                        not_voted: 30,
-                        percentage: 80
-                    },
-                    guru: {
-                        total: 25,
-                        voted: 20,
-                        not_voted: 5,
-                        percentage: 80
-                    }
-                };
+                // Muat statistik
+                const statsResult = await callGoogleAppsScript('get_stats');
+                const stats = statsResult.data;
                 
-                const simulatedUsers = [
-                    {username: 'siswa1', role: 'siswa', has_voted: 'TRUE'},
-                    {username: 'siswa2', role: 'siswa', has_voted: 'FALSE'},
-                    {username: 'guru1', role: 'guru', has_voted: 'TRUE'},
-                    {username: 'guru2', role: 'guru', has_voted: 'FALSE'},
-                    {username: 'admin1', role: 'admin', has_voted: 'FALSE'}
-                ];
-                
-                // Jika tidak masalah CORS, gunakan ini:
-                // const statsResult = await callGoogleAppsScript('get_stats');
-                // const stats = statsResult.data;
-                // const usersResult = await callGoogleAppsScript('get_users');
-                // usersData = usersResult.data;
-                
-                const stats = simulatedStats;
-                usersData = simulatedUsers;
+                // Muat data pengguna
+                const usersResult = await callGoogleAppsScript('get_users');
+                usersData = usersResult.data;
                 
                 // Update UI statistik
                 document.getElementById('total-siswa').textContent = stats.siswa.total;
@@ -819,8 +715,8 @@
                 const hasVoted = user.has_voted === 'TRUE';
                 
                 row.innerHTML = `
-                    <td>${user.username}</td>
-                    <td>${user.role}</td>
+                    <td>${role === 'siswa' ? user.username : user.username}</td>
+                    <td>${user.name || user.username}</td>
                     <td><span class="badge ${hasVoted ? 'bg-success' : 'bg-warning'}">${hasVoted ? 'Sudah Memilih' : 'Belum Memilih'}</span></td>
                 `;
                 listElement.appendChild(row);

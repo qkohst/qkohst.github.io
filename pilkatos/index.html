@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-KATOS - Pemilihan Ketua OSIS SMK Negeri 1 Brondong</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-candidate {
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-candidate:hover {
+            transform: translateY(-5px);
+        }
+        
+        .candidate-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .btn-vote {
+            background-color: var(--secondary);
+            border: none;
+            width: 100%;
+        }
+        
+        .btn-vote:hover {
+            background-color: var(--primary);
+        }
+        
+        .dashboard-card {
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .progress {
+            height: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+        
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://smkn1brondong.sch.id/theme/frontend/img/logo_skansabro_smkpk.png" alt="Logo SMK Negeri 1 Brondong">
+                E-KATOS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" id="nav-home">Home</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="nav-login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="nav-logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Halaman Login -->
+    <div id="login-page" class="container">
+        <div class="login-container">
+            <h2 class="text-center mb-4">Login E-KATOS</h2>
+            <form id="login-form">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="role" class="form-label">Login Sebagai</label>
+                    <select class="form-select" id="role">
+                        <option value="siswa">Siswa</option>
+                        <option value="guru">Guru</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <div id="login-error" class="alert alert-danger mt-3 hidden" role="alert"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Halaman Utama -->
+    <div id="home-page" class="container mt-4 hidden">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card dashboard-card">
+                    <div class="card-body text-center">
+                        <h2>Selamat Datang di E-KATOS</h2>
+                        <p class="lead">Sistem Pemilihan Ketua OSIS SMK Negeri 1 Brondong</p>
+                        <div id="user-welcome"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daftar Kandidat (Untuk Siswa dan Guru) -->
+        <div id="candidate-section" class="row mt-4 hidden">
+            <div class="col-md-12">
+                <h3 class="mb-4">Kandidat Ketua OSIS</h3>
+                <div id="loading-candidates" class="loading">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Memuat kandidat...</span>
+                    </div>
+                </div>
+                <div id="candidates-container" class="row hidden">
+                    <!-- Data kandidat akan diisi oleh JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Admin -->
+        <div id="admin-dashboard" class="row mt-4 hidden">
+            <div class="col-md-12">
+                <h3 class="mb-4">Dashboard Admin</h3>
+                
+                <div id="loading-stats" class="loading">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Memuat statistik...</span>
+                    </div>
+                </div>
+                
+                <div id="stats-content" class="hidden">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card dashboard-card">
+                                <div class="card-header bg-primary text-white">
+                                    <h5>Statistik Pemilih Siswa</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p>Total Siswa: <span id="total-siswa">0</span></p>
+                                    <p>Sudah Memilih: <span id="voted-siswa">0</span></p>
+                                    <p>Belum Memilih: <span id="not-voted-siswa">0</span></p>
+                                    <div class="progress">
+                                        <div id="vote-progress-siswa" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card dashboard-card">
+                                <div class="card-header bg-success text-white">
+                                    <h5>Statistik Pemilih Guru</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p>Total Guru: <span id="total-guru">0</span></p>
+                                    <p>Sudah Memilih: <span id="voted-guru">0</span></p>
+                                    <p>Belum Memilih: <span id="not-voted-guru">0</span></p>
+                                    <div class="progress">
+                                        <div id="vote-progress-guru" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <div class="card dashboard-card">
+                                <div class="card-header bg-info text-white">
+                                    <h5>Detail Pemilih</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="nav nav-tabs" id="voterTabs" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="siswa-tab" data-bs-toggle="tab" data-bs-target="#siswa" type="button" role="tab">Siswa</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="guru-tab" data-bs-toggle="tab" data-bs-target="#guru" type="button" role="tab">Guru</button>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content p-3" id="voterTabContent">
+                                        <div class="tab-pane fade show active" id="siswa" role="tabpanel">
+                                            <div id="loading-siswa" class="loading">
+                                                <div class="spinner-border text-primary" role="status">
+                                                    <span class="visually-hidden">Memuat data siswa...</span>
+                                                </div>
+                                            </div>
+                                            <table class="table table-striped hidden" id="siswa-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Username</th>
+                                                        <th>Role</th>
+                                                        <th>Status Memilih</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="siswa-list">
+                                                    <!-- Daftar siswa akan diisi oleh JavaScript -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="tab-pane fade" id="guru" role="tabpanel">
+                                            <div id="loading-guru" class="loading">
+                                                <div class="spinner-border text-primary" role="status">
+                                                    <span class="visually-hidden">Memuat data guru...</span>
+                                                </div>
+                                            </div>
+                                            <table class="table table-striped hidden" id="guru-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Username</th>
+                                                        <th>Role</th>
+                                                        <th>Status Memilih</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="guru-list">
+                                                    <!-- Daftar guru akan diisi oleh JavaScript -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>E-KATOS</h5>
+                    <p>Sistem Pemilihan Ketua OSIS Elektronik</p>
+                    <p>SMK Negeri 1 Brondong</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>&copy; 2023 E-KATOS. All rights reserved.</p>
+                    <p>Version 1.0</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Vote -->
+    <div class="modal fade" id="voteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Pilihan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah Anda yakin memilih <span id="candidate-name-modal"></span> sebagai Ketua OSIS?</p>
+                    <p>Pilihan yang sudah disubmit tidak dapat diubah.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" id="confirm-vote">Ya, Saya Yakin</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Info -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Informasi Kandidat</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <img id="candidate-img-modal" src="" class="img-fluid rounded mb-3" alt="Kandidat" style="max-height: 300px;">
+                    </div>
+                    <h4 id="candidate-name-info"></h4>
+                    <h6 class="text-muted" id="candidate-class"></h6>
+                    <div id="candidate-vision" class="mt-3"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary" id="vote-from-info">Pilih Kandidat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // URL Web App Google Apps Script
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbw8gy7xhtxknqXbxIbTB99_lat4pLIAvVMBLlfy_rgW3RXR52MZ2gkL_p8kbRPk3f-L0w/exec';
+
+        // Variabel global
+        let currentUser = null;
+        let candidates = [];
+        let selectedCandidateId = null;
+        let usersData = [];
+        
+        // Fungsi untuk memanggil API Google Apps Script dengan pendekatan JSONP
+        function callGoogleAppsScript(action, method = 'GET', data = null, callback = null) {
+            return new Promise((resolve, reject) => {
+                // Untuk GET requests, kita bisa menggunakan JSONP
+                if (method === 'GET') {
+                    const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+                    const script = document.createElement('script');
+                    
+                    window[callbackName] = function(data) {
+                        delete window[callbackName];
+                        document.body.removeChild(script);
+                        resolve(data);
+                    };
+                    
+                    let url = `${WEB_APP_URL}?action=${action}&callback=${callbackName}`;
+                    
+                    script.src = url;
+                    document.body.appendChild(script);
+                    
+                    // Timeout handling
+                    setTimeout(() => {
+                        if (window[callbackName]) {
+                            delete window[callbackName];
+                            document.body.removeChild(script);
+                            reject(new Error('Request timeout'));
+                        }
+                    }, 10000);
+                } 
+                // Untuk POST requests, kita perlu menggunakan form submission
+                else if (method === 'POST') {
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = `${WEB_APP_URL}?action=${action}`;
+                    form.target = '_self';
+                    
+                    // Tambahkan input fields untuk data
+                    if (data) {
+                        for (const key in data) {
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = key;
+                            input.value = data[key];
+                            form.appendChild(input);
+                        }
+                    }
+                    
+                    // Untuk menerima response, kita perlu redirect handling
+                    // Dalam kasus ini, kita akan menggunakan pendekatan yang berbeda
+                    document.body.appendChild(form);
+                    form.submit();
+                    document.body.removeChild(form);
+                    
+                    // Karena kita tidak bisa mudah mendapatkan response dari form submission,
+                    // kita akan menggunakan pendekatan simulasi untuk demo
+                    // Dalam produksi, Anda mungkin perlu menggunakan Google Apps Script Web App dengan redirect
+                    setTimeout(() => {
+                        resolve({success: true, message: 'Request submitted (simulated)'});
+                    }, 1000);
+                }
+            });
+        }
+
+        // Fungsi untuk menangani login dengan pendekatan form
+        async function handleLoginWithForm(username, password) {
+            return new Promise((resolve) => {
+                // Simulasi login karena masalah CORS
+                // Dalam aplikasi nyata, ini akan diganti dengan integrasi yang tepat
+                const users = [
+                    {username: 'siswa1', password: 'pass123', role: 'siswa', has_voted: 'FALSE'},
+                    {username: 'guru1', password: 'pass123', role: 'guru', has_voted: 'FALSE'},
+                    {username: 'admin1', password: 'pass123', role: 'admin', has_voted: 'FALSE'}
+                ];
+                
+                const user = users.find(u => u.username === username && u.password === password);
+                
+                if (user) {
+                    resolve({
+                        success: true,
+                        data: {
+                            username: user.username,
+                            role: user.role,
+                            hasVoted: user.has_voted === 'TRUE'
+                        }
+                    });
+                } else {
+                    resolve({
+                        success: false,
+                        message: 'Invalid credentials'
+                    });
+                }
+            });
+        }
+
+        // Fungsi untuk inisialisasi aplikasi
+        function initApp() {
+            checkLoginStatus();
+            setupEventListeners();
+        }
+
+        // Fungsi untuk memeriksa status login
+        function checkLoginStatus() {
+            const savedUser = localStorage.getItem('ekatos_user');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                showHomePage();
+            } else {
+                showLoginPage();
+            }
+        }
+
+        // Fungsi untuk mengatur event listeners
+        function setupEventListeners() {
+            document.getElementById('login-form').addEventListener('submit', handleLogin);
+            document.getElementById('nav-login').addEventListener('click', showLoginPage);
+            document.getElementById('nav-logout').addEventListener('click', handleLogout);
+            document.getElementById('nav-home').addEventListener('click', showHomePage);
+            document.getElementById('confirm-vote').addEventListener('click', handleVote);
+            document.getElementById('vote-from-info').addEventListener('click', showVoteModalFromInfo);
+        }
+
+        // Fungsi untuk menangani login
+        async function handleLogin(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const role = document.getElementById('role').value;
+            
+            try {
+                // Gunakan pendekatan form karena masalah CORS
+                const result = await handleLoginWithForm(username, password);
+                
+                if (result.success) {
+                    currentUser = result.data;
+                    localStorage.setItem('ekatos_user', JSON.stringify(currentUser));
+                    showHomePage();
+                } else {
+                    throw new Error(result.message);
+                }
+            } catch (error) {
+                const errorElement = document.getElementById('login-error');
+                errorElement.textContent = error.message || 'Login gagal. Silakan coba lagi.';
+                errorElement.classList.remove('hidden');
+            }
+        }
+
+        // Fungsi untuk menangani logout
+        function handleLogout() {
+            currentUser = null;
+            localStorage.removeItem('ekatos_user');
+            showLoginPage();
+        }
+
+        // Fungsi untuk menampilkan halaman login
+        function showLoginPage() {
+            document.getElementById('login-page').classList.remove('hidden');
+            document.getElementById('home-page').classList.add('hidden');
+            document.getElementById('nav-login').classList.add('hidden');
+            document.getElementById('nav-logout').classList.add('hidden');
+            document.getElementById('login-error').classList.add('hidden');
+        }
+
+        // Fungsi untuk menampilkan halaman utama
+        function showHomePage() {
+            document.getElementById('login-page').classList.add('hidden');
+            document.getElementById('home-page').classList.remove('hidden');
+            document.getElementById('nav-login').classList.add('hidden');
+            document.getElementById('nav-logout').classList.remove('hidden');
+            
+            // Tampilkan pesan selamat datang
+            document.getElementById('user-welcome').innerHTML = `
+                <p>Halo, <strong>${currentUser.username}</strong>! Anda login sebagai <strong>${currentUser.role}</strong></p>
+            `;
+            
+            // Tampilkan konten berdasarkan role
+            if (currentUser.role === 'admin') {
+                document.getElementById('candidate-section').classList.add('hidden');
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                loadAdminData();
+            } else {
+                document.getElementById('candidate-section').classList.remove('hidden');
+                document.getElementById('admin-dashboard').classList.add('hidden');
+                loadCandidates();
+            }
+        }
+
+        // Fungsi untuk memuat data kandidat
+        async function loadCandidates() {
+            try {
+                document.getElementById('loading-candidates').classList.remove('hidden');
+                document.getElementById('candidates-container').classList.add('hidden');
+                
+                // Simulasi data karena masalah CORS
+                const simulatedCandidates = [
+                    {id: 1, name: "Ahmad Rizki", class: "XII TKJ 1", image_url: "https://via.placeholder.com/300x200?text=Ahmad+Rizki", vision: "Mewujudkan OSIS yang aktif dan kreatif"},
+                    {id: 2, name: "Siti Nurhaliza", class: "XII MM 2", image_url: "https://via.placeholder.com/300x200?text=Siti+Nurhaliza", vision: "Menjadikan OSIS sebagai wadah pengembangan bakat"}
+                ];
+                
+                candidates = simulatedCandidates;
+                
+                // Jika tidak masalah CORS, gunakan ini:
+                // const result = await callGoogleAppsScript('get_candidates');
+                // candidates = result.data;
+                
+                renderCandidates();
+                
+                document.getElementById('loading-candidates').classList.add('hidden');
+                document.getElementById('candidates-container').classList.remove('hidden');
+                
+                // Nonaktifkan tombol vote jika sudah memilih
+                if (currentUser.hasVoted) {
+                    document.querySelectorAll('.btn-vote-candidate').forEach(btn => {
+                        btn.disabled = true;
+                        btn.textContent = 'Sudah Memilih';
+                        btn.classList.remove('btn-primary');
+                        btn.classList.add('btn-secondary');
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading candidates:', error);
+                document.getElementById('loading-candidates').innerHTML = `
+                    <div class="alert alert-danger" role="alert">
+                        Gagal memuat data kandidat: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        // Fungsi untuk merender kandidat
+        function renderCandidates() {
+            const container = document.getElementById('candidates-container');
+            container.innerHTML = '';
+            
+            candidates.forEach(candidate => {
+                const col = document.createElement('div');
+                col.className = 'col-md-4';
+                col.innerHTML = `
+                    <div class="card card-candidate">
+                        <img src="${candidate.image_url}" class="card-img-top candidate-img" alt="${candidate.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${candidate.name}</h5>
+                            <p class="card-text">${candidate.class}</p>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-info btn-info-candidate" data-id="${candidate.id}">
+                                    <i class="fas fa-info-circle"></i> Info
+                                </button>
+                                <button class="btn btn-primary btn-vote btn-vote-candidate" data-id="${candidate.id}">
+                                    <i class="fas fa-vote-yea"></i> Pilih
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(col);
+            });
+            
+            // Tambahkan event listeners untuk tombol info dan vote
+            document.querySelectorAll('.btn-info-candidate').forEach(btn => {
+                btn.addEventListener('click', showCandidateInfo);
+            });
+            
+            document.querySelectorAll('.btn-vote-candidate').forEach(btn => {
+                btn.addEventListener('click', prepareVote);
+            });
+        }
+
+        // Fungsi untuk menampilkan informasi kandidat
+        function showCandidateInfo(e) {
+            const candidateId = e.target.closest('.btn-info-candidate').dataset.id;
+            const candidate = candidates.find(c => c.id == candidateId);
+            
+            if (candidate) {
+                document.getElementById('candidate-img-modal').src = candidate.image_url;
+                document.getElementById('candidate-name-info').textContent = candidate.name;
+                document.getElementById('candidate-class').textContent = candidate.class;
+                document.getElementById('candidate-vision').innerHTML = `<p><strong>Visi:</strong> ${candidate.vision}</p>`;
+                
+                // Simpan ID kandidat yang dipilih untuk pemilihan nanti
+                selectedCandidateId = candidate.id;
+                
+                const infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
+                infoModal.show();
+            }
+        }
+
+        // Fungsi untuk mempersiapkan pemilihan
+        function prepareVote(e) {
+            if (currentUser.hasVoted) {
+                alert('Anda sudah melakukan voting sebelumnya.');
+                return;
+            }
+            
+            const candidateId = e.target.closest('.btn-vote-candidate').dataset.id;
+            const candidate = candidates.find(c => c.id == candidateId);
+            
+            if (candidate) {
+                selectedCandidateId = candidate.id;
+                document.getElementById('candidate-name-modal').textContent = candidate.name;
+                
+                const voteModal = new bootstrap.Modal(document.getElementById('voteModal'));
+                voteModal.show();
+            }
+        }
+
+        // Fungsi untuk menampilkan modal vote dari modal info
+        function showVoteModalFromInfo() {
+            if (currentUser.hasVoted) {
+                alert('Anda sudah melakukan voting sebelumnya.');
+                const infoModal = bootstrap.Modal.getInstance(document.getElementById('infoModal'));
+                infoModal.hide();
+                return;
+            }
+            
+            const candidate = candidates.find(c => c.id == selectedCandidateId);
+            
+            if (candidate) {
+                document.getElementById('candidate-name-modal').textContent = candidate.name;
+                
+                // Tutup modal info
+                const infoModal = bootstrap.Modal.getInstance(document.getElementById('infoModal'));
+                infoModal.hide();
+                
+                // Tampilkan modal vote
+                const voteModal = new bootstrap.Modal(document.getElementById('voteModal'));
+                voteModal.show();
+            }
+        }
+
+        // Fungsi untuk menangani pemilihan
+        async function handleVote() {
+            if (!selectedCandidateId) return;
+            
+            try {
+                // Simulasi voting karena masalah CORS
+                alert('Terima kasih! Vote Anda telah tercatat (simulasi).');
+                
+                // Update status pengguna
+                currentUser.hasVoted = true;
+                localStorage.setItem('ekatos_user', JSON.stringify(currentUser));
+                
+                // Jika tidak masalah CORS, gunakan ini:
+                // const result = await callGoogleAppsScript('vote', 'POST', {
+                //     voter_id: currentUser.username,
+                //     voter_type: currentUser.role,
+                //     candidate_id: selectedCandidateId
+                // });
+                
+                // if (result.success) {
+                //     alert('Terima kasih! Vote Anda telah tercatat.');
+                //     currentUser.hasVoted = true;
+                //     localStorage.setItem('ekatos_user', JSON.stringify(currentUser));
+                // }
+                
+                // Tutup modal
+                const voteModal = bootstrap.Modal.getInstance(document.getElementById('voteModal'));
+                voteModal.hide();
+                
+                // Nonaktifkan tombol vote
+                document.querySelectorAll('.btn-vote-candidate').forEach(btn => {
+                    btn.disabled = true;
+                    btn.textContent = 'Sudah Memilih';
+                    btn.classList.remove('btn-primary');
+                    btn.classList.add('btn-secondary');
+                });
+            } catch (error) {
+                alert(`Gagal melakukan voting: ${error.message}`);
+            }
+        }
+
+        // Fungsi untuk memuat data admin
+        async function loadAdminData() {
+            try {
+                document.getElementById('loading-stats').classList.remove('hidden');
+                document.getElementById('stats-content').classList.add('hidden');
+                
+                // Simulasi data karena masalah CORS
+                const simulatedStats = {
+                    siswa: {
+                        total: 150,
+                        voted: 120,
+                        not_voted: 30,
+                        percentage: 80
+                    },
+                    guru: {
+                        total: 25,
+                        voted: 20,
+                        not_voted: 5,
+                        percentage: 80
+                    }
+                };
+                
+                const simulatedUsers = [
+                    {username: 'siswa1', role: 'siswa', has_voted: 'TRUE'},
+                    {username: 'siswa2', role: 'siswa', has_voted: 'FALSE'},
+                    {username: 'guru1', role: 'guru', has_voted: 'TRUE'},
+                    {username: 'guru2', role: 'guru', has_voted: 'FALSE'},
+                    {username: 'admin1', role: 'admin', has_voted: 'FALSE'}
+                ];
+                
+                // Jika tidak masalah CORS, gunakan ini:
+                // const statsResult = await callGoogleAppsScript('get_stats');
+                // const stats = statsResult.data;
+                // const usersResult = await callGoogleAppsScript('get_users');
+                // usersData = usersResult.data;
+                
+                const stats = simulatedStats;
+                usersData = simulatedUsers;
+                
+                // Update UI statistik
+                document.getElementById('total-siswa').textContent = stats.siswa.total;
+                document.getElementById('voted-siswa').textContent = stats.siswa.voted;
+                document.getElementById('not-voted-siswa').textContent = stats.siswa.not_voted;
+                document.getElementById('vote-progress-siswa').style.width = `${stats.siswa.percentage}%`;
+                document.getElementById('vote-progress-siswa').setAttribute('aria-valuenow', stats.siswa.percentage);
+                
+                document.getElementById('total-guru').textContent = stats.guru.total;
+                document.getElementById('voted-guru').textContent = stats.guru.voted;
+                document.getElementById('not-voted-guru').textContent = stats.guru.not_voted;
+                document.getElementById('vote-progress-guru').style.width = `${stats.guru.percentage}%`;
+                document.getElementById('vote-progress-guru').setAttribute('aria-valuenow', stats.guru.percentage);
+                
+                // Render daftar siswa
+                renderUsersList('siswa');
+                
+                // Render daftar guru
+                renderUsersList('guru');
+                
+                document.getElementById('loading-stats').classList.add('hidden');
+                document.getElementById('stats-content').classList.remove('hidden');
+                
+            } catch (error) {
+                console.error('Error loading admin data:', error);
+                document.getElementById('loading-stats').innerHTML = `
+                    <div class="alert alert-danger" role="alert">
+                        Gagal memuat data admin: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        // Fungsi untuk merender daftar pengguna
+        function renderUsersList(role) {
+            const listElement = document.getElementById(`${role}-list`);
+            const loadingElement = document.getElementById(`loading-${role}`);
+            const tableElement = document.getElementById(`${role}-table`);
+            
+            listElement.innerHTML = '';
+            
+            const filteredUsers = usersData.filter(user => user.role === role);
+            
+            filteredUsers.forEach(user => {
+                const row = document.createElement('tr');
+                const hasVoted = user.has_voted === 'TRUE';
+                
+                row.innerHTML = `
+                    <td>${user.username}</td>
+                    <td>${user.role}</td>
+                    <td><span class="badge ${hasVoted ? 'bg-success' : 'bg-warning'}">${hasVoted ? 'Sudah Memilih' : 'Belum Memilih'}</span></td>
+                `;
+                listElement.appendChild(row);
+            });
+            
+            loadingElement.classList.add('hidden');
+            tableElement.classList.remove('hidden');
+        }
+
+        // Inisialisasi aplikasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>

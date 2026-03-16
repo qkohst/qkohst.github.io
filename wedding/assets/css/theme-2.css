@@ -878,6 +878,74 @@ select.fl2-input { appearance: none; cursor: pointer; }
 }
 
 /* ════════════════════════════════════════════════════════
+   BOTTOM NAVIGATION BAR
+════════════════════════════════════════════════════════ */
+#bottom-nav {
+  display      : none;
+  position     : fixed;
+  bottom       : 0;
+  left         : 50%;
+  transform    : translateX(-50%);
+  width        : 100%;
+  max-width    : 430px;
+  background   : rgba(26,22,20,.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top   : 1px solid var(--border);
+  z-index      : 150;
+  padding      : 0;
+  transition   : transform .4s ease, opacity .4s ease;
+}
+#bottom-nav.bnav-hidden {
+  transform    : translateX(-50%) translateY(100%);
+  opacity      : 0;
+  pointer-events: none;
+}
+.bnav-list {
+  display        : flex;
+  align-items    : stretch;
+  justify-content: space-around;
+  list-style     : none;
+  margin         : 0;
+  padding        : 0;
+  height         : 58px;
+}
+.bnav-item {
+  flex           : 1;
+  display        : flex;
+}
+.bnav-link {
+  flex           : 1;
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+  gap            : 3px;
+  text-decoration: none;
+  color          : var(--text-dim);
+  font-family    : 'Lato', sans-serif;
+  font-size      : .45rem;
+  font-weight    : 700;
+  letter-spacing : .06em;
+  text-transform : uppercase;
+  transition     : color .25s ease;
+  padding        : 6px 2px;
+  -webkit-tap-highlight-color: transparent;
+}
+.bnav-link i {
+  font-size      : 1.2rem;
+  transition     : color .25s ease, transform .25s ease;
+}
+.bnav-link.active,
+.bnav-link:hover {
+  color          : var(--champ);
+}
+.bnav-link.active i { transform: translateY(-2px); }
+
+/* push page content above bottom bar when nav is visible */
+body.bnav-visible { padding-bottom: 58px; }
+
+/* ════════════════════════════════════════════════════════
    UTILITIES
 ════════════════════════════════════════════════════════ */
 .text-champ { color: var(--champ-light) !important; }
@@ -1003,4 +1071,160 @@ select.fl2-input { appearance: none; cursor: pointer; }
   }
   .mg-item:nth-child(1) { grid-column: 1; }
   .mg-item:nth-child(4) { grid-column: 1; }
+}
+
+/* ════════════════════════════════════════════════════════
+   DESKTOP — MOBILE FRAME
+   On screens ≥ 768 px the invitation is displayed as a
+   centred 430 px phone card. The <html> canvas carries
+   the outer desktop background while <body> is the frame.
+════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+
+  /* ── Outer desktop canvas ── */
+  html {
+    font-size    : 15px;
+    background   : #080706;
+    background-image:
+      radial-gradient(ellipse 55% 90% at 15% 50%, rgba(201,137,123,.05) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 90% at 85% 50%, rgba(212,175,122,.05) 0%, transparent 55%);
+    min-height   : 100vh;
+  }
+
+  /* ── Phone frame ── */
+  body {
+    max-width    : 430px;
+    margin       : 0 auto;
+    position     : relative;
+    overflow-x   : hidden;
+    box-shadow   :
+      0 0 0 1px rgba(212,175,122,.14),
+      0 20px 60px  rgba(0,0,0,.85),
+      0 50px 140px rgba(0,0,0,.65);
+  }
+
+  /* ── Constrain fixed overlays to the phone frame ── */
+  #preloader,
+  #opening {
+    left      : 50%;
+    right     : auto;
+    width     : 430px;
+    transform : translateX(-50%);
+  }
+
+  #progress-bar {
+    left      : 50%;
+    right     : auto;
+    width     : 430px;
+    transform : translateX(-50%);
+  }
+
+  #top-nav {
+    left      : 50%;
+    right     : auto;
+    width     : 430px;
+    transform : translateX(-50%);
+    padding   : .9rem 1.2rem;
+  }
+  #top-nav.scrolled { padding: .75rem 1.2rem; }
+
+  /* ── Hide desktop nav links ── */
+  .nav-links { display: none; }
+
+  /* ── Force Bootstrap grid columns to stack ── */
+  .col-md-6,
+  .col-lg-2,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10 {
+    flex      : 0 0 auto;
+    width     : 100%;
+    max-width : 100%;
+  }
+
+  /* Reset location-section visual order swap */
+  .order-lg-1, .order-lg-2 { order: 0; }
+
+  /* ── Opening: always single-panel ── */
+  .op-img-panel         { display: none !important; }
+  .op-text-panel        { width: 100%; padding: 2rem 1.5rem; }
+  .op-text-panel::before{ display: none; }
+  .op-names2            { font-size: 4rem; }
+  .op-guest2            { font-size: 1.2rem; }
+  .op-date2             { font-size: .85rem; letter-spacing: .06em; }
+  .btn-open2            { padding: .9rem 2.2rem; letter-spacing: .2em; }
+
+  /* ── Section padding ── */
+  .section-py { padding: 60px 0; }
+
+  /* ── Section heading ── */
+  .section-heading { font-size: 1.9rem; }
+
+  /* ── Hero ── */
+  #hero           { min-height: 100svh; }
+  .hero-left      { padding: 5.5rem 1.5rem 4rem; max-width: none; }
+  .hero-h1        { font-size: 1rem; }
+  .hero-names2    { font-size: 4.2rem; }
+  .hero-date-bar  { flex-wrap: wrap; gap: 1rem; margin-top: 2rem; padding-top: 1.5rem; }
+  .hdb-divider    { display: none; }
+  .hero-number::after { display: none; }
+
+  /* ── Welcome box ── */
+  .wc-box          { padding: 2rem 1.5rem; }
+  .wc-body         { margin: 1.5rem 0; font-size: .95rem; }
+  .wc-guest-name2  { font-size: 1.6rem; }
+  .ayat-block      { padding: 1.4rem; }
+  .ayat-text       { font-size: .95rem; }
+
+  /* ── Couple accordion → stacked ── */
+  .couple-split              { flex-direction: column; }
+  .cs-panel.active           { flex: initial; }
+  .cs-panel                  { transition: none; min-height: 280px; }
+  .cs-panel.active .cs-parents { max-height: 160px; }
+  .cs-nick                   { font-size: 2.8rem; }
+  .cs-body                   { padding: 2rem 1.8rem; }
+
+  /* ── Events (timeline) ── */
+  .timeline        { padding-left: 1.8rem; }
+  .tl-item         { padding-left: 1.8rem; }
+  .tl-item::before { left: calc(-1.8rem); }
+  .tl-title        { font-size: 1.5rem; }
+  .tl-detail       { padding: 1.2rem 1.4rem; }
+
+  /* ── Countdown ── */
+  .cd2-title  { font-size: 2rem; margin-bottom: 2rem; }
+  .cd2-grid   { gap: .5rem; }
+  .cd2-box    { width: 74px; height: 74px; }
+  .cd2-num    { font-size: 2.6rem; }
+  .cd2-colon  { display: none; }
+
+  /* ── Gallery ── */
+  .masonry-grid {
+    grid-template-columns : 1fr 1fr;
+    grid-template-rows    : 200px 200px;
+  }
+  .mg-item:nth-child(1) { grid-column: 1 / 3; }
+  .mg-item:nth-child(4) { grid-column: 1 / 3; }
+
+  /* ── Location ── */
+  .loc2-block iframe { height: 200px; filter: none; }
+  .loc2-info         { padding: 1.5rem 1.4rem; }
+
+  /* ── Bank / Gift ── */
+  .bank2-num              { font-size: 1.5rem; }
+  .bank2-card             { padding: 1.5rem 1.6rem 1.2rem; }
+  .bank2-card:hover       { transform: none; }
+
+  /* ── Wishes ── */
+  .wish2-panel { padding: 1.8rem 1.4rem; }
+
+  /* ── Closing ── */
+  .cl2-inner      { padding: 80px 1.25rem; }
+  .cl2-quote-mark { font-size: 7rem; }
+  .cl2-names      { font-size: 4rem; }
+  .cl2-msg        { font-size: .95rem; }
+  .cl2-date       { font-size: .85rem; }
 }

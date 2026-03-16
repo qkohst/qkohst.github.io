@@ -16,6 +16,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
   <link href="assets/css/theme-1.css" rel="stylesheet" />
+  <!-- Favicons -->
+  <link href="../school/assets/img/logo.png" rel="icon">
+  <link href="../school/assets/img/logo.png" rel="apple-touch-icon">
 
 </head>
 <body>
@@ -146,11 +149,11 @@
         <!-- Groom -->
         <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
           <div class="couple-card">
-            <div class="photo-ring">
+            <!-- <div class="photo-ring">
               <div class="photo-placeholder">
                 <i class="bi bi-person"></i>
               </div>
-            </div>
+            </div> -->
             <span class="eyebrow d-block mb-1">Mempelai Pria</span>
             <div class="c-nick"  id="c-groom-nick">Raka</div>
             <div class="c-full"  id="c-groom-full">Raka Andhika Pratama, S.Kom.</div>
@@ -179,11 +182,11 @@
         <!-- Bride -->
         <div class="col-lg-5" data-aos="fade-left" data-aos-delay="100">
           <div class="couple-card">
-            <div class="photo-ring">
+            <!-- <div class="photo-ring">
               <div class="photo-placeholder bride">
                 <i class="bi bi-person"></i>
               </div>
-            </div>
+            </div> -->
             <span class="eyebrow d-block mb-1">Mempelai Wanita</span>
             <div class="c-nick"  id="c-bride-nick">Salsabila</div>
             <div class="c-full"  id="c-bride-full">Salsabila Putri Maharani, S.Pd.</div>
@@ -461,7 +464,6 @@
 
       <div class="row justify-content-center g-4">
 
-        <!-- Form -->
         <div class="col-lg-5" data-aos="fade-right">
           <div class="wish-panel">
             <form id="wish-form" onsubmit="submitWish(event)" novalidate>
@@ -489,10 +491,8 @@
           </div>
         </div>
 
-        <!-- Feed -->
         <div class="col-lg-5" data-aos="fade-left">
           <div class="wish-feed" id="wish-feed">
-            <!-- populated by JS -->
           </div>
         </div>
 
@@ -530,6 +530,17 @@
 
 </main><!-- /#main -->
 
+<!-- BOTTOM NAVIGATION -->
+<nav id="bottom-nav" class="bnav-hidden" aria-label="Navigasi Halaman">
+  <ul class="bnav-list">
+    <li class="bnav-item"><a class="bnav-link active" href="#hero"      data-sec="hero">      <i class="bi bi-house-heart"></i><span>Beranda</span></a></li>
+    <li class="bnav-item"><a class="bnav-link"        href="#couple"    data-sec="couple">    <i class="bi bi-people"></i><span>Mempelai</span></a></li>
+    <li class="bnav-item"><a class="bnav-link"        href="#events"    data-sec="events">    <i class="bi bi-calendar-event"></i><span>Acara</span></a></li>
+    <li class="bnav-item"><a class="bnav-link"        href="#location"  data-sec="location">  <i class="bi bi-geo-alt"></i><span>Lokasi</span></a></li>
+    <li class="bnav-item"><a class="bnav-link"        href="#wishes"    data-sec="wishes">    <i class="bi bi-chat-heart"></i><span>Ucapan</span></a></li>
+  </ul>
+</nav>
+
 <!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -551,6 +562,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderWishes();
   spawnParticles('particles',        20);
   spawnParticles('closing-particles', 30);
+
+  initBottomNav();
 
   AOS.init({ duration: 980, once: true, easing: 'ease-out-cubic', offset: 70 });
 });
@@ -657,7 +670,45 @@ function initPreloader() {
 function openInvitation() {
   document.getElementById('opening').classList.add('hidden');
   const main = document.getElementById('main');
-  setTimeout(() => { main.classList.add('visible'); AOS.refresh(); }, 300);
+  setTimeout(() => {
+    main.classList.add('visible');
+    AOS.refresh();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    showBottomNav();
+  }, 300);
+}
+
+/* BOTTOM NAV */
+function showBottomNav() {
+  const nav = document.getElementById('bottom-nav');
+  nav.style.display = 'block';
+  document.body.classList.add('bnav-visible');
+  requestAnimationFrame(() => nav.classList.remove('bnav-hidden'));
+}
+
+function initBottomNav() {
+  const links = document.querySelectorAll('#bottom-nav .bnav-link');
+  const secIds = ['hero','welcome','couple','events','countdown','gallery','location','dresscode','gift','wishes','closing'];
+
+  /* smooth scroll on click */
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  /* highlight active item via IntersectionObserver */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      links.forEach(l => l.classList.toggle('active', l.dataset.sec === id));
+    });
+  }, { threshold: 0.35 });
+
+  secIds.forEach(id => { const s = document.getElementById(id); if (s) obs.observe(s); });
 }
 
 /* INIT COUNTDOWN */

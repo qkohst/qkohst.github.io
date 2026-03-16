@@ -16,6 +16,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
   <link href="assets/css/theme-2.css" rel="stylesheet" />
+  <!-- Favicons -->
+  <link href="../school/assets/img/logo.png" rel="icon">
+  <link href="../school/assets/img/logo.png" rel="apple-touch-icon">
 
 </head>
 <body>
@@ -197,7 +200,7 @@
       <div style="width:2px;background:var(--bg-deep);flex-shrink:0"></div>
 
       <!-- Bride -->
-      <div class="cs-panel bride" id="cs-bride" onclick="activatePanel('cs-bride')">
+      <div class="cs-panel bride active" id="cs-bride" onclick="activatePanel('cs-bride')">
         <div class="cs-bg"></div>
         <div class="cs-body">
           <span class="cs-label">Mempelai Wanita</span>
@@ -513,6 +516,17 @@
 
 </main>
 
+<!-- BOTTOM NAVIGATION -->
+<nav id="bottom-nav" class="bnav-hidden" aria-label="Navigasi Halaman">
+  <ul class="bnav-list">
+    <li class="bnav-item"><a class="bnav-link active" href="#hero"      data-sec="hero">      <i class="bi bi-house-heart"></i><span>Beranda</span></a></li>
+    <li class="bnav-item"><a class="bnav-link"        href="#couple"    data-sec="couple">    <i class="bi bi-people"></i><span>Mempelai</span></a></li>
+    <li class="bnav-item"><a class="bnav-link"        href="#events"    data-sec="events">    <i class="bi bi-calendar-event"></i><span>Acara</span></a></li>
+    <li class="bnav-item"><a class="bnav-link"        href="#location"  data-sec="location">  <i class="bi bi-geo-alt"></i><span>Lokasi</span></a></li>
+    <li class="bnav-item"><a class="bnav-link"        href="#wishes"    data-sec="wishes">    <i class="bi bi-chat-heart"></i><span>Ucapan</span></a></li>
+  </ul>
+</nav>
+
 <!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -533,6 +547,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderDressCode();
   renderWishes();
   spawnParticles('cl-particles', 35);
+
+  initBottomNav();
 
   AOS.init({ duration: 1000, once: true, easing: 'ease-out-quart', offset: 60 });
 });
@@ -629,7 +645,45 @@ function initPreloader() {
 function openInv() {
   document.getElementById('opening').classList.add('hidden');
   const main = document.getElementById('main2');
-  setTimeout(() => { main.classList.add('visible'); AOS.refresh(); }, 300);
+  setTimeout(() => {
+    main.classList.add('visible');
+    AOS.refresh();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    showBottomNav();
+  }, 300);
+}
+
+/* BOTTOM NAV */
+function showBottomNav() {
+  const nav = document.getElementById('bottom-nav');
+  nav.style.display = 'block';
+  document.body.classList.add('bnav-visible');
+  requestAnimationFrame(() => nav.classList.remove('bnav-hidden'));
+}
+
+function initBottomNav() {
+  const links  = document.querySelectorAll('#bottom-nav .bnav-link');
+  const secIds = ['hero','welcome','couple','events','countdown','gallery','location','dresscode','gift','wishes','closing2'];
+
+  /* smooth scroll on click */
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  /* highlight active item via IntersectionObserver */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      links.forEach(l => l.classList.toggle('active', l.dataset.sec === id));
+    });
+  }, { threshold: 0.35 });
+
+  secIds.forEach(id => { const s = document.getElementById(id); if (s) obs.observe(s); });
 }
 
 /* SCROLL EFFECTS â€” progress bar + nav */

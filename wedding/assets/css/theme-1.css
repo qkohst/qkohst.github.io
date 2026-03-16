@@ -779,6 +779,74 @@ select.fl-input { appearance: none; cursor: pointer; }
 }
 
 /* ════════════════════════════════════════════════════════
+   BOTTOM NAVIGATION BAR
+════════════════════════════════════════════════════════ */
+#bottom-nav {
+  display      : none;           /* shown by JS after opening */
+  position     : fixed;
+  bottom       : 0;
+  left         : 50%;
+  transform    : translateX(-50%);
+  width        : 100%;
+  max-width    : 430px;
+  background   : rgba(253,250,245,.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top   : 1px solid var(--border);
+  z-index      : 150;
+  padding      : 0;
+  transition   : transform .4s ease, opacity .4s ease;
+}
+#bottom-nav.bnav-hidden {
+  transform    : translateX(-50%) translateY(100%);
+  opacity      : 0;
+  pointer-events: none;
+}
+.bnav-list {
+  display        : flex;
+  align-items    : stretch;
+  justify-content: space-around;
+  list-style     : none;
+  margin         : 0;
+  padding        : 0;
+  height         : 58px;
+}
+.bnav-item {
+  flex           : 1;
+  display        : flex;
+}
+.bnav-link {
+  flex           : 1;
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+  gap            : 3px;
+  text-decoration: none;
+  color          : var(--mid);
+  font-family    : 'Montserrat', sans-serif;
+  font-size      : .48rem;
+  font-weight    : 600;
+  letter-spacing : .05em;
+  text-transform : uppercase;
+  transition     : color .25s ease;
+  padding        : 6px 2px;
+  -webkit-tap-highlight-color: transparent;
+}
+.bnav-link i {
+  font-size      : 1.2rem;
+  transition     : color .25s ease, transform .25s ease;
+}
+.bnav-link.active,
+.bnav-link:hover {
+  color          : var(--sage-dark);
+}
+.bnav-link.active i { transform: translateY(-2px); }
+
+/* push page content above bottom bar when nav is visible */
+body.bnav-visible { padding-bottom: 58px; }
+
+/* ════════════════════════════════════════════════════════
    UTILITIES
 ════════════════════════════════════════════════════════ */
 .text-sage  { color: var(--sage-dark) !important; }
@@ -870,4 +938,132 @@ select.fl-input { appearance: none; cursor: pointer; }
 
   /* Welcome quote */
   .quote-card     { padding: 1.4rem 1.2rem; }
+}
+
+/* ════════════════════════════════════════════════════════
+   DESKTOP — MOBILE FRAME
+   On screens ≥ 768 px the invitation is displayed as a
+   centred 430 px phone card. The <html> canvas carries
+   the outer desktop background while <body> is the frame.
+════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+
+  /* ── Outer desktop canvas ── */
+  html {
+    font-size    : 15px;
+    background   : #100E0B;
+    background-image:
+      radial-gradient(ellipse 55% 90% at 20% 50%, rgba(139,158,126,.07) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 90% at 80% 50%, rgba(200,169,126,.06) 0%, transparent 55%);
+    min-height   : 100vh;
+  }
+
+  /* ── Phone frame ── */
+  body {
+    max-width    : 430px;
+    margin       : 0 auto;
+    position     : relative;
+    overflow-x   : hidden;
+    box-shadow   :
+      0 0 0 1px rgba(200,169,126,.18),
+      0 20px 60px  rgba(0,0,0,.65),
+      0 50px 140px rgba(0,0,0,.45);
+  }
+
+  /* ── Constrain fixed overlays to the phone frame ── */
+  #preloader,
+  #opening {
+    left      : 50%;
+    right     : auto;
+    width     : 430px;
+    transform : translateX(-50%);
+  }
+
+  /* ── Hide scroll-nav dots (mobile layout) ── */
+  #nav-dots { display: none; }
+
+  /* ── Force Bootstrap grid columns to stack ── */
+  .col-md-6,
+  .col-md-9,
+  .col-lg-2,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-9,
+  .col-lg-10 {
+    flex      : 0 0 auto;
+    width     : 100%;
+    max-width : 100%;
+  }
+
+  /* Reset location-section visual order swap */
+  .order-lg-1, .order-lg-2 { order: 0; }
+
+  /* Hide the desktop-only couple centre divider */
+  #couple .col-lg-2 { display: none !important; }
+
+  /* ── Section padding ── */
+  .section-py { padding: 60px 0; }
+
+  /* ── Section heading ── */
+  .section-heading { font-size: 2rem; }
+
+  /* ── Opening screen ── */
+  .op-inner    { padding: 1.5rem 1.25rem; }
+  .op-to       { font-size: 1rem; }
+  .op-guest    { font-size: 1.4rem; }
+  .op-names    { font-size: 5rem; }
+  .op-date     { font-size: .85rem; letter-spacing: .1em; }
+
+  /* ── Hero ── */
+  #hero               { height: 100svh; min-height: 100svh; }
+  .hero-bismillah     { font-size: .75rem; margin-bottom: 1rem; }
+  .hero-we-are        { font-size: 1.4rem; }
+  .hero-names         { font-size: 3.8rem; }
+  .hero-badge         { width: 100%; justify-content: center; padding: .9rem 1.4rem; }
+  .hero-badge-date    { font-size: .9rem; }
+
+  /* ── Welcome ── */
+  .welcome-guest-name { font-size: 2rem; }
+  .welcome-body       { font-size: 1.05rem; }
+  .quote-text         { font-size: 1rem; }
+  .quote-card         { padding: 1.4rem 1.2rem; }
+
+  /* ── Couple ── */
+  .photo-ring  { width: 170px; height: 170px; }
+  .couple-card { padding: 2rem 1.2rem; }
+  .c-divider   { flex-direction: row; gap: 1.5rem; padding: 1rem 0; }
+  .c-divider-amp { font-size: 3.5rem; }
+
+  /* ── Events ── */
+  .event-card  { padding: 2.5rem 1.5rem; }
+
+  /* ── Countdown ── */
+  .cd-title    { font-size: 2.5rem; margin-bottom: 2rem; }
+  .cd-grid     { gap: .5rem; }
+  .cd-box      { padding: 1rem .6rem; min-width: 68px; }
+  .cd-num      { font-size: 3rem; }
+  .cd-colon    { display: none; }
+
+  /* ── Gallery ── */
+  .gal-grid {
+    grid-template-columns : 1fr 1fr;
+    grid-template-rows    : 200px 200px;
+  }
+  .gal-item:nth-child(1) { grid-row: 1; grid-column: 1 / 3; }
+
+  /* ── Location ── */
+  .loc-block iframe { height: 220px; }
+  .loc-info         { padding: 1.6rem 1.4rem; }
+
+  /* ── Bank / Gift ── */
+  .bank-num { font-size: 1.5rem; }
+
+  /* ── Wishes ── */
+  .wish-panel { padding: 1.8rem 1.4rem; }
+
+  /* ── Closing ── */
+  .cl-names { font-size: 3.2rem; }
+  .cl-body  { font-size: 1rem; }
+  .cl-inner { padding: 72px 1.25rem; }
 }

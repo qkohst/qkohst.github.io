@@ -1066,4 +1066,32 @@ body.bnav-visible { padding-bottom: 58px; }
   .cl-names { font-size: 3.2rem; }
   .cl-body  { font-size: 1rem; }
   .cl-inner { padding: 72px 1.25rem; }
+
+  /* ── Prevent outer canvas from scrolling horizontally ── */
+  html { overflow-x: hidden; }
+
+  /* ── Stack ALL Bootstrap responsive columns within phone frame ── */
+  [class*="col-sm-"],
+  [class*="col-md-"],
+  [class*="col-lg-"],
+  [class*="col-xl-"],
+  [class*="col-xxl-"] {
+    flex      : 0 0 auto !important;
+    width     : 100% !important;
+    max-width : 100% !important;
+  }
+
+  /* ── Hide Bootstrap responsive-display helpers that reveal at md/lg ── */
+  .d-md-block, .d-md-flex,
+  .d-lg-block, .d-lg-flex,
+  .d-xl-block, .d-xl-flex  { display: none !important; }
+
+  /* ── Ensure Bootstrap containers never overflow the phone frame ── */
+  .container, .container-fluid,
+  .container-sm, .container-md,
+  .container-lg, .container-xl,
+  .container-xxl {
+    max-width : 100% !important;
+    width     : 100% !important;
+  }
 }

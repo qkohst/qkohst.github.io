@@ -14,18 +14,16 @@ const weddingData = {
     parents    : {
       father : "Bpk. Wasono",
       mother : "Ibu Darmini"
-    },
-    instagram  : "kukoh.santoso"
+    }
   },
 
   bride: {
-    fullName   : "Ziyanaddini Qurrota 'Ayun",
-    nickname   : "Ziyan",
+    fullName   : "Ziyanaddini Qurrota A'yun",
+    nickname   : "Zian",
     parents    : {
-      father : "Bpk. Muhammad Zaim Nur",
+      father : "Bpk. Muhammad Zaim Nour",
       mother : "Ibu Tholi'ah"
-    },
-    instagram  : "ziyanaddini.qurrota"
+    }
   },
 
   /* ── WEDDING ─────────────────────────────────────────────── */
@@ -36,7 +34,16 @@ const weddingData = {
     hijriyah     : "21 Dzulhijjah 1447 H",
     hashtag      : "#qkohzqa",
     quote        : "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.",
-    quoteSource  : "QS. Ar-Rum: 21"
+    quoteSource  : "QS. Ar-Rum: 21",
+
+    // ── BACKGROUND MUSIC ──────────────────────────────────────
+    // Isi dengan URL langsung ke file MP3 (bukan YouTube).
+    // Sumber gratis & halal digunakan:
+    //   • Pixabay Music  → https://pixabay.com/music/  (download, salin link CDN)
+    //   • File lokal     → 'assets/music/bgm.mp3'
+    // Contoh URL Pixabay (ganti dengan track pilihanmu):
+    musicUrl : "assets/music/bgm.mp3"
+    // ↑↑ "Romantic Cinematic Piano" — Pixabay royalty-free
   },
 
   /* ── EVENTS ─────────────────────────────────────────────── */
@@ -61,37 +68,19 @@ const weddingData = {
     }
   },
 
-  /* ── DRESS CODE ──────────────────────────────────────────── */
-  dressCode: {
-    theme      : "Sage Green & Ivory",
-    description: "Hadir dengan nuansa elegan dalam balutan warna-warna berikut:",
-    colors     : [
-      { hex: "#FDFAF5", name: "Ivory White"  },
-      { hex: "#8B9E7E", name: "Sage Green"   },
-      { hex: "#C8A97E", name: "Warm Gold"    },
-      { hex: "#C4B5A5", name: "Dusty Taupe"  }
-    ]
-  },
-
   /* ── BANK TRANSFER ───────────────────────────────────────── */
   bankTransfer: [
     {
       bank          : "BCA",
-      accountNumber : "1234 5678 90",
-      accountName   : "Raka Andhika Pratama",
-      color         : "#005BAC"
+      accountNumber : "8240 9275 79",
+      accountName   : "Kukoh Santoso",
+      color         : "#0060AF"
     },
     {
       bank          : "BRI",
-      accountNumber : "0987 6543 21 000",
-      accountName   : "Salsabila Putri Maharani",
-      color         : "#005BAC"
-    },
-    {
-      bank          : "Mandiri",
-      accountNumber : "1122 3344 5566",
-      accountName   : "Raka Andhika Pratama",
-      color         : "#003F72"
+      accountNumber : "6299 01 048845 53 4",
+      accountName   : "Ziyanaddini Qurrota A'yun",
+      color         : "#00529C"
     }
   ],
 
@@ -102,18 +91,48 @@ const weddingData = {
    *
    *  Key is case-insensitive (normalised to lower-case in JS).
    */
-  guests: {
-    "default"        : { name: "Tamu Undangan",                    address: "" },
-    "budi"           : { name: "Sdr. Budi Santoso",                address: "Jl. Merpati No. 3, Antapani, Bandung" },
-    "ani"            : { name: "Ibu Ani Rahayu & Keluarga",        address: "Jl. Mawar No. 12, Surabaya" },
-    "hendra"         : { name: "Bpk. Hendra & Ibu Maria",          address: "Jl. Cendana No. 8, Tangerang Selatan" },
-    "andi"           : { name: "Bpk. Andi Wijaya & Keluarga",      address: "Jl. Flamboyan No. 22, Bogor" },
-    "siti"           : { name: "Ibu Siti Nurhaliza",               address: "Jl. Dahlia No. 15, Depok" },
-    "keluarga-besar" : { name: "Keluarga Besar Pratama & Maharani", address: "" },
-    "001"            : { name: "Bpk. Ahmad Fauzi & Keluarga",       address: "Jl. Kenanga No. 7, Bekasi" },
-    "002"            : { name: "Ibu Siti Nurhaliza",               address: "Jl. Dahlia No. 15, Depok" },
-    "003"            : { name: "Bpk. Andi Wijaya & Keluarga",      address: "Jl. Flamboyan No. 22, Bogor" },
-    "004"            : { name: "Bpk. Dani Permana & Keluarga",     address: "Jl. Anggrek No. 5, Cimahi" },
-    "005"            : { name: "Ibu Rina Kusumawati",              address: "Jl. Teratai No. 19, Bandung Barat" }
-  }
+
+  // Untuk tamu dari pihak mempelai pria
+  guestsMan: [
+    {
+      key : "default",
+      name : "Bapak/Ibu/Saudara/i",
+      address : "Di Tempat"
+    },
+    {
+      key     : "budi",
+      name    : "Budi Santoso",
+      address : "Jl. Merpati No. 123, Jakarta"
+    },
+    {
+      key     : "siti",
+      name    : "Siti Aminah",
+      address : "Jl. Kenari No. 45, Bandung"
+    },
+    {
+      key     : "ahmad",
+      name    : "Ahmad Fauzi",
+      address : "Jl. Cendrawasih No. 67, Surabaya"
+    }
+  ],
+
+  // Untuk tamu dari pihak mempelai wanita
+  guestsWoman: [
+    {
+      key : "default",
+      name : "Bapak/Ibu/Saudara/i",
+      address : "Di Tempat"
+    },
+    {
+      key     : "siti",
+      name    : "Siti Aminah",
+      address : "Jl. Kenari No. 45, Bandung"
+    },
+    {
+      key     : "dina",
+      name    : "Dina Putri",
+      address : "Jl. Melati No. 89, Yogyakarta"
+    }
+  ]
+
 };

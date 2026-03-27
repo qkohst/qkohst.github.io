@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#7D9882" />
-  <meta name="description" content="Undangan Pernikahan Kukoh & Zian — 7 Juni 2026" />
-  <title>Undangan Pernikahan — Kukoh &amp; Zian</title>
+  <meta name="description" content="Undangan Pernikahan Zian & Kukoh — 7 Juni 2026" />
+  <meta property="og:image" content="assets/images/iamge (2).png" />
+  <title>Undangan Pernikahan — Zian &amp; Kukoh</title>
   <!-- Favicons -->
   <link href="../school/assets/img/logo.png" rel="icon">
   <link href="../school/assets/img/logo.png" rel="apple-touch-icon">
@@ -20,13 +21,13 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="theme-bride">
+<body class="theme-bride app-locked">
 
   <!-- ══ LOADING SCREEN ════════════════════════════════════ -->
   <div id="loading-screen" role="status" aria-label="Memuat undangan…">
     <div class="loading-ornament">✦ ✦ ✦</div>
     <div class="loading-names">
-      Kukoh <span class="ampersand">&amp;</span> Zian
+      Zian <span class="ampersand">&amp;</span> Kukoh
     </div>
     <div class="loading-date">7 Juni 2026</div>
     <div class="loading-bar">
@@ -51,7 +52,7 @@
 
         <p class="cover-tagline">The Wedding of</p>
         <h1 class="cover-names" id="cover-names">
-          Kukoh <span class="ampersand">&amp;</span> Zian
+          Zian <span class="ampersand">&amp;</span> Kukoh
         </h1>
         <p class="cover-hashtag" id="hashtag">#qkohzqa</p>
 
@@ -74,16 +75,6 @@
       </blockquote>
 
       <div class="couple-cards">
-        <!-- Groom -->
-        <div class="couple-card fade-up">
-          <p class="couple-card-role">Mempelai Pria</p>
-          <h3 class="couple-card-name" id="groom-name"></h3>
-          <p class="couple-card-nickname" id="groom-nickname"></p>
-          <p class="couple-card-parents" id="groom-parents"></p>
-        </div>
-
-        <div class="couple-connector" aria-hidden="true">✦ &amp; ✦</div>
-
         <!-- Bride -->
         <div class="couple-card fade-up">
           <p class="couple-card-role">Mempelai Wanita</p>
@@ -91,7 +82,18 @@
           <p class="couple-card-nickname" id="bride-nickname"></p>
           <p class="couple-card-parents" id="bride-parents"></p>
         </div>
+
+        <div class="couple-connector" aria-hidden="true">✦ &amp; ✦</div>
+
+        <!-- Groom -->
+        <div class="couple-card fade-up">
+          <p class="couple-card-role">Mempelai Pria</p>
+          <h3 class="couple-card-name" id="groom-name"></h3>
+          <p class="couple-card-nickname" id="groom-nickname"></p>
+          <p class="couple-card-parents" id="groom-parents"></p>
+        </div>
       </div>
+      
     </section>
 
     <!-- ════ HITUNG MUNDUR ═════════════════════════════════ -->
@@ -119,6 +121,13 @@
           <span class="countdown-num" id="cd-seconds" aria-label="detik">00</span>
           <span class="countdown-label" aria-hidden="true">Detik</span>
         </div>
+      </div>
+
+      <div class="calendar-btn-wrap fade-up">
+        <a id="btn-add-calendar" href="#" target="_blank" rel="noopener noreferrer" class="btn-calendar">
+          <i class="bi bi-calendar-plus-fill" aria-hidden="true"></i>
+          Tambah ke Kalender
+        </a>
       </div>
     </section>
 
@@ -237,15 +246,15 @@
 
       <div class="gallery-grid fade-up">
         <div class="gallery-item">
-          <img src="assets/images/iamge (1).jpg" alt="Foto prewedding Kukoh &amp; Zian" loading="lazy" />
-          <div class="gallery-item-caption">Kukoh &amp; Zian</div>
+          <img src="assets/images/iamge (1).jpg" alt="Foto prewedding Zian &amp; Kukoh" loading="lazy" />
+          <div class="gallery-item-caption">Zian &amp; Kukoh</div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/iamge (2).jpg" alt="Foto prewedding Kukoh &amp; Zian" loading="lazy" />
+          <img src="assets/images/iamge (2).jpg" alt="Foto prewedding Zian &amp; Kukoh" loading="lazy" />
           <div class="gallery-item-caption">7 Juni 2026</div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/iamge (1).png" alt="Foto prewedding Kukoh &amp; Zian" loading="lazy" />
+          <img src="assets/images/iamge (1).png" alt="Foto prewedding Zian &amp; Kukoh" loading="lazy" />
           <div class="gallery-item-caption">#qkohzqa</div>
         </div>
       </div>
@@ -317,13 +326,13 @@
         <span class="nav-icon" aria-hidden="true"><i class="bi bi-people-fill"></i></span>
         <span class="nav-label">Mempelai</span>
       </button>
-      <button class="nav-item" data-section="galeri" aria-label="Galeri">
-        <span class="nav-icon" aria-hidden="true"><i class="bi bi-images"></i></span>
-        <span class="nav-label">Galeri</span>
-      </button>
       <button class="nav-item" data-section="acara" aria-label="Acara">
         <span class="nav-icon" aria-hidden="true"><i class="bi bi-calendar-heart-fill"></i></span>
         <span class="nav-label">Acara</span>
+      </button>
+      <button class="nav-item" data-section="galeri" aria-label="Galeri">
+        <span class="nav-icon" aria-hidden="true"><i class="bi bi-images"></i></span>
+        <span class="nav-label">Galeri</span>
       </button>
       <button class="nav-item" data-section="hadiah" aria-label="Hadiah">
         <span class="nav-icon" aria-hidden="true"><i class="bi bi-gift-fill"></i></span>

@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `Assalamu'alaikum Wr. Wb.`,
       ``,
       `Kepada Yth.`,
-      `Bapak/Ibu/Saudara/i *${guest.name}*`,
+      `*${guest.name}*`,
       ``,
       `Dengan penuh rasa syukur, kami mengundang Anda untuk hadir dan memberikan doa restu pada acara pernikahan kami:`,
       ``,
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `Silakan buka undangan digital Anda di tautan berikut:`,
       `👉 ${inviteLink}`,
       ``,
-      `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.`,
+      `Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila *${guest.name}* berkenan hadir.`,
       ``,
       `Wassalamu'alaikum Wr. Wb.`,
       ``,
@@ -54,7 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
       `${w.hashtag}`,
     ].join('\n');
 
-    return `https://wa.me/?text=${encodeURIComponent(msg)}`;
+    // Cek apakah nomor telepon ada dan tidak kosong
+    const phone = (guest.phoneNumber && guest.phoneNumber !== '') ? guest.phoneNumber : '';
+    
+    // Hilangkan karakter non-digit (seperti +, -, atau spasi) agar formatnya benar
+    const cleanPhone = phone.replace(/\D/g, '');
+
+    // Jika cleanPhone ada, masukkan ke dalam URL, jika tidak gunakan format share umum
+    return `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(msg)}`;
   }
 
   /* ── RENDER TABLE ───────────────────────────────────────── */
@@ -128,11 +135,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ── INITIAL RENDER ─────────────────────────────────────── */
-  renderTable(groomGuests, 'groom-tbody', 'index.html');
-  renderTable(brideGuests, 'bride-tbody', 'index2.html');
+  renderTable(groomGuests, 'groom-tbody', 'invitation');
+  renderTable(brideGuests, 'bride-tbody', 'invitation-2');
 
-  bindSearch('search-groom', 'groom-tbody', groomGuests, 'index.html');
-  bindSearch('search-bride', 'bride-tbody', brideGuests, 'index2.html');
+  bindSearch('search-groom', 'groom-tbody', groomGuests, 'invitation');
+  bindSearch('search-bride', 'bride-tbody', brideGuests, 'invitation-2');
 
 });
 

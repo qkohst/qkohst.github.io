@@ -97,22 +97,26 @@ const weddingData = {
     {
       key : "default",
       name : "Bapak/Ibu/Saudara/i",
-      address : "Di Tempat"
+      address : "Di Tempat",
+      phoneNumber : null
     },
     {
       key     : "budi",
       name    : "Budi Santoso",
-      address : "Jl. Merpati No. 123, Jakarta"
+      address : "Jl. Merpati No. 123, Jakarta",
+      phoneNumber : null
     },
     {
       key     : "siti",
       name    : "Siti Aminah",
-      address : "Jl. Kenari No. 45, Bandung"
+      address : "Jl. Kenari No. 45, Bandung",
+      phoneNumber : "0812-9876-5432"
     },
     {
       key     : "ahmad",
       name    : "Ahmad Fauzi",
-      address : "Jl. Cendrawasih No. 67, Surabaya"
+      address : "Jl. Cendrawasih No. 67, Surabaya",
+      phoneNumber : "0812-5555-6666"
     }
   ],
 
@@ -121,17 +125,20 @@ const weddingData = {
     {
       key : "default",
       name : "Bapak/Ibu/Saudara/i",
-      address : "Di Tempat"
+      address : "Di Tempat",
+      phoneNumber : null
     },
     {
       key     : "siti",
       name    : "Siti Aminah",
-      address : "Jl. Kenari No. 45, Bandung"
+      address : "Jl. Kenari No. 45, Bandung",
+      phoneNumber : "0812-9876-5432"
     },
     {
       key     : "dina",
       name    : "Dina Putri",
-      address : "Jl. Melati No. 89, Yogyakarta"
+      address : "Jl. Melati No. 89, Yogyakarta",
+      phoneNumber : "0812-3333-4444"
     }
   ]
 

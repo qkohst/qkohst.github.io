@@ -26,21 +26,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setText('#groom-name',        g.fullName);
   setText('#groom-nickname',    `" ${g.nickname} "`);
-  setText('#groom-parents',     `Putra dari ${g.parents.father}\n& ${g.parents.mother}`);
+  setText('#groom-parents',     `Putra dari: \n ${g.parents.father} & ${g.parents.mother}`);
   setText('#bride-name',        b.fullName);
   setText('#bride-nickname',    `" ${b.nickname} "`);
-  setText('#bride-parents',     `Putri dari ${b.parents.father}\n& ${b.parents.mother}`);
+  setText('#bride-parents',     `Putri dari: \n ${b.parents.father} & ${b.parents.mother}`);
   setText('#wedding-quote',     w.quote);
   setText('#wedding-quote-src', w.quoteSource);
 
   const coverNames = document.getElementById('cover-names');
   if (coverNames) {
-    coverNames.innerHTML = `${g.nickname} <span class="ampersand">&amp;</span> ${b.nickname}`;
+    const n1 = isGroom ? g.nickname : b.nickname;
+    const n2 = isGroom ? b.nickname : g.nickname;
+    coverNames.innerHTML = `${n1} <span class="ampersand">&amp;</span> ${n2}`;
   }
 
   setText('#hashtag',         w.hashtag);
   setText('#hashtag-closing', w.hashtag);
-  setText('#closing-names',   `${g.nickname} & ${b.nickname}`);
+  setText('#closing-names',   isGroom ? `${g.nickname} & ${b.nickname}` : `${b.nickname} & ${g.nickname}`);
 
   /* ── POPULATE: WEDDING DATE TEXT ────────────────────────── */
   setText('#wedding-date-text', `${w.dateFormatted}\n${w.hijriyah}`);
@@ -110,6 +112,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* cleanup when navigating away */
   window.addEventListener('pagehide', () => clearInterval(countdownTimer));
+
+  /* ── ADD TO CALENDAR ────────────────────────────────────── */
+  const calendarBtn = document.getElementById('btn-add-calendar');
+  if (calendarBtn) {
+    const re = weddingData.events.resepsi;
+    const [dateStr] = weddingData.wedding.date.split('T');
+    const [yr, mo, dy] = dateStr.split('-').map(Number);
+
+    /* Parse resepsi time e.g. "11.00 – 14.00 WIB" → hours & minutes */
+    const timeMatch = re.time.match(/(\d+)[.:]?(\d{2})\s*[–\-]\s*(\d+)[.:]?(\d{2})/);
+    const sh = timeMatch ? parseInt(timeMatch[1]) : 11;
+    const sm = timeMatch ? parseInt(timeMatch[2]) : 0;
+    const eh = timeMatch ? parseInt(timeMatch[3]) : 14;
+    const em = timeMatch ? parseInt(timeMatch[4]) : 0;
+
+    /* Convert WIB (UTC+7) to UTC */
+    const startUtc = new Date(Date.UTC(yr, mo - 1, dy, sh - 7, sm, 0));
+    const endUtc   = new Date(Date.UTC(yr, mo - 1, dy, eh - 7, em, 0));
+
+    const toGCalDate = d => d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+
+    const title    = encodeURIComponent(`Resepsi Pernikahan ${weddingData.groom.nickname} & ${weddingData.bride.nickname}`);
+    const dates    = `${toGCalDate(startUtc)}/${toGCalDate(endUtc)}`;
+    const location = encodeURIComponent(`${re.venue}, ${re.address}`);
+    const details  = encodeURIComponent(
+      `Resepsi Pernikahan ${weddingData.groom.fullName} & ${weddingData.bride.fullName}\n` +
+      `${weddingData.wedding.dateFormatted}\n${weddingData.wedding.hashtag}`
+    );
+
+    calendarBtn.href =
+      `https://calendar.google.com/calendar/render?action=TEMPLATE` +
+      `&text=${title}&dates=${dates}&details=${details}&location=${location}`;
+  }
+
+  /* ── OPEN INVITATION (unlock from cover) ─────────────────── */
+  const btnOpen = document.querySelector('.btn-open');
+  if (btnOpen) {
+    btnOpen.addEventListener('click', e => {
+      e.preventDefault();
+      document.body.classList.remove('app-locked');
+      const pasangan = document.getElementById('pasangan');
+      if (pasangan) pasangan.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 
   /* ── BOTTOM NAVIGATION ──────────────────────────────────── */
   const navSections = ['cover', 'pasangan', 'galeri', 'acara', 'hadiah'];
@@ -201,11 +247,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* Try autoplay after loading screen (browser may allow it) */
-  setTimeout(tryPlay, 2200);
+  setTimeout(() => {
+    if (!document.body.classList.contains('app-locked')) tryPlay();
+  }, 2200);
 
-  /* Fallback: play on first user gesture */
+  /* Fallback: play on first user gesture (fires on btn-open click too) */
   const playOnGesture = () => {
-    if (!musicPlaying) tryPlay();
+    if (!musicPlaying && !document.body.classList.contains('app-locked')) tryPlay();
     document.removeEventListener('click',      playOnGesture);
     document.removeEventListener('touchstart', playOnGesture);
     document.removeEventListener('keydown',    playOnGesture);

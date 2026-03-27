@@ -132,7 +132,7 @@ const weddingData = {
       key     : "siti",
       name    : "Siti Aminah",
       address : "Jl. Kenari No. 45, Bandung",
-      phoneNumber : "0812-9876-5432"
+      phoneNumber : null
     },
     {
       key     : "dina",

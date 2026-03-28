@@ -62,7 +62,7 @@ body {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
   overflow: hidden;
 }
 
@@ -97,7 +97,7 @@ body {
   inset: 0;
   background-size: cover;
   background-position: center;
-  transform: scale(1.04);
+  transform: scale(1.25);
   transition: transform 9s ease;
 }
 
@@ -108,10 +108,10 @@ body {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,.02) 0%,
-    rgba(0,0,0,.10) 35%,
-    rgba(0,0,0,.58) 70%,
-    rgba(0,0,0,.78) 100%
+    rgba(0,0,0,.25) 25%,
+    rgba(0,0,0,.50) 50%,
+    rgba(0,0,0,.75) 75%,
+    rgba(0,0,0,.90) 100%
   );
 }
 
@@ -171,24 +171,18 @@ body {
 }
 
 .hero-names {
-  font-family: var(--font-serif);
-  font-size: 64px;
-  font-weight: 600;
-  line-height: 1.0;
+  font-family: var(--font-alt);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.1;
   color: #fff;
-  text-shadow: 0 4px 24px rgba(0,0,0,.45);
-  margin-bottom: 4px;
+  text-shadow: 0 2px 20px rgba(0,0,0,.5);
+  margin-bottom: 8px;
 }
 
 .hero-names-amp {
-  font-family: var(--font-serif);
-  font-size: 38px;
-  font-weight: 300;
-  font-style: italic;
+  font-family: var(--font-alt);
   color: var(--gold);
-  display: block;
-  margin: 0;
-  line-height: 1.1;
 }
 
 .hero-hashtag {
@@ -516,6 +510,16 @@ main {
   bottom: 28px;
   right: 20px;
   z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+.float-wa-wrap.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 @media (min-width: 431px) {

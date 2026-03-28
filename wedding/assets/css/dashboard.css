@@ -35,6 +35,30 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── FLOATING PETALS ────────────────────────────────────── */
+.petals-wrap {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -40px;
+  font-size: 14px;
+  opacity: 0;
+  animation: petalFall linear infinite;
+}
+
+@keyframes petalFall {
+  0%   { transform: translateX(0) rotate(0deg);   opacity: 0; }
+  10%  { opacity: .55; }
+  90%  { opacity: .35; }
+  100% { transform: translateX(60px) rotate(360deg); top: 110vh; opacity: 0; }
+}
+
 body {
   font-family: var(--font-sans);
   background: var(--cream-deep);
@@ -105,9 +129,10 @@ body {
 }
 
 .dash-header-sub {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--gold);
   letter-spacing: 1px;
+  font-weight: 500;
 }
 
 /* ── CONTENT AREA ────────────────────────────────────────── */
@@ -127,7 +152,7 @@ body {
 .stat-card {
   background: #fff;
   border-radius: 14px;
-  padding: 16px 10px;
+  padding: 8px 5px;
   text-align: center;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--gold-border);
@@ -135,7 +160,7 @@ body {
 
 .stat-num {
   font-family: var(--font-serif);
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
   color: var(--primary);
   line-height: 1;
@@ -250,11 +275,27 @@ tbody td {
   font-weight: 600;
 }
 
+.td-name-badge {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 6px;
+  border-radius: 40px;
+  background: var(--primary-pale);
+  color: var(--primary-dark);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  border: 1px solid var(--primary-light);
+  vertical-align: middle;
+  word-break: break-all;
+}
+
 .td-address {
   color: var(--text-muted);
   font-size: 11px;
   line-height: 1.5;
   min-width: 90px;
+  white-space: pre-wrap;
 }
 
 .td-action {

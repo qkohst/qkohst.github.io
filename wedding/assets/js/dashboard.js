@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 
   /* ── GUEST DATA ─────────────────────────────────────────── */
-  const groomGuests = weddingData.guestsMan.filter(g => g.key !== 'default');
-  const brideGuests = weddingData.guestsWoman.filter(g => g.key !== 'default');
+  const groomGuests = weddingData.guestsMan.filter(g => g.key !== 'default').sort((a, b) => a.name.localeCompare(b.name));
+  const brideGuests = weddingData.guestsWoman.filter(g => g.key !== 'default').sort((a, b) => a.name.localeCompare(b.name));
 
   /* ── POPULATE STATS ─────────────────────────────────────── */
   const totalAll = groomGuests.length + brideGuests.length;
@@ -61,7 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const cleanPhone = phone.replace(/\D/g, '');
 
     // Jika cleanPhone ada, masukkan ke dalam URL, jika tidak gunakan format share umum
-    return `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(msg)}`;
+    return cleanPhone
+      ? `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(msg)}`
+      : `https://wa.me/?text=${encodeURIComponent(msg)}`;
   }
 
   /* ── RENDER TABLE ───────────────────────────────────────── */
@@ -86,8 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
     tbody.innerHTML = guests.map((guest, idx) => `
       <tr>
         <td class="td-no">${idx + 1}</td>
-        <td class="td-name">${escHtml(guest.name)}</td>
-        <td class="td-address">${escHtml(guest.address)}</td>
+        <td class="td-name">${escHtml(guest.name)}
+          <span class="td-name-badge">?to=${escHtml(guest.key)}</span>
+        </td>
+        <td class="td-address">${escHtml(guest.address)}\n${escHtml(guest.phoneNumber ? `(${guest.phoneNumber})` : '')}
+        </td>
         <td class="td-action">
           <a href="${buildWaUrl(guest, inviteFile)}"
              target="_blank"
@@ -133,6 +138,22 @@ document.addEventListener('DOMContentLoaded', () => {
       tabWraps.forEach(w => w.classList.toggle('active', w.dataset.tab === target));
     });
   });
+
+  /* ── FLOATING PETALS ─────────────────────────────────────── */
+  const petalsWrap = document.getElementById('petals-wrap');
+  const PETALS = ['🌸', '✦', '🌿', '✿', '❀', '🍃'];
+  if (petalsWrap) {
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('span');
+      p.className = 'petal';
+      p.textContent = PETALS[i % PETALS.length];
+      p.style.left              = `${Math.random() * 100}%`;
+      p.style.animationDuration = `${6 + Math.random() * 10}s`;
+      p.style.animationDelay    = `${Math.random() * 12}s`;
+      p.style.fontSize          = `${10 + Math.random() * 10}px`;
+      petalsWrap.appendChild(p);
+    }
+  }
 
   /* ── INITIAL RENDER ─────────────────────────────────────── */
   renderTable(groomGuests, 'groom-tbody', 'invitation');

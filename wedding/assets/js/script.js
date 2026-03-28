@@ -47,6 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── POPULATE: WEDDING DATE TEXT ────────────────────────── */
   setText('#wedding-date-text', `${w.dateFormatted}\n${w.hijriyah}`);
 
+  /* ── POPULATE: EVENT DATE CARD ─────────────────────────── */
+  const [dayName, dateStr] = w.dateFormatted.split(', ');
+  setText('#event-day',    dayName || w.dateFormatted);
+  setText('#event-date-m', dateStr || w.dateFormatted);
+  setText('#event-date-h', w.hijriyah);
+
   /* ── POPULATE: EVENTS ──────────────────────────────────── */
   const ak = weddingData.events.akad;
   const re = weddingData.events.resepsi;
@@ -154,6 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.remove('app-locked');
       const pasangan = document.getElementById('pasangan');
       if (pasangan) pasangan.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!musicPlaying) tryPlay();
     });
   }
 
@@ -273,6 +280,22 @@ document.addEventListener('DOMContentLoaded', () => {
       audio.play().then(() => setMusicState(true)).catch(() => {});
     }
   });
+
+  /* ── FLOATING PETALS ─────────────────────────────────────── */
+  const petalsWrap = document.getElementById('petals-wrap');
+  const PETALS = ['🌸', '✦', '🌿', '✿', '❀', '🍃'];
+  if (petalsWrap) {
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('span');
+      p.className = 'petal';
+      p.textContent = PETALS[i % PETALS.length];
+      p.style.left              = `${Math.random() * 100}%`;
+      p.style.animationDuration = `${6 + Math.random() * 10}s`;
+      p.style.animationDelay    = `${Math.random() * 12}s`;
+      p.style.fontSize          = `${10 + Math.random() * 10}px`;
+      petalsWrap.appendChild(p);
+    }
+  }
 
   /* ── WHATSAPP FLOATING BUTTON ───────────────────────────── */
   const floatWa = document.getElementById('float-wa');

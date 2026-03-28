@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── HERO ───────────────────────────────────────────────── */
   const heroBg = document.getElementById('hero-bg');
   if (heroBg) {
-    heroBg.style.backgroundImage = "url('assets/images/iamge (1).jpg')";
+    heroBg.style.backgroundImage = "url('assets/images/iamge (1).png')";
     setTimeout(() => heroBg.classList.add('loaded'), 100);
   }
 
@@ -70,6 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
       p.style.fontSize         = `${10 + Math.random() * 10}px`;
       wrap.appendChild(p);
     }
+  }
+
+  /* ── SHOW FLOAT WA ON SCROLL ──────────────────────────────── */
+  const floatWaWrap = document.querySelector('.float-wa-wrap');
+  if (floatWaWrap) {
+    window.addEventListener('scroll', () => {
+      floatWaWrap.classList.toggle('visible', window.scrollY > 120);
+    }, { passive: true });
   }
 
   /* ── WA BUTTON ──────────────────────────────────────────── */

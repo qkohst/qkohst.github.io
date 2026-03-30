@@ -221,6 +221,12 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── GALLERY ─────────────────────────────────────────────── */
   // Gallery items animate in via existing .fade-up IntersectionObserver
 
+  /* Protect gallery images from right-click & drag */
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('contextmenu', e => e.preventDefault());
+    item.addEventListener('dragstart',   e => e.preventDefault());
+  });
+
   /* ── BACKGROUND MUSIC ─────────────────────────────── */
   const audio       = document.getElementById('bg-music');
   const musicToggle = document.getElementById('music-toggle');

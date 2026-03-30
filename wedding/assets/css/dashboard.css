@@ -282,8 +282,8 @@ tbody td {
   border-radius: 40px;
   background: var(--primary-pale);
   color: var(--primary-dark);
-  font-size: 9px;
-  font-weight: 600;
+  font-size: 8px;
+  font-weight: 400;
   letter-spacing: 0.4px;
   border: 1px solid var(--primary-light);
   vertical-align: middle;

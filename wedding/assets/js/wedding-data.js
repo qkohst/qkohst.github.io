@@ -110,7 +110,7 @@ const weddingData = {
       key     : "siti",
       name    : "Siti Aminah",
       address : "Jl. Kenari No. 45, Bandung",
-      phoneNumber : "0852-3207-7932"
+      phoneNumber : "+62 852-3207-7932"
     },
     {
       key     : "ahmad",
@@ -138,7 +138,7 @@ const weddingData = {
       key     : "dina",
       name    : "Dina Putri",
       address : "Jl. Melati No. 89, Yogyakarta",
-      phoneNumber : "0852-3207-7932"
+      phoneNumber : "+62 852-3207-7932"
     }
   ]
 

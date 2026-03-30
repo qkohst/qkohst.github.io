@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const guestList = isGroom ? weddingData.guestsMan : weddingData.guestsWoman;
 
   /* ── GUEST PERSONALISATION ─────────────────────────────── */
-  const params  = new URLSearchParams(window.location.search);
+  const hash    = window.location.hash.replace(/^#/, '');
+  const params  = new URLSearchParams(hash);
   const toKey   = (params.get('to') || 'default').toLowerCase().trim();
   const guest   = guestList.find(g => g.key.toLowerCase() === toKey)
                || guestList.find(g => g.key === 'default')

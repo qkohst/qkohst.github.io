@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── WA MESSAGE BUILDER ─────────────────────────────────── */
   function buildWaUrl(guest, inviteFile) {
-    const inviteLink = `${base}${inviteFile}?to=${encodeURIComponent(guest.key)}`;
+    const inviteLink = `${base}${inviteFile}#to=${encodeURIComponent(guest.key)}`;
     const g = weddingData.groom;
     const b = weddingData.bride;
     const w = weddingData.wedding;

@@ -88,8 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
     tbody.innerHTML = guests.map((guest, idx) => `
       <tr>
         <td class="td-no">${idx + 1}</td>
-        <td class="td-name">${escHtml(guest.name)}</td>
-        <td class="td-address">${escHtml(guest.address)}\n${escHtml(guest.phoneNumber ? `(${guest.phoneNumber})` : '')}
+        <td class="td-name"> 
+          <p class="td-name-text">${escHtml(guest.name)}</p>
+          <p class="td-address">${escHtml(guest.address)}\n${escHtml(guest.phoneNumber ? `(${guest.phoneNumber})` : '')}</p>
         </td>
         <td class="td-method-${guest.undangan === 'online' ? 'online' : 'offline'}">
           ${escHtml(guest.undangan === 'online' ? 'Online' : 'Offline')}

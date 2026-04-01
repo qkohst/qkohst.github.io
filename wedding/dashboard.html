@@ -61,103 +61,115 @@
         </div>
       </div>
 
-      <!-- Tabs -->
-      <div class="tab-bar" role="tablist" aria-label="Pilih daftar tamu">
-        <button class="tab-btn active" data-tab="groom" role="tab" aria-selected="true" aria-controls="tab-groom">
-          <i class="bi bi-person-fill" aria-hidden="true"></i> Mempelai Pria
-        </button>
-        <button class="tab-btn" data-tab="bride" role="tab" aria-selected="false" aria-controls="tab-bride">
-          <i class="bi bi-person-fill" aria-hidden="true"></i> Mempelai Wanita
-        </button>
+      <!-- Sticky Tabs Container -->
+      <div class="sticky-tabs">
+        <div class="tab-bar" role="tablist" aria-label="Pilih daftar tamu">
+          <button class="tab-btn active" data-tab="groom" role="tab" aria-selected="true" aria-controls="tab-groom">
+            <i class="bi bi-person-fill" aria-hidden="true"></i> Mempelai Pria
+          </button>
+          <button class="tab-btn" data-tab="bride" role="tab" aria-selected="false" aria-controls="tab-bride">
+            <i class="bi bi-person-fill" aria-hidden="true"></i> Mempelai Wanita
+          </button>
+        </div>
       </div>
 
       <!-- ── GROOM GUEST TABLE ───────────────────────────── -->
       <div class="table-wrap active" data-tab="groom" id="tab-groom" role="tabpanel" aria-label="Tamu mempelai pria">
-        <div class="search-filter-wrap">
-          <div class="search-wrap">
-            <i class="bi bi-search search-icon" aria-hidden="true"></i>
-            <input type="search"
-              id="search-groom"
-              placeholder="Cari nama atau alamat…"
-              aria-label="Cari tamu mempelai pria" />
-          </div>
-          <div class="filter-wrap">
-            <button class="filter-btn" id="filter-btn-groom" aria-label="Filter metode undangan">
-              <i class="bi bi-funnel" aria-hidden="true"></i>
-              <span class="filter-badge" id="filter-badge-groom" style="display: none;">●</span>
-            </button>
-            <div class="filter-dropdown" id="filter-dropdown-groom" style="display: none;">
-              <p class="filter-label">Metode</p>
-              <label class="filter-option">
-                <input type="checkbox" value="online" class="filter-checkbox" data-tab="groom" />
-                <span>Online</span>
-              </label>
-              <label class="filter-option">
-                <input type="checkbox" value="offline" class="filter-checkbox" data-tab="groom" />
-                <span>Offline</span>
-              </label>
+        <!-- Sticky Search & Filter -->
+        <div class="sticky-search-filter">
+          <div class="search-filter-wrap">
+            <div class="search-wrap">
+              <i class="bi bi-search search-icon" aria-hidden="true"></i>
+              <input type="search"
+                id="search-groom"
+                placeholder="Cari nama atau alamat…"
+                aria-label="Cari tamu mempelai pria" />
+            </div>
+            <div class="filter-wrap">
+              <button class="filter-btn" id="filter-btn-groom" aria-label="Filter metode undangan">
+                <i class="bi bi-funnel" aria-hidden="true"></i>
+                <span class="filter-badge" id="filter-badge-groom" style="display: none;">●</span>
+              </button>
+              <div class="filter-dropdown" id="filter-dropdown-groom" style="display: none;">
+                <p class="filter-label">Metode</p>
+                <label class="filter-option">
+                  <input type="checkbox" value="online" class="filter-checkbox" data-tab="groom" />
+                  <span>Online</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" value="offline" class="filter-checkbox" data-tab="groom" />
+                  <span>Offline</span>
+                </label>
+              </div>
             </div>
           </div>
         </div>
         <div class="table-responsive">
-          <table aria-label="Daftar tamu mempelai pria">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Metode</th>
-                <th scope="col">Aksi</th>
-              </tr>
-            </thead>
-            <tbody id="groom-tbody">
-              <!-- Rendered by dashboard.js -->
-            </tbody>
-          </table>
+          <div class="table-wrapper">
+            <table aria-label="Daftar tamu mempelai pria">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nama</th>
+                  <th scope="col">Metode</th>
+                  <th scope="col">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="groom-tbody">
+                <!-- Rendered by dashboard.js -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
       <!-- ── BRIDE GUEST TABLE ───────────────────────────── -->
       <div class="table-wrap" data-tab="bride" id="tab-bride" role="tabpanel" aria-label="Tamu mempelai wanita">
-        <div class="search-filter-wrap">
-          <div class="search-wrap">
-            <i class="bi bi-search search-icon" aria-hidden="true"></i>
-            <input type="search"
-              id="search-bride"
-              placeholder="Cari nama atau alamat…"
-              aria-label="Cari tamu mempelai wanita" />
-          </div>
-          <div class="filter-wrap">
-            <button class="filter-btn" id="filter-btn-bride" aria-label="Filter metode undangan">
-              <i class="bi bi-funnel" aria-hidden="true"></i>
-              <span class="filter-badge" id="filter-badge-bride" style="display: none;">●</span>
-            </button>
-            <div class="filter-dropdown" id="filter-dropdown-bride" style="display: none;">
-              <p class="filter-label">Metode</p>
-              <label class="filter-option">
-                <input type="checkbox" value="online" class="filter-checkbox" data-tab="bride" />
-                <span>Online</span>
-              </label>
-              <label class="filter-option">
-                <input type="checkbox" value="offline" class="filter-checkbox" data-tab="bride" />
-                <span>Offline</span>
-              </label>
+        <!-- Sticky Search & Filter -->
+        <div class="sticky-search-filter">
+          <div class="search-filter-wrap">
+            <div class="search-wrap">
+              <i class="bi bi-search search-icon" aria-hidden="true"></i>
+              <input type="search"
+                id="search-bride"
+                placeholder="Cari nama atau alamat…"
+                aria-label="Cari tamu mempelai wanita" />
+            </div>
+            <div class="filter-wrap">
+              <button class="filter-btn" id="filter-btn-bride" aria-label="Filter metode undangan">
+                <i class="bi bi-funnel" aria-hidden="true"></i>
+                <span class="filter-badge" id="filter-badge-bride" style="display: none;">●</span>
+              </button>
+              <div class="filter-dropdown" id="filter-dropdown-bride" style="display: none;">
+                <p class="filter-label">Metode</p>
+                <label class="filter-option">
+                  <input type="checkbox" value="online" class="filter-checkbox" data-tab="bride" />
+                  <span>Online</span>
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" value="offline" class="filter-checkbox" data-tab="bride" />
+                  <span>Offline</span>
+                </label>
+              </div>
             </div>
           </div>
         </div>
         <div class="table-responsive">
-          <table aria-label="Daftar tamu mempelai wanita">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Metode</th>
-                <th scope="col">Aksi</th>
-              </tr>
-            </thead>
-            <tbody id="bride-tbody">
-              <!-- Rendered by dashboard.js -->
-            </tbody>
-          </table>
+          <div class="table-wrapper">
+            <table aria-label="Daftar tamu mempelai wanita">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nama</th>
+                  <th scope="col">Metode</th>
+                  <th scope="col">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="bride-tbody">
+                <!-- Rendered by dashboard.js -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 

@@ -553,3 +553,99 @@ tbody td {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ── STICKY ELEMENTS ─────────────────────────────────────── */
+.sticky-container {
+  position: sticky;
+  top: 0;
+  background: var(--cream);
+  z-index: 50;
+  padding-top: 8px;
+}
+
+/* Sticky Tabs */
+.sticky-tabs {
+  position: sticky;
+  top: 0;
+  background: var(--cream);
+  z-index: 49;
+  padding: 8px 20px 0;
+  margin: 0 -20px;
+}
+
+/* Sticky Search & Filter */
+.sticky-search-filter {
+  position: sticky;
+  background: var(--cream);
+  z-index: 48;
+  padding: 8px 20px;
+  margin: 0 -20px;
+}
+
+/* Sticky Table Header */
+.table-responsive {
+  border-radius: 14px;
+  overflow: visible;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--gold-border);
+  position: relative;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  position: relative;
+  max-height: calc(100vh - 200px);
+}
+
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.table-wrapper thead tr {
+  position: sticky;
+  top: 0;
+  z-index: 45;
+}
+
+.table-wrapper thead th {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  z-index: 45;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust content padding for sticky elements */
+.dash-content {
+  flex: 1;
+  padding: 20px;
+  position: relative;
+}
+
+/* Fix for the gradient overlay when sticky */
+.table-responsive::before {
+  display: none;
+}
+
+/* Ensure proper stacking context */
+.table-wrap {
+  position: relative;
+}
+
+/* Improved sticky header animation */
+@keyframes stickyGlow {
+  from {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  to {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.sticky-tabs.stuck,
+.sticky-search-filter.stuck,
+.table-wrapper thead tr.stuck {
+  animation: stickyGlow 0.3s ease-out;
+}

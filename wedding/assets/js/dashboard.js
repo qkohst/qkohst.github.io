@@ -22,6 +22,33 @@ document.addEventListener('DOMContentLoaded', () => {
   setTextById('stat-groom',   String(groomGuests.length));
   setTextById('stat-bride',   String(brideGuests.length));
 
+  /* ── STICKY ELEMENTS DETECTION ─────────────────────────── */
+  function initStickyDetection() {
+    const stickyTabs = document.querySelector('.sticky-tabs');
+    const stickySearchFilter = document.querySelectorAll('.sticky-search-filter');
+    
+    if (!stickyTabs) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            entry.target.classList.add('stuck');
+          } else {
+            entry.target.classList.remove('stuck');
+          }
+        });
+      },
+      { threshold: 0, rootMargin: '-1px 0px 0px 0px' }
+    );
+
+    observer.observe(stickyTabs);
+    
+    stickySearchFilter.forEach(element => {
+      observer.observe(element);
+    });
+  }
+
   /* ── WA MESSAGE BUILDER ─────────────────────────────────── */
   function buildWaUrl(guest, inviteFile) {
     const inviteLink = `${base}${inviteFile}#to=${encodeURIComponent(guest.key)}`;
@@ -197,6 +224,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       tabBtns.forEach(b  => b.classList.toggle('active',  b.dataset.tab === target));
       tabWraps.forEach(w => w.classList.toggle('active', w.dataset.tab === target));
+      
+      // Reset scroll position when switching tabs
+      setTimeout(() => {
+        const activeTable = document.querySelector('.table-wrap.active');
+        if (activeTable) {
+          const tableWrapper = activeTable.querySelector('.table-wrapper');
+          if (tableWrapper) {
+            tableWrapper.scrollTop = 0;
+          }
+        }
+      }, 100);
     });
   });
 
@@ -225,6 +263,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   bindFilterButtons('groom');
   bindFilterButtons('bride');
+  
+  /* ── INIT STICKY DETECTION ───────────────────────────────── */
+  initStickyDetection();
 
 });
 

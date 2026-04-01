@@ -88,10 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
     tbody.innerHTML = guests.map((guest, idx) => `
       <tr>
         <td class="td-no">${idx + 1}</td>
-        <td class="td-name">${escHtml(guest.name)}
-          <span class="td-name-badge">?to=${escHtml(guest.key)}</span>
-        </td>
+        <td class="td-name">${escHtml(guest.name)}</td>
         <td class="td-address">${escHtml(guest.address)}\n${escHtml(guest.phoneNumber ? `(${guest.phoneNumber})` : '')}
+        </td>
+        <td class="td-method-${guest.undangan === 'online' ? 'online' : 'offline'}">
+          ${escHtml(guest.undangan === 'online' ? 'Online' : 'Offline')}
         </td>
         <td class="td-action">
           <a href="${buildWaUrl(guest, inviteFile)}"
@@ -110,19 +111,78 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ── SEARCH / FILTER ────────────────────────────────────── */
-  function bindSearch(inputId, tbodyId, guests, inviteFile) {
+  const filterState = {};
+  
+  function applyFilters(inputId, tbodyId, guests, inviteFile, tab) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+
+    const q = input.value.trim().toLowerCase();
+    const filtered = guests.filter(g => {
+      // Filter by search query
+      const matchesSearch = !q || g.name.toLowerCase().includes(q) || g.address.toLowerCase().includes(q);
+      
+      // Filter by method
+      const activeFilters = filterState[tab] || {};
+      const hasActiveFilters = Object.values(activeFilters).some(v => v);
+      const matchesMethod = !hasActiveFilters || activeFilters[g.undangan];
+      
+      return matchesSearch && matchesMethod;
+    });
+    renderTable(filtered, tbodyId, inviteFile);
+  }
+
+  function bindSearch(inputId, tbodyId, guests, inviteFile, tab) {
     const input = document.getElementById(inputId);
     if (!input) return;
 
     input.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
-      const filtered = q
-        ? guests.filter(g =>
-            g.name.toLowerCase().includes(q) ||
-            g.address.toLowerCase().includes(q)
-          )
-        : guests;
-      renderTable(filtered, tbodyId, inviteFile);
+      applyFilters(inputId, tbodyId, guests, inviteFile, tab);
+    });
+  }
+
+  function bindFilterButtons(tab) {
+    const filterBtn = document.getElementById(`filter-btn-${tab}`);
+    const filterDropdown = document.getElementById(`filter-dropdown-${tab}`);
+    const filterBadge = document.getElementById(`filter-badge-${tab}`);
+    const checkboxes = document.querySelectorAll(`.filter-checkbox[data-tab="${tab}"]`);
+    const searchId = `search-${tab}`;
+    const tbodyId = `${tab}-tbody`;
+    const guests = tab === 'groom' ? groomGuests : brideGuests;
+    const inviteFile = tab === 'groom' ? 'invitation' : 'invitation-2';
+
+    if (!filterBtn || !filterDropdown) return;
+
+    // Initialize filter state
+    if (!filterState[tab]) {
+      filterState[tab] = { online: false, offline: false };
+    }
+
+    // Toggle dropdown
+    filterBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      filterDropdown.style.display = filterDropdown.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!filterBtn.contains(e.target) && !filterDropdown.contains(e.target)) {
+        filterDropdown.style.display = 'none';
+      }
+    });
+
+    // Handle checkbox changes
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        filterState[tab][checkbox.value] = checkbox.checked;
+        
+        // Update badge visibility
+        const hasActive = Object.values(filterState[tab]).some(v => v);
+        filterBadge.style.display = hasActive ? 'flex' : 'none';
+        
+        // Reapply filters
+        applyFilters(searchId, tbodyId, guests, inviteFile, tab);
+      });
     });
   }
 
@@ -159,8 +219,11 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTable(groomGuests, 'groom-tbody', 'invitation');
   renderTable(brideGuests, 'bride-tbody', 'invitation-2');
 
-  bindSearch('search-groom', 'groom-tbody', groomGuests, 'invitation');
-  bindSearch('search-bride', 'bride-tbody', brideGuests, 'invitation-2');
+  bindSearch('search-groom', 'groom-tbody', groomGuests, 'invitation', 'groom');
+  bindSearch('search-bride', 'bride-tbody', brideGuests, 'invitation-2', 'bride');
+  
+  bindFilterButtons('groom');
+  bindFilterButtons('bride');
 
 });
 

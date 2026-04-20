@@ -21,7 +21,7 @@ const weddingData = {
     fullName   : "Ziyanaddini Qurrota A'yun",
     nickname   : "Zian",
     parents    : {
-      father : "Bpk. Muhammad Zaim Nour",
+      father : "Bpk. Muhammad Za'im",
       mother : "Ibu Tholi'ah"
     }
   },

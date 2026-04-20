@@ -92,14 +92,25 @@
               </button>
               <div class="filter-dropdown" id="filter-dropdown-groom" style="display: none;">
                 <p class="filter-label">Metode</p>
-                <label class="filter-option">
-                  <input type="checkbox" value="online" class="filter-checkbox" data-tab="groom" />
-                  <span>Online</span>
-                </label>
-                <label class="filter-option">
-                  <input type="checkbox" value="offline" class="filter-checkbox" data-tab="groom" />
-                  <span>Offline</span>
-                </label>
+                <div class="filter-group">
+                  <label class="filter-option">
+                    <input type="checkbox" value="online" class="filter-checkbox" data-tab="groom" data-filter="undangan" />
+                    <span>Online</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="offline" class="filter-checkbox" data-tab="groom" data-filter="undangan" />
+                    <span>Offline</span>
+                  </label>
+                </div>
+                <div class="filter-divider"></div>
+                <p class="filter-label">Jenis Teman</p>
+                <div class="filter-group filter-friend-group" id="filter-friend-group-groom" data-tab="groom">
+                  <!-- Rendered by dashboard.js -->
+                </div>
+                <div class="filter-actions">
+                  <button type="button" class="filter-action-btn filter-action-reset" data-tab="groom">Reset</button>
+                  <button type="button" class="filter-action-btn filter-action-apply" data-tab="groom">Apply</button>
+                </div>
               </div>
             </div>
           </div>
@@ -142,14 +153,25 @@
               </button>
               <div class="filter-dropdown" id="filter-dropdown-bride" style="display: none;">
                 <p class="filter-label">Metode</p>
-                <label class="filter-option">
-                  <input type="checkbox" value="online" class="filter-checkbox" data-tab="bride" />
-                  <span>Online</span>
-                </label>
-                <label class="filter-option">
-                  <input type="checkbox" value="offline" class="filter-checkbox" data-tab="bride" />
-                  <span>Offline</span>
-                </label>
+                <div class="filter-group">
+                  <label class="filter-option">
+                    <input type="checkbox" value="online" class="filter-checkbox" data-tab="bride" data-filter="undangan" />
+                    <span>Online</span>
+                  </label>
+                  <label class="filter-option">
+                    <input type="checkbox" value="offline" class="filter-checkbox" data-tab="bride" data-filter="undangan" />
+                    <span>Offline</span>
+                  </label>
+                </div>
+                <div class="filter-divider"></div>
+                <p class="filter-label">Jenis Teman</p>
+                <div class="filter-group filter-friend-group" id="filter-friend-group-bride" data-tab="bride">
+                  <!-- Rendered by dashboard.js -->
+                </div>
+                <div class="filter-actions">
+                  <button type="button" class="filter-action-btn filter-action-reset" data-tab="bride">Reset</button>
+                  <button type="button" class="filter-action-btn filter-action-apply" data-tab="bride">Apply</button>
+                </div>
               </div>
             </div>
           </div>

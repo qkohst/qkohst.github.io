@@ -119,8 +119,11 @@ document.addEventListener('DOMContentLoaded', () => {
           <p class="td-name-text">${escHtml(guest.name)}</p>
           <p class="td-address">${escHtml(guest.address)}\n${escHtml(guest.phoneNumber ? `(${guest.phoneNumber})` : '')}</p>
         </td>
-        <td class="td-method-${guest.undangan === 'online' ? 'online' : 'offline'}">
-          ${escHtml(guest.undangan === 'online' ? 'Online' : 'Offline')}
+        <td class="td-method">
+          <span class="td-method-${guest.undangan === 'online' ? 'online' : 'offline'}">
+            ${escHtml(guest.undangan === 'online' ? 'Online' : 'Offline')}
+          </span>
+          ${guest.kindOfFriend ? `<span class="td-friend">${escHtml(guest.kindOfFriend)}</span>` : ''}
         </td>
         <td class="td-action">
           <a href="${buildWaUrl(guest, inviteFile)}"
@@ -139,23 +142,59 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ── SEARCH / FILTER ────────────────────────────────────── */
-  const filterState = {};
-  
+  const filterState = {
+    groom: { undangan: {}, kindOfFriend: {} },
+    bride: { undangan: {}, kindOfFriend: {} }
+  };
+
+  function getUniqueKindOfFriend(guests) {
+    const set = new Set();
+    guests.forEach(g => {
+      if (g.kindOfFriend && g.kindOfFriend.trim() !== '') set.add(g.kindOfFriend);
+    });
+    return Array.from(set).sort((a, b) => a.localeCompare(b));
+  }
+
+  function renderKindOfFriendCheckboxes(tab, guests) {
+    const container = document.getElementById(`filter-friend-group-${tab}`);
+    if (!container) return;
+
+    const kinds = getUniqueKindOfFriend(guests);
+    if (kinds.length === 0) {
+      container.innerHTML = `<p class="filter-empty">Tidak ada data</p>`;
+      return;
+    }
+
+    container.innerHTML = kinds.map(kind => `
+      <label class="filter-option">
+        <input type="checkbox" value="${escHtml(kind)}" class="filter-checkbox" data-tab="${tab}" data-filter="kindOfFriend" />
+        <span>${escHtml(kind)}</span>
+      </label>
+    `).join('');
+  }
+
+  function countActiveFilters(tab) {
+    const state = filterState[tab];
+    if (!state) return 0;
+    const undanganCount = Object.values(state.undangan).filter(Boolean).length;
+    const kindCount = Object.values(state.kindOfFriend).filter(Boolean).length;
+    return undanganCount + kindCount;
+  }
+
   function applyFilters(inputId, tbodyId, guests, inviteFile, tab) {
     const input = document.getElementById(inputId);
     if (!input) return;
 
     const q = input.value.trim().toLowerCase();
+    const state = filterState[tab] || { undangan: {}, kindOfFriend: {} };
+    const undanganActive = Object.values(state.undangan).some(Boolean);
+    const kindActive = Object.values(state.kindOfFriend).some(Boolean);
+
     const filtered = guests.filter(g => {
-      // Filter by search query
       const matchesSearch = !q || g.name.toLowerCase().includes(q) || g.address.toLowerCase().includes(q);
-      
-      // Filter by method
-      const activeFilters = filterState[tab] || {};
-      const hasActiveFilters = Object.values(activeFilters).some(v => v);
-      const matchesMethod = !hasActiveFilters || activeFilters[g.undangan];
-      
-      return matchesSearch && matchesMethod;
+      const matchesMethod = !undanganActive || state.undangan[g.undangan];
+      const matchesKind = !kindActive || state.kindOfFriend[g.kindOfFriend];
+      return matchesSearch && matchesMethod && matchesKind;
     });
     renderTable(filtered, tbodyId, inviteFile);
   }
@@ -169,11 +208,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function syncCheckboxesFromState(tab) {
+    const state = filterState[tab];
+    const checkboxes = document.querySelectorAll(`.filter-checkbox[data-tab="${tab}"]`);
+    checkboxes.forEach(cb => {
+      const filterKey = cb.dataset.filter;
+      const bucket = state[filterKey] || {};
+      cb.checked = !!bucket[cb.value];
+    });
+  }
+
+  function updateBadge(tab) {
+    const filterBadge = document.getElementById(`filter-badge-${tab}`);
+    if (!filterBadge) return;
+    filterBadge.style.display = countActiveFilters(tab) > 0 ? 'flex' : 'none';
+  }
+
   function bindFilterButtons(tab) {
     const filterBtn = document.getElementById(`filter-btn-${tab}`);
     const filterDropdown = document.getElementById(`filter-dropdown-${tab}`);
-    const filterBadge = document.getElementById(`filter-badge-${tab}`);
-    const checkboxes = document.querySelectorAll(`.filter-checkbox[data-tab="${tab}"]`);
+    const applyBtn = filterDropdown && filterDropdown.querySelector('.filter-action-apply');
+    const resetBtn = filterDropdown && filterDropdown.querySelector('.filter-action-reset');
     const searchId = `search-${tab}`;
     const tbodyId = `${tab}-tbody`;
     const guests = tab === 'groom' ? groomGuests : brideGuests;
@@ -181,37 +236,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!filterBtn || !filterDropdown) return;
 
-    // Initialize filter state
-    if (!filterState[tab]) {
-      filterState[tab] = { online: false, offline: false };
-    }
-
-    // Toggle dropdown
+    // Toggle dropdown — saat dibuka, sinkronkan checkbox dengan state yang sudah diterapkan
     filterBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      filterDropdown.style.display = filterDropdown.style.display === 'none' ? 'block' : 'none';
+      const willShow = filterDropdown.style.display === 'none';
+      filterDropdown.style.display = willShow ? 'block' : 'none';
+      if (willShow) syncCheckboxesFromState(tab);
     });
 
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
       if (!filterBtn.contains(e.target) && !filterDropdown.contains(e.target)) {
         filterDropdown.style.display = 'none';
+        // Saat ditutup tanpa Apply, kembalikan checkbox ke state terakhir
+        syncCheckboxesFromState(tab);
       }
     });
 
-    // Handle checkbox changes
-    checkboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', () => {
-        filterState[tab][checkbox.value] = checkbox.checked;
-        
-        // Update badge visibility
-        const hasActive = Object.values(filterState[tab]).some(v => v);
-        filterBadge.style.display = hasActive ? 'flex' : 'none';
-        
-        // Reapply filters
+    // Apply — baca semua checkbox, simpan ke state, jalankan filter
+    if (applyBtn) {
+      applyBtn.addEventListener('click', () => {
+        const checkboxes = filterDropdown.querySelectorAll('.filter-checkbox');
+        const next = { undangan: {}, kindOfFriend: {} };
+        checkboxes.forEach(cb => {
+          const filterKey = cb.dataset.filter;
+          if (!next[filterKey]) next[filterKey] = {};
+          next[filterKey][cb.value] = cb.checked;
+        });
+        filterState[tab] = next;
+        updateBadge(tab);
+        applyFilters(searchId, tbodyId, guests, inviteFile, tab);
+        filterDropdown.style.display = 'none';
+      });
+    }
+
+    // Reset — kosongkan semua checkbox & state, jalankan filter
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        filterDropdown.querySelectorAll('.filter-checkbox').forEach(cb => { cb.checked = false; });
+        filterState[tab] = { undangan: {}, kindOfFriend: {} };
+        updateBadge(tab);
         applyFilters(searchId, tbodyId, guests, inviteFile, tab);
       });
-    });
+    }
   }
 
   /* ── TABS ───────────────────────────────────────────────── */
@@ -260,7 +327,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   bindSearch('search-groom', 'groom-tbody', groomGuests, 'invitation', 'groom');
   bindSearch('search-bride', 'bride-tbody', brideGuests, 'invitation-2', 'bride');
-  
+
+  renderKindOfFriendCheckboxes('groom', groomGuests);
+  renderKindOfFriendCheckboxes('bride', brideGuests);
+
   bindFilterButtons('groom');
   bindFilterButtons('bride');
   

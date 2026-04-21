@@ -94,33 +94,1749 @@ const weddingData = {
 
   // Untuk tamu dari pihak mempelai pria
   guestsMan: [
-    {
-      key : "default",
-      name : "Bapak/Ibu/Saudara/i",
-      address : "Di Tempat",
-      undangan : "online",
-      phoneNumber : null
+     {
+      "key": "rabu-bangkok",
+      "name": "Rabu",
+      "address": "Bangkok",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
     },
     {
-      key     : "budi",
-      name    : "Budi Santoso",
-      address : "Jl. Merpati No. 123, Jakarta",
-      undangan : "online",
-      phoneNumber : null
+      "key": "arfi-antasofa-batang",
+      "name": "Arfi Antasofa",
+      "address": "Batang",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
     },
     {
-      key     : "siti",
-      name    : "Siti Aminah",
-      address : "Jl. Kenari No. 45, Bandung",
-      undangan : "online",
-      phoneNumber : "+62 852-3207-7932"
+      "key": "hanik-bendan",
+      "name": "Hanik",
+      "address": "Bendan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
     },
     {
-      key     : "ahmad",
-      name    : "Ahmad Fauzi",
-      address : "Jl. Cendrawasih No. 67, Surabaya",
-      undangan : "offline",
-      phoneNumber : null
+      "key": "nahar-bendan",
+      "name": "Nahar",
+      "address": "Bendan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "kak-dhika-bendan",
+      "name": "Kak Dhika",
+      "address": "Bendan",
+      "kindOfFriend": "Keluarga",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "rita-bendan",
+      "name": "Rita",
+      "address": "Bendan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "mutiara-sulatin-bendan",
+      "name": "Mutiara (Sulatin)",
+      "address": "Bendan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "niko-bendan",
+      "name": "Niko",
+      "address": "Bendan",
+      "kindOfFriend": "Keluarga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "iwan-bendan",
+      "name": "Iwan",
+      "address": "Bendan",
+      "kindOfFriend": "Keluarga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ramat-bendan",
+      "name": "Ramat",
+      "address": "Bendan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "soim-bendan",
+      "name": "Soim",
+      "address": "Bendan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "yanti-kardoyo-bendan",
+      "name": "Yanti (Kardoyo)",
+      "address": "Bendan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "timbang-bendan-mander",
+      "name": "Timbang",
+      "address": "Bendan - Mander",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "djumaidah-bendan-mander",
+      "name": "Djumaidah",
+      "address": "Bendan - Mander",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "abdul-ghofur-cerme",
+      "name": "Abdul Ghofur",
+      "address": "Cerme",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "rizki-cerme",
+      "name": "Rizki",
+      "address": "Cerme",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "bpk-huda-cokrowati",
+      "name": "Bpk. Huda",
+      "address": "Cokrowati",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "mat-pendek-dampung",
+      "name": "Mat (Pendek)",
+      "address": "Dampung",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "nanda-dampung",
+      "name": "Nanda",
+      "address": "Dampung",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "utomo-daresan",
+      "name": "Utomo",
+      "address": "Daresan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "riyati-dasin",
+      "name": "Riyati",
+      "address": "Dasin",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "shodiq-dasin",
+      "name": "Shodiq",
+      "address": "Dasin",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "santoso-dasin",
+      "name": "Santoso",
+      "address": "Dasin",
+      "kindOfFriend": "Teman SMP",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "tatik-dasin",
+      "name": "Tatik",
+      "address": "Dasin",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "m-hadi-yussalam-dasin",
+      "name": "M. Hadi Yussalam",
+      "address": "Dasin",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ramijan-dikir",
+      "name": "Ramijan",
+      "address": "Dikir",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "gatot-dikir",
+      "name": "Gatot",
+      "address": "Dikir",
+      "kindOfFriend": "Keluarga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "muslikin-dikir",
+      "name": "Muslikin",
+      "address": "Dikir",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "umma-dikir",
+      "name": "Umma",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "kofirin-dikir",
+      "name": "Kofirin",
+      "address": "Dikir",
+      "kindOfFriend": "Teman SD",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "wawan-dikir",
+      "name": "Wawan",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "suryanto-dikir",
+      "name": "Suryanto",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "aang-dikir",
+      "name": "Aang",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "rofik-jawi-dikir",
+      "name": "Rofik (Jawi)",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "tholabul-karim-dikir",
+      "name": "Tholabul Karim",
+      "address": "Dikir",
+      "kindOfFriend": "Teman SD",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "dicky-bayhaqi-dikir",
+      "name": "Dicky Bayhaqi",
+      "address": "Dikir",
+      "kindOfFriend": "Teman SD",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "rokim-dikir",
+      "name": "Rokim",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "didik-tohari-dikir",
+      "name": "Didik Tohari",
+      "address": "Dikir",
+      "kindOfFriend": "Teman SD",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "tain-dikir",
+      "name": "Tain",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "mei-dikir",
+      "name": "Mei",
+      "address": "Dikir",
+      "kindOfFriend": "Teman SD",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "agus-dikir",
+      "name": "Agus",
+      "address": "Dikir",
+      "kindOfFriend": "Teman SD",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ibnu-dikir",
+      "name": "Ibnu",
+      "address": "Dikir",
+      "kindOfFriend": "Teman SD",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "najib-dikir",
+      "name": "Najib",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "nawir-dikir",
+      "name": "Nawir",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "rika-rahayu-dikir",
+      "name": "Rika (Rahayu)",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "fitri-dikir",
+      "name": "Fitri",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "bayu-dikir",
+      "name": "Bayu",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ilmi-dikir",
+      "name": "Ilmi",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "hantoyo-dikir",
+      "name": "Hantoyo",
+      "address": "Dikir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ansori-dikir-geneng",
+      "name": "Ansori",
+      "address": "Dikir - Geneng",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "wibowo-dikir-tambakboyo",
+      "name": "Wibowo",
+      "address": "Dikir Tambakboyo",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "aji-mendo-frt",
+      "name": "Aji (Mendo)",
+      "address": "FRT",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "siaful-ahbab-frt",
+      "name": "Siaful Ahbab",
+      "address": "FRT",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "asmira-gadon",
+      "name": "Asmira",
+      "address": "Gadon",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "pipit-gadon",
+      "name": "Pipit",
+      "address": "Gadon",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "lailiyatul-munawaroh-gadon",
+      "name": "Lailiyatul Munawaroh",
+      "address": "Gadon",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ahmad-ghozali-gadon",
+      "name": "Ahmad Ghozali",
+      "address": "Gadon",
+      "kindOfFriend": "Teman Kuliah",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ust-moh-darul-afan-gaji-kerek",
+      "name": "Ust. Moh. Darul Afan",
+      "address": "Gaji - Kerek",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "sasmiati-gandu",
+      "name": "Sasmiati",
+      "address": "Gandu",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "abu-naim-jamong",
+      "name": "Abu Naim",
+      "address": "Jamong",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "kuswanto-karang-pacar-bancar",
+      "name": "Kuswanto",
+      "address": "Karang Pacar - Bancar",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "hana-ratri-rahayu-karangasem",
+      "name": "Hana Ratri Rahayu",
+      "address": "Karangasem",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "zam-zam-karangpacar",
+      "name": "Zam-zam",
+      "address": "Karangpacar",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "suci-karangpacar",
+      "name": "Suci",
+      "address": "Karangpacar",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "wakid-kebumen",
+      "name": "Wakid",
+      "address": "Kebumen",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "suliswanto-kebumen",
+      "name": "Suliswanto",
+      "address": "Kebumen",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "kak-karjono-kenanti",
+      "name": "Kak Karjono",
+      "address": "Kenanti",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "korik-klutuk",
+      "name": "Korik",
+      "address": "Klutuk",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "m-zainuddin-zuhri-klutuk",
+      "name": "M. Zainuddin Zuhri",
+      "address": "Klutuk",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "teguh-arianto-klutuk",
+      "name": "Teguh Arianto",
+      "address": "Klutuk",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "wahid-anwar-klutuk",
+      "name": "Wahid Anwar",
+      "address": "Klutuk",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "sindi-mander",
+      "name": "Sindi",
+      "address": "Mander",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "sahrul-nijam-mander",
+      "name": "Sahrul Nijam",
+      "address": "Mander",
+      "kindOfFriend": "Teman SMP",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "muhimatul-ifadah-margosuko-bancar",
+      "name": "Muhimatul Ifadah",
+      "address": "Margosuko - Bancar",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ririn-mbendan",
+      "name": "Ririn",
+      "address": "Mbendan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "siti-ulhusna-merkawang",
+      "name": "Siti Ulhusna",
+      "address": "Merkawang",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "m-roghib-qoyyimudin-merkawang",
+      "name": "M. Roghib Qoyyimudin",
+      "address": "Merkawang",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "khoirur-rozikin-merkawang",
+      "name": "Khoirur Rozikin",
+      "address": "Merkawang",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "yoga-mge",
+      "name": "Yoga",
+      "address": "MGE",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "fian-hidayah-mge",
+      "name": "Fian Hidayah",
+      "address": "MGE",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "basyir-mge",
+      "name": "Basyir",
+      "address": "MGE",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "stifa-mge",
+      "name": "Stifa",
+      "address": "MGE",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "dipta-mge",
+      "name": "Dipta",
+      "address": "MGE",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "khoirunnisa-devita-sari-mge",
+      "name": "Khoirunnisa Devita Sari",
+      "address": "MGE",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "abdul-rahman-saleh-mge",
+      "name": "Abdul Rahman Saleh",
+      "address": "MGE",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "syafatus-syafiin-ndolok-ngulahan",
+      "name": "Syafatus Syafi'in",
+      "address": "Ndolok - Ngulahan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "juwanto-ngulahan",
+      "name": "Juwanto",
+      "address": "Ngulahan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "tain-ngulahan",
+      "name": "Tain",
+      "address": "Ngulahan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ubab-pabeyan",
+      "name": "Ubab",
+      "address": "Pabeyan",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "bashori-pasatan",
+      "name": "Bashori",
+      "address": "Pasatan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "afan-mushonep-pasatan",
+      "name": "Afan Mushonep",
+      "address": "Pasatan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "lukman-pelem",
+      "name": "Lukman",
+      "address": "Pelem",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "rohmadi-pesantren-klutuk",
+      "name": "Rohmadi",
+      "address": "Pesantren Klutuk",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "kasrofi-pesantren-klutuk",
+      "name": "Kasrofi",
+      "address": "Pesantren Klutuk",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ustzh-septi-isnayati-hidayat-pkbm-nurul-jadid",
+      "name": "Ustzh. Septi Isnayati Hidayat",
+      "address": "PKBM Nurul Jadid",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ust-maslikan-pkbm-nurul-jadid",
+      "name": "Ust. Maslikan",
+      "address": "PKBM Nurul Jadid",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ust-syaifuddin-pkbm-nurul-jadid",
+      "name": "Ust. Syaifuddin",
+      "address": "PKBM Nurul Jadid",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ustzh-herlinawati-pkbm-nurul-jadid",
+      "name": "Ustzh. Herlinawati",
+      "address": "PKBM Nurul Jadid",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "jani-plajan",
+      "name": "Jani",
+      "address": "Plajan",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ratmaji-plajan",
+      "name": "Ratmaji",
+      "address": "Plajan",
+      "kindOfFriend": "Keluarga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "mujiati-plajan",
+      "name": "Mujiati",
+      "address": "Plajan",
+      "kindOfFriend": "Keluarga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "pita-plajan",
+      "name": "Pita",
+      "address": "Plajan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "tria-plajan",
+      "name": "Tria",
+      "address": "Plajan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "intan-plajan",
+      "name": "Intan",
+      "address": "Plajan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "rofik-plajan",
+      "name": "Rofik",
+      "address": "Plajan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "uul-plajan",
+      "name": "Uul",
+      "address": "Plajan",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "kundono-plajan-kidul",
+      "name": "Kundono",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "wanto-plajan-kidul",
+      "name": "Wanto",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Keluarga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "tarim-plajan-kidul",
+      "name": "Tarim",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "wariyati-plajan-kidul",
+      "name": "Wariyati",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "har-plajan-kidul",
+      "name": "Har",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "suwandi-plajan-kidul",
+      "name": "Suwandi",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "kholis-plajan-kidul",
+      "name": "Kholis",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "santoso-plajan-kidul",
+      "name": "Santoso",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "priyono-plajan-kidul",
+      "name": "Priyono",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "warsani-plajan-kidul",
+      "name": "Warsani",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "agus-plajan-kidul",
+      "name": "Agus",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "udin-plajan-kidul",
+      "name": "Udin",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ika-plajan-kidul",
+      "name": "Ika",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "fian-plajan-kidul",
+      "name": "Fian",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "abdul-rokim-plajan-kidul",
+      "name": "Abdul Rokim",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "witono-plajan-kidul",
+      "name": "Witono",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "mila-plajan-kidul",
+      "name": "Mila",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "apit-londo-plajan-kidul",
+      "name": "Apit (Londo)",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "depi-plajan-kidul",
+      "name": "Depi",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "danang-plajan-kidul",
+      "name": "Danang",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "saipul-darmo-plajan-kidul",
+      "name": "Saipul (Darmo)",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "said-plajan-kidul",
+      "name": "Said",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "bunarko-plajan-kidul",
+      "name": "Bunarko",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "mur-plajan-kidul",
+      "name": "Mur",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "topan-plajan-kidul",
+      "name": "Topan",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "irwan-plajan-kidul",
+      "name": "Irwan",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "dulure-said-plajan-kidul",
+      "name": "Dulure Said",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "timah-plajan-kidul",
+      "name": "Timah",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "kardi-plajan-kidul",
+      "name": "Kardi",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "zainuri-arif-plumpang",
+      "name": "Zainuri Arif",
+      "address": "Plumpang",
+      "kindOfFriend": "Teman Kuliah",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "ust-amin-pondok-fathimiyyah",
+      "name": "Ust. Amin",
+      "address": "Pondok Fathimiyyah",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ust-rohman-pondok-fathimiyyah",
+      "name": "Ust. Rohman",
+      "address": "Pondok Fathimiyyah",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "amin-rosyid-pucuk-lamongan",
+      "name": "Amin Rosyid",
+      "address": "Pucuk - Lamongan",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "rudik-pule",
+      "name": "Rudik",
+      "address": "Pule",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "hendra-pule",
+      "name": "Hendra",
+      "address": "Pule",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "nurul-pule",
+      "name": "Nurul",
+      "address": "Pule",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "nita-pule",
+      "name": "Nita",
+      "address": "Pule",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "boi-pule",
+      "name": "Boi",
+      "address": "Pule",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "rian-pule",
+      "name": "Rian",
+      "address": "Pule",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "dinda-pule",
+      "name": "Dinda",
+      "address": "Pule",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "anake-kasri-pule",
+      "name": "Anake Kasri",
+      "address": "Pule",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "wiji-wiono-pule",
+      "name": "Wiji Wiono",
+      "address": "Pule",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "harmiko-pule-mander-pugoh",
+      "name": "Harmiko",
+      "address": "Pule Mander (Pugoh)",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "shokip-pulo",
+      "name": "Shokip",
+      "address": "Pulo",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "andri-pulo",
+      "name": "Andri",
+      "address": "Pulo",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "laili-hidayah-rengel",
+      "name": "Laili Hidayah",
+      "address": "Rengel",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "eta-pristanti-rengel",
+      "name": "Eta Pristanti",
+      "address": "Rengel",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "ust-bashofi-sdi-data",
+      "name": "Ust. Bashofi",
+      "address": "SDI DATA",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ust-idris-sdi-data",
+      "name": "Ust. Idris",
+      "address": "SDI DATA",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "apit-silir",
+      "name": "Apit",
+      "address": "Silir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "tutik-silir",
+      "name": "Tutik",
+      "address": "Silir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ulul-albab-silir",
+      "name": "Ulul Albab",
+      "address": "Silir",
+      "kindOfFriend": "Teman SD",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "suwandin-silir",
+      "name": "Suwandin",
+      "address": "Silir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "wakola-silir",
+      "name": "Wakola",
+      "address": "Silir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "wabika-silir",
+      "name": "Wabika",
+      "address": "Silir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "natan-mbah-ruk-silir",
+      "name": "Natan (Mbah Ruk)",
+      "address": "Silir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "iron-silir",
+      "name": "Iron",
+      "address": "Silir",
+      "kindOfFriend": "Teman SD",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "toksin-silir",
+      "name": "Toksin",
+      "address": "Silir",
+      "kindOfFriend": "Teman SD",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "rasmadi-dapok-silir",
+      "name": "Rasmadi (Dapok)",
+      "address": "Silir",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "sholeh-silir-lor",
+      "name": "Sholeh",
+      "address": "Silir Lor",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "munawaroh-silir-lor",
+      "name": "Munawaroh",
+      "address": "Silir Lor",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "abdul-rokhim-silir-lor",
+      "name": "Abdul Rokhim",
+      "address": "Silir lor",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "kastono-silir-lor",
+      "name": "Kastono",
+      "address": "Silir Lor",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ahmad-zaka-silir-lor",
+      "name": "Ahmad Zaka",
+      "address": "Silir Lor",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "wawan-silir-lor",
+      "name": "Wawan",
+      "address": "Silir Lor",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "serli-silir-lor",
+      "name": "Serli",
+      "address": "Silir Lor",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "yulaikah-silir-lor",
+      "name": "Yulaikah",
+      "address": "Silir Lor",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "sholakudin-silir-lor",
+      "name": "Sholakudin",
+      "address": "Silir Lor",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "khoirul-uma-silir-lor",
+      "name": "Khoirul Uma",
+      "address": "Silir Lor",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "khozinatul-muarifin-silir-lor",
+      "name": "Khozinatul Mu'arifin",
+      "address": "Silir Lor",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "arip-silir-lor",
+      "name": "Arip",
+      "address": "Silir Lor",
+      "kindOfFriend": "Tetangga",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "hardiyan-smk-marif",
+      "name": "Hardiyan",
+      "address": "SMK Ma'arif",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ust-kholilur-rohman-smk-marif",
+      "name": "Ust. Kholilur Rohman",
+      "address": "SMK Ma'arif",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "bpk-putut-sudiyono-smk-marif",
+      "name": "Bpk. Putut Sudiyono",
+      "address": "SMK Ma'arif",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "bpk-davi-parmono-jati-smk-marif",
+      "name": "Bpk. Davi Parmono Jati",
+      "address": "SMK Ma'arif",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "bpk-ahmad-tain-smk-marif",
+      "name": "Bpk. Ahmad Ta'in",
+      "address": "SMK Ma'arif",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "bpk-m-saiful-anwar-smk-marif",
+      "name": "Bpk. M. Saiful Anwar",
+      "address": "SMK Ma'arif",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "bpk-tony-prasetyo-smk-marif",
+      "name": "Bpk. Tony Prasetyo",
+      "address": "SMK Ma'arif",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "muhammad-kholil-a-rosyidi-smk-marif",
+      "name": "Muhammad Kholil A Rosyidi",
+      "address": "SMK Ma'arif",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "eko-prasetyo-smk-marif",
+      "name": "Eko Prasetyo",
+      "address": "SMK Ma'arif",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "bpk-m-aries-khoerul-huda-smk-marif",
+      "name": "Bpk. M. Aries Khoerul Huda",
+      "address": "SMK Ma'arif",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ustzh-risa-mahmudah-smp-data",
+      "name": "Ustzh. Risa Mahmudah",
+      "address": "SMP DATA",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "mas-husni-muzadi-smp-data",
+      "name": "Mas Husni Muzadi",
+      "address": "SMP DATA",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ust-suwardi-kamat-smp-data",
+      "name": "Ust. Suwardi Kamat",
+      "address": "SMP DATA",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "usthabibul-lubab-smp-data",
+      "name": "Ust.Habibul Lubab",
+      "address": "SMP DATA",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ust-ali-ghufron-smp-data",
+      "name": "Ust. Ali Ghufron",
+      "address": "SMP DATA",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ustzh-darmini-smp-data",
+      "name": "Ustzh. Darmini",
+      "address": "SMP DATA",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ustzh-hana-ratri-rahayu-smp-data",
+      "name": "Ustzh. Hana Ratri Rahayu",
+      "address": "SMP DATA",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ust-m-hasan-bisri-smp-data",
+      "name": "Ust. M. Hasan Bisri",
+      "address": "SMP DATA",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ust-risa-mahmudah-smp-data",
+      "name": "Ust. Risa Mahmudah",
+      "address": "SMP DATA",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "mas-hasan-smp-data",
+      "name": "Mas Hasan",
+      "address": "SMP DATA",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "ahmad-rofiqi-sobontoto",
+      "name": "Ahmad Rofiqi",
+      "address": "Sobontoto",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "dholil-sotang",
+      "name": "Dholil",
+      "address": "Sotang",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "khomsatun-nur-sotang",
+      "name": "Khomsatun Nur",
+      "address": "Sotang",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "januri-tambakboyo",
+      "name": "Januri",
+      "address": "Tambakboyo",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "adiar-fitrianto-tambakboyo",
+      "name": "Adiar Fitrianto",
+      "address": "Tambakboyo",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "rizal-alamin-tambakboyo",
+      "name": "Rizal Alamin",
+      "address": "Tambakboyo",
+      "kindOfFriend": "Teman SMK",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "zainal-fanani-tambakboyo",
+      "name": "Zainal Fanani",
+      "address": "Tambakboyo",
+      "kindOfFriend": "Teman Kuliah",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "bpk-tejo-koramil-tambakboyo",
+      "name": "Bpk. Tejo (Koramil)",
+      "address": "Tambakboyo",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "sanep-tambakromo",
+      "name": "Sanep",
+      "address": "Tambakromo",
+      "kindOfFriend": "Teman",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "kiki-lukita-sari-unirow",
+      "name": "Kiki Lukita Sari",
+      "address": "Unirow",
+      "kindOfFriend": "Teman Kuliah",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "afrizal-malna-unirow",
+      "name": "Afrizal Malna",
+      "address": "Unirow",
+      "kindOfFriend": "Teman Kuliah",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "muhammad-rifki-bayhaqy-unirow",
+      "name": "Muhammad Rifki Bayhaqy",
+      "address": "Unirow",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "yetno-unirow",
+      "name": "Yetno",
+      "address": "Unirow",
+      "kindOfFriend": "Teman Kuliah",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "aries-unirow",
+      "name": "Aries",
+      "address": "Unirow",
+      "kindOfFriend": "Teman Kuliah",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "samsul-unirow",
+      "name": "Samsul",
+      "address": "Unirow",
+      "kindOfFriend": "Teman Kuliah",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "yayang-puguh-unirow",
+      "name": "Yayang Puguh",
+      "address": "Unirow",
+      "kindOfFriend": "Teman Kuliah",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "m-iqbal-unirow",
+      "name": "M. Iqbal",
+      "address": "Unirow",
+      "kindOfFriend": "Teman Kuliah",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "masud-unirow",
+      "name": "Masud",
+      "address": "Unirow",
+      "kindOfFriend": "Teman Kuliah",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "reza-agit-unirow",
+      "name": "Reza Agit",
+      "address": "Unirow",
+      "kindOfFriend": "Teman Kuliah",
+      "undangan": "offline",
+      "phoneNumber": null
+    },
+    {
+      "key": "kak-hadi-probolinggo",
+      "name": "Kak Hadi",
+      "address": "Probolinggo",
+      "kindOfFriend": "Keluarga",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "toni-oktoro-jombang",
+      "name": "Toni Oktoro",
+      "address": "Jombang",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
     }
   ],
 

@@ -201,22 +201,12 @@ body.app-locked .bottom-nav {
   background-position: center top;
   background-repeat: no-repeat;
   will-change: transform;
-  animation: heroKenBurns 20s ease-in-out infinite;
+  animation: heroZoom 12s ease-in-out infinite alternate;
 }
 
-@keyframes heroKenBurns {
-  0%   { transform: scale(1.15) translate3d(0%, 0%, 0); }
-  25%  { transform: scale(1.25) translate3d(-3.5%, -2.5%, 0); }
-  50%  { transform: scale(1.20) translate3d(3%, -3.5%, 0); }
-  75%  { transform: scale(1.25) translate3d(-2%, 2%, 0); }
-  100% { transform: scale(1.15) translate3d(0%, 0%, 0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cover-hero {
-    animation: none;
-    transform: scale(1.1);
-  }
+@keyframes heroZoom {
+  0%   { transform: scale(1.10); }
+  100% { transform: scale(1.25); }
 }
 
 .cover-overlay {
@@ -229,6 +219,22 @@ body.app-locked .bottom-nav {
     rgba(0, 0, 0, 0.60) 80%,
     rgba(0, 0, 0, 0.72) 100%
   );
+  animation: overlayBreathe 12s ease-in-out infinite alternate;
+}
+
+@keyframes overlayBreathe {
+  0%   { opacity: 1; }
+  100% { opacity: 0.78; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-hero,
+  .cover-overlay {
+    animation: none;
+  }
+  .cover-hero {
+    transform: scale(1.1);
+  }
 }
 
 .cover-content {

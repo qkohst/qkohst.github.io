@@ -431,7 +431,7 @@ body.app-locked .bottom-nav {
 .couple-card {
   background: #fff;
   border-radius: var(--radius);
-  padding: 28px 14px;
+  padding: 24px;
   text-align: center;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--gold-border);
@@ -487,17 +487,16 @@ body.app-locked .bottom-nav {
   font-size: 11px;
   color: var(--text-muted);
   line-height: 1.6;
-  margin-top: 12px;
-  padding-top: 12px;
+  margin-top: 4px;
+  padding-top: 4px;
   border-top: 1px dashed var(--gold-border);
+  text-align: center;
 }
 
 .address-icon {
-  display: inline-block;
-  vertical-align: -2px;
-  margin-right: 4px;
   color: var(--gold);
-  flex-shrink: 0;
+  margin-right: 2px;
+  vertical-align: top;
 }
 
 .couple-connector {

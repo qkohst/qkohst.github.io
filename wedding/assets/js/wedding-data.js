@@ -14,7 +14,8 @@ const weddingData = {
     parents    : {
       father : "Bpk. Wasono",
       mother : "Ibu Darmini"
-    }
+    },
+    address    : "RT 11/RW 04 Dsn. Silir Lor, Ds. Dikir, Kec. Tambakboyo, Kab. Tuban"
   },
 
   bride: {
@@ -23,7 +24,8 @@ const weddingData = {
     parents    : {
       father : "Bpk. Muhammad Za'im",
       mother : "Ibu Tholi'ah"
-    }
+    },
+    address    : "RT 03/RW 02 Ds. Sedayulawas, Kec. Brondong Kab. Lamongan"
   },
 
   /* ── WEDDING ─────────────────────────────────────────────── */
@@ -53,7 +55,7 @@ const weddingData = {
       date       : "Ahad, 07 Juni 2026",
       time       : "09.00 – 10.00 WIB",
       venue      : "Mushola Al-Hikmah",
-      address    : "RT 11/RW 04 Dsn. Silir Lor, Ds. Dikir, Tambakboyo, Kab. Tuban",
+      address    : "RT 11/RW 04 Dsn. Silir Lor, Ds. Dikir, Kec. Tambakboyo, Kab. Tuban",
       mapsEmbed  : "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.2411612450423!2d111.77939077750634!3d-6.861784875440246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e770b6b475d16ef%3A0x2ad0a263821c09d7!2sMushola%20Al%20Hikmah!5e1!3m2!1sen!2sid!4v1773685538173!5m2!1sen!2sid",
       mapsLink   : "https://maps.app.goo.gl/gwTAdZS9KQgbpSHDA"
     },
@@ -62,7 +64,7 @@ const weddingData = {
       date       : "Ahad, 07 Juni 2026",
       time       : "10.00 – 14.00 WIB",
       venue      : "Kediaman Mempelai Pria",
-      address    : "RT 11/RW 04 Dsn. Silir Lor, Ds. Dikir, Tambakboyo, Kab. Tuban",
+      address    : "RT 11/RW 04 Dsn. Silir Lor, Ds. Dikir, Kec. Tambakboyo, Kab. Tuban",
       mapsEmbed  : "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.239501074275!2d111.78168157475655!3d-6.862008793136519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e770b9f98edd767%3A0x3d7620cbb06cc0a4!2sQkoh%20St!5e1!3m2!1sen!2sid!4v1773685399162!5m2!1sen!2sid",
       mapsLink   : "https://maps.app.goo.gl/GE6RZ4jfceoEDhCg7"
     }

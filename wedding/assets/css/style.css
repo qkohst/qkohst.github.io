@@ -200,12 +200,23 @@ body.app-locked .bottom-nav {
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  transform: scale(1.25);
-  transition: transform 9s ease;
+  will-change: transform;
+  animation: heroKenBurns 20s ease-in-out infinite;
 }
 
-.cover-hero.loaded {
-  transform: scale(1);
+@keyframes heroKenBurns {
+  0%   { transform: scale(1.15) translate3d(0%, 0%, 0); }
+  25%  { transform: scale(1.25) translate3d(-3.5%, -2.5%, 0); }
+  50%  { transform: scale(1.20) translate3d(3%, -3.5%, 0); }
+  75%  { transform: scale(1.25) translate3d(-2%, 2%, 0); }
+  100% { transform: scale(1.15) translate3d(0%, 0%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-hero {
+    animation: none;
+    transform: scale(1.1);
+  }
 }
 
 .cover-overlay {
@@ -420,7 +431,7 @@ body.app-locked .bottom-nav {
 .couple-card {
   background: #fff;
   border-radius: var(--radius);
-  padding: 28px 24px;
+  padding: 28px 14px;
   text-align: center;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--gold-border);
@@ -470,6 +481,23 @@ body.app-locked .bottom-nav {
   color: var(--text-muted);
   line-height: 1.9;
   white-space: pre-line;
+}
+
+.couple-card-address {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--gold-border);
+}
+
+.address-icon {
+  display: inline-block;
+  vertical-align: -2px;
+  margin-right: 4px;
+  color: var(--gold);
+  flex-shrink: 0;
 }
 
 .couple-connector {

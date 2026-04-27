@@ -28,9 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
   setText('#groom-name',        g.fullName);
   setText('#groom-nickname',    `" ${g.nickname} "`);
   setText('#groom-parents',     `Putra dari: \n ${g.parents.father} & ${g.parents.mother}`);
+  setText('#groom-address',     g.address);
   setText('#bride-name',        b.fullName);
   setText('#bride-nickname',    `" ${b.nickname} "`);
   setText('#bride-parents',     `Putri dari: \n ${b.parents.father} & ${b.parents.mother}`);
+  setText('#bride-address',     b.address);
   setText('#wedding-quote',     w.quote);
   setText('#wedding-quote-src', w.quoteSource);
 

@@ -3651,6 +3651,30 @@ const weddingData = {
       "kindOfFriend": "Teman",
       "undangan": "offline",
       "phoneNumber": null
+    },
+    {
+      "key": "de-roh-malang",
+      "name": "De Roh",
+      "address": "Malang",
+      "kindOfFriend": "Keluarga",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "sorikh-malang",
+      "name": "Sorikh",
+      "address": "Malang",
+      "kindOfFriend": "Keluarga",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "mbk-rosa-sedayulawas",
+      "name": "Mbk Rosa",
+      "address": "Sedayulawas",
+      "kindOfFriend": "Keluarga",
+      "undangan": "online",
+      "phoneNumber": null
     }
   ]
 

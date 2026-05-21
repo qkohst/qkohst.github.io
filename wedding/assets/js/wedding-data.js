@@ -129,12 +129,12 @@ const weddingData = {
       "phoneNumber": null
     },
     {
-      "key": "kak-dhika-bendan",
-      "name": "Kak Dhika",
-      "address": "Bendan",
+      "key": "pakwo-ardhi-makwo-tarmini-sekeluarga",
+      "name": "Pakwo Ardhi & Makwo Tarmini Sekeluarga",
+      "address": "Surabaya",
       "kindOfFriend": "Keluarga",
       "undangan": "online",
-      "phoneNumber": null
+      "phoneNumber": "+6285853139429"
     },
     {
       "key": "rita-bendan",
@@ -154,7 +154,7 @@ const weddingData = {
     },
     {
       "key": "niko-bendan",
-      "name": "Niko",
+      "name": "Kak Niko",
       "address": "Bendan",
       "kindOfFriend": "Keluarga",
       "undangan": "offline",
@@ -1825,8 +1825,8 @@ const weddingData = {
       "phoneNumber": null
     },
     {
-      "key": "kak-hadi-probolinggo",
-      "name": "Kak Hadi",
+      "key": "pakwo-salim-sekeluarga",
+      "name": "Pakwo Salim Sekeluarga",
       "address": "Probolinggo",
       "kindOfFriend": "Keluarga",
       "undangan": "online",
@@ -1839,7 +1839,40 @@ const weddingData = {
       "kindOfFriend": "Teman",
       "undangan": "online",
       "phoneNumber": null
-    }
+    },
+    {
+      "key": "pakwo-coko-sekeluarga",
+      "name": "Pakwo Coko Sekeluarga",
+      "address": "Jakarta",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "pakwo-coko-sekeluarga",
+      "name": "Pakwo Coko Sekeluarga",
+      "address": "Jakarta",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "taufik-abidin-plajan-kidul",
+      "name": "Taufik Abidin",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    {
+      "key": "luluk-afandi-plajan-kidul",
+      "name": "Luluk Afandi",
+      "address": "Plajan Kidul",
+      "kindOfFriend": "Teman",
+      "undangan": "online",
+      "phoneNumber": null
+    },
+    
   ],
 
   // Untuk tamu dari pihak mempelai wanita

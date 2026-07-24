@@ -289,6 +289,22 @@ document.addEventListener('DOMContentLoaded', function () {
     bootstrap.Modal.getOrCreateInstance(document.getElementById('previewModal')).show();
   });
 
+  // Reset scroll position of preview modal content each time it opens.
+  // Must run on `shown.bs.modal` (after transition + layout) — running on
+  // `show.bs.modal` is a no-op because the browser restores scroll offset
+  // once the modal becomes visible again.
+  (function () {
+    var previewModalEl = document.getElementById('previewModal');
+    if (!previewModalEl) return;
+    var resetScroll = function () {
+      previewModalEl.querySelectorAll('.modal-info, .modal-body, .modal-content').forEach(function (el) {
+        el.scrollTop = 0;
+      });
+    };
+    previewModalEl.addEventListener('show.bs.modal', resetScroll);
+    previewModalEl.addEventListener('shown.bs.modal', resetScroll);
+  })();
+
   $(document).on('keydown', function (e) {
     if (!$('#previewModal').hasClass('show')) return;
     var $carousel = $('#modalCarousel');

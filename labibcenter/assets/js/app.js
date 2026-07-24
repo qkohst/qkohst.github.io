@@ -315,6 +315,200 @@ document.addEventListener('DOMContentLoaded', function () {
     else if (e.key === 'ArrowRight') inst.next();
   });
 
+  // ============ Testimoni carousel (autoplay + prev/next + dots) ============
+  (function initTestimoniCarousel() {
+    var $carousel = $('.testimoni-carousel');
+    if (!$carousel.length) return;
+
+    var $track = $carousel.find('.testimoni-track');
+    var $cards = $track.children('.testimoni-card');
+    if (!$cards.length) return;
+
+    var $prev = $carousel.find('.tc-nav-prev');
+    var $next = $carousel.find('.tc-nav-next');
+    var $dotsWrap = $carousel.find('.tc-dots');
+    var $toggle = $carousel.find('.tc-autoplay-toggle');
+    var $iconPause = $toggle.find('.ap-icon-pause');
+    var $iconPlay = $toggle.find('.ap-icon-play');
+    var $label = $toggle.find('.ap-label');
+
+    var interval = parseInt($carousel.attr('data-autoplay-interval'), 10) || 4000;
+    var timer = null;
+    var isPaused = false;
+    var currentIndex = 0;   // index kartu paling kiri yg terlihat (0..maxIndex)
+
+    function getPerPage() {
+      var w = window.innerWidth;
+      if (w < 576) return 1;
+      if (w < 992) return 2;
+      return 3;
+    }
+    function maxIndex() {
+      return Math.max(0, $cards.length - getPerPage());
+    }
+    function totalPositions() {
+      return maxIndex() + 1;
+    }
+
+    function goTo(idx, animate) {
+      var mx = maxIndex();
+      // Wrap: setelah kartu terakhir kembali ke posisi 0, sebaliknya lompat ke posisi terakhir
+      if (idx > mx) currentIndex = 0;
+      else if (idx < 0) currentIndex = mx;
+      else currentIndex = idx;
+
+      var trackWidth = $track[0].scrollWidth;
+      var viewportWidth = $carousel.find('.testimoni-viewport')[0].clientWidth;
+      var cardW = $cards[0].getBoundingClientRect().width;
+      var gap = parseFloat(getComputedStyle($track[0]).columnGap || getComputedStyle($track[0]).gap) || 0;
+      var maxShift = Math.max(0, trackWidth - viewportWidth);
+      var offset = Math.min((cardW + gap) * currentIndex, maxShift);
+
+      $track.css({
+        transition: animate === false ? 'none' : '',
+        transform: 'translateX(' + (-offset) + 'px)'
+      });
+      if (animate === false) {
+        void $track[0].offsetWidth;
+        setTimeout(function () { $track.css('transition', ''); }, 0);
+      }
+      renderDots();
+    }
+
+    function renderDots() {
+      var tp = totalPositions();
+      var html = '';
+      for (var i = 0; i < tp; i++) {
+        html += '<button type="button" data-page="' + i + '"' +
+                (i === currentIndex ? ' class="active" aria-current="true"' : '') +
+                ' aria-label="Ke kartu ' + (i + 1) + '"></button>';
+      }
+      $dotsWrap.html(html);
+    }
+
+    function next() { goTo(currentIndex + 1); }
+    function prev() { goTo(currentIndex - 1); }
+
+    function startAutoplay() {
+      stopAutoplay();
+      if (isPaused) return;
+      timer = setInterval(next, interval);
+    }
+    function stopAutoplay() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+    function setPaused(paused) {
+      isPaused = paused;
+      $toggle.attr('aria-pressed', String(paused));
+      $iconPause.toggle(!paused);
+      $iconPlay.toggle(paused);
+      $label.text(paused ? 'Auto-play jeda' : 'Auto-play aktif');
+      if (paused) stopAutoplay();
+      else startAutoplay();
+    }
+
+    // Event bindings
+    $prev.on('click', function () { prev(); startAutoplay(); });
+    $next.on('click', function () { next(); startAutoplay(); });
+    $dotsWrap.on('click', 'button', function () {
+      goTo(parseInt(this.getAttribute('data-page'), 10));
+      startAutoplay();
+    });
+    $toggle.on('click', function () { setPaused(!isPaused); });
+
+    // Pause autoplay on hover / focus inside
+    $carousel.on('mouseenter', stopAutoplay);
+    $carousel.on('mouseleave', function () { if (!isPaused) startAutoplay(); });
+    $carousel.on('focusin', stopAutoplay);
+    $carousel.on('focusout', function () { if (!isPaused) startAutoplay(); });
+
+    // Pause when tab hidden (save battery)
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stopAutoplay();
+      else if (!isPaused) startAutoplay();
+    });
+
+    // Touch swipe support
+    var touchStartX = null, touchStartY = null;
+    $carousel.on('touchstart', function (e) {
+      touchStartX = e.originalEvent.touches[0].clientX;
+      touchStartY = e.originalEvent.touches[0].clientY;
+    });
+    $carousel.on('touchend', function (e) {
+      if (touchStartX == null) return;
+      var dx = e.originalEvent.changedTouches[0].clientX - touchStartX;
+      var dy = e.originalEvent.changedTouches[0].clientY - touchStartY;
+      // Only trigger swipe if horizontal movement dominant + significant
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) next(); else prev();
+        startAutoplay();
+      }
+      touchStartX = touchStartY = null;
+    });
+
+    // Recalc on resize (clamp currentIndex to new maxIndex)
+    var resizeTimer;
+    $(window).on('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        var mx = maxIndex();
+        if (currentIndex > mx) currentIndex = mx;
+        goTo(currentIndex, false);
+      }, 120);
+    });
+
+    // Initial render
+    goTo(0, false);
+    setPaused(false); // starts autoplay
+  })();
+
+  // ============ Testimoni lightbox ============
+  var AVATAR_COLORS = {
+    'a-cyan':    '#0891B2',
+    'a-magenta': '#EC4899',
+    'a-blue':    '#2E3ED6',
+    'a-orange':  '#EA580C',
+    'a-violet':  '#7C3AED',
+    'a-navy':    '#1A2668'
+  };
+
+  $('.tc-screenshot').on('click keydown', function (e) {
+    if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+    if (e.type === 'keydown') e.preventDefault();
+    var $trigger = $(this);
+    var full = $trigger.attr('data-full');
+    if (!full) return;
+
+    var $card = $trigger.closest('.testimoni-card');
+    var $srcAvatar = $card.find('.tc-avatar');
+    var name = $card.find('.tc-author-info strong').text().trim();
+    var role = $card.find('.tc-author-info span').text().trim();
+    var avatarText = $srcAvatar.text().trim();
+    var starsText = $card.find('.tc-stars').text() || '★★★★★';
+    var alt = $trigger.find('img').attr('alt') || (name + ' - screenshot chat');
+
+    // Pick matching avatar color class
+    var colorKey = 'a-navy';
+    for (var k in AVATAR_COLORS) {
+      if ($srcAvatar.hasClass(k)) { colorKey = k; break; }
+    }
+
+    $('#testimoniModalName').text(name || 'Customer');
+    $('#testimoniModalRole').text(role || '');
+    $('#testimoniModalStars').text(starsText);
+    $('#testimoniModalAvatar')
+      .text(avatarText)
+      .css('background', AVATAR_COLORS[colorKey]);
+
+    var imgEl = document.getElementById('testimoniModalImg');
+    delete imgEl.dataset.fbApplied;
+    imgEl.onerror = function () { window.imgFallback(imgEl); };
+    imgEl.alt = alt;
+    imgEl.src = full;
+
+    bootstrap.Modal.getOrCreateInstance(document.getElementById('testimoniModal')).show();
+  });
+
   $('#year').text(new Date().getFullYear());
   });
 });

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://labibcenter.github.io/sitemap.xml
+Sitemap: https://qkohst.github.io/labibcenter/sitemap.xml

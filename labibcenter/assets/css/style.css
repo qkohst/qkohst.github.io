@@ -91,6 +91,52 @@ a:hover { color: var(--brand-cyan); }
 .btn-wa-green.btn-lg { padding: .8rem 1.5rem; font-size: 1rem; }
 .btn-wa-green.btn-lg svg { width: 20px; height: 20px; }
 
+/* Hero CTA group — full-width & elevated on mobile */
+.hero-cta {
+  display: flex; flex-wrap: wrap; gap: .75rem; align-items: stretch;
+}
+.hero-cta .btn-wa-green,
+.hero-cta .btn-brand-outline {
+  min-height: 52px;
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+}
+.hero-cta .btn-wa-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(255,255,255,.18);
+}
+.hero-cta .btn-wa-icon svg { width: 16px; height: 16px; }
+.hero-cta .btn-brand-outline .btn-chevron {
+  width: 18px; height: 18px;
+  transition: transform .25s ease;
+}
+.hero-cta .btn-brand-outline:hover .btn-chevron { transform: translateY(3px); }
+
+@media (max-width: 575.98px) {
+  .hero-cta { flex-direction: column; gap: .7rem; }
+  .hero-cta .btn-wa-green,
+  .hero-cta .btn-brand-outline {
+    width: 100%;
+    padding: .95rem 1.25rem;
+    font-size: 1.02rem;
+    border-radius: .95rem;
+    letter-spacing: .01em;
+  }
+  .hero-cta .btn-wa-green {
+    box-shadow: 0 12px 28px rgba(37,211,102,.30), 0 2px 6px rgba(37,211,102,.18);
+  }
+  .hero-cta .btn-brand-outline {
+    background: rgba(255,255,255,.75);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 14px rgba(26,38,104,.08);
+  }
+  .hero-cta .btn-wa-green:active,
+  .hero-cta .btn-brand-outline:active {
+    transform: translateY(1px) scale(.99);
+  }
+}
+
 .navbar-toggler { border: 1px solid #e2e8f0; padding: .35rem .55rem; border-radius: .55rem; }
 .navbar-toggler:focus { box-shadow: 0 0 0 3px rgba(34,211,238,.22); }
 
@@ -106,8 +152,11 @@ a:hover { color: var(--brand-cyan); }
   background: transparent; color: var(--brand-navy); border: 2px solid var(--brand-navy);
   font-weight: 600; border-radius: .7rem; padding: .5rem 1.2rem;
   transition: all .18s ease;
+  text-decoration: none;
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
 }
 .btn-brand-outline:hover { background: var(--brand-navy); color: #fff; }
+.btn-brand-outline.btn-lg { padding: .8rem 1.5rem; font-size: 1rem; }
 .btn-brand-navy {
   background: var(--brand-navy); color: #fff; border: none; font-weight: 600; border-radius: .7rem;
   padding: .65rem 1.3rem;

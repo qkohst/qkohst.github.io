@@ -64,6 +64,15 @@ document.addEventListener('DOMContentLoaded', function () {
     $('html, body').animate({ scrollTop: 0 }, 400);
   });
 
+  // Auto-close mobile/tablet navbar after a menu link is tapped
+  $('#mainNav .nav-link').on('click', function () {
+    var nav = document.getElementById('mainNav');
+    if (nav && nav.classList.contains('show')) {
+      var inst = bootstrap.Collapse.getInstance(nav) || new bootstrap.Collapse(nav, { toggle: false });
+      inst.hide();
+    }
+  });
+
   // ============ Rupiah formatter ============
   function formatRp(n) {
     if (n == null || isNaN(n)) return '';

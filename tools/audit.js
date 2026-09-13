@@ -14,11 +14,18 @@ const ROOT = path.resolve(__dirname, '..');
 const DIR = path.resolve(ROOT, process.argv[2] || '_preview');
 
 const pages = [];
+/* Hanya halaman yang dihasilkan generator yang diaudit. Sub-situs lama
+   (pamdes/, wedding/) dan direktori kerja sengaja dilewati — keduanya di luar
+   lingkup redesign ini, dan memasukkannya hanya akan memberi alarm palsu. */
+const SKIP = /^(\.git|\.claude|\.playwright-mcp|node_modules|my_pages|assets|data|templates|tools|_preview|pamdes|wedding)$/;
 (function walk(d) {
   for (const e of fs.readdirSync(d, { withFileTypes: true })) {
-    const p = path.join(d, e.name);
-    if (e.isDirectory()) { if (!/^(\.git|node_modules|my_pages|assets|_preview)$/.test(e.name) || d !== DIR) walk(p); }
-    else if (e.name === 'index.html') pages.push(p);
+    if (e.isDirectory()) {
+      if (d === DIR && SKIP.test(e.name)) continue;
+      walk(path.join(d, e.name));
+    } else if (e.name === 'index.html') {
+      pages.push(path.join(d, e.name));
+    }
   }
 })(DIR);
 
@@ -29,14 +36,15 @@ const rows = pages.map(file => {
   const h = fs.readFileSync(file, 'utf8');
   // Yang dinilai hanya gambar KONTEN. Dikecualikan: <img> tanpa src (placeholder
   // lightbox, diisi JS) dan aria-hidden (dekoratif, alt kosong memang benar).
-  const imgs = [...h.matchAll(/<img[^>]*>/g)].map(m => m[0])
-    .filter(i => /src=/.test(i) && !/aria-hidden="true"/.test(i));
+  const imgs = [...h.matchAll(/<img\b[^>]*>/g)].map(m => m[0])
+    .filter(i => /\bsrc=/.test(i) && !/aria-hidden="true"/.test(i));
   const url = '/' + path.relative(DIR, file).split(path.sep).slice(0, -1).join('/');
   return {
     url: url === '/' ? '/' : url + '/',
     title: one(h, /<title>([^<]*)<\/title>/),
     desc: one(h, /name="description" content="([^"]*)"/),
     canonical: one(h, /rel="canonical" href="([^"]*)"/),
+    noindex: /content="noindex/.test(h),
     lang: one(h, /<html lang="([^"]*)"/),
     hreflang: count(h, /rel="alternate" hreflang=/g),
     og: count(h, /property="og:/g),
@@ -81,7 +89,9 @@ check('<img> tanpa width/height', sum('imgNoDim'), 0);
 check('<img> tanpa loading', sum('imgNoLoading'), 0);
 check('deskripsi >165 karakter', rows.filter(r => !r.desc || r.desc.length > 165).length, 0);
 check('skrip eksternal per halaman', Math.max(...rows.map(r => r.scripts)), 1, Math.max(...rows.map(r => r.scripts)) <= 1);
-check('stylesheet per halaman', Math.max(...rows.map(r => r.stylesheets)), 1, Math.max(...rows.map(r => r.stylesheets)) <= 1);
+// Batas 2: main.css di semua halaman, plus cv.css khusus halaman CV. Lembar
+// kedua yang dimuat hanya di satu jenis halaman bukan pemborosan.
+check('stylesheet per halaman', Math.max(...rows.map(r => r.stylesheets)), '<= 2', Math.max(...rows.map(r => r.stylesheets)) <= 2);
 
 // hreflang harus timbal balik: URL yang ditunjuk harus ada sebagai halaman
 const byUrl = new Map(rows.map(r => [r.url, r]));
@@ -102,7 +112,9 @@ for (const f of ['sitemap.xml', 'robots.txt', '.nojekyll']) {
 if (fs.existsSync(path.join(DIR, 'sitemap.xml'))) {
   const sm = fs.readFileSync(path.join(DIR, 'sitemap.xml'), 'utf8');
   const locs = new Set([...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].replace(/^https?:\/\/[^/]+/, '')));
-  check('halaman tercantum di sitemap', rows.filter(r => locs.has(r.url)).length, n);
+  // Halaman noindex (CV) memang sengaja tidak dimasukkan ke sitemap.
+  const indexable = rows.filter(r => !r.noindex);
+  check('halaman tercantum di sitemap', indexable.filter(r => locs.has(r.url)).length, indexable.length);
 }
 
 const w = 30;

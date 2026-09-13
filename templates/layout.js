@@ -38,7 +38,8 @@ ${each(alternates, a => `  <link rel="alternate" hreflang="${esc(a.lang)}" href=
   <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180">
   <script>${THEME_BOOT}</script>
-${ctx.fontHref ? `  <link rel="preload" href="${esc(ctx.fontHref)}" as="font" type="font/woff2" crossorigin>\n` : ''}  <link rel="stylesheet" href="/assets/css/main.css">
+${ctx.fontHref ? `  <link rel="preload" href="${esc(ctx.fontHref)}" as="font" type="font/woff2" crossorigin>\n` : ''}  <link rel="stylesheet" href="/assets/css/main.css">${ctx.extraCss ? `
+  <link rel="stylesheet" href="${esc(ctx.extraCss)}">` : ''}
 ${each(jsonld, b => `  <script type="application/ld+json">${JSON.stringify(b)}</script>\n`)}`;
 }
 

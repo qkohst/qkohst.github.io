@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "sharp": "^0.34.2"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.4"
   }
 }

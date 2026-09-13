@@ -14,6 +14,7 @@ const homeTpl = require('../templates/home');
 const projectsTpl = require('../templates/projects');
 const projectTpl = require('../templates/project');
 const servicesTpl = require('../templates/services');
+const cvTpl = require('../templates/cv');
 
 const ROOT = path.resolve(__dirname, '..');
 const argOut = process.argv.indexOf('--out');
@@ -95,12 +96,12 @@ function alternatesFor(kind, slugByLang) {
   return list;
 }
 
-function ctxFor({ lang, kind, slugByLang, title, description, ogImage, ogType, jsonld, navKey, noindex }) {
+function ctxFor({ lang, kind, slugByLang, title, description, ogImage, ogType, jsonld, navKey, noindex, extraCss }) {
   const ui = site.ui[lang];
   const alts = alternatesFor(kind, slugByLang);
   const altUrl = Object.fromEntries(alts.filter(a => a.lang !== 'x-default').map(a => [a.lang, pageUrl(kind, a.lang, slugByLang && slugByLang[a.lang])]));
   return {
-    site, lang, ui, fontHref: FONT_HREF,
+    site, lang, ui, fontHref: FONT_HREF, extraCss,
     title, description, noindex,
     canonical: absUrl(ORIGIN, pageUrl(kind, lang, slugByLang && slugByLang[lang])),
     alternates: alts,
@@ -231,6 +232,23 @@ for (const lang of LANGS) {
     write(pageUrl('services', lang), layout.document(ctx, servicesTpl(ctx)));
   }
 
+  // halaman CV (noindex: bukan halaman pendaratan, tapi tetap perlu bisa dibuka
+  // dan dicetak; isinya ikut site.json sehingga selalu selaras dengan situs)
+  {
+    const ctx = ctxFor({
+      lang, kind: 'cv',
+      title: `CV — ${site.profile.name}`,
+      description: lang === 'id'
+        ? `Curriculum vitae ${site.profile.name}: riwayat pendidikan, pengalaman kerja, sertifikat, dan kemampuan teknis. Dapat dicetak atau disimpan sebagai PDF.`
+        : `Curriculum vitae of ${site.profile.name}: education, work experience, certificates, and technical skills. Printable and saveable as PDF.`,
+      navKey: null,
+      noindex: true,
+      jsonld: [personLd(lang)],
+      extraCss: '/assets/css/cv.css'
+    });
+    write(pageUrl('cv', lang), layout.document(ctx, cvTpl(ctx)));
+  }
+
   // 26 halaman detail
   for (const p of projects) {
     const c = t(p, lang);
@@ -249,6 +267,53 @@ for (const lang of LANGS) {
     });
     write(pageUrl('project', lang, p.slug[lang]), layout.document(ctx, projectTpl(ctx, p)));
   }
+}
+
+/* --- Stub redirect untuk URL lama ----------------------------------------
+   GitHub Pages tidak bisa mengirim 301 asli, jadi tiap path lama diisi halaman
+   kecil berisi meta-refresh + rel=canonical ke URL baru. Canonical-lah yang
+   memindahkan sinyal SEO; meta-refresh yang memindahkan pengunjung. Ditandai
+   noindex agar stub-nya sendiri tidak ikut terindeks. */
+function redirectStub(to, lang) {
+  const abs = absUrl(ORIGIN, to);
+  const teks = lang === 'id'
+    ? { judul: 'Halaman telah dipindahkan', ajak: 'Lanjutkan ke halaman baru' }
+    : { judul: 'This page has moved', ajak: 'Continue to the new page' };
+  return `<!DOCTYPE html>
+<html lang="${lang}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>${esc(teks.judul)}</title>
+<link rel="canonical" href="${esc(abs)}">
+<meta http-equiv="refresh" content="0; url=${esc(to)}">
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#080c0b;color:#e7efed;
+font:16px/1.6 ui-sans-serif,system-ui,"Segoe UI",Roboto,sans-serif;text-align:center;padding:2rem}
+a{color:#14c8a6}</style>
+</head>
+<body>
+<div>
+<p>${esc(teks.judul)}.</p>
+<p><a href="${esc(to)}">${esc(teks.ajak)} &rarr;</a></p>
+</div>
+</body>
+</html>
+`;
+}
+
+const redirects = [
+  { from: 'my_pages/portfolio.html',         to: pageUrl('projects', 'id') },
+  { from: 'my_pages/web_dev_services.html',  to: pageUrl('services', 'id') }
+];
+for (const p of projects) {
+  redirects.push({ from: p.legacyPath, to: pageUrl('project', 'id', p.slug.id) });
+}
+
+for (const r of redirects) {
+  const file = path.join(OUT, r.from);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, redirectStub(r.to, 'id'));
 }
 
 /* --- sitemap.xml + robots.txt -------------------------------------------- */
@@ -290,6 +355,7 @@ const BUDGET = 60 * 1024;
 console.log(`keluaran      : ${path.relative(ROOT, OUT) || '.'}`);
 console.log(`halaman       : ${written.length}  (${LANGS.length} bahasa)`);
 console.log(`sitemap       : ${entries.length} URL`);
+console.log(`stub redirect : ${redirects.length} path lama`);
 console.log(`total HTML    : ${(total / 1024).toFixed(1)} KB`);
 console.log(`rata-rata     : ${(total / written.length / 1024).toFixed(1)} KB/halaman`);
 console.log(`terbesar      : ${biggest.url} (${(biggest.bytes / 1024).toFixed(1)} KB)`);

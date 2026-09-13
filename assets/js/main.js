@@ -274,12 +274,17 @@ function initChat() {
   else setTimeout(load, 4000);
 }
 
+/* --- Tombol cetak pada halaman CV ---------------------------------------- */
+function initPrint() {
+  $$('[data-print]').forEach(btn => btn.addEventListener('click', () => window.print()));
+}
+
 /* --- Tahun berjalan di footer -------------------------------------------- */
 function initYear() {
   $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
 }
 
 /* --- Jalankan ------------------------------------------------------------ */
-for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initFilter, initGallery, initLightbox, initChat, initYear]) {
+for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initFilter, initGallery, initLightbox, initPrint, initChat, initYear]) {
   try { init(); } catch (err) { console.error(`[main.js] ${init.name} gagal:`, err); }
 }

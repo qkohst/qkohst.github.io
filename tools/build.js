@@ -1,0 +1,299 @@
+/**
+ * Generator situs. Membaca data/*.json, menulis halaman statis dwibahasa.
+ *
+ *   node tools/build.js            -> tulis ke _preview/  (untuk ditinjau)
+ *   node tools/build.js --out .    -> tulis ke akar repo  (peralihan, Fase 4)
+ *
+ * Idempoten: direktori keluaran yang dikelola generator dibersihkan dulu.
+ */
+const fs = require('fs');
+const path = require('path');
+const { esc, pageUrl, absUrl, t } = require('./lib');
+const layout = require('../templates/layout');
+const homeTpl = require('../templates/home');
+const projectsTpl = require('../templates/projects');
+const projectTpl = require('../templates/project');
+const servicesTpl = require('../templates/services');
+
+const ROOT = path.resolve(__dirname, '..');
+const argOut = process.argv.indexOf('--out');
+const OUT = path.resolve(ROOT, argOut > -1 ? process.argv[argOut + 1] : '_preview');
+
+const site = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/site.json'), 'utf8'));
+const projects = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/projects.json'), 'utf8'));
+const ORIGIN = site.site.origin;
+const LANGS = site.site.langs;
+
+/* Preload font hanya dipancarkan bila berkasnya benar-benar ada, supaya
+   tidak menimbulkan 404 di tiap halaman selama font belum dipasang. */
+const FONT_PATH = '/assets/fonts/inter-variable.woff2';
+const FONT_HREF = fs.existsSync(path.join(ROOT, FONT_PATH.slice(1))) ? FONT_PATH : null;
+
+/* --- Validasi: gagal keras sebelum menulis apa pun ----------------------- */
+const fatal = [];
+for (const lang of LANGS) {
+  const seen = new Set();
+  for (const p of projects) {
+    const s = p.slug && p.slug[lang];
+    if (!s) fatal.push(`${p.key}: slug ${lang} kosong`);
+    else if (seen.has(s)) fatal.push(`slug ${lang} ganda: ${s}`);
+    seen.add(s);
+    if (!t(p, lang).title) fatal.push(`${p.key}: judul ${lang} kosong`);
+    if (!t(p, lang).summary) fatal.push(`${p.key}: ringkasan ${lang} kosong`);
+    for (const img of p.images) {
+      if (!img.alt[lang]) fatal.push(`${p.key}: alt ${lang} kosong pada ${img.name}`);
+    }
+  }
+}
+if (fatal.length) {
+  console.error('Build dibatalkan, data belum valid:');
+  for (const f of fatal.slice(0, 25)) console.error('  - ' + f);
+  process.exit(1);
+}
+
+/* --- Penulisan ----------------------------------------------------------- */
+const written = [];
+function write(urlPath, html) {
+  const rel = urlPath.endsWith('/') ? path.join(urlPath, 'index.html') : urlPath;
+  const file = path.join(OUT, rel);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, html);
+  written.push({ url: urlPath, bytes: Buffer.byteLength(html) });
+}
+
+/** Bersihkan hanya direktori yang memang dikelola generator. */
+function clean() {
+  const managed = ['en', 'proyek', 'layanan', 'projects', 'services'];
+  if (path.basename(OUT) === '_preview') {
+    fs.rmSync(OUT, { recursive: true, force: true });
+  } else {
+    for (const d of managed) fs.rmSync(path.join(OUT, d), { recursive: true, force: true });
+  }
+  fs.mkdirSync(OUT, { recursive: true });
+}
+
+/* --- Konteks per halaman ------------------------------------------------- */
+function navFor(lang, ui, current) {
+  const home = pageUrl('home', lang);
+  return [
+    { label: ui.nav.home,      href: home,                       key: 'home' },
+    { label: ui.nav.about,     href: `${home}#about`,            key: 'about' },
+    { label: ui.nav.resume,    href: `${home}#resume`,           key: 'resume' },
+    { label: ui.nav.portfolio, href: pageUrl('projects', lang),  key: 'portfolio' },
+    { label: ui.nav.services,  href: pageUrl('services', lang),  key: 'services' },
+    { label: ui.nav.contact,   href: `${home}#contact`,          key: 'contact' }
+  ].map(n => ({ ...n, current: n.key === current }));
+}
+
+/** Pasangan hreflang untuk satu halaman logis. */
+function alternatesFor(kind, slugByLang) {
+  const list = LANGS.map(l => ({
+    lang: l,
+    url: absUrl(ORIGIN, pageUrl(kind, l, slugByLang && slugByLang[l]))
+  }));
+  list.push({ lang: 'x-default', url: absUrl(ORIGIN, pageUrl(kind, 'id', slugByLang && slugByLang.id)) });
+  return list;
+}
+
+function ctxFor({ lang, kind, slugByLang, title, description, ogImage, ogType, jsonld, navKey, noindex }) {
+  const ui = site.ui[lang];
+  const alts = alternatesFor(kind, slugByLang);
+  const altUrl = Object.fromEntries(alts.filter(a => a.lang !== 'x-default').map(a => [a.lang, pageUrl(kind, a.lang, slugByLang && slugByLang[a.lang])]));
+  return {
+    site, lang, ui, fontHref: FONT_HREF,
+    title, description, noindex,
+    canonical: absUrl(ORIGIN, pageUrl(kind, lang, slugByLang && slugByLang[lang])),
+    alternates: alts,
+    ogImage: absUrl(ORIGIN, ogImage || `/assets/img/og/og-${lang}.png`),
+    ogType: ogType || 'website',
+    jsonld: jsonld || [],
+    nav: navFor(lang, ui, navKey),
+    altUrl
+  };
+}
+
+/* --- JSON-LD ------------------------------------------------------------- */
+const personLd = lang => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.profile.name,
+  alternateName: site.profile.handle,
+  jobTitle: t(site.profile, lang).role,
+  description: t(site.profile, lang).seoDescription,
+  email: `mailto:${site.contact.email}`,
+  telephone: `+${site.contact.phoneE164}`,
+  url: absUrl(ORIGIN, pageUrl('home', lang)),
+  image: absUrl(ORIGIN, '/assets/img/profile-480.jpg'),
+  address: { '@type': 'PostalAddress', addressLocality: 'Tuban', addressRegion: 'Jawa Timur', addressCountry: 'ID' },
+  sameAs: site.socials.map(s => s.url),
+  knowsAbout: [...site.skills, ...site.frameworks].map(s => s.name)
+});
+
+const websiteLd = lang => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: `${site.profile.name} — ${t(site.profile, lang).role}`,
+  url: absUrl(ORIGIN, pageUrl('home', lang)),
+  inLanguage: lang
+});
+
+const breadcrumbLd = items => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((it, i) => ({
+    '@type': 'ListItem', position: i + 1, name: it.name, item: absUrl(ORIGIN, it.url)
+  }))
+});
+
+const projectLd = (p, lang) => {
+  const c = t(p, lang);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: c.title,
+    description: c.summary,
+    inLanguage: lang,
+    dateCreated: p.date,
+    url: absUrl(ORIGIN, pageUrl('project', lang, p.slug[lang])),
+    image: absUrl(ORIGIN, `/assets/img/portfolio/${p.thumb}-960.jpg`),
+    creator: { '@type': 'Person', name: site.profile.name, url: ORIGIN },
+    ...(p.client ? { sourceOrganization: { '@type': 'Organization', name: p.client } } : {}),
+    ...(p.framework ? { keywords: [p.framework, p.category] } : {})
+  };
+};
+
+const serviceLd = lang => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: t(site.servicesPage, lang).title,
+  provider: { '@type': 'Person', name: site.profile.name, url: ORIGIN },
+  areaServed: 'ID',
+  offers: site.pricing.map(tier => ({
+    '@type': 'Offer',
+    name: t(tier, lang).name,
+    price: tier.price,
+    priceCurrency: tier.currency,
+    description: t(tier, lang).summary,
+    url: absUrl(ORIGIN, pageUrl('services', lang))
+  }))
+});
+
+/* --- Render -------------------------------------------------------------- */
+clean();
+
+for (const lang of LANGS) {
+  const ui = site.ui[lang];
+  const prof = t(site.profile, lang);
+
+  // beranda
+  {
+    const ctx = ctxFor({
+      lang, kind: 'home',
+      title: `${site.profile.name} — ${prof.role}`,
+      description: prof.seoDescription,
+      jsonld: [personLd(lang), websiteLd(lang)],
+      navKey: 'home'
+    });
+    write(pageUrl('home', lang), layout.document(ctx, homeTpl(ctx, projects)));
+  }
+
+  // indeks portofolio
+  {
+    const desc = lang === 'id'
+      ? `Kumpulan ${projects.length} proyek karya ${site.profile.name}: aplikasi web, RESTful API, aplikasi mobile, dan desktop.`
+      : `A collection of ${projects.length} projects by ${site.profile.name}: web applications, RESTful APIs, mobile, and desktop software.`;
+    const ctx = ctxFor({
+      lang, kind: 'projects',
+      title: `${ui.sections.portfolio} — ${site.profile.name}`,
+      description: desc,
+      navKey: 'portfolio',
+      jsonld: [breadcrumbLd([
+        { name: ui.nav.home, url: pageUrl('home', lang) },
+        { name: ui.sections.portfolio, url: pageUrl('projects', lang) }
+      ])]
+    });
+    write(pageUrl('projects', lang), layout.document(ctx, projectsTpl(ctx, projects)));
+  }
+
+  // halaman jasa
+  {
+    const sp = t(site.servicesPage, lang);
+    const ctx = ctxFor({
+      lang, kind: 'services',
+      title: `${sp.title} — ${site.profile.name}`,
+      description: sp.body[0].slice(0, 155),
+      navKey: 'services',
+      jsonld: [serviceLd(lang), breadcrumbLd([
+        { name: ui.nav.home, url: pageUrl('home', lang) },
+        { name: sp.title, url: pageUrl('services', lang) }
+      ])]
+    });
+    write(pageUrl('services', lang), layout.document(ctx, servicesTpl(ctx)));
+  }
+
+  // 26 halaman detail
+  for (const p of projects) {
+    const c = t(p, lang);
+    const ctx = ctxFor({
+      lang, kind: 'project', slugByLang: p.slug,
+      title: `${c.title} — ${site.profile.name}`,
+      description: c.summary,
+      ogImage: `/assets/img/portfolio/${p.thumb}-1200x630.jpg`,
+      ogType: 'article',
+      navKey: 'portfolio',
+      jsonld: [projectLd(p, lang), breadcrumbLd([
+        { name: ui.nav.home, url: pageUrl('home', lang) },
+        { name: ui.sections.portfolio, url: pageUrl('projects', lang) },
+        { name: c.title, url: pageUrl('project', lang, p.slug[lang]) }
+      ])]
+    });
+    write(pageUrl('project', lang, p.slug[lang]), layout.document(ctx, projectTpl(ctx, p)));
+  }
+}
+
+/* --- sitemap.xml + robots.txt -------------------------------------------- */
+const entries = [];
+const push = (kind, slugByLang, priority, changefreq) => {
+  for (const lang of LANGS) {
+    entries.push({
+      loc: absUrl(ORIGIN, pageUrl(kind, lang, slugByLang && slugByLang[lang])),
+      priority, changefreq,
+      alt: LANGS.map(l => ({ lang: l, url: absUrl(ORIGIN, pageUrl(kind, l, slugByLang && slugByLang[l])) }))
+        .concat([{ lang: 'x-default', url: absUrl(ORIGIN, pageUrl(kind, 'id', slugByLang && slugByLang.id)) }])
+    });
+  }
+};
+push('home', null, '1.0', 'monthly');
+push('projects', null, '0.9', 'monthly');
+push('services', null, '0.9', 'monthly');
+for (const p of projects) push('project', p.slug, '0.7', 'yearly');
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${entries.map(e => `  <url>
+    <loc>${esc(e.loc)}</loc>
+${e.alt.map(a => `    <xhtml:link rel="alternate" hreflang="${esc(a.lang)}" href="${esc(a.url)}"/>`).join('\n')}
+    <changefreq>${e.changefreq}</changefreq>
+    <priority>${e.priority}</priority>
+  </url>`).join('\n')}
+</urlset>
+`;
+fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap);
+fs.writeFileSync(path.join(OUT, 'robots.txt'),
+  `User-agent: *\nAllow: /\n\nSitemap: ${absUrl(ORIGIN, '/sitemap.xml')}\n`);
+fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
+
+/* --- Ringkasan ----------------------------------------------------------- */
+const total = written.reduce((s, w) => s + w.bytes, 0);
+const biggest = [...written].sort((a, b) => b.bytes - a.bytes)[0];
+const BUDGET = 60 * 1024;
+console.log(`keluaran      : ${path.relative(ROOT, OUT) || '.'}`);
+console.log(`halaman       : ${written.length}  (${LANGS.length} bahasa)`);
+console.log(`sitemap       : ${entries.length} URL`);
+console.log(`total HTML    : ${(total / 1024).toFixed(1)} KB`);
+console.log(`rata-rata     : ${(total / written.length / 1024).toFixed(1)} KB/halaman`);
+console.log(`terbesar      : ${biggest.url} (${(biggest.bytes / 1024).toFixed(1)} KB)`);
+const over = written.filter(w => w.bytes > BUDGET);
+console.log(over.length
+  ? `\nDI ATAS ANGGARAN ${BUDGET / 1024} KB: ${over.map(w => `${w.url} ${(w.bytes / 1024).toFixed(1)}KB`).join(', ')}`
+  : `\nsemua halaman di bawah ${BUDGET / 1024} KB`);

@@ -1,0 +1,2320 @@
+[
+  {
+    "key": "asmarine",
+    "slug": {
+      "id": "asmarine",
+      "en": "asmarine"
+    },
+    "category": "web",
+    "framework": "Silverstripe",
+    "client": "Morning Glory Enterprise",
+    "date": "2022-07",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+Asmarine."
+    },
+    "legacyPath": "my_pages/asmarine-detail.html",
+    "thumb": "asmarine-3",
+    "images": [
+      {
+        "name": "asmarine-1",
+        "source": "my_pages/assets/img/portfolio/asmarine (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 5 — ASMARINE",
+          "en": "Screenshot 1 of 5 — ASMARINE"
+        }
+      },
+      {
+        "name": "asmarine-2",
+        "source": "my_pages/assets/img/portfolio/asmarine (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 5 — ASMARINE",
+          "en": "Screenshot 2 of 5 — ASMARINE"
+        }
+      },
+      {
+        "name": "asmarine-3",
+        "source": "my_pages/assets/img/portfolio/asmarine (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 5 — ASMARINE",
+          "en": "Screenshot 3 of 5 — ASMARINE"
+        }
+      },
+      {
+        "name": "asmarine-4",
+        "source": "my_pages/assets/img/portfolio/asmarine (4).png",
+        "alt": {
+          "id": "Tangkapan layar 4 dari 5 — ASMARINE",
+          "en": "Screenshot 4 of 5 — ASMARINE"
+        }
+      },
+      {
+        "name": "asmarine-5",
+        "source": "my_pages/assets/img/portfolio/asmarine (5).png",
+        "alt": {
+          "id": "Tangkapan layar 5 dari 5 — ASMARINE",
+          "en": "Screenshot 5 of 5 — ASMARINE"
+        }
+      }
+    ],
+    "id": {
+      "title": "ASMARINE",
+      "summary": "Platform digital untuk menunjang operasional PT Anugrah Sukses Marine di industri maritim.",
+      "body": [
+        "Situs PT Anugrah Sukses Marine adalah platform digital yang dirancang untuk menunjang operasional perusahaan secara modern dan efisien. Dengan antarmuka yang bersih dan profesional, platform ini menyediakan berbagai fitur penting yang merapikan pengelolaan data dan proses bisnis di industri maritim.",
+        "Navigasi yang intuitif membuat platform ini menjadi solusi digital yang dapat diandalkan untuk mengelola proses bisnis maritim secara efisien dan akurat."
+      ],
+      "features": [
+        "Manajemen dokumen terpusat: pengelolaan dokumen penting perusahaan secara aman dan terstruktur.",
+        "SDM dan umum: mengoptimalkan pengelolaan data karyawan serta kebutuhan administrasi kantor.",
+        "Penjualan dan pemasaran: alat untuk memantau dan meningkatkan kinerja penjualan serta strategi pemasaran.",
+        "Manajemen operasional: menyederhanakan pemantauan operasional harian perusahaan.",
+        "Sistem pembelian: pengelolaan permintaan pengadaan dan pembelian secara efisien.",
+        "Keuangan: menyajikan laporan keuangan yang akurat untuk analisis bisnis yang lebih baik.",
+        "Teknik dan pemeliharaan: memastikan peralatan dan infrastruktur perusahaan tetap dalam kondisi optimal.",
+        "Pelaporan terintegrasi: penyajian data menyeluruh untuk menopang pengambilan keputusan strategis."
+      ]
+    },
+    "en": {
+      "title": "ASMARINE",
+      "summary": "A digital platform supporting PT Anugrah Sukses Marine's operations in the maritime industry.",
+      "body": [
+        "The PT. Anugrah Sukses Marine website is a digital platform designed to support the company's operations in a modern and efficient way. With a clean and professional interface, it offers a variety of essential features that streamline data management and business processes in the maritime industry.",
+        "With a user-friendly interface and intuitive navigation, this platform serves as a reliable digital solution for efficiently and accurately managing maritime business processes."
+      ],
+      "features": [
+        "Centralized Document Management: Secure and well-structured management of important company documents.",
+        "HR and General Affairs: Optimizes employee data management and office administrative needs.",
+        "Sales and Marketing: Tools to monitor and improve sales performance and marketing strategies.",
+        "Operations Management: Simplifies daily operational monitoring for the company.",
+        "Purchasing System: Efficient management of procurement requests and purchases.",
+        "Finance: Provides accurate financial reports for better business analysis.",
+        "Technical and Maintenance: Ensures that company equipment and infrastructure remain in optimal condition.",
+        "Integrated Reporting: Comprehensive data presentation to support strategic decision-making."
+      ]
+    }
+  },
+  {
+    "key": "bo-dlik-ojk",
+    "slug": {
+      "id": "backoffice-dlik-ojk",
+      "en": "backoffice-dlik-ojk"
+    },
+    "category": "web",
+    "framework": "CodeIgniter",
+    "client": "Otoritas Jasa Keuangan",
+    "date": "2024-07",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+Backoffice+DLIK+OJK."
+    },
+    "legacyPath": "my_pages/bo-dlik-ojk-detail.html",
+    "thumb": "bo-dlik-7",
+    "images": [
+      {
+        "name": "bo-dlik-1",
+        "source": "my_pages/assets/img/portfolio/bo-dlik (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 8 — Backoffice DLIK OJK",
+          "en": "Screenshot 1 of 8 — Backoffice DLIK OJK"
+        }
+      },
+      {
+        "name": "bo-dlik-2",
+        "source": "my_pages/assets/img/portfolio/bo-dlik (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 8 — Backoffice DLIK OJK",
+          "en": "Screenshot 2 of 8 — Backoffice DLIK OJK"
+        }
+      },
+      {
+        "name": "bo-dlik-3",
+        "source": "my_pages/assets/img/portfolio/bo-dlik (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 8 — Backoffice DLIK OJK",
+          "en": "Screenshot 3 of 8 — Backoffice DLIK OJK"
+        }
+      },
+      {
+        "name": "bo-dlik-4",
+        "source": "my_pages/assets/img/portfolio/bo-dlik (4).png",
+        "alt": {
+          "id": "Tangkapan layar 4 dari 8 — Backoffice DLIK OJK",
+          "en": "Screenshot 4 of 8 — Backoffice DLIK OJK"
+        }
+      },
+      {
+        "name": "bo-dlik-5",
+        "source": "my_pages/assets/img/portfolio/bo-dlik (5).png",
+        "alt": {
+          "id": "Tangkapan layar 5 dari 8 — Backoffice DLIK OJK",
+          "en": "Screenshot 5 of 8 — Backoffice DLIK OJK"
+        }
+      },
+      {
+        "name": "bo-dlik-6",
+        "source": "my_pages/assets/img/portfolio/bo-dlik (6).png",
+        "alt": {
+          "id": "Tangkapan layar 6 dari 8 — Backoffice DLIK OJK",
+          "en": "Screenshot 6 of 8 — Backoffice DLIK OJK"
+        }
+      },
+      {
+        "name": "bo-dlik-7",
+        "source": "my_pages/assets/img/portfolio/bo-dlik (7).png",
+        "alt": {
+          "id": "Tangkapan layar 7 dari 8 — Backoffice DLIK OJK",
+          "en": "Screenshot 7 of 8 — Backoffice DLIK OJK"
+        }
+      },
+      {
+        "name": "bo-dlik-8",
+        "source": "my_pages/assets/img/portfolio/bo-dlik (8).png",
+        "alt": {
+          "id": "Tangkapan layar 8 dari 8 — Backoffice DLIK OJK",
+          "en": "Screenshot 8 of 8 — Backoffice DLIK OJK"
+        }
+      }
+    ],
+    "id": {
+      "title": "Backoffice DLIK OJK",
+      "summary": "Sistem backoffice LMS untuk mengelola pelatihan, webinar, dan peringkat peserta di OJK.",
+      "body": [
+        "Situs ini adalah Learning Management System (LMS) yang dirancang untuk mengelola program pelatihan, webinar, serta ringkasan peringkat peserta berdasarkan aktivitas mereka. Sistem ini menyediakan pelacakan pembelajaran, analisis kebutuhan pelatihan, dan laporan statistik bagi administrator.",
+        "Platform ini dibangun untuk meningkatkan efektivitas pelatihan digital, menyajikan analitik data peserta, dan memungkinkan interaksi yang fleksibel dalam proses e-learning."
+      ],
+      "features": [
+        "Dasbor peringkat tertinggi: menampilkan peringkat peserta berdasarkan aktivitas pelatihan.",
+        "Memuat rincian seperti nama pengguna, periode pelatihan, surel, total poin, hadiah, dan frekuensi.",
+        "Dilengkapi pencarian dan penyaringan berdasarkan periode pelatihan.",
+        "Memungkinkan pengguna mengekspor data ke format Excel dan CSV.",
+        "Manajemen pelatihan dan webinar: memudahkan pengelolaan pelatihan e-learning.",
+        "Admin dapat menyusun materi pelatihan dalam berbagai format seperti video, dokumen, dan kuis interaktif.",
+        "Pengguna dapat mengikuti webinar yang dikelola di dalam sistem.",
+        "Tersedia dasbor webinar untuk memantau statistik peserta dan efektivitas webinar.",
+        "Poin belajar dan hadiah: sistem memberikan poin kepada peserta sesuai keterlibatan mereka dalam pelatihan.",
+        "Peserta dapat menukarkan poin dengan hadiah seperti merchandise (kaus, tas, pouch, dan lainnya).",
+        "Manajemen templat: admin dapat membuat dan mengelola templat untuk keperluan seperti penyusunan laporan atau sertifikat pelatihan.",
+        "Obrolan dan forum: fitur interaktif untuk berdiskusi, bertanya, dan berbagi wawasan seputar pelatihan dan webinar.",
+        "Notifikasi dan profil pengguna: pengguna menerima pemberitahuan mengenai jadwal pelatihan dan webinar.",
+        "Setiap peserta memiliki halaman profil yang menyimpan informasi pribadi dan riwayat pelatihan."
+      ]
+    },
+    "en": {
+      "title": "Backoffice DLIK OJK",
+      "summary": "A back-office LMS for managing training programmes, webinars, and participant rankings at OJK.",
+      "body": [
+        "This website is a Learning Management System (LMS) designed to manage training programs, webinars, and participant ranking summaries based on their activities. The system provides learning tracking, training needs analysis, and statistical reports for administrators.",
+        "This platform is designed to enhance digital training effectiveness, provide participant data analytics, and enable flexible interaction in e-learning processes."
+      ],
+      "features": [
+        "Highest Ranking Dashboard Displays participant rankings based on their training activities.",
+        "Includes details such as User Name, Training Period, Email, Total Points, Rewards, and Frequency.",
+        "Features search and filtering options based on training periods.",
+        "Allows users to export data in Excel and CSV formats.",
+        "Training and Webinar Management Facilitates e-learning training management.",
+        "Admins can organize training materials in various formats such as videos, documents, and interactive quizzes.",
+        "Users can participate in webinars managed within the system.",
+        "A webinar dashboard is available to track participant statistics and webinar effectiveness.",
+        "Learning Points & Rewards The system awards learning points to participants based on their engagement in training.",
+        "Participants can redeem rewards such as merchandise (T-shirts, bags, pouches, etc.) based on accumulated points.",
+        "Management Template Admins can create and manage templates for various purposes, such as report generation or training certificates.",
+        "Chat & Forum An interactive feature that allows users to discuss, ask questions, and share insights related to training and webinars.",
+        "Notifications & User Profile Users receive notifications about training schedules and webinars.",
+        "Each participant has a user profile page storing personal information and training history."
+      ]
+    }
+  },
+  {
+    "key": "ciLogin",
+    "slug": {
+      "id": "sistem-login-codeigniter",
+      "en": "ci-login-system"
+    },
+    "category": "web",
+    "framework": "CodeIgniter",
+    "client": null,
+    "date": "2020-08",
+    "link": {
+      "type": "github",
+      "url": "https://github.com/qkohst/CI_Login_System"
+    },
+    "legacyPath": "my_pages/ciLogin-detail.html",
+    "thumb": "ci-login-3",
+    "images": [
+      {
+        "name": "ci-login-1",
+        "source": "my_pages/assets/img/portfolio/ci_login (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 3 — Sistem Login Lengkap",
+          "en": "Screenshot 1 of 3 — Complete Login System"
+        }
+      },
+      {
+        "name": "ci-login-2",
+        "source": "my_pages/assets/img/portfolio/ci_login (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 3 — Sistem Login Lengkap",
+          "en": "Screenshot 2 of 3 — Complete Login System"
+        }
+      },
+      {
+        "name": "ci-login-3",
+        "source": "my_pages/assets/img/portfolio/ci_login (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 3 — Sistem Login Lengkap",
+          "en": "Screenshot 3 of 3 — Complete Login System"
+        }
+      }
+    ],
+    "id": {
+      "title": "Sistem Login Lengkap",
+      "summary": "Sistem autentikasi lengkap dengan manajemen peran dan menu, dibangun dengan CodeIgniter 3.",
+      "body": [
+        "Dikembangkan menggunakan CodeIgniter 3 dengan DBMS MySQL."
+      ],
+      "features": [
+        "Masuk",
+        "Pendaftaran",
+        "Ubah profil",
+        "Ganti kata sandi",
+        "Kelola peran pengguna",
+        "Kelola menu pengguna",
+        "Kelola submenu pengguna"
+      ]
+    },
+    "en": {
+      "title": "Complete Login System",
+      "summary": "A complete authentication system with role and menu management, built on CodeIgniter 3.",
+      "body": [
+        "Developed using CodeIgniter 3 with MySQL DBMS."
+      ],
+      "features": [
+        "Login",
+        "Register",
+        "Edit Profile",
+        "Change Password",
+        "Manage user roles",
+        "Manage menu user",
+        "Manage sub menu user"
+      ]
+    }
+  },
+  {
+    "key": "dinamika",
+    "slug": {
+      "id": "dinamika",
+      "en": "dinamika"
+    },
+    "category": "web",
+    "framework": "Silverstripe",
+    "client": "Morning Glory Enterprise",
+    "date": "2022-08",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+Dinamika."
+    },
+    "legacyPath": "my_pages/dinamika-detail.html",
+    "thumb": "dinamika-1",
+    "images": [
+      {
+        "name": "dinamika-1",
+        "source": "my_pages/assets/img/portfolio/dinamika (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 6 — Dinamika",
+          "en": "Screenshot 1 of 6 — Dinamika"
+        }
+      },
+      {
+        "name": "dinamika-2",
+        "source": "my_pages/assets/img/portfolio/dinamika (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 6 — Dinamika",
+          "en": "Screenshot 2 of 6 — Dinamika"
+        }
+      },
+      {
+        "name": "dinamika-3",
+        "source": "my_pages/assets/img/portfolio/dinamika (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 6 — Dinamika",
+          "en": "Screenshot 3 of 6 — Dinamika"
+        }
+      },
+      {
+        "name": "dinamika-4",
+        "source": "my_pages/assets/img/portfolio/dinamika (4).png",
+        "alt": {
+          "id": "Tangkapan layar 4 dari 6 — Dinamika",
+          "en": "Screenshot 4 of 6 — Dinamika"
+        }
+      },
+      {
+        "name": "dinamika-5",
+        "source": "my_pages/assets/img/portfolio/dinamika (5).png",
+        "alt": {
+          "id": "Tangkapan layar 5 dari 6 — Dinamika",
+          "en": "Screenshot 5 of 6 — Dinamika"
+        }
+      },
+      {
+        "name": "dinamika-6",
+        "source": "my_pages/assets/img/portfolio/dinamika (6).png",
+        "alt": {
+          "id": "Tangkapan layar 6 dari 6 — Dinamika",
+          "en": "Screenshot 6 of 6 — Dinamika"
+        }
+      }
+    ],
+    "id": {
+      "title": "Dinamika",
+      "summary": "Sistem manajemen pengadaan untuk merapikan alur pemesanan, persetujuan, harga, dan persediaan.",
+      "body": [
+        "Dinamika adalah sistem manajemen pengadaan menyeluruh yang dirancang untuk menyederhanakan proses pembelian. Sistem ini menyediakan alur kerja yang efisien dan transparan untuk mengelola pesanan pembelian, persetujuan, penetapan harga, serta pelacakan persediaan. Hasilnya, kendali atas aktivitas pengadaan menjadi lebih baik sehingga efisiensi operasional dan pengambilan keputusan ikut meningkat.",
+        "Sistem ini cocok bagi perusahaan yang ingin membenahi operasi pengadaan, memperketat kendali biaya, dan memastikan koordinasi yang mulus antara proses pembelian, persediaan, dan persetujuan."
+      ],
+      "features": [
+        "Dasbor: menyajikan gambaran umum aktivitas pengadaan dan metrik utama.",
+        "Persetujuan harga jual: mengelola dan menyetujui penyesuaian harga produk.",
+        "Persetujuan tabung: menangani proses persetujuan terkait transaksi tabung.",
+        "Manajemen daftar harga: memelihara informasi harga produk.",
+        "Draf pesanan pembelian: memungkinkan pengguna menyusun dan mengelola draf PO sebelum disetujui.",
+        "Persetujuan draf PO: meninjau dan menyetujui draf pesanan pembelian.",
+        "Manajemen pesanan pembelian: melacak, mengelola, dan menyetujui pesanan pembelian.",
+        "Pengadaan: mengawasi aktivitas pembelian dan transaksi dengan pemasok.",
+        "Penerimaan barang: mencatat dan mengelola penerimaan barang yang dibeli.",
+        "Retur pembelian: mengelola pengembalian barang bila diperlukan.",
+        "Manajemen pemesanan: menangani reservasi produk untuk perencanaan pengadaan."
+      ]
+    },
+    "en": {
+      "title": "Dinamika",
+      "summary": "A procurement management system that streamlines purchase orders, approvals, pricing, and inventory.",
+      "body": [
+        "Dinamika is a comprehensive procurement management system designed to streamline the purchasing process. It provides an efficient and transparent workflow for managing purchase orders, approvals, pricing, and inventory tracking. The system ensures better control over procurement activities, enhancing operational efficiency and decision-making.",
+        "This system is ideal for businesses looking to improve their procurement operations, enhance cost control, and ensure seamless coordination between purchasing, inventory, and approval processes."
+      ],
+      "features": [
+        "Dashboard: Provides an overview of procurement activities and key metrics.",
+        "Sales Price Approval: Manages and approves price adjustments for products.",
+        "Cylinder Approval: Handles approval processes related to cylinder transactions.",
+        "Pricelist Management: Maintains product pricing information.",
+        "Draft Purchase Order (PO): Allows users to create and manage draft purchase orders before approval.",
+        "Draft PO Approval: Reviews and approves draft purchase orders.",
+        "Purchase Order (PO) Management: Tracks, manages, and approves purchase orders.",
+        "Procurement: Oversees purchasing activities and vendor transactions.",
+        "Goods Receipt: Records and manages the receipt of purchased goods.",
+        "Purchase Return: Manages the return of purchased goods when necessary.",
+        "Booking Management: Handles product reservations for procurement planning."
+      ]
+    }
+  },
+  {
+    "key": "eSkripsi_webClient",
+    "slug": {
+      "id": "klien-web-e-skripsi",
+      "en": "e-skripsi-web-client"
+    },
+    "category": "web",
+    "framework": "Laravel",
+    "client": null,
+    "date": "2021-08",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+E+Skripsi+Web+Client."
+    },
+    "legacyPath": "my_pages/eSkripsi_webClient-detail.html",
+    "thumb": "e-skripsi-webclient-2",
+    "images": [
+      {
+        "name": "e-skripsi-webclient-2",
+        "source": "my_pages/assets/img/portfolio/e_skripsi_webClient (2).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 3 — Klien Web RESTful API",
+          "en": "Screenshot 1 of 3 — RESTful API Web Client"
+        }
+      },
+      {
+        "name": "e-skripsi-webclient-1",
+        "source": "my_pages/assets/img/portfolio/e_skripsi_webClient (1).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 3 — Klien Web RESTful API",
+          "en": "Screenshot 2 of 3 — RESTful API Web Client"
+        }
+      },
+      {
+        "name": "e-skripsi-webclient-3",
+        "source": "my_pages/assets/img/portfolio/e_skripsi_webClient (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 3 — Klien Web RESTful API",
+          "en": "Screenshot 3 of 3 — RESTful API Web Client"
+        }
+      }
+    ],
+    "id": {
+      "title": "Klien Web RESTful API",
+      "summary": "Penerapan RESTful API E-Skripsi Unirow Tuban ke dalam sistem berbasis web.",
+      "body": [
+        "Ini adalah hasil penerapan RESTful API E-Skripsi Universitas PGRI Ronggolawe Tuban ke dalam sistem berbasis web."
+      ],
+      "features": [
+        "Multi pengguna (Admin, Admin Prodi, Mahasiswa, Dosen).",
+        "Menangani proses pengajuan judul skripsi.",
+        "Menangani proses bimbingan proposal.",
+        "Menangani proses seminar proposal.",
+        "Menangani proses bimbingan skripsi.",
+        "Menangani proses sidang skripsi.",
+        "Menyusun laporan hasil seminar proposal dan sidang skripsi."
+      ]
+    },
+    "en": {
+      "title": "RESTful API Web Client",
+      "summary": "A web-based client implementing the Unirow Tuban E-Thesis RESTful API.",
+      "body": [
+        "This is the result of implementing the Unirow Tuban E-Thesis RESTful API into a website-based system"
+      ],
+      "features": [
+        "Multi user (Admin, Admin Prodi, Mahasiswa, Dosen).",
+        "Handling the process of submitting a thesis title.",
+        "Handling the proposal guidance process.",
+        "Handling the proposal seminar process.",
+        "Handling the thesis guidance process.",
+        "Handling the thesis trial process.",
+        "Make reports on the results of seminar proposals and thesis hearings."
+      ]
+    }
+  },
+  {
+    "key": "e_raport",
+    "slug": {
+      "id": "e-raport",
+      "en": "e-raport"
+    },
+    "category": "web",
+    "framework": "Laravel",
+    "client": null,
+    "date": "2021-12",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+E+Raport+Aplication."
+    },
+    "legacyPath": "my_pages/e_raport-detail.html",
+    "thumb": "e-raport-3",
+    "images": [
+      {
+        "name": "e-raport-1",
+        "source": "my_pages/assets/img/portfolio/e_raport (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 10 — Aplikasi E-Raport",
+          "en": "Screenshot 1 of 10 — E-Raport Application"
+        }
+      },
+      {
+        "name": "e-raport-2",
+        "source": "my_pages/assets/img/portfolio/e_raport (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 10 — Aplikasi E-Raport",
+          "en": "Screenshot 2 of 10 — E-Raport Application"
+        }
+      },
+      {
+        "name": "e-raport-3",
+        "source": "my_pages/assets/img/portfolio/e_raport (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 10 — Aplikasi E-Raport",
+          "en": "Screenshot 3 of 10 — E-Raport Application"
+        }
+      },
+      {
+        "name": "e-raport-4",
+        "source": "my_pages/assets/img/portfolio/e_raport (4).png",
+        "alt": {
+          "id": "Tangkapan layar 4 dari 10 — Aplikasi E-Raport",
+          "en": "Screenshot 4 of 10 — E-Raport Application"
+        }
+      },
+      {
+        "name": "e-raport-5",
+        "source": "my_pages/assets/img/portfolio/e_raport (5).png",
+        "alt": {
+          "id": "Tangkapan layar 5 dari 10 — Aplikasi E-Raport",
+          "en": "Screenshot 5 of 10 — E-Raport Application"
+        }
+      },
+      {
+        "name": "e-raport-6",
+        "source": "my_pages/assets/img/portfolio/e_raport (6).png",
+        "alt": {
+          "id": "Tangkapan layar 6 dari 10 — Aplikasi E-Raport",
+          "en": "Screenshot 6 of 10 — E-Raport Application"
+        }
+      },
+      {
+        "name": "e-raport-7",
+        "source": "my_pages/assets/img/portfolio/e_raport (7).png",
+        "alt": {
+          "id": "Tangkapan layar 7 dari 10 — Aplikasi E-Raport",
+          "en": "Screenshot 7 of 10 — E-Raport Application"
+        }
+      },
+      {
+        "name": "e-raport-8",
+        "source": "my_pages/assets/img/portfolio/e_raport (8).png",
+        "alt": {
+          "id": "Tangkapan layar 8 dari 10 — Aplikasi E-Raport",
+          "en": "Screenshot 8 of 10 — E-Raport Application"
+        }
+      },
+      {
+        "name": "e-raport-9",
+        "source": "my_pages/assets/img/portfolio/e_raport (9).png",
+        "alt": {
+          "id": "Tangkapan layar 9 dari 10 — Aplikasi E-Raport",
+          "en": "Screenshot 9 of 10 — E-Raport Application"
+        }
+      },
+      {
+        "name": "e-raport-10",
+        "source": "my_pages/assets/img/portfolio/e_raport (10).png",
+        "alt": {
+          "id": "Tangkapan layar 10 dari 10 — Aplikasi E-Raport",
+          "en": "Screenshot 10 of 10 — E-Raport Application"
+        }
+      }
+    ],
+    "id": {
+      "title": "Aplikasi E-Raport",
+      "summary": "Aplikasi raport digital untuk sekolah setingkat SMP dan PKBM dengan banyak muatan lokal.",
+      "body": [
+        "Aplikasi ini dibangun dengan framework Laravel 7.0 dan DBMS MySQL menggunakan templat AdminLTE. Cocok digunakan lembaga pendidikan setingkat SMP atau PKBM yang memiliki banyak mata pelajaran muatan lokal sehingga tidak dapat memakai aplikasi E-Raport dari Dinas Pendidikan."
+      ],
+      "features": [
+        "Multi pengguna (Admin, Guru, Wali Kelas, Siswa).",
+        "Tampilan responsif.",
+        "Mendukung dua jenis kurikulum, yaitu KTSP 2006 dan K13.",
+        "Dilengkapi impor Excel untuk menu masukan data dan nilai.",
+        "Data induk dan leger nilai siswa dapat diunduh dalam format Excel.",
+        "Berkas raport dan kartu pelajar dapat diunduh dalam format PDF."
+      ]
+    },
+    "en": {
+      "title": "E-Raport Application",
+      "summary": "A digital report-card application for junior high schools and PKBM with many local-content subjects.",
+      "body": [
+        "This application is built with the laravel 7.0 framework and MySQL DBMS using a template from the LTE admin. Suitable for use in equivalent junior high school education institutions or PKBM which have many local content subjects so they cannot use the E report application from the Education Office."
+      ],
+      "features": [
+        "Multi users (Admin, Teacher, Homeroom, Student).",
+        "Responsive Display.",
+        "Supports 2 Types of Curriculum, namely Curriculum KTSP 2006 & K13.",
+        "Supported with Import Excel for data and value input menu.",
+        "Master & Leger Student Value data can be downloaded into Excel format.",
+        "Report files and student IDs can be downloaded in PDF format."
+      ]
+    }
+  },
+  {
+    "key": "e_skripsi_Mobile",
+    "slug": {
+      "id": "klien-mobile-e-skripsi",
+      "en": "e-skripsi-mobile-client"
+    },
+    "category": "app",
+    "framework": "Flutter",
+    "client": null,
+    "date": "2021-08",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+project+E+SKripsi+Mobile+Client."
+    },
+    "legacyPath": "my_pages/e_skripsi_Mobile-detail.html",
+    "thumb": "e-skripsi-mobileclient-1",
+    "images": [
+      {
+        "name": "e-skripsi-mobileclient-1",
+        "source": "my_pages/assets/img/portfolio/e_skripsi_mobileClient (1).jpg",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 2 — Klien Mobile RESTful API",
+          "en": "Screenshot 1 of 2 — RESTful API Mobile Client"
+        }
+      },
+      {
+        "name": "e-skripsi-mobileclient-2",
+        "source": "my_pages/assets/img/portfolio/e_skripsi_mobileClient (2).jpg",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 2 — Klien Mobile RESTful API",
+          "en": "Screenshot 2 of 2 — RESTful API Mobile Client"
+        }
+      }
+    ],
+    "id": {
+      "title": "Klien Mobile RESTful API",
+      "summary": "Penerapan RESTful API E-Skripsi Unirow Tuban ke dalam aplikasi mobile berbasis Flutter.",
+      "body": [
+        "Ini adalah hasil penerapan RESTful API E-Skripsi Universitas PGRI Ronggolawe Tuban ke dalam sistem berbasis mobile yang dikembangkan menggunakan Flutter."
+      ],
+      "features": []
+    },
+    "en": {
+      "title": "RESTful API Mobile Client",
+      "summary": "A Flutter mobile client implementing the Unirow Tuban E-Thesis RESTful API.",
+      "body": [
+        "This is the result of implementing the Unirow Tuban E-Thesis RESTful API into a mobile-based system developed using flutter."
+      ],
+      "features": []
+    }
+  },
+  {
+    "key": "e_skripsi_RESTful_API",
+    "slug": {
+      "id": "api-e-skripsi",
+      "en": "e-skripsi-api"
+    },
+    "category": "api",
+    "framework": "Laravel",
+    "client": null,
+    "date": "2021-07",
+    "link": {
+      "type": "postman",
+      "url": "https://documenter.getpostman.com/view/12304685/2sAYX3qP7e"
+    },
+    "legacyPath": "my_pages/e_skripsi_RESTful_API-detail.html",
+    "thumb": "restfulapiskripsi-1",
+    "images": [
+      {
+        "name": "restfulapiskripsi-1",
+        "source": "my_pages/assets/img/portfolio/RestfulApiSkripsi (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 3 — RESTful API E-Skripsi",
+          "en": "Screenshot 1 of 3 — RESTful API E-Skripsi"
+        }
+      },
+      {
+        "name": "restfulapiskripsi-2",
+        "source": "my_pages/assets/img/portfolio/RestfulApiSkripsi (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 3 — RESTful API E-Skripsi",
+          "en": "Screenshot 2 of 3 — RESTful API E-Skripsi"
+        }
+      },
+      {
+        "name": "restfulapiskripsi-3",
+        "source": "my_pages/assets/img/portfolio/RestfulApiSkripsi (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 3 — RESTful API E-Skripsi",
+          "en": "Screenshot 3 of 3 — RESTful API E-Skripsi"
+        }
+      }
+    ],
+    "id": {
+      "title": "RESTful API E-Skripsi",
+      "summary": "RESTful API dan dokumentasi E-Skripsi Unirow Tuban dengan format balasan JSON.",
+      "body": [
+        "Ini adalah RESTful API (Application Programming Interface) beserta dokumentasi E-Skripsi Universitas PGRI Ronggolawe Tuban yang dapat Anda gunakan untuk membangun berbagai aplikasi. API ini menerapkan arsitektur REST dengan format balasan JSON yang didukung hampir semua bahasa pemrograman sehingga mudah diintegrasikan ke aplikasi Anda."
+      ],
+      "features": []
+    },
+    "en": {
+      "title": "RESTful API E-Skripsi",
+      "summary": "A RESTful API and documentation for the Unirow Tuban E-Thesis system, with JSON responses.",
+      "body": [
+        "This is a RESTful API (Application Programming Interface) & E-Thesis Documentation at PGRI Ronggolawe University Tuban that you can use to create various applications, by implementing a REST architecture with JSON reply format which is supported by almost all programming languages ​​so that it is easily integrated into your application."
+      ],
+      "features": []
+    }
+  },
+  {
+    "key": "employee",
+    "slug": {
+      "id": "manajemen-karyawan",
+      "en": "employee-management"
+    },
+    "category": "web",
+    "framework": "Laravel",
+    "client": null,
+    "date": "2020-01",
+    "link": {
+      "type": "github",
+      "url": "https://github.com/qkohst/manajemen_karyawan"
+    },
+    "legacyPath": "my_pages/employee-detail.html",
+    "thumb": "employee-1",
+    "images": [
+      {
+        "name": "employee-1",
+        "source": "my_pages/assets/img/portfolio/employee (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 3 — Manajemen Karyawan",
+          "en": "Screenshot 1 of 3 — Employee Management"
+        }
+      },
+      {
+        "name": "employee-2",
+        "source": "my_pages/assets/img/portfolio/employee (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 3 — Manajemen Karyawan",
+          "en": "Screenshot 2 of 3 — Employee Management"
+        }
+      },
+      {
+        "name": "employee-3",
+        "source": "my_pages/assets/img/portfolio/employee (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 3 — Manajemen Karyawan",
+          "en": "Screenshot 3 of 3 — Employee Management"
+        }
+      }
+    ],
+    "id": {
+      "title": "Manajemen Karyawan",
+      "summary": "Sistem pengelolaan data karyawan, gaji, divisi, dan departemen berbasis Laravel.",
+      "body": [
+        "Sistem ini dibangun dengan framework Laravel dan basis data MySQL menggunakan Bootstrap CSS."
+      ],
+      "features": [
+        "Masuk dan keluar, lupa kata sandi (akun terkunci 5 menit setelah 3 kali percobaan gagal).",
+        "Kelola karyawan (tambah, ubah, dan hapus).",
+        "Kelola negara, kota, dan provinsi (tambah, ubah, dan hapus).",
+        "Kelola pengguna (tambah, ubah, dan hapus).",
+        "Kelola gaji (tambah, ubah, dan hapus).",
+        "Kelola divisi (tambah, ubah, dan hapus).",
+        "Kelola departemen (tambah, ubah, dan hapus).",
+        "Menyusun laporan (ekspor ke Excel dan PDF).",
+        "Pencarian (dengan kombinasi beberapa kolom).",
+        "Penomoran halaman",
+        "Validasi",
+        "Responsif"
+      ]
+    },
+    "en": {
+      "title": "Employee Management",
+      "summary": "A Laravel system for managing employee data, salaries, divisions, and departments.",
+      "body": [
+        "This system is built with the laravel framework and MySQL database using bootstrap CSS."
+      ],
+      "features": [
+        "Login and logout, forget password (Lock account in 5 minutes after 3 failed attempts).",
+        "Manage employees (Add, edit and delete).",
+        "Manage countries, cities, states (Add, edit and delete).",
+        "Manage users (Add, edit and delete).",
+        "Manage salary (Add, edit and delete).",
+        "Manage division (Add, edit and delete).",
+        "Manage departments (Add, edit and delete).",
+        "Make reports (export to Excel and PDF).",
+        "Search (with multiple combine fields).",
+        "Pagination",
+        "Validation",
+        "Responsive"
+      ]
+    }
+  },
+  {
+    "key": "indonesia_peduli",
+    "slug": {
+      "id": "indonesia-peduli",
+      "en": "indonesia-peduli"
+    },
+    "category": "web",
+    "framework": "Laravel",
+    "client": null,
+    "date": "2022-03",
+    "link": {
+      "type": "github",
+      "url": "https://github.com/qkohst/indonesia_peduli"
+    },
+    "legacyPath": "my_pages/indonesia_peduli-detail.html",
+    "thumb": "indonesia-peduli-1",
+    "images": [
+      {
+        "name": "indonesia-peduli-1",
+        "source": "my_pages/assets/img/portfolio/indonesia_peduli (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 10 — Indonesia Peduli",
+          "en": "Screenshot 1 of 10 — Indonesia Peduli"
+        }
+      },
+      {
+        "name": "indonesia-peduli-2",
+        "source": "my_pages/assets/img/portfolio/indonesia_peduli (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 10 — Indonesia Peduli",
+          "en": "Screenshot 2 of 10 — Indonesia Peduli"
+        }
+      },
+      {
+        "name": "indonesia-peduli-3",
+        "source": "my_pages/assets/img/portfolio/indonesia_peduli (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 10 — Indonesia Peduli",
+          "en": "Screenshot 3 of 10 — Indonesia Peduli"
+        }
+      },
+      {
+        "name": "indonesia-peduli-4",
+        "source": "my_pages/assets/img/portfolio/indonesia_peduli (4).png",
+        "alt": {
+          "id": "Tangkapan layar 4 dari 10 — Indonesia Peduli",
+          "en": "Screenshot 4 of 10 — Indonesia Peduli"
+        }
+      },
+      {
+        "name": "indonesia-peduli-5",
+        "source": "my_pages/assets/img/portfolio/indonesia_peduli (5).png",
+        "alt": {
+          "id": "Tangkapan layar 5 dari 10 — Indonesia Peduli",
+          "en": "Screenshot 5 of 10 — Indonesia Peduli"
+        }
+      },
+      {
+        "name": "indonesia-peduli-6",
+        "source": "my_pages/assets/img/portfolio/indonesia_peduli (6).png",
+        "alt": {
+          "id": "Tangkapan layar 6 dari 10 — Indonesia Peduli",
+          "en": "Screenshot 6 of 10 — Indonesia Peduli"
+        }
+      },
+      {
+        "name": "indonesia-peduli-7",
+        "source": "my_pages/assets/img/portfolio/indonesia_peduli (7).png",
+        "alt": {
+          "id": "Tangkapan layar 7 dari 10 — Indonesia Peduli",
+          "en": "Screenshot 7 of 10 — Indonesia Peduli"
+        }
+      },
+      {
+        "name": "indonesia-peduli-8",
+        "source": "my_pages/assets/img/portfolio/indonesia_peduli (8).png",
+        "alt": {
+          "id": "Tangkapan layar 8 dari 10 — Indonesia Peduli",
+          "en": "Screenshot 8 of 10 — Indonesia Peduli"
+        }
+      },
+      {
+        "name": "indonesia-peduli-9",
+        "source": "my_pages/assets/img/portfolio/indonesia_peduli (9).png",
+        "alt": {
+          "id": "Tangkapan layar 9 dari 10 — Indonesia Peduli",
+          "en": "Screenshot 9 of 10 — Indonesia Peduli"
+        }
+      },
+      {
+        "name": "indonesia-peduli-10",
+        "source": "my_pages/assets/img/portfolio/indonesia_peduli (10).png",
+        "alt": {
+          "id": "Tangkapan layar 10 dari 10 — Indonesia Peduli",
+          "en": "Screenshot 10 of 10 — Indonesia Peduli"
+        }
+      }
+    ],
+    "id": {
+      "title": "Indonesia Peduli",
+      "summary": "Situs penggalangan dana bantuan daring yang terhubung dengan pembayaran online.",
+      "body": [
+        "Indonesia Peduli adalah situs yang dibangun khusus untuk menggalang dana bantuan atau donasi secara daring. Dibangun dengan Laravel 7.x dan terhubung dengan pembayaran online."
+      ],
+      "features": []
+    },
+    "en": {
+      "title": "Indonesia Peduli",
+      "summary": "An online fundraising site for donations, built with Laravel and integrated with online payments.",
+      "body": [
+        "Indonesia Peduli is a website that was built specifically to raise aid funds / donations online. Built with laravel 7.x and integrated with online payments."
+      ],
+      "features": []
+    }
+  },
+  {
+    "key": "lms-external-ojk",
+    "slug": {
+      "id": "lms-eksternal-ojk",
+      "en": "lms-external-ojk"
+    },
+    "category": "web",
+    "framework": "CodeIgniter",
+    "client": "Otoritas Jasa Keuangan",
+    "date": "2024-07",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+LMS+External+OJK."
+    },
+    "legacyPath": "my_pages/lms-external-ojk-detail.html",
+    "thumb": "lms-external-3",
+    "images": [
+      {
+        "name": "lms-external-2",
+        "source": "my_pages/assets/img/portfolio/lms-external (2).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 6 — LMS Eksternal OJK",
+          "en": "Screenshot 1 of 6 — LMS External OJK"
+        }
+      },
+      {
+        "name": "lms-external-1",
+        "source": "my_pages/assets/img/portfolio/lms-external (1).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 6 — LMS Eksternal OJK",
+          "en": "Screenshot 2 of 6 — LMS External OJK"
+        }
+      },
+      {
+        "name": "lms-external-3",
+        "source": "my_pages/assets/img/portfolio/lms-external (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 6 — LMS Eksternal OJK",
+          "en": "Screenshot 3 of 6 — LMS External OJK"
+        }
+      },
+      {
+        "name": "lms-external-4",
+        "source": "my_pages/assets/img/portfolio/lms-external (4).png",
+        "alt": {
+          "id": "Tangkapan layar 4 dari 6 — LMS Eksternal OJK",
+          "en": "Screenshot 4 of 6 — LMS External OJK"
+        }
+      },
+      {
+        "name": "lms-external-5",
+        "source": "my_pages/assets/img/portfolio/lms-external (5).png",
+        "alt": {
+          "id": "Tangkapan layar 5 dari 6 — LMS Eksternal OJK",
+          "en": "Screenshot 5 of 6 — LMS External OJK"
+        }
+      },
+      {
+        "name": "lms-external-6",
+        "source": "my_pages/assets/img/portfolio/lms-external (6).png",
+        "alt": {
+          "id": "Tangkapan layar 6 dari 6 — LMS Eksternal OJK",
+          "en": "Screenshot 6 of 6 — LMS External OJK"
+        }
+      }
+    ],
+    "id": {
+      "title": "LMS Eksternal OJK",
+      "summary": "LMS berisi modul pelatihan dan webinar dengan sistem poin dan hadiah bagi peserta.",
+      "body": [
+        "Situs ini adalah Learning Management System (LMS) yang menyediakan beragam modul pelatihan dan webinar bagi pengguna. Sistem ini dirancang untuk membantu peserta memahami materi melalui modul pembelajaran interaktif, serta memberikan hadiah berdasarkan keterlibatan mereka dalam kegiatan belajar.",
+        "LMS ini cocok bagi organisasi, perusahaan, atau lembaga yang ingin mengelola program pelatihan dan meningkatkan efektivitas pembelajaran digital."
+      ],
+      "features": [
+        "Dasbor modul pembelajaran: menampilkan daftar modul yang direkomendasikan.",
+        "Pengguna dapat mencari dan menyaring modul berdasarkan kategori atau penilaian.",
+        "Setiap modul memuat rincian seperti jumlah peserta, penilaian, dan statistik penyelesaian.",
+        "Manajemen pelatihan dan webinar: menyajikan materi belajar berupa video, dokumen, dan kuis interaktif.",
+        "Pengguna dapat mengikuti webinar yang diselenggarakan admin.",
+        "Tersedia dasbor webinar untuk memantau statistik peserta dan mengevaluasi efektivitas webinar.",
+        "Sistem poin dan hadiah: peserta memperoleh poin belajar sesuai keterlibatannya.",
+        "Poin dapat ditukar dengan hadiah seperti merchandise eksklusif (kaus, tas, dan lainnya).",
+        "Pencarian dan penyaringan modul: pengguna dapat mencari modul berdasarkan judul atau kategori.",
+        "Fitur pengurutan A-Z memudahkan penemuan modul yang dicari.",
+        "Manajemen sertifikat dan templat: admin dapat mengelola sertifikat bagi peserta yang menuntaskan modul tertentu.",
+        "Tersedia fitur manajemen templat untuk menyusun dan mengelola laporan.",
+        "Forum diskusi dan obrolan: memungkinkan peserta berinteraksi, berdiskusi, dan berbagi wawasan seputar modul pelatihan.",
+        "Dilengkapi notifikasi untuk pembaruan jadwal webinar dan pengingat pelatihan.",
+        "Profil pengguna: setiap peserta memiliki halaman profil untuk melacak riwayat belajar, kemajuan modul, dan poin yang terkumpul."
+      ]
+    },
+    "en": {
+      "title": "LMS External OJK",
+      "summary": "An LMS offering training modules and webinars with a points-and-rewards system for participants.",
+      "body": [
+        "This website is a Learning Management System (LMS) that provides various training modules and webinars for users. It is designed to help participants understand materials through interactive learning modules and offers rewards based on their engagement in learning activities.",
+        "This LMS is ideal for organizations, companies, or institutions looking to manage training programs and enhance the effectiveness of digital learning."
+      ],
+      "features": [
+        "Learning Module Dashboard Displays a list of recommended modules.",
+        "Users can search and filter modules based on categories or ratings.",
+        "Each module includes details such as the number of participants, ratings, and completion statistics.",
+        "Training & Webinar Management Offers various learning materials in the form of videos, documents, and interactive quizzes.",
+        "Users can join webinars organized by the admin.",
+        "A webinar dashboard is available to track participant statistics and evaluate webinar effectiveness.",
+        "Points & Rewards System Participants earn learning points based on their engagement.",
+        "Points can be redeemed for rewards such as exclusive merchandise (T-shirts, bags, etc.).",
+        "Module Search & Filter Users can search for modules by title or category.",
+        "The A-Z sorting feature makes it easier to find desired modules.",
+        "Certification & Template Management Admins can manage certificates for participants who complete certain modules.",
+        "A template management feature is available for creating and managing reports.",
+        "Discussion Forum & Chat Allows participants to interact, discuss, and share insights about training modules.",
+        "Includes notifications for webinar schedule updates and training reminders.",
+        "User Profile Each participant has a personal profile page to track their learning history, module progress, and accumulated points."
+      ]
+    }
+  },
+  {
+    "key": "lms-internal-ojk",
+    "slug": {
+      "id": "lms-internal-ojk",
+      "en": "lms-internal-ojk"
+    },
+    "category": "web",
+    "framework": "CodeIgniter",
+    "client": "Otoritas Jasa Keuangan",
+    "date": "2024-07",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+LMS+OJK."
+    },
+    "legacyPath": "my_pages/lms-internal-ojk-detail.html",
+    "thumb": "lms-ojk-4",
+    "images": [
+      {
+        "name": "lms-ojk-1",
+        "source": "my_pages/assets/img/portfolio/lms-ojk (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 7 — LMS Internal OJK",
+          "en": "Screenshot 1 of 7 — LMS Internal OJK"
+        }
+      },
+      {
+        "name": "lms-ojk-2",
+        "source": "my_pages/assets/img/portfolio/lms-ojk (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 7 — LMS Internal OJK",
+          "en": "Screenshot 2 of 7 — LMS Internal OJK"
+        }
+      },
+      {
+        "name": "lms-ojk-3",
+        "source": "my_pages/assets/img/portfolio/lms-ojk (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 7 — LMS Internal OJK",
+          "en": "Screenshot 3 of 7 — LMS Internal OJK"
+        }
+      },
+      {
+        "name": "lms-ojk-4",
+        "source": "my_pages/assets/img/portfolio/lms-ojk (4).png",
+        "alt": {
+          "id": "Tangkapan layar 4 dari 7 — LMS Internal OJK",
+          "en": "Screenshot 4 of 7 — LMS Internal OJK"
+        }
+      },
+      {
+        "name": "lms-ojk-5",
+        "source": "my_pages/assets/img/portfolio/lms-ojk (5).png",
+        "alt": {
+          "id": "Tangkapan layar 5 dari 7 — LMS Internal OJK",
+          "en": "Screenshot 5 of 7 — LMS Internal OJK"
+        }
+      },
+      {
+        "name": "lms-ojk-6",
+        "source": "my_pages/assets/img/portfolio/lms-ojk (6).png",
+        "alt": {
+          "id": "Tangkapan layar 6 dari 7 — LMS Internal OJK",
+          "en": "Screenshot 6 of 7 — LMS Internal OJK"
+        }
+      },
+      {
+        "name": "lms-ojk-7",
+        "source": "my_pages/assets/img/portfolio/lms-ojk (7).png",
+        "alt": {
+          "id": "Tangkapan layar 7 dari 7 — LMS Internal OJK",
+          "en": "Screenshot 7 of 7 — LMS Internal OJK"
+        }
+      }
+    ],
+    "id": {
+      "title": "LMS Internal OJK",
+      "summary": "Sistem manajemen pelatihan dan e-learning internal OJK, lengkap dengan analisis kebutuhan pelatihan.",
+      "body": [
+        "Situs ini adalah sistem manajemen pelatihan dan e-learning yang dikembangkan untuk memfasilitasi pelatihan dan pengembangan kompetensi di lingkungan Otoritas Jasa Keuangan (OJK). Sistem ini dirancang untuk mengelola berbagai aspek pelatihan, termasuk kursus e-learning, catatan riwayat pelatihan, dan Training Needs Analysis (TNA) untuk pemantauan serta evaluasi.",
+        "Dengan antarmuka modern dan navigasi yang mudah, pengguna dapat mengakses fitur-fitur utama untuk meningkatkan efektivitas pembelajaran dan pengelolaan pelatihan.",
+        "Sistem ini dibangun untuk meningkatkan efisiensi pelaksanaan pelatihan serta menopang pembelajaran digital yang fleksibel dan terukur."
+      ],
+      "features": [
+        "Kursus e-learning: menyediakan beragam kursus daring yang dapat diakses peserta pelatihan.",
+        "Memuat materi pelatihan berupa video, dokumen, kuis, dan modul interaktif.",
+        "Memungkinkan peserta memantau kemajuan belajarnya secara langsung.",
+        "TNA (Training Needs Analysis): memudahkan identifikasi kebutuhan pelatihan bagi pegawai atau peserta.",
+        "Membantu memetakan kesenjangan kompetensi dan merekomendasikan program pelatihan yang sesuai.",
+        "Pemantauan: menyediakan fitur untuk memantau pelaksanaan pelatihan dan keterlibatan peserta.",
+        "Administrator dapat melihat statistik partisipasi dan efektivitas kursus.",
+        "Riwayat pelatihan: menampilkan daftar pelatihan yang pernah diikuti pengguna.",
+        "Mencatat pencapaian dan sertifikasi yang diperoleh.",
+        "Webinar OJKI dan dasbor webinar: mengelola dan menyelenggarakan webinar terkait program pelatihan.",
+        "Dasbor menyajikan gambaran umum data peserta dan kinerja webinar.",
+        "Kelola: digunakan administrator untuk mengelola modul pembelajaran, akun peserta, dan jadwal pelatihan.",
+        "Notifikasi dan profil pengguna: mengirim pemberitahuan mengenai kegiatan pelatihan dan jadwal webinar.",
+        "Pengguna dapat memperbarui informasi pribadi dan melihat status pelatihannya."
+      ]
+    },
+    "en": {
+      "title": "LMS Internal OJK",
+      "summary": "An internal training and e-learning management system for OJK, including Training Needs Analysis.",
+      "body": [
+        "This website is a Training and E-Learning Management System developed to facilitate training and competency development within the Otoritas Jasa Keuangan (OJK). The system is designed to manage various aspects of training, including e-learning courses, training history records, and Training Needs Analysis (TNA) for monitoring and evaluation.",
+        "With a modern interface and user-friendly navigation, users can easily access key features to enhance learning effectiveness and training management.",
+        "This system is designed to improve efficiency in training execution and support flexible, measurable digital learning."
+      ],
+      "features": [
+        "E-Learning Course Provides various online courses accessible to training participants.",
+        "Includes training materials such as videos, documents, quizzes, and interactive modules.",
+        "Allows participants to track their learning progress in real-time.",
+        "TNA (Training Needs Analysis) Facilitates the identification of training needs for employees or participants.",
+        "Helps determine competency gaps and recommends suitable training programs.",
+        "Monitoring Offers monitoring features to track training implementation and participant engagement.",
+        "Administrators can view participation statistics and course effectiveness.",
+        "Training History Displays a list of training sessions attended by users.",
+        "Records achievements and certifications earned.",
+        "OJKI Webinar & Webinar Dashboard Manages and hosts webinars related to training programs.",
+        "The dashboard provides an overview of participant data and webinar performance.",
+        "Management (Kelola) Used by administrators to manage learning modules, participant accounts, and training schedules.",
+        "Notifications & User Profile Sends alerts regarding training activities and webinar schedules.",
+        "Users can update personal information and view their training status."
+      ]
+    }
+  },
+  {
+    "key": "manhud",
+    "slug": {
+      "id": "website-sekolah-manbaul-huda",
+      "en": "manbaul-huda-school-website"
+    },
+    "category": "web",
+    "framework": "Laravel",
+    "client": "MTs. Manba'ul Huda",
+    "date": "2021-01",
+    "link": {
+      "type": "github",
+      "url": "https://github.com/qkohst/website_mts_mh"
+    },
+    "legacyPath": "my_pages/manhud-detail.html",
+    "thumb": "manhud-3",
+    "images": [
+      {
+        "name": "manhud-3",
+        "source": "my_pages/assets/img/portfolio/manhud (3).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 3 — Website Sekolah",
+          "en": "Screenshot 1 of 3 — School Website"
+        }
+      },
+      {
+        "name": "manhud-2",
+        "source": "my_pages/assets/img/portfolio/manhud (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 3 — Website Sekolah",
+          "en": "Screenshot 2 of 3 — School Website"
+        }
+      },
+      {
+        "name": "manhud-1",
+        "source": "my_pages/assets/img/portfolio/manhud (1).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 3 — Website Sekolah",
+          "en": "Screenshot 3 of 3 — School Website"
+        }
+      }
+    ],
+    "id": {
+      "title": "Website Sekolah",
+      "summary": "Situs berita sekolah sekaligus kanal penerimaan peserta didik baru untuk MTs Manba'ul Huda.",
+      "body": [
+        "Sistem ini dibangun dengan framework Laravel dan basis data MySQL menggunakan Bootstrap CSS."
+      ],
+      "features": [
+        "Situs berita sekolah.",
+        "Penerimaan peserta didik baru."
+      ]
+    },
+    "en": {
+      "title": "School Website",
+      "summary": "A school news site with a new-student admission channel for MTs Manba'ul Huda.",
+      "body": [
+        "This system is built with the laravel framework and MySQL database using bootstrap CSS."
+      ],
+      "features": [
+        "School news website.",
+        "New student Admission"
+      ]
+    }
+  },
+  {
+    "key": "megaria",
+    "slug": {
+      "id": "hotel-megaria",
+      "en": "megaria-hotel"
+    },
+    "category": "web",
+    "framework": "Silverstripe",
+    "client": "Morning Glory Enterprise",
+    "date": "2023-05",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+Megaria+Hotel."
+    },
+    "legacyPath": "my_pages/megaria-detail.html",
+    "thumb": "megaria-3",
+    "images": [
+      {
+        "name": "megaria-1",
+        "source": "my_pages/assets/img/portfolio/megaria (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 6 — Hotel Megaria",
+          "en": "Screenshot 1 of 6 — Megaria Hotel"
+        }
+      },
+      {
+        "name": "megaria-2",
+        "source": "my_pages/assets/img/portfolio/megaria (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 6 — Hotel Megaria",
+          "en": "Screenshot 2 of 6 — Megaria Hotel"
+        }
+      },
+      {
+        "name": "megaria-3",
+        "source": "my_pages/assets/img/portfolio/megaria (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 6 — Hotel Megaria",
+          "en": "Screenshot 3 of 6 — Megaria Hotel"
+        }
+      },
+      {
+        "name": "megaria-4",
+        "source": "my_pages/assets/img/portfolio/megaria (4).png",
+        "alt": {
+          "id": "Tangkapan layar 4 dari 6 — Hotel Megaria",
+          "en": "Screenshot 4 of 6 — Megaria Hotel"
+        }
+      },
+      {
+        "name": "megaria-5",
+        "source": "my_pages/assets/img/portfolio/megaria (5).png",
+        "alt": {
+          "id": "Tangkapan layar 5 dari 6 — Hotel Megaria",
+          "en": "Screenshot 5 of 6 — Megaria Hotel"
+        }
+      },
+      {
+        "name": "megaria-6",
+        "source": "my_pages/assets/img/portfolio/megaria (6).png",
+        "alt": {
+          "id": "Tangkapan layar 6 dari 6 — Hotel Megaria",
+          "en": "Screenshot 6 of 6 — Megaria Hotel"
+        }
+      }
+    ],
+    "id": {
+      "title": "Hotel Megaria",
+      "summary": "Sistem manajemen hotel mencakup data, penggajian, aset, laporan, dan keamanan.",
+      "body": [
+        "Situs ini adalah sistem manajemen hotel bernama Megaria Hotel. Sistem ini dirancang untuk membantu operasional hotel, meliputi pengelolaan data, penggajian, aset, laporan, keamanan, dan pengaturan global. Antarmuka yang sederhana dengan navigasi yang jelas memudahkan pengguna mengakses fitur yang tersedia."
+      ],
+      "features": [
+        "Dasbor: gambaran umum operasional hotel dan akses cepat ke modul utama.",
+        "Data SP: pengelolaan dokumen resmi dan catatan administratif.",
+        "Data induk: mengelola kategori, pemasok, dan rujukan sistem.",
+        "Penggajian: pengelolaan gaji dan penggajian karyawan.",
+        "Laporan: menyusun dan mengekspor laporan operasional.",
+        "Aset: mengelola inventaris hotel dan melacak aset.",
+        "Keamanan: kendali akses pengguna dan pengaturan keamanan sistem.",
+        "Pengaturan global: konfigurasi dan preferensi tingkat sistem.",
+        "Manajemen pengguna: mengelola akun pengguna dan hak akses."
+      ]
+    },
+    "en": {
+      "title": "Megaria Hotel",
+      "summary": "A hotel management system covering data, payroll, assets, reporting, and security.",
+      "body": [
+        "This website is a hotel management system called Megaria Hotel. It is designed to assist hotel operations, including data management, payroll, assets, reports, security, and global settings. With a simple user interface and clear navigation, users can easily access the available features."
+      ],
+      "features": [
+        "Dashboard: Overview of hotel operations and quick access to main modules.",
+        "Data SP: Management of official documents and administrative records.",
+        "Master Data: Manage categories, suppliers, and system references.",
+        "Payroll: Employee salary and payroll management.",
+        "Reports: Generate and export operational reports.",
+        "Assets: Manage hotel inventory and track assets.",
+        "Security: User access control and system security settings.",
+        "Global Settings: System-wide configurations and preferences.",
+        "User Management: Manage user accounts and access rights."
+      ]
+    }
+  },
+  {
+    "key": "mgschedule",
+    "slug": {
+      "id": "mg-schedule",
+      "en": "mg-schedule"
+    },
+    "category": "web",
+    "framework": "Silverstripe",
+    "client": "Morning Glory Enterprise",
+    "date": "2023-07",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+MG+Schedule."
+    },
+    "legacyPath": "my_pages/mgschedule-detail.html",
+    "thumb": "mgschedule-3",
+    "images": [
+      {
+        "name": "mgschedule-1",
+        "source": "my_pages/assets/img/portfolio/mgschedule (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 5 — MG Schedule",
+          "en": "Screenshot 1 of 5 — MG Schedule"
+        }
+      },
+      {
+        "name": "mgschedule-2",
+        "source": "my_pages/assets/img/portfolio/mgschedule (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 5 — MG Schedule",
+          "en": "Screenshot 2 of 5 — MG Schedule"
+        }
+      },
+      {
+        "name": "mgschedule-3",
+        "source": "my_pages/assets/img/portfolio/mgschedule (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 5 — MG Schedule",
+          "en": "Screenshot 3 of 5 — MG Schedule"
+        }
+      },
+      {
+        "name": "mgschedule-4",
+        "source": "my_pages/assets/img/portfolio/mgschedule (4).png",
+        "alt": {
+          "id": "Tangkapan layar 4 dari 5 — MG Schedule",
+          "en": "Screenshot 4 of 5 — MG Schedule"
+        }
+      },
+      {
+        "name": "mgschedule-5",
+        "source": "my_pages/assets/img/portfolio/mgschedule (5).png",
+        "alt": {
+          "id": "Tangkapan layar 5 dari 5 — MG Schedule",
+          "en": "Screenshot 5 of 5 — MG Schedule"
+        }
+      }
+    ],
+    "id": {
+      "title": "MG Schedule",
+      "summary": "Platform penjadwalan proyek dan manajemen tugas dengan kalender dinamis serta pelaporan.",
+      "body": [
+        "MG Schedule adalah platform manajemen jadwal milik Morning Glory Enterprise yang menawarkan solusi intuitif dan efisien untuk penjadwalan proyek dan manajemen tugas. Platform ini dirancang untuk merapikan alur kerja, mengoptimalkan pembagian tugas, dan mempererat kolaborasi di dalam organisasi.",
+        "Platform ini memungkinkan tim berkolaborasi secara efektif, menyusun prioritas tugas, dan menuntaskan proyek tepat waktu. Dengan tampilan kalender yang enak dilihat dan fitur pelaporan yang tajam, MG Schedule menjadi alat yang mengubah cara pengelolaan proyek perusahaan."
+      ],
+      "features": [
+        "Ikhtisar dasbor: tampilan kalender dinamis yang menyajikan tugas dan jadwal proyek harian, mingguan, dan bulanan untuk pengelolaan waktu yang efisien.",
+        "Manajemen proyek induk: kendali menyeluruh atas proyek berjalan dan mendatang, termasuk pelacakan status dan pengelolaan tonggak capaian.",
+        "Pengelompokan tugas: menata tugas berdasarkan jenis dan prioritas agar pelaksanaannya berjalan lancar.",
+        "Pelacakan waktu: memantau waktu yang dihabiskan pada berbagai tugas dan proyek untuk analisis produktivitas.",
+        "Pembaruan proyek: mengikuti perubahan proyek dan pembaruan tugas terkini.",
+        "Manajemen lembur: memantau dan mengelola lembur proyek demi menjaga efisiensi.",
+        "Laporan harian dan mingguan: menyusun laporan terperinci untuk melacak kemajuan dan mengenali hambatan.",
+        "Manajemen kuota cuti: pelacakan kuota cuti anggota tim secara langsung.",
+        "Antarmuka ramah pengguna: desain bersih dengan tata letak yang mudah dinavigasi untuk mendorong produktivitas."
+      ]
+    },
+    "en": {
+      "title": "MG Schedule",
+      "summary": "A project scheduling and task management platform with a dynamic calendar and reporting.",
+      "body": [
+        "The MGE (Morning Glory Enterprise) Schedule Management Platform offers an intuitive and efficient solution for project scheduling and task management. The platform is designed to streamline workflows, optimize task allocation, and enhance collaboration within the organization.",
+        "This platform empowers teams to collaborate effectively, prioritize tasks, and deliver projects on time. With its visually appealing calendar and insightful reporting features, MGE Schedule is a game-changing tool for managing enterprise projects efficiently."
+      ],
+      "features": [
+        "Dashboard Overview: A dynamic calendar display that presents tasks and project schedules for each day, week, and month, allowing for efficient time management.",
+        "Master Project Management: Comprehensive control over ongoing and upcoming projects, including status tracking and milestone management.",
+        "Task Categorization: Organize tasks by type and priority to ensure smooth execution of responsibilities.",
+        "Time Tracking: Monitor the time spent on different tasks and projects for better productivity analysis.",
+        "Project Updates: Stay informed with the latest project changes and task updates.",
+        "Overtime Management: Monitor and manage project overtime to maintain efficiency.",
+        "Daily and Weekly Reporting: Generate detailed reports to track progress and identify potential bottlenecks.",
+        "Leave Quota Management: Real-time tracking of available leave quotas for team members.",
+        "User-Friendly Interface: Clean design with an easy-to-navigate layout to boost user productivity."
+      ]
+    }
+  },
+  {
+    "key": "pabrik_plastik",
+    "slug": {
+      "id": "pabrik-plastik",
+      "en": "plastic-factory"
+    },
+    "category": "web",
+    "framework": "Silverstripe",
+    "client": "Morning Glory Enterprise",
+    "date": "2024-08",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+Pabrik+Plastik."
+    },
+    "legacyPath": "my_pages/pabrik_plastik-detail.html",
+    "thumb": "pabrik-plastik-5",
+    "images": [
+      {
+        "name": "pabrik-plastik-1",
+        "source": "my_pages/assets/img/portfolio/pabrik_plastik (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 5 — Pabrik Plastik",
+          "en": "Screenshot 1 of 5 — Plastic Factory"
+        }
+      },
+      {
+        "name": "pabrik-plastik-2",
+        "source": "my_pages/assets/img/portfolio/pabrik_plastik (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 5 — Pabrik Plastik",
+          "en": "Screenshot 2 of 5 — Plastic Factory"
+        }
+      },
+      {
+        "name": "pabrik-plastik-3",
+        "source": "my_pages/assets/img/portfolio/pabrik_plastik (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 5 — Pabrik Plastik",
+          "en": "Screenshot 3 of 5 — Plastic Factory"
+        }
+      },
+      {
+        "name": "pabrik-plastik-4",
+        "source": "my_pages/assets/img/portfolio/pabrik_plastik (4).png",
+        "alt": {
+          "id": "Tangkapan layar 4 dari 5 — Pabrik Plastik",
+          "en": "Screenshot 4 of 5 — Plastic Factory"
+        }
+      },
+      {
+        "name": "pabrik-plastik-5",
+        "source": "my_pages/assets/img/portfolio/pabrik_plastik (5).png",
+        "alt": {
+          "id": "Tangkapan layar 5 dari 5 — Pabrik Plastik",
+          "en": "Screenshot 5 of 5 — Plastic Factory"
+        }
+      }
+    ],
+    "id": {
+      "title": "Pabrik Plastik",
+      "summary": "Sistem manajemen pabrik plastik untuk produksi, persediaan, limbah, dan transaksi.",
+      "body": [
+        "Proyek ini adalah sistem manajemen pabrik plastik yang menyeluruh, dirancang untuk merapikan proses produksi, pelacakan persediaan, dan pengelolaan operasional. Sistem ini memuat modul pemantauan stok bahan, manajemen produksi roll dan kemasan, pelacakan limbah, serta penanganan transaksi. Dilengkapi kemampuan pelaporan dan ekspor data, sistem ini memastikan alokasi sumber daya yang efisien dan gambaran operasional yang selalu terkini."
+      ],
+      "features": [
+        "Dasbor: menyajikan ikhtisar terpusat berupa total berat bahan, jumlah kelompok, dan kategori stok sehingga data produksi terbaca jelas.",
+        "Data induk: mengelola data pokok sistem seperti kategori, pemasok, dan rujukan lainnya.",
+        "Produksi roll: melacak dan mengelola kegiatan produksi roll.",
+        "Produksi kemasan: memantau dan mengelola proses produksi kemasan.",
+        "Produksi barang jadi: menangani produksi produk akhir yang siap didistribusikan.",
+        "Pengumpulan roll: mengelola pengumpulan dan pemakaian persediaan roll.",
+        "Manajemen limbah: memantau dan mengelola limbah produksi demi efisiensi sumber daya.",
+        "Pengepakan: mengawasi proses pengepakan produk jadi.",
+        "Transaksi: mencatat dan mengelola transaksi operasional terkait produksi dan perpindahan sumber daya.",
+        "Pelaporan: menyusun laporan terperinci dan mengekspor data ke Excel untuk dianalisis.",
+        "Manajemen pengguna: mengelola akun pengguna dan hak akses demi mengamankan operasional sistem."
+      ]
+    },
+    "en": {
+      "title": "Plastic Factory",
+      "summary": "A plastic factory management system covering production, inventory, waste, and transactions.",
+      "body": [
+        "This project is a comprehensive Plastic Factory Management System designed to streamline production processes, inventory tracking, and operational management. The system features modules for material stock monitoring, production roll and packaging management, waste tracking, and transaction handling. Equipped with reporting and data export capabilities, it ensures efficient resource allocation and real-time operational insights."
+      ],
+      "features": [
+        "Dashboard: Provides a centralized overview of total material weight, group counts, and stock categories, ensuring a clear snapshot of production data.",
+        "Master: Manage essential master data for the system, such as categories, suppliers, and other references.",
+        "Production: Production Roll: Track and manage roll production activities.",
+        "Production Packaging: Monitor and manage packaging production processes.",
+        "Finished Goods Production: Handle production of final products ready for distribution.",
+        "Roll Collection: Manage roll inventory collection and usage.",
+        "Waste Management: Monitor and manage production waste to optimize resource efficiency.",
+        "Packing: Oversee the packing process for finished products.",
+        "Transactions: Record and manage operational transactions related to production and resource movements.",
+        "Reporting: Generate detailed reports and export data to Excel for analysis.",
+        "User Management: Manage user accounts and control access rights to secure system operations."
+      ]
+    }
+  },
+  {
+    "key": "pabrik_plastik_api",
+    "slug": {
+      "id": "api-pabrik-plastik",
+      "en": "plastic-factory-api"
+    },
+    "category": "api",
+    "framework": "Silverstripe",
+    "client": "Morning Glory Enterprise",
+    "date": "2024-08",
+    "link": {
+      "type": "postman",
+      "url": "https://documenter.getpostman.com/view/12304685/2sAYX3qhuk"
+    },
+    "legacyPath": "my_pages/pabrik_plastik_api-detail.html",
+    "thumb": "pabrik-plastik-api-3",
+    "images": [
+      {
+        "name": "pabrik-plastik-api-1",
+        "source": "my_pages/assets/img/portfolio/pabrik_plastik_api (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 3 — API Pabrik Plastik",
+          "en": "Screenshot 1 of 3 — Plastic Factory API"
+        }
+      },
+      {
+        "name": "pabrik-plastik-api-2",
+        "source": "my_pages/assets/img/portfolio/pabrik_plastik_api (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 3 — API Pabrik Plastik",
+          "en": "Screenshot 2 of 3 — Plastic Factory API"
+        }
+      },
+      {
+        "name": "pabrik-plastik-api-3",
+        "source": "my_pages/assets/img/portfolio/pabrik_plastik_api (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 3 — API Pabrik Plastik",
+          "en": "Screenshot 3 of 3 — Plastic Factory API"
+        }
+      }
+    ],
+    "id": {
+      "title": "API Pabrik Plastik",
+      "summary": "RESTful API untuk operasional pabrik plastik: produk, pelanggan, pesanan, dan pelaporan.",
+      "body": [
+        "API ini dirancang untuk mengelola berbagai aspek operasional pabrik plastik, meliputi manajemen produk, manajemen pelanggan, pemrosesan pesanan, autentikasi pengguna, dan pelaporan. Setiap endpoint mengikuti metode HTTP yang sesuai (GET, POST, PUT, DELETE) dan memerlukan parameter tertentu agar penanganan data berjalan efisien.",
+        "Dengan struktur RESTful, API ini memastikan integrasi yang mulus dengan sistem lain dan meningkatkan efisiensi pengelolaan data."
+      ],
+      "features": [
+        "Manajemen produk (operasi CRUD untuk produk).",
+        "Manajemen pelanggan (operasi CRUD untuk pelanggan).",
+        "Manajemen pesanan (membuat, memperbarui, dan menghapus pesanan).",
+        "Sistem autentikasi pengguna.",
+        "Laporan dan analitik untuk wawasan bisnis."
+      ]
+    },
+    "en": {
+      "title": "Plastic Factory API",
+      "summary": "A RESTful API for plastic factory operations: products, customers, orders, and reporting.",
+      "body": [
+        "This API is designed to manage various aspects of a plastic factory's operations, including product management, customer management, order processing, user authentication, and reporting. Each endpoint follows the appropriate HTTP methods (GET, POST, PUT, DELETE) and requires specific parameters to handle data efficiently.",
+        "With a RESTful structure, this API ensures seamless integration with other systems and improves efficiency in data management."
+      ],
+      "features": [
+        "Product management (CRUD operations for products).",
+        "Customer management (CRUD operations for customers).",
+        "Order management (creating, updating, and deleting orders).",
+        "User authentication system.",
+        "Reports and analytics for business insights."
+      ]
+    }
+  },
+  {
+    "key": "pamdes",
+    "slug": {
+      "id": "st-pamdes",
+      "en": "st-pamdes"
+    },
+    "category": "web",
+    "framework": "Laravel",
+    "client": "Pamdes Baitul Amin",
+    "date": "2023-10",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+E+St+Pamdes."
+    },
+    "legacyPath": "my_pages/pamdes-detail.html",
+    "thumb": "pamdes-1",
+    "images": [
+      {
+        "name": "pamdes-1",
+        "source": "my_pages/assets/img/portfolio/pamdes (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 10 — St Pamdes",
+          "en": "Screenshot 1 of 10 — St Pamdes"
+        }
+      },
+      {
+        "name": "pamdes-2",
+        "source": "my_pages/assets/img/portfolio/pamdes (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 10 — St Pamdes",
+          "en": "Screenshot 2 of 10 — St Pamdes"
+        }
+      },
+      {
+        "name": "pamdes-3",
+        "source": "my_pages/assets/img/portfolio/pamdes (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 10 — St Pamdes",
+          "en": "Screenshot 3 of 10 — St Pamdes"
+        }
+      },
+      {
+        "name": "pamdes-4",
+        "source": "my_pages/assets/img/portfolio/pamdes (4).png",
+        "alt": {
+          "id": "Tangkapan layar 4 dari 10 — St Pamdes",
+          "en": "Screenshot 4 of 10 — St Pamdes"
+        }
+      },
+      {
+        "name": "pamdes-5",
+        "source": "my_pages/assets/img/portfolio/pamdes (5).png",
+        "alt": {
+          "id": "Tangkapan layar 5 dari 10 — St Pamdes",
+          "en": "Screenshot 5 of 10 — St Pamdes"
+        }
+      },
+      {
+        "name": "pamdes-6",
+        "source": "my_pages/assets/img/portfolio/pamdes (6).png",
+        "alt": {
+          "id": "Tangkapan layar 6 dari 10 — St Pamdes",
+          "en": "Screenshot 6 of 10 — St Pamdes"
+        }
+      },
+      {
+        "name": "pamdes-7",
+        "source": "my_pages/assets/img/portfolio/pamdes (7).png",
+        "alt": {
+          "id": "Tangkapan layar 7 dari 10 — St Pamdes",
+          "en": "Screenshot 7 of 10 — St Pamdes"
+        }
+      },
+      {
+        "name": "pamdes-8",
+        "source": "my_pages/assets/img/portfolio/pamdes (8).png",
+        "alt": {
+          "id": "Tangkapan layar 8 dari 10 — St Pamdes",
+          "en": "Screenshot 8 of 10 — St Pamdes"
+        }
+      },
+      {
+        "name": "pamdes-9",
+        "source": "my_pages/assets/img/portfolio/pamdes (9).png",
+        "alt": {
+          "id": "Tangkapan layar 9 dari 10 — St Pamdes",
+          "en": "Screenshot 9 of 10 — St Pamdes"
+        }
+      },
+      {
+        "name": "pamdes-10",
+        "source": "my_pages/assets/img/portfolio/pamdes (10).png",
+        "alt": {
+          "id": "Tangkapan layar 10 dari 10 — St Pamdes",
+          "en": "Screenshot 10 of 10 — St Pamdes"
+        }
+      }
+    ],
+    "id": {
+      "title": "St Pamdes",
+      "summary": "Aplikasi pendataan pelanggan dan transaksi pembayaran air untuk pengelola air desa.",
+      "body": [
+        "Aplikasi ini dibangun dengan framework Laravel 7.0 dan DBMS MySQL. Pamdes hadir sebagai solusi untuk membantu pendataan pelanggan dan transaksi pembayaran air."
+      ],
+      "features": [
+        "Pendataan pelanggan",
+        "Pencatatan pemakaian air",
+        "Pencatatan transaksi pembayaran",
+        "Cetak bukti pembayaran",
+        "Laporan transaksi",
+        "Cek tagihan",
+        "Impor dan ekspor Excel",
+        "Ekspor PDF",
+        "Pengaturan ukuran kertas bukti pembayaran"
+      ]
+    },
+    "en": {
+      "title": "St Pamdes",
+      "summary": "A customer data and water payment application for village water management.",
+      "body": [
+        "This application is built with the laravel 7.0 framework and MySQL DBMS. Pamdes is a solution to assist in customer data collection and water payment transactions."
+      ],
+      "features": [
+        "Customer Data Collection",
+        "Water Usage Recording",
+        "Payment Transaction Recording",
+        "Print Proof of Payment",
+        "Transaction Reports",
+        "Check bill",
+        "Import & Export Excel",
+        "Export PDF",
+        "Payment Proof Paper Size Settings"
+      ]
+    }
+  },
+  {
+    "key": "pkbm",
+    "slug": {
+      "id": "ppdb-pkbm",
+      "en": "student-admission-pkbm"
+    },
+    "category": "web",
+    "framework": "Laravel",
+    "client": "PKBM Nurul Jadid",
+    "date": "2020-09",
+    "link": {
+      "type": "github",
+      "url": "https://github.com/qkohst/ppdb_pkbm"
+    },
+    "legacyPath": "my_pages/pkbm-detail.html",
+    "thumb": "pkbm-3",
+    "images": [
+      {
+        "name": "pkbm-3",
+        "source": "my_pages/assets/img/portfolio/pkbm (3).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 3 — Situs Penerimaan Peserta Didik Baru",
+          "en": "Screenshot 1 of 3 — New Student Admission Site"
+        }
+      },
+      {
+        "name": "pkbm-2",
+        "source": "my_pages/assets/img/portfolio/pkbm (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 3 — Situs Penerimaan Peserta Didik Baru",
+          "en": "Screenshot 2 of 3 — New Student Admission Site"
+        }
+      },
+      {
+        "name": "pkbm-1",
+        "source": "my_pages/assets/img/portfolio/pkbm (1).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 3 — Situs Penerimaan Peserta Didik Baru",
+          "en": "Screenshot 3 of 3 — New Student Admission Site"
+        }
+      }
+    ],
+    "id": {
+      "title": "Situs Penerimaan Peserta Didik Baru",
+      "summary": "Situs informasi dan rekapitulasi pendaftaran peserta didik baru untuk PKBM Nurul Jadid.",
+      "body": [
+        "Sistem ini dibangun dengan framework Laravel dan basis data MySQL menggunakan Bootstrap CSS."
+      ],
+      "features": [
+        "Informasi penerimaan peserta didik baru.",
+        "Laporan rekapitulasi pendaftaran."
+      ]
+    },
+    "en": {
+      "title": "New Student Admission Site",
+      "summary": "A new-student admission information and registration recap site for PKBM Nurul Jadid.",
+      "body": [
+        "This system is built with the laravel framework and MySQL database using bootstrap CSS."
+      ],
+      "features": [
+        "New Student Admission Information.",
+        "Registration recapitulation report."
+      ]
+    }
+  },
+  {
+    "key": "property_api",
+    "slug": {
+      "id": "api-properti",
+      "en": "property-api"
+    },
+    "category": "api",
+    "framework": "Silverstripe",
+    "client": "Morning Glory Enterprise",
+    "date": "2023-03",
+    "link": {
+      "type": "postman",
+      "url": "https://documenter.getpostman.com/view/12304685/2sAYX3qhzA"
+    },
+    "legacyPath": "my_pages/property_api-detail.html",
+    "thumb": "property-api-3",
+    "images": [
+      {
+        "name": "property-api-1",
+        "source": "my_pages/assets/img/portfolio/property_api (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 3 — API Properti",
+          "en": "Screenshot 1 of 3 — Property API"
+        }
+      },
+      {
+        "name": "property-api-2",
+        "source": "my_pages/assets/img/portfolio/property_api (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 3 — API Properti",
+          "en": "Screenshot 2 of 3 — Property API"
+        }
+      },
+      {
+        "name": "property-api-3",
+        "source": "my_pages/assets/img/portfolio/property_api (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 3 — API Properti",
+          "en": "Screenshot 3 of 3 — Property API"
+        }
+      }
+    ],
+    "id": {
+      "title": "API Properti",
+      "summary": "RESTful API untuk manajemen properti: listing, penyewa, pembayaran sewa, dan laporan.",
+      "body": [
+        "API ini dirancang untuk mengelola berbagai aspek sistem manajemen properti, meliputi daftar properti, manajemen penyewa, pembayaran sewa, autentikasi pengguna, dan pelaporan. Setiap endpoint mengikuti metode HTTP yang sesuai (GET, POST, PUT, DELETE) dan memerlukan parameter tertentu agar penanganan data berjalan efisien.",
+        "Dengan struktur RESTful, API ini memastikan integrasi yang mulus dengan sistem lain dan meningkatkan efisiensi pengelolaan data."
+      ],
+      "features": [
+        "Manajemen properti (operasi CRUD untuk properti).",
+        "Manajemen penyewa (operasi CRUD untuk penyewa).",
+        "Manajemen pembayaran sewa (mencatat, memperbarui, dan menghapus pembayaran).",
+        "Sistem autentikasi pengguna.",
+        "Laporan dan analitik untuk wawasan bisnis."
+      ]
+    },
+    "en": {
+      "title": "Property API",
+      "summary": "A RESTful API for property management: listings, tenants, rent payments, and reporting.",
+      "body": [
+        "This API is designed to manage various aspects of a property management system, including property listings, tenant management, rent payments, user authentication, and reporting. Each endpoint follows the appropriate HTTP methods (GET, POST, PUT, DELETE) and requires specific parameters to handle data efficiently.",
+        "With a RESTful structure, this API ensures seamless integration with other systems and improves efficiency in data management."
+      ],
+      "features": [
+        "Property management (CRUD operations for properties).",
+        "Tenant management (CRUD operations for tenants).",
+        "Rent payment management (recording, updating, and deleting payments).",
+        "User authentication system.",
+        "Reports and analytics for business insights."
+      ]
+    }
+  },
+  {
+    "key": "rentalMobil",
+    "slug": {
+      "id": "rental-mobil",
+      "en": "car-rental"
+    },
+    "category": "desktop",
+    "framework": null,
+    "client": null,
+    "date": "2019-02",
+    "link": {
+      "type": "github",
+      "url": "https://github.com/qkohst/Rental_Mobil_Java"
+    },
+    "legacyPath": "my_pages/rentalMobil-detail.html",
+    "thumb": "rental-mobil-1",
+    "images": [
+      {
+        "name": "rental-mobil-1",
+        "source": "my_pages/assets/img/portfolio/rental_mobil (1).jpg",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 2 — Rental Mobil",
+          "en": "Screenshot 1 of 2 — Car Rental"
+        }
+      },
+      {
+        "name": "rental-mobil-2",
+        "source": "my_pages/assets/img/portfolio/rental_mobil (2).jpg",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 2 — Rental Mobil",
+          "en": "Screenshot 2 of 2 — Car Rental"
+        }
+      }
+    ],
+    "id": {
+      "title": "Rental Mobil",
+      "summary": "Sistem pengelolaan data rental mobil berbasis desktop yang dibangun dengan Java.",
+      "body": [
+        "Sistem pengelolaan data rental mobil berbasis Java."
+      ],
+      "features": []
+    },
+    "en": {
+      "title": "Car Rental",
+      "summary": "A Java-based desktop system for managing car rental data.",
+      "body": [
+        "Java-based car rental data management system."
+      ],
+      "features": []
+    }
+  },
+  {
+    "key": "siasek",
+    "slug": {
+      "id": "sistem-administrasi-sekolah",
+      "en": "school-administration-system"
+    },
+    "category": "web",
+    "framework": "Laravel",
+    "client": "SMP Darut Tauhid Tambakboyo",
+    "date": "2020-07",
+    "link": {
+      "type": "github",
+      "url": "https://github.com/qkohst/manajemen_administrasi_sekolah"
+    },
+    "legacyPath": "my_pages/siasek-detail.html",
+    "thumb": "siasek-1-1",
+    "images": [
+      {
+        "name": "siasek-1-1",
+        "source": "my_pages/assets/img/portfolio/siasek-1.png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 3 — Sistem Informasi Administrasi Sekolah",
+          "en": "Screenshot 1 of 3 — School Administration Information System"
+        }
+      },
+      {
+        "name": "siasek-2-2",
+        "source": "my_pages/assets/img/portfolio/siasek-2.png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 3 — Sistem Informasi Administrasi Sekolah",
+          "en": "Screenshot 2 of 3 — School Administration Information System"
+        }
+      },
+      {
+        "name": "siasek-3-3",
+        "source": "my_pages/assets/img/portfolio/siasek-3.png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 3 — Sistem Informasi Administrasi Sekolah",
+          "en": "Screenshot 3 of 3 — School Administration Information System"
+        }
+      }
+    ],
+    "id": {
+      "title": "Sistem Informasi Administrasi Sekolah",
+      "summary": "Sistem administrasi sekolah mencakup surat, pembayaran, tabungan, dan keuangan siswa.",
+      "body": [
+        "Sistem ini dibangun dengan framework Laravel dan basis data MySQL menggunakan templat AdminLTE. Sistem ini merupakan hasil pengembangan dari sistem sebelumnya, yaitu Sistem Manajemen Surat."
+      ],
+      "features": [
+        "Multi pengguna (Admin, Petugas, Siswa).",
+        "Mengelola data induk (identitas sekolah, guru, siswa, rombongan belajar, dan lainnya).",
+        "Mengelola manajemen surat (surat masuk dan surat keluar).",
+        "Mengelola pembayaran siswa.",
+        "Mengelola tabungan siswa.",
+        "Mengelola keuangan sekolah (pemasukan dan pengeluaran).",
+        "Mengelola dan menyusun laporan keuangan."
+      ]
+    },
+    "en": {
+      "title": "School Administration Information System",
+      "summary": "A school administration system covering mail, student payments, savings, and finances.",
+      "body": [
+        "This system is built with the laravel framework and MySQL database using a template from the admin LTE. which is the result of the development of the previous system, namely the Mail Management System which can be accessed here"
+      ],
+      "features": [
+        "Multi user (Admin, Officer, Student).",
+        "Manage Master Data (School Identity, Teacher, Student, Study Group, etc).",
+        "Manage Mail Management (Incoming and Outgoing Mail).",
+        "Managing Student Payments.",
+        "Managing Student Savings.",
+        "Managing School Finances (School Income and Expenditures).",
+        "Manage and create Financial Reports."
+      ]
+    }
+  },
+  {
+    "key": "sosmed",
+    "slug": {
+      "id": "jejaring-sosial-laravel",
+      "en": "laravel-social-network"
+    },
+    "category": "web",
+    "framework": "Laravel",
+    "client": null,
+    "date": "2020-11",
+    "link": {
+      "type": "github",
+      "url": "https://github.com/qkohst/Laravel_SocialNetwork"
+    },
+    "legacyPath": "my_pages/sosmed-detail.html",
+    "thumb": "sosmed-1",
+    "images": [
+      {
+        "name": "sosmed-1",
+        "source": "my_pages/assets/img/portfolio/sosmed (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 3 — Jejaring Sosial Laravel",
+          "en": "Screenshot 1 of 3 — Social Network"
+        }
+      },
+      {
+        "name": "sosmed-2",
+        "source": "my_pages/assets/img/portfolio/sosmed (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 3 — Jejaring Sosial Laravel",
+          "en": "Screenshot 2 of 3 — Social Network"
+        }
+      },
+      {
+        "name": "sosmed-3",
+        "source": "my_pages/assets/img/portfolio/sosmed (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 3 — Jejaring Sosial Laravel",
+          "en": "Screenshot 3 of 3 — Social Network"
+        }
+      }
+    ],
+    "id": {
+      "title": "Jejaring Sosial Laravel",
+      "summary": "Aplikasi jejaring sosial dengan unggahan, komentar, suka, dan sistem ikuti.",
+      "body": [
+        "Dikembangkan menggunakan Laravel dengan DBMS MySQL."
+      ],
+      "features": [
+        "Masuk",
+        "Pendaftaran",
+        "Ubah profil",
+        "Ganti kata sandi",
+        "Buat unggahan",
+        "Komentari unggahan",
+        "Sukai unggahan",
+        "Ikuti / berhenti mengikuti"
+      ]
+    },
+    "en": {
+      "title": "Social Network",
+      "summary": "A social network application with posts, comments, likes, and a follow system.",
+      "body": [
+        "Developed using Laravel with MySQL DBMS."
+      ],
+      "features": [
+        "Login",
+        "Register",
+        "Edit Profile",
+        "Change Password",
+        "Create Post",
+        "Comment Post",
+        "Like Post",
+        "Follow / Unfollow"
+      ]
+    }
+  },
+  {
+    "key": "surat",
+    "slug": {
+      "id": "manajemen-surat",
+      "en": "mail-management-system"
+    },
+    "category": "web",
+    "framework": "Laravel",
+    "client": null,
+    "date": "2020-02",
+    "link": {
+      "type": "github",
+      "url": "https://github.com/qkohst/surat_management"
+    },
+    "legacyPath": "my_pages/surat-detail.html",
+    "thumb": "surat-2",
+    "images": [
+      {
+        "name": "surat-2",
+        "source": "my_pages/assets/img/portfolio/surat (2).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 3 — Sistem Manajemen Surat",
+          "en": "Screenshot 1 of 3 — Mail Management System"
+        }
+      },
+      {
+        "name": "surat-1",
+        "source": "my_pages/assets/img/portfolio/surat (1).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 3 — Sistem Manajemen Surat",
+          "en": "Screenshot 2 of 3 — Mail Management System"
+        }
+      },
+      {
+        "name": "surat-3",
+        "source": "my_pages/assets/img/portfolio/surat (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 3 — Sistem Manajemen Surat",
+          "en": "Screenshot 3 of 3 — Mail Management System"
+        }
+      }
+    ],
+    "id": {
+      "title": "Sistem Manajemen Surat",
+      "summary": "Pengelolaan surat masuk dan keluar beserta klasifikasi, unggahan berkas, dan cetak agenda.",
+      "body": [
+        "Sistem ini dibangun dengan framework Laravel dan basis data MySQL menggunakan templat AdminLTE."
+      ],
+      "features": [
+        "Multi pengguna (Admin, Petugas).",
+        "Mengelola data surat masuk dan surat keluar.",
+        "Mengunggah berkas surat masuk dan surat keluar.",
+        "Mengelola klasifikasi surat.",
+        "Mencetak agenda surat masuk dan surat keluar.",
+        "Melihat galeri berkas surat masuk dan surat keluar."
+      ]
+    },
+    "en": {
+      "title": "Mail Management System",
+      "summary": "Incoming and outgoing mail management with classification, file uploads, and agenda printing.",
+      "body": [
+        "This system is built with the laravel framework and MySQL database using a template from the admin LTE."
+      ],
+      "features": [
+        "Multi user (Admin, Officer).",
+        "Manage incoming and outgoing mail data.",
+        "Upload incoming and outgoing mail files",
+        "Manage mail Classification",
+        "Print the agenda for incoming and outgoing letters",
+        "View the gallery of incoming and outgoing mail files."
+      ]
+    }
+  },
+  {
+    "key": "treeport",
+    "slug": {
+      "id": "treeport",
+      "en": "treeport"
+    },
+    "category": "web",
+    "framework": "Silverstripe",
+    "client": "Morning Glory Enterprise",
+    "date": "2024-09",
+    "link": {
+      "type": "whatsapp",
+      "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+Treeport."
+    },
+    "legacyPath": "my_pages/treeport-detail.html",
+    "thumb": "treeport-2",
+    "images": [
+      {
+        "name": "treeport-1",
+        "source": "my_pages/assets/img/portfolio/treeport (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 5 — TreePort",
+          "en": "Screenshot 1 of 5 — TreePort"
+        }
+      },
+      {
+        "name": "treeport-2",
+        "source": "my_pages/assets/img/portfolio/treeport (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 5 — TreePort",
+          "en": "Screenshot 2 of 5 — TreePort"
+        }
+      },
+      {
+        "name": "treeport-3",
+        "source": "my_pages/assets/img/portfolio/treeport (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 5 — TreePort",
+          "en": "Screenshot 3 of 5 — TreePort"
+        }
+      },
+      {
+        "name": "treeport-4",
+        "source": "my_pages/assets/img/portfolio/treeport (4).png",
+        "alt": {
+          "id": "Tangkapan layar 4 dari 5 — TreePort",
+          "en": "Screenshot 4 of 5 — TreePort"
+        }
+      },
+      {
+        "name": "treeport-5",
+        "source": "my_pages/assets/img/portfolio/treeport (5).png",
+        "alt": {
+          "id": "Tangkapan layar 5 dari 5 — TreePort",
+          "en": "Screenshot 5 of 5 — TreePort"
+        }
+      }
+    ],
+    "id": {
+      "title": "TreePort",
+      "summary": "Sistem backoffice platform Treeport untuk pengelolaan data dan operasi administratif.",
+      "body": [
+        "Aplikasi web ini berfungsi sebagai sistem backoffice untuk platform Treeport, menyediakan fitur penting untuk penanganan data dan operasi administratif yang efisien. Antarmukanya yang bersih membuat navigasi mudah dan interaksi terasa ringan.",
+        "Platform ini mengoptimalkan tugas administratif dan penataan data demi meningkatkan efisiensi operasional."
+      ],
+      "features": [
+        "Dasbor: pusat kendali yang menyajikan ikhtisar cepat aktivitas sistem beserta sapaan yang dipersonalisasi.",
+        "Kategori induk: mengelola dan menata berbagai kategori produk agar operasional lebih rapi.",
+        "Produk induk (variasi Flurry): menangani variasi produk secara terperinci demi pengelolaan produk yang menyeluruh.",
+        "Kebijakan privasi induk: menyusun dan memelihara dokumentasi kebijakan privasi perusahaan.",
+        "Pengaturan pengguna induk: mengelola data pengguna, termasuk membuat, mengubah, dan menghapus akun.",
+        "Pengaturan akses: mengatur peran dan izin pengguna demi pengelolaan akses yang aman dan efisien."
+      ]
+    },
+    "en": {
+      "title": "TreePort",
+      "summary": "A back-office management system for the Treeport platform, handling data and administration.",
+      "body": [
+        "This web application serves as a back-office management system for the Treeport platform, offering essential features for efficient data handling and administrative operations. Its clean interface ensures easy navigation and user-friendly interactions.",
+        "This platform optimizes administrative tasks and data organization to boost operational efficiency."
+      ],
+      "features": [
+        "Dashboard: A central hub providing a quick overview of system activities and a personalized welcome for users.",
+        "Master Category: Manage and organize various product categories for streamlined operations.",
+        "Master Product (Flurry Variations): Handle detailed product variations to ensure comprehensive product management.",
+        "Master Privacy Policy: Configure and maintain company privacy policy documentation.",
+        "Settings: Master User: Manage user data, including creation, editing, and deletion of user accounts.",
+        "Access Settings: Control user roles and permissions to ensure secure and efficient access management."
+      ]
+    }
+  },
+  {
+    "key": "treeport_api",
+    "slug": {
+      "id": "api-treeport",
+      "en": "treeport-api"
+    },
+    "category": "api",
+    "framework": "Silverstripe",
+    "client": "Morning Glory Enterprise",
+    "date": "2024-09",
+    "link": {
+      "type": "postman",
+      "url": "https://documenter.getpostman.com/view/12304685/2sAYX3qhzG"
+    },
+    "legacyPath": "my_pages/treeport_api-detail.html",
+    "thumb": "treeport-api-3",
+    "images": [
+      {
+        "name": "treeport-api-1",
+        "source": "my_pages/assets/img/portfolio/treeport_api (1).png",
+        "alt": {
+          "id": "Tangkapan layar 1 dari 3 — API TreePort",
+          "en": "Screenshot 1 of 3 — TreePort API"
+        }
+      },
+      {
+        "name": "treeport-api-2",
+        "source": "my_pages/assets/img/portfolio/treeport_api (2).png",
+        "alt": {
+          "id": "Tangkapan layar 2 dari 3 — API TreePort",
+          "en": "Screenshot 2 of 3 — TreePort API"
+        }
+      },
+      {
+        "name": "treeport-api-3",
+        "source": "my_pages/assets/img/portfolio/treeport_api (3).png",
+        "alt": {
+          "id": "Tangkapan layar 3 dari 3 — API TreePort",
+          "en": "Screenshot 3 of 3 — TreePort API"
+        }
+      }
+    ],
+    "id": {
+      "title": "API TreePort",
+      "summary": "RESTful API untuk data pohon, spesies, lokasi, pengguna, dan laporan analitik kehutanan.",
+      "body": [
+        "API ini menyediakan layanan untuk mengelola data pohon, spesies, lokasi, dan pengguna, serta mendukung autentikasi dan laporan analitik terkait kehutanan.",
+        "API ini mendukung metode HTTP (GET, POST, PUT, DELETE) dengan dokumentasi terperinci mengenai parameter dan struktur balasan."
+      ],
+      "features": [
+        "Manajemen pohon: menambah, memperbarui, menghapus, dan mengambil data pohon.",
+        "Manajemen spesies: mengelola data spesies pohon.",
+        "Manajemen lokasi: mengelola data kawasan hutan dan area penanaman.",
+        "Manajemen pengguna: pendaftaran, autentikasi, dan pengelolaan pengguna.",
+        "Laporan dan analitik: data pertumbuhan pohon dan analisis kesehatan hutan.",
+        "Notifikasi: mengirim peringatan penting kepada pengguna."
+      ]
+    },
+    "en": {
+      "title": "TreePort API",
+      "summary": "A RESTful API for tree, species, location, and user data, with forestry analytics reports.",
+      "body": [
+        "This API provides services for managing tree data, species, locations, users, and supports authentication as well as analytical reports related to forestry.",
+        "The API supports HTTP methods (GET, POST, PUT, DELETE) with detailed documentation on parameters and response structures."
+      ],
+      "features": [
+        "Tree Management: Add, update, delete, and retrieve tree data.",
+        "Species Management: Manage tree species data.",
+        "Location Management: Manage forest and planting area data.",
+        "User Management: User registration, authentication, and management.",
+        "Reports & Analytics: Tree growth data and forest health analysis.",
+        "Notifications: Send important alerts to users."
+      ]
+    }
+  }
+]

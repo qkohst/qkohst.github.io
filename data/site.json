@@ -1,0 +1,269 @@
+{
+  "$comment": "Sumber tunggal konten situs + CV. Diedit manual; dibaca tools/build.js. Field netral bahasa di level atas; copy dwibahasa di objek {id, en}. showOn menentukan entri muncul di situs, CV, atau keduanya.",
+
+  "site": {
+    "origin": "https://qkohst.github.io",
+    "repo": "https://github.com/qkohst/qkohst.github.io",
+    "defaultLang": "id",
+    "langs": ["id", "en"],
+    "pathPrefix": { "id": "", "en": "/en" },
+    "themeColor": { "light": "#fbfcfc", "dark": "#080c0b" },
+    "accent": "#0bad94",
+    "crispWebsiteId": "1389c3f9-bf80-4645-ba9e-f3834eec71c6"
+  },
+
+  "profile": {
+    "name": "Kukoh Santoso",
+    "handle": "qkohst",
+    "experienceSince": 2021,
+    "photo": "profile",
+    "cvPhoto": "cv-photo",
+    "id": {
+      "role": "Web Developer",
+      "typed": ["Web Developer", "Freelancer"],
+      "tagline": "Membangun aplikasi web yang rapi, cepat, dan mudah dirawat.",
+      "about": "Saya Kukoh Santoso, asal Tuban, Jawa Timur. Saya orang yang punya dorongan kuat untuk terus mempelajari hal baru. Saat ini saya menekuni pengembangan perangkat lunak.",
+      "aboutCv": "Saya Kukoh Santoso, asal Tuban, Jawa Timur. Saya orang yang punya dorongan kuat untuk terus mempelajari hal baru. Saat ini saya menekuni pengembangan perangkat lunak.",
+      "seoDescription": "Kukoh Santoso (qkohst) — Web Developer asal Tuban, Jawa Timur. Berpengalaman membangun aplikasi web dengan Laravel, CodeIgniter, dan Silverstripe."
+    },
+    "en": {
+      "role": "Web Developer",
+      "typed": ["Web Developer", "Freelancer"],
+      "tagline": "Building web applications that are clean, fast, and maintainable.",
+      "about": "I'm Kukoh Santoso, from Tuban, East Java, Indonesia. I'm a person with a strong passion for learning new things. Currently I'm focused on software development.",
+      "aboutCv": "I'm Kukoh Santoso, from Tuban, East Java, Indonesia. I'm a person with a strong passion for learning new things. Currently I'm focused on software development.",
+      "seoDescription": "Kukoh Santoso (qkohst) — Web Developer based in Tuban, East Java, Indonesia. Experienced in building web applications with Laravel, CodeIgniter, and Silverstripe."
+    }
+  },
+
+  "contact": {
+    "email": "kukohsantoso013@gmail.com",
+    "phone": "0852-3207-7932",
+    "phoneE164": "6285232077932",
+    "whatsapp": "https://wa.me/6285232077932",
+    "whatsappQr": "https://wa.me/qr/SXUQNY2D7MIDO1",
+    "mapsUrl": "https://maps.app.goo.gl/KUh9yGLNpmmRANPg8",
+    "id": {
+      "address": "Tambakboyo - Tuban - Jawa Timur | 62353",
+      "addressShort": "Tuban, Jawa Timur, Indonesia"
+    },
+    "en": {
+      "address": "Tambakboyo - Tuban - East Java | 62353",
+      "addressShort": "Tuban, East Java, Indonesia"
+    }
+  },
+
+  "socials": [
+    { "key": "github",    "label": "qkohst",         "url": "https://github.com/qkohst",                                   "icon": "github",    "showOn": ["cv", "site"] },
+    { "key": "linkedin",  "label": "Kukoh Santoso",  "url": "https://www.linkedin.com/in/kukoh-santoso-87674217a",         "icon": "linkedin",  "showOn": ["site"] },
+    { "key": "instagram", "label": "qkoh_st",        "url": "https://www.instagram.com/qkoh_st",                           "icon": "instagram", "showOn": ["cv", "site"] },
+    { "key": "facebook",  "label": "Qkoh Santoso",   "url": "https://web.facebook.com/qkohst",                             "icon": "facebook",  "showOn": ["cv", "site"] },
+    { "key": "twitter",   "label": "qkohst",         "url": "https://twitter.com/qkohst",                                  "icon": "twitter",   "showOn": ["cv", "site"] },
+    { "key": "youtube",   "label": "Qkoh St",        "url": "https://www.youtube.com/channel/UCHO5t3O1satYKfGnlxGDVsg/videos", "icon": "youtube", "showOn": ["cv", "site"] },
+    { "key": "gitlab",    "label": "qkohst",         "url": "https://gitlab.com/qkohst",                                   "icon": "gitlab",    "showOn": ["site"] }
+  ],
+
+  "skills": [
+    { "name": "PHP",        "level": 95, "showOn": ["cv", "site"] },
+    { "name": "JavaScript", "level": 90, "showOn": ["cv", "site"] },
+    { "name": "SQL",        "level": 90, "showOn": ["cv", "site"] },
+    { "name": "CSS",        "level": 90, "showOn": ["cv", "site"] },
+    { "name": "Java",       "level": 80, "showOn": ["cv", "site"] },
+    { "name": "GIT",        "level": 90, "showOn": ["cv", "site"] }
+  ],
+
+  "frameworks": [
+    { "name": "Laravel",      "level": 95, "showOn": ["cv", "site"] },
+    { "name": "CodeIgniter",  "level": 90, "showOn": ["cv", "site"] },
+    { "name": "Silverstripe", "level": 95, "showOn": ["cv", "site"] },
+    { "name": "Bootstrap",    "level": 95, "showOn": ["cv", "site"] },
+    { "name": "Vue.js",       "level": 90, "showOn": ["cv", "site"] },
+    { "name": "Quasar",       "level": 90, "showOn": ["cv", "site"] },
+    { "name": "Node.js",      "level": 85, "showOn": ["cv", "site"] },
+    { "name": "Tailwind CSS", "level": 95, "showOn": ["cv", "site"] }
+  ],
+
+  "education": [
+    {
+      "from": "2017", "to": "2021", "showOn": ["cv", "site"],
+      "id": { "degree": "Teknik Informatika", "org": "Universitas PGRI Ronggolawe Tuban" },
+      "en": { "degree": "Informatics Engineering", "org": "PGRI Ronggolawe Tuban University" }
+    },
+    {
+      "from": "2013", "to": "2016", "showOn": ["cv", "site"],
+      "id": { "degree": "Rekayasa Perangkat Lunak", "org": "SMK Ma'arif 4-5 Tambakboyo" },
+      "en": { "degree": "Software Engineering", "org": "Vocational High School Ma'arif 4-5 Tambakboyo" }
+    },
+    {
+      "from": "2010", "to": "2013", "showOn": ["cv", "site"],
+      "id": { "degree": "", "org": "MTs Manba'ul Huda Klutuk - Tambakboyo" },
+      "en": { "degree": "", "org": "Islamic Junior High School Manba'ul Huda Klutuk - Tambakboyo" }
+    }
+  ],
+
+  "experience": [
+    {
+      "from": "2025-04", "to": null, "showOn": ["cv", "site"],
+      "id": { "role": "Web Developer", "org": "Bizmatic ID", "orgType": "Perusahaan",
+              "summary": "Membangun dan merawat website serta aplikasi web, menangani sisi antarmuka sekaligus sisi server." },
+      "en": { "role": "Web Developer", "org": "Bizmatic ID", "orgType": "Company",
+              "summary": "Builds and maintains websites and web applications, handling both the front-end and the back-end." }
+    },
+    {
+      "from": "2022-06", "to": "2025-03", "showOn": ["cv", "site"],
+      "id": { "role": "Back-end Web Developer", "org": "Morning Glory Enterprise", "orgType": "Software House",
+              "summary": "Bertanggung jawab atas logika aplikasi di sisi server dan integrasinya dengan hasil kerja pengembang front-end." },
+      "en": { "role": "Back-end Web Developer", "org": "Morning Glory Enterprise", "orgType": "Software House",
+              "summary": "Responsible for server-side web application logic and integration of the work front-end developers do." }
+    },
+    {
+      "from": "2019-07", "to": "2022-06", "showOn": ["cv", "site"],
+      "id": { "role": "Staf IT & Pengajar", "org": "PKBM Nurul Jadid Tambakboyo", "orgType": "Sekolah",
+              "summary": "Mengelola data pendidikan sekolah dan mengajar mata pelajaran Teknologi Informasi dan Komunikasi." },
+      "en": { "role": "IT Staff & Teacher", "org": "PKBM Nurul Jadid Tambakboyo", "orgType": "School",
+              "summary": "Manages school education data and teaches Informatics and Communication Engineering." }
+    },
+    {
+      "from": "2017-08", "to": "2022-06", "showOn": ["cv", "site"],
+      "id": { "role": "Staf IT & Pengajar", "org": "SMP Darut Tauhid Tambakboyo", "orgType": "Sekolah",
+              "summary": "Merawat perangkat komputer di laboratorium, mengelola data pendidikan sekolah, dan mengajar Teknologi Informasi dan Komunikasi." },
+      "en": { "role": "IT Staff & Teacher", "org": "SMP Darut Tauhid Tambakboyo", "orgType": "School",
+              "summary": "Maintains computer equipment in the laboratory, manages school education data, and teaches Informatics and Communication Engineering." }
+    },
+    {
+      "from": "2016-08", "to": "2016-12", "showOn": ["cv"],
+      "$note": "Hanya ada di CV lama, belum pernah tampil di website. Ubah showOn ke [\"cv\",\"site\"] bila ingin ditampilkan juga.",
+      "id": { "role": "Junior Graphic Designer", "org": "PT. Laut Bonang Rembang", "orgType": "Perusahaan",
+              "summary": "Menyusun prototipe desain sesuai sasaran klien, memunculkan ide dan konsep baru, serta mengembangkan desain interaktif." },
+      "en": { "role": "Junior Graphic Designer", "org": "PT. Laut Bonang Rembang", "orgType": "Company",
+              "summary": "Develops design prototypes according to client goals, generating new ideas and concepts and developing interactive designs." }
+    }
+  ],
+
+  "certificates": [
+    {
+      "date": "2022-02", "image": "certificate-dicoding", "showOn": ["cv", "site"],
+      "$sourceImage": "my_pages/assets/img/licence_03.jpg",
+      "id": { "title": "Front-End Web", "issuer": "Dicoding Indonesia",
+              "summary": "Lulus kelas Membuat Front-End Web untuk Pemula di Dicoding Indonesia." },
+      "en": { "title": "Front-End Web", "issuer": "Dicoding Indonesia",
+              "summary": "Graduated from the Creating Front-End Web for Beginners class at Dicoding Indonesia." }
+    },
+    {
+      "date": "2021-12", "image": "certificate-best-graduate", "showOn": ["cv", "site"],
+      "$sourceImage": "my_pages/assets/img/liicence_02.jpg",
+      "id": { "title": "Lulusan Terbaik", "issuer": "Universitas PGRI Ronggolawe Tuban",
+              "summary": "Lulusan terbaik Teknik Informatika Universitas PGRI Ronggolawe Tuban tahun 2021." },
+      "en": { "title": "Best Graduate", "issuer": "PGRI Ronggolawe Tuban University",
+              "summary": "Best graduate of Informatics Engineering at PGRI Ronggolawe Tuban University in 2021." }
+    },
+    {
+      "date": "2020-10", "image": "certificate-laravel", "showOn": ["cv", "site"],
+      "$sourceImage": "my_pages/assets/img/liicence_01.jpg",
+      "id": { "title": "Laravel Web Development", "issuer": "Sanbercode",
+              "summary": "Lulus kursus Laravel yang diselenggarakan Sanbercode pada Oktober 2020." },
+      "en": { "title": "Laravel Web Development", "issuer": "Sanbercode",
+              "summary": "Passed the Laravel course organised by Sanbercode in October 2020." }
+    }
+  ],
+
+  "services": [
+    {
+      "key": "web-development", "icon": "code", "link": "services",
+      "id": { "title": "Pengembangan Web", "summary": "Saya membangun website baru atau memperbaiki website yang sudah ada." },
+      "en": { "title": "Web Development", "summary": "I build new websites or fix existing ones." }
+    },
+    {
+      "key": "web-design", "icon": "layout", "link": null,
+      "id": { "title": "Desain Web", "summary": "Desain web profesional untuk menopang pertumbuhan bisnis dan penjualan Anda." },
+      "en": { "title": "Web Design", "summary": "Professional web design to support your business growth and sales." }
+    },
+    {
+      "key": "restful-api", "icon": "api", "link": null,
+      "id": { "title": "Pengembangan RESTful API", "summary": "Layanan pembuatan RESTful API: pengerjaan cepat dengan harga yang wajar." },
+      "en": { "title": "RESTful API Development", "summary": "RESTful API services: fast turnaround at a fair price." }
+    },
+    {
+      "key": "database-design", "icon": "database", "link": null,
+      "id": { "title": "Perancangan Basis Data", "summary": "Pembuatan aplikasi basis data berbasis desktop maupun web untuk kebutuhan bisnis dan perkantoran." },
+      "en": { "title": "Database Design", "summary": "Desktop and web-based database applications for business and office needs." }
+    }
+  ],
+
+  "servicesPage": {
+    "category": "Web Development",
+    "framework": "Laravel",
+    "dbms": "MySQL",
+    "screenshots": 9,
+    "id": {
+      "title": "Pengembangan Web",
+      "heading": "Saya membangun dan memperbaiki website PHP dan Laravel",
+      "body": [
+        "Sedang mencari pengembang web yang bisa dipercaya, menguasai Laravel, dan siap mendampingi dalam jangka panjang? Atau butuh bantuan memperbaiki bug di website Anda?",
+        "Serahkan saja kepada saya.",
+        "Saya menangani PHP native dan Laravel, dan telah mengerjakan berbagai proyek seperti ERP berbasis web, sistem manajemen, sistem pemesanan, eCommerce, CRM, langganan, dan lainnya."
+      ],
+      "priceNote": "Semua harga di bawah adalah harga dasar. Mohon konfirmasi terlebih dahulu sebelum memesan."
+    },
+    "en": {
+      "title": "Web Development",
+      "heading": "I build and fix PHP and Laravel websites",
+      "body": [
+        "Looking for a web developer you can trust, proficient in Laravel, and ready to support you long term? Or do you need help fixing bugs on your website?",
+        "Leave it to me.",
+        "I work with native PHP and Laravel, and have delivered projects such as web-based ERP, management systems, ordering systems, eCommerce, CRM, subscriptions, and more."
+      ],
+      "priceNote": "All prices below are base prices. Please confirm with me before placing an order."
+    }
+  },
+
+  "pricing": [
+    {
+      "key": "basic", "price": 80, "currency": "USD", "days": 6, "revisions": 2, "featured": false,
+      "$fix": "Responsive Design + Design Customization sebelumnya ditandai tidak tersedia di tier ini — dikoreksi.",
+      "features": ["content-upload", "responsive-design", "design-customization"],
+      "id": { "name": "Basic", "summary": "Aplikasi kecil dan sederhana beserta backend-nya." },
+      "en": { "name": "Basic", "summary": "Small, simple application with a backend." }
+    },
+    {
+      "key": "standard", "price": 160, "currency": "USD", "days": 12, "revisions": 4, "featured": true,
+      "features": ["content-upload", "responsive-design", "design-customization", "source-code"],
+      "id": { "name": "Standard", "summary": "Aplikasi berukuran menengah dengan backend dan frontend yang aman." },
+      "en": { "name": "Standard", "summary": "Medium-sized application with a secure backend and frontend." }
+    },
+    {
+      "key": "premium", "price": 505, "currency": "USD", "days": 30, "revisions": 6, "featured": false,
+      "features": ["content-upload", "responsive-design", "design-customization", "source-code"],
+      "id": { "name": "Premium", "summary": "Aplikasi yang dapat disesuaikan penuh dengan fitur khusus sesuai kebutuhan Anda." },
+      "en": { "name": "Premium", "summary": "Fully customisable application with unique features based on your requirements." }
+    }
+  ],
+
+  "pricingFeatures": {
+    "content-upload":       { "id": "Unggah konten",            "en": "Content upload" },
+    "responsive-design":    { "id": "Desain responsif",         "en": "Responsive design" },
+    "design-customization": { "id": "Kustomisasi desain",       "en": "Design customization" },
+    "source-code":          { "id": "Termasuk kode sumber",     "en": "Source code included" }
+  },
+
+  "ui": {
+    "id": {
+      "nav": { "home": "Beranda", "about": "Tentang", "resume": "Resume", "portfolio": "Portofolio", "services": "Layanan", "contact": "Kontak" },
+      "hire": "Hubungi Saya", "downloadCv": "Unduh CV", "viewProject": "Lihat Proyek", "allProjects": "Semua",
+      "sections": { "about": "Tentang Saya", "skills": "Kemampuan Pemrograman", "frameworks": "Framework", "resume": "Resume", "education": "Pendidikan", "certificate": "Sertifikat", "experience": "Pengalaman", "services": "Layanan", "portfolio": "Portofolio", "contact": "Kontak", "projectInfo": "Informasi Proyek", "keyFeatures": "Fitur Utama", "otherInfo": "Informasi Lain" },
+      "meta": { "category": "Kategori", "framework": "Framework", "client": "Klien", "date": "Waktu Pengerjaan" },
+      "categories": { "web": "Web", "app": "Mobile", "api": "API", "desktop": "Desktop" },
+      "experienceSuffix": "tahun pengalaman", "present": "Sekarang",
+      "cvQrNote": "Informasi selengkapnya tentang saya dapat dilihat di qkohst.github.io, atau pindai kode QR di samping."
+    },
+    "en": {
+      "nav": { "home": "Home", "about": "About", "resume": "Resume", "portfolio": "Portfolio", "services": "Services", "contact": "Contact" },
+      "hire": "Contact Me", "downloadCv": "Download CV", "viewProject": "View Project", "allProjects": "All",
+      "sections": { "about": "About Me", "skills": "Programming Skills", "frameworks": "Frameworks", "resume": "Resume", "education": "Education", "certificate": "Certificates", "experience": "Experience", "services": "Services", "portfolio": "Portfolio", "contact": "Contact", "projectInfo": "Project Information", "keyFeatures": "Key Features", "otherInfo": "Other Information" },
+      "meta": { "category": "Category", "framework": "Framework", "client": "Client", "date": "Project time" },
+      "categories": { "web": "Web", "app": "Mobile", "api": "API", "desktop": "Desktop" },
+      "experienceSuffix": "years of experience", "present": "Present",
+      "cvQrNote": "For more information about me, visit qkohst.github.io or scan the QR code beside."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "qkohst-site-tools",
+  "private": true,
+  "description": "Alat build lokal. Tidak pernah ter-deploy; GitHub Pages hanya menyajikan hasilnya.",
+  "scripts": {
+    "build": "node build.js",
+    "images": "node optimize-images.js",
+    "audit": "node audit.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.2"
+  }
+}

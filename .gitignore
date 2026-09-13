@@ -5,3 +5,8 @@
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Alat build lokal — tidak pernah ter-deploy
+tools/node_modules/
+_preview/
+data/projects.draft.json

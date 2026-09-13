@@ -7,6 +7,20 @@
  * Format: AVIF untuk browser modern, JPEG sebagai fallback universal.
  * WebP sengaja dilewati — AVIF sudah mencakup browser modern dan JPEG
  * menangani sisanya, sehingga varian per gambar turun dari 7 ke 4.
+ *
+ * PENTING — sumber asli sudah tidak ada di working tree.
+ * Tangkapan layar asli (my_pages/assets/img/portfolio/, ~29 MB) dihapus pada
+ * commit pembersihan agar repo tidak menyajikan 45 MB aset mati. Hasil
+ * optimasinya di assets/img/ sudah di-commit, jadi situs berjalan normal.
+ * Skrip ini baru perlu dijalankan lagi bila ukuran/kualitas keluaran diubah.
+ * Pulihkan sumbernya lebih dulu:
+ *
+ *   git checkout 379b567 -- my_pages/assets/img
+ *   node tools/optimize-images.js --force
+ *   git rm -r --cached my_pages/assets/img && rm -rf my_pages/assets
+ *
+ * Hal yang sama berlaku untuk tools/extract-legacy.js: halaman lama kini
+ * berisi stub redirect, jadi data/projects.json-lah sumber kebenaran konten.
  */
 const fs = require('fs');
 const path = require('path');

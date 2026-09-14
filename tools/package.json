@@ -3,14 +3,20 @@
   "private": true,
   "description": "Alat build lokal. Tidak pernah ter-deploy; GitHub Pages hanya menyajikan hasilnya.",
   "scripts": {
-    "build": "node build.js",
+    "new": "node new-project.js",
+    "sync": "node sync-projects.js",
     "images": "node optimize-images.js",
-    "audit": "node audit.js"
+    "pages": "node build.js --out .",
+    "pdf": "node build-cv-pdf.js",
+    "audit": "node audit.js .",
+    "build": "npm run sync && npm run images && npm run pages && npm run pdf && npm run audit",
+    "serve": "node -e \"const h=require('http'),f=require('fs'),p=require('path');const M={'.html':'text/html;charset=utf-8','.css':'text/css','.js':'text/javascript','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.avif':'image/avif','.ico':'image/x-icon','.pdf':'application/pdf','.xml':'application/xml','.json':'application/json'};h.createServer((q,s)=>{let u=decodeURIComponent(q.url.split('?')[0]);if(u.endsWith('/'))u+='index.html';const F=p.join('..',u);if(!f.existsSync(F)||f.statSync(F).isDirectory()){s.writeHead(404);return s.end('404')}s.writeHead(200,{'Content-Type':M[p.extname(F)]||'application/octet-stream','Cache-Control':'no-store'});f.createReadStream(F).pipe(s)}).listen(8899,'127.0.0.1',()=>console.log('http://127.0.0.1:8899'))\""
   },
   "devDependencies": {
     "sharp": "^0.34.2"
   },
   "dependencies": {
     "qrcode": "^1.5.4"
-  }
+  },
+  "$catatanScript": "Argumen path pada build.js dan audit.js dihitung relatif terhadap akar repo, bukan folder tempat npm dijalankan. Karena itu dipakai \".\" meski skrip ini berada di tools/."
 }

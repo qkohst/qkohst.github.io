@@ -20,6 +20,18 @@ const ROOT = path.resolve(__dirname, '..');
 const argOut = process.argv.indexOf('--out');
 const OUT = path.resolve(ROOT, argOut > -1 ? process.argv[argOut + 1] : '_preview');
 
+/* Pengaman: generator ini menghapus direktori sebelum menulis, jadi keluaran
+   di luar repo berbahaya — satu salah ketik pada --out bisa mengenai folder
+   lain di komputer. Path keluaran wajib berada di dalam repo. */
+if (OUT !== ROOT && !OUT.startsWith(ROOT + path.sep)) {
+  console.error('Keluaran menunjuk ke luar repo, dibatalkan.');
+  console.error(`  --out  : ${argOut > -1 ? process.argv[argOut + 1] : '(bawaan)'}`);
+  console.error(`  menjadi: ${OUT}`);
+  console.error(`  repo   : ${ROOT}`);
+  console.error('Path --out dihitung relatif terhadap akar repo, bukan folder tempat perintah dijalankan.');
+  process.exit(1);
+}
+
 const site = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/site.json'), 'utf8'));
 /* Proyek diurutkan dari waktu pengerjaan terbaru. Urutannya ditentukan di sini,
    bukan di data, supaya data/projects.json tetap mudah dibaca dan disunting. */
@@ -337,7 +349,9 @@ const redirects = [
   { from: 'my_pages/web_dev_services.html', to: pageUrl('services', 'en') }
 ];
 for (const p of projects) {
-  redirects.push({ from: p.legacyPath, to: pageUrl('project', 'en', p.slug.en) });
+  // Hanya 26 proyek hasil migrasi yang punya halaman lama. Proyek baru yang
+  // ditambahkan lewat content/projects/ tidak punya, dan memang tidak perlu.
+  if (p.legacyPath) redirects.push({ from: p.legacyPath, to: pageUrl('project', 'en', p.slug.en) });
 }
 
 // 2. URL yang berpindah ketika bahasa default ditukar ke Inggris. Path lama

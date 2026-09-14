@@ -10,3 +10,6 @@ desktop.ini
 tools/node_modules/
 _preview/
 data/projects.draft.json
+
+# Sumber proyek: gambar asli disimpan, hasil optimasinya di assets/img/
+# (folder content/ ikut di-commit — ia sumber kebenaran untuk proyek baru)

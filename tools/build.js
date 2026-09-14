@@ -8,7 +8,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { esc, pageUrl, absUrl, t } = require('./lib');
+const { esc, pageUrl, absUrl, t, setIconVersion } = require('./lib');
 const layout = require('../templates/layout');
 const homeTpl = require('../templates/home');
 const projectsTpl = require('../templates/projects');
@@ -24,6 +24,23 @@ const site = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/site.json'), 'utf8
 const projects = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/projects.json'), 'utf8'));
 const ORIGIN = site.site.origin;
 const LANGS = site.site.langs;
+
+/* Sidik konten untuk CSS/JS. Ditempelkan sebagai ?v=... pada URL aset supaya
+   peramban mengambil versi baru begitu berkasnya berubah, tanpa perlu pengguna
+   melakukan hard-reload. Berkasnya sendiri tidak berganti nama, jadi tautan
+   lama tetap sah. */
+const crypto = require('crypto');
+const sidik = rel => {
+  const f = path.join(ROOT, rel);
+  if (!fs.existsSync(f)) return '';
+  return crypto.createHash('sha1').update(fs.readFileSync(f)).digest('hex').slice(0, 8);
+};
+const ASSET_VER = {
+  css: sidik('assets/css/main.css'),
+  cvCss: sidik('assets/css/cv.css'),
+  js: sidik('assets/js/main.js'),
+  icons: sidik('assets/icons.svg')
+};
 
 /* Preload font hanya dipancarkan bila berkasnya benar-benar ada, supaya
    tidak menimbulkan 404 di tiap halaman selama font belum dipasang. */
@@ -101,7 +118,7 @@ function ctxFor({ lang, kind, slugByLang, title, description, ogImage, ogType, j
   const alts = alternatesFor(kind, slugByLang);
   const altUrl = Object.fromEntries(alts.filter(a => a.lang !== 'x-default').map(a => [a.lang, pageUrl(kind, a.lang, slugByLang && slugByLang[a.lang])]));
   return {
-    site, lang, ui, fontHref: FONT_HREF, extraCss,
+    site, lang, ui, fontHref: FONT_HREF, extraCss, ver: ASSET_VER,
     title, description, noindex,
     canonical: absUrl(ORIGIN, pageUrl(kind, lang, slugByLang && slugByLang[lang])),
     alternates: alts,
@@ -169,17 +186,23 @@ const serviceLd = lang => ({
   serviceType: t(site.servicesPage, lang).title,
   provider: { '@type': 'Person', name: site.profile.name, url: ORIGIN },
   areaServed: 'ID',
+  // Harga kini berupa titik awal, jadi dinyatakan sebagai rentang terbuka
+  // (minPrice) agar mesin pencari tidak menampilkannya sebagai harga pasti.
   offers: site.pricing.map(tier => ({
     '@type': 'Offer',
     name: t(tier, lang).name,
-    price: tier.price,
-    priceCurrency: tier.currency,
+    priceSpecification: {
+      '@type': 'PriceSpecification',
+      minPrice: tier.from,
+      priceCurrency: tier.currency
+    },
     description: t(tier, lang).summary,
     url: absUrl(ORIGIN, pageUrl('services', lang))
   }))
 });
 
 /* --- Render -------------------------------------------------------------- */
+setIconVersion(ASSET_VER.icons);
 clean();
 
 for (const lang of LANGS) {

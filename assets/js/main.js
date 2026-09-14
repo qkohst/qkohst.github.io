@@ -126,28 +126,75 @@ function initHeader() {
 }
 
 /* --- Penanda menu aktif (pengganti scrollspy jQuery) ---------------------
-   Versi lama memanggil .offset()/.outerHeight() tiap section pada tiap event
-   scroll sehingga memaksa layout tiap frame. IntersectionObserver tidak. */
+   Nav memancarkan href absolut ("/#about"), bukan "#about", supaya tautannya
+   tetap benar dari halaman mana pun. Selektor lama hanya mencari href yang
+   DIAWALI "#" sehingga tidak pernah cocok dan indikator tidak pernah berpindah.
+   Di sini hash diambil dari href apa pun, lalu hanya dipakai bila section-nya
+   memang ada di halaman ini. */
 function initScrollSpy() {
-  const links = $$('.nav__link[href^="#"]');
-  if (links.length < 2) return;
+  const kandidat = $$('.nav__link').filter(a => (a.getAttribute('href') || '').includes('#'));
+  if (!kandidat.length) return;
 
-  const map = new Map();
-  for (const link of links) {
-    const el = document.getElementById(decodeURIComponent(link.hash.slice(1)));
-    if (el) map.set(el, link);
+  const peta = new Map();      // elemen section -> tautan nav
+  for (const a of kandidat) {
+    const id = (a.getAttribute('href') || '').split('#')[1];
+    if (!id) continue;
+    const el = document.getElementById(decodeURIComponent(id));
+    if (el) peta.set(el, a);
   }
-  if (!map.size) return;
+  if (!peta.size) return;      // bukan halaman beranda
+
+  // Tautan "Beranda" aktif saat pengunjung masih di puncak halaman.
+  const beranda = $$('.nav__link').find(a => {
+    const h = a.getAttribute('href') || '';
+    return h === '/' || h === '/en/';
+  });
+
+  const semua = [...peta.values(), beranda].filter(Boolean);
+  const tandai = aktif => semua.forEach(a => a.classList.toggle('is-active', a === aktif));
+
+  const DI_PUNCAK = 140;   // px; di bawah ini dianggap masih di area hero
+  let terlihat = new Set();
+
+  const putuskan = () => {
+    // Pemeriksaan posisi gulir didahulukan. Memakai sentinel terpisah membuat
+    // dua observer berlomba dan yang belakangan menang, sehingga di puncak
+    // halaman sorotan bisa meleset ke section pertama.
+    if (beranda && window.scrollY < DI_PUNCAK) { tandai(beranda); return; }
+
+    // Section terakhir sering tidak pernah masuk pita deteksi karena halaman
+    // sudah mentok sebelum ia sampai ke sana. Saat gulir menyentuh dasar,
+    // sorot section terakhir secara eksplisit.
+    const dasar = window.innerHeight + window.scrollY >= document.body.scrollHeight - 4;
+    if (dasar) {
+      const urut = [...peta.keys()].sort((a, b) => a.offsetTop - b.offsetTop);
+      tandai(peta.get(urut[urut.length - 1]));
+      return;
+    }
+
+    if (!terlihat.size) return;
+    const teratas = [...terlihat].sort((a, b) =>
+      a.getBoundingClientRect().top - b.getBoundingClientRect().top)[0];
+    tandai(peta.get(teratas));
+  };
 
   const io = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      links.forEach(l => l.classList.remove('is-active'));
-      map.get(entry.target)?.classList.add('is-active');
+    for (const e of entries) {
+      if (e.isIntersecting) terlihat.add(e.target); else terlihat.delete(e.target);
     }
-  }, { rootMargin: '-45% 0px -50% 0px' });
+    putuskan();
+  }, { rootMargin: '-20% 0px -65% 0px', threshold: 0 });
 
-  map.forEach((_, el) => io.observe(el));
+  peta.forEach((_, el) => io.observe(el));
+
+  let menunggu = false;
+  addEventListener('scroll', () => {
+    if (menunggu) return;
+    menunggu = true;
+    requestAnimationFrame(() => { menunggu = false; putuskan(); });
+  }, { passive: true });
+
+  putuskan();
 }
 
 /* --- Penyaring portofolio (pengganti Isotope) ---------------------------- */
@@ -176,7 +223,9 @@ function initFilter() {
 }
 
 /* --- Galeri proyek (pengganti Owl Carousel) ------------------------------
-   Gulirannya murni CSS scroll-snap; JS hanya untuk tombol dan penghitung. */
+   Gulirannya murni CSS scroll-snap; JS hanya untuk tombol, indikator titik,
+   dan putar otomatis. Auto-slide berhenti begitu pengunjung menyentuhnya, dan
+   tidak pernah menyala bila pengguna meminta gerak minimal. */
 function initGallery() {
   const gallery = $('[data-gallery]');
   if (!gallery) return;
@@ -184,37 +233,83 @@ function initGallery() {
   const track = $('[data-gallery-track]', gallery);
   const slides = $$('.gallery__slide', track);
   const label = $('[data-gallery-count]', gallery);
+  const dots = $('[data-gallery-dots]', gallery);
+
   if (slides.length < 2) {
     $$('[data-gallery-prev], [data-gallery-next]', gallery).forEach(b => b.hidden = true);
+    if (dots) dots.hidden = true;
+    return;
   }
 
-  const indexOfCurrent = () =>
-    Math.round(track.scrollLeft / (track.scrollWidth / slides.length));
+  const indexSaatIni = () =>
+    Math.min(slides.length - 1, Math.round(track.scrollLeft / (track.scrollWidth / slides.length)));
 
-  const update = () => {
-    if (label) label.textContent = label.dataset.template
-      .replace('{n}', Math.min(indexOfCurrent() + 1, slides.length))
-      .replace('{total}', slides.length);
-  };
+  // indikator titik
+  let tombolDot = [];
+  if (dots) {
+    dots.innerHTML = '';
+    tombolDot = slides.map((_, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'gallery__dot';
+      b.setAttribute('aria-label', (dots.dataset.template || 'Gambar {n}').replace('{n}', i + 1));
+      b.addEventListener('click', () => { hentikanOtomatis(); ke(i); });
+      dots.appendChild(b);
+      return b;
+    });
+  }
 
-  const go = step => {
-    const next = Math.max(0, Math.min(slides.length - 1, indexOfCurrent() + step));
-    slides[next].scrollIntoView({
-      behavior: reduceMotion ? 'auto' : 'smooth',
-      block: 'nearest', inline: 'center'
+  const perbarui = () => {
+    const i = indexSaatIni();
+    if (label) label.textContent = (label.dataset.template || '{n}/{total}')
+      .replace('{n}', i + 1).replace('{total}', slides.length);
+    tombolDot.forEach((b, n) => {
+      b.classList.toggle('is-active', n === i);
+      b.setAttribute('aria-current', n === i ? 'true' : 'false');
     });
   };
 
-  $('[data-gallery-prev]', gallery)?.addEventListener('click', () => go(-1));
-  $('[data-gallery-next]', gallery)?.addEventListener('click', () => go(1));
+  const ke = i => {
+    const n = Math.max(0, Math.min(slides.length - 1, i));
+    slides[n].scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest', inline: 'center'
+    });
+  };
+  const geser = langkah => ke(indexSaatIni() + langkah);
+
+  $('[data-gallery-prev]', gallery)?.addEventListener('click', () => { hentikanOtomatis(); geser(-1); });
+  $('[data-gallery-next]', gallery)?.addEventListener('click', () => { hentikanOtomatis(); geser(1); });
 
   let tick;
-  track.addEventListener('scroll', () => {
-    clearTimeout(tick);
-    tick = setTimeout(update, 90);
-  }, { passive: true });
+  track.addEventListener('scroll', () => { clearTimeout(tick); tick = setTimeout(perbarui, 90); }, { passive: true });
 
-  update();
+  // --- putar otomatis
+  const JEDA = 5000;
+  let timer = null;
+  const jalan = () => {
+    if (reduceMotion || timer) return;
+    timer = setInterval(() => {
+      if (document.hidden) return;
+      ke(indexSaatIni() >= slides.length - 1 ? 0 : indexSaatIni() + 1);
+    }, JEDA);
+  };
+  const jeda = () => { clearInterval(timer); timer = null; };
+  // berhenti permanen setelah pengunjung mengambil alih kendali
+  let diambilAlih = false;
+  const hentikanOtomatis = () => { diambilAlih = true; jeda(); };
+
+  gallery.addEventListener('pointerenter', jeda);
+  gallery.addEventListener('pointerleave', () => { if (!diambilAlih) jalan(); });
+  gallery.addEventListener('focusin', hentikanOtomatis);
+  track.addEventListener('pointerdown', hentikanOtomatis);
+  document.addEventListener('visibilitychange', () => { if (document.hidden) jeda(); else if (!diambilAlih) jalan(); });
+
+  // hanya berputar selama galeri terlihat di layar
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting && !diambilAlih) jalan(); else jeda();
+  }, { threshold: 0.35 }).observe(gallery);
+
+  perbarui();
 }
 
 /* --- Lightbox (pengganti VenoBox) ---------------------------------------- */
@@ -224,17 +319,23 @@ function initLightbox() {
 
   const img = $('img', dialog);
   const caption = $('[data-lightbox-caption]', dialog);
-  const zoomables = $$('[data-zoom]');
-  if (!zoomables.length) return;
+  // Dua bentuk pemicu:
+  //   <img data-zoom>            -> gambar galeri, sumbernya dirinya sendiri
+  //   <button data-zoom-src=...> -> tombol "lihat sertifikat", sumbernya atribut
+  const pemicu = $$('[data-zoom], [data-zoom-src]');
+  if (!pemicu.length) return;
 
   let opener = null;
 
-  for (const source of zoomables) {
-    source.addEventListener('click', () => {
-      opener = source;
-      img.src = source.currentSrc || source.src;
-      img.alt = source.alt || '';
-      if (caption) caption.textContent = source.alt || '';
+  for (const el of pemicu) {
+    el.addEventListener('click', () => {
+      opener = el;
+      const src = el.dataset.zoomSrc || el.currentSrc || el.src;
+      const alt = el.dataset.zoomAlt || el.alt || '';
+      if (!src) return;
+      img.src = src;
+      img.alt = alt;
+      if (caption) caption.textContent = alt;
       dialog.showModal();
     });
   }
@@ -244,6 +345,27 @@ function initLightbox() {
   dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
   // kembalikan fokus ke gambar asal
   dialog.addEventListener('close', () => { img.removeAttribute('src'); opener?.focus(); });
+}
+
+/* --- Tombol kembali ke atas ---------------------------------------------
+   Ditempatkan di atas peluncur Crisp agar keduanya tidak bertumpuk. */
+function initBackToTop() {
+  const btn = $('[data-back-to-top]');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+
+  const penanda = document.createElement('div');
+  penanda.setAttribute('aria-hidden', 'true');
+  penanda.style.cssText = 'position:absolute;top:70vh;height:1px;width:1px';
+  document.body.prepend(penanda);
+
+  new IntersectionObserver(([e]) => {
+    btn.classList.toggle('is-visible', !e.isIntersecting);
+    btn.tabIndex = e.isIntersecting ? -1 : 0;
+  }, { rootMargin: '0px' }).observe(penanda);
 }
 
 /* --- Crisp: dimuat saat senggang agar tidak membebani muat awal ---------- */
@@ -301,6 +423,6 @@ function initYear() {
 }
 
 /* --- Jalankan ------------------------------------------------------------ */
-for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initFilter, initGallery, initLightbox, initPrint, initChat, initYear]) {
+for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initFilter, initGallery, initLightbox, initPrint, initBackToTop, initChat, initYear]) {
   try { init(); } catch (err) { console.error(`[main.js] ${init.name} gagal:`, err); }
 }

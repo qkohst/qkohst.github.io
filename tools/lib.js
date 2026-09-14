@@ -12,8 +12,10 @@ const join = (...parts) => parts.filter(Boolean).join('');
 const each = (arr, fn) => (arr || []).map(fn).join('');
 
 /** Ikon dari sprite. */
+let ICON_VER = '';
+const setIconVersion = v => { ICON_VER = v ? `?v=${v}` : ''; };
 const icon = (name, cls = '') =>
-  `<svg class="${esc(cls)}" aria-hidden="true" focusable="false"><use href="/assets/icons.svg#i-${esc(name)}"></use></svg>`;
+  `<svg class="${esc(cls)}" aria-hidden="true" focusable="false"><use href="/assets/icons.svg${ICON_VER}#i-${esc(name)}"></use></svg>`;
 
 /** Ambil blok bahasa dari objek {id, en}. */
 const t = (obj, lang) => (obj && obj[lang]) || {};
@@ -62,10 +64,28 @@ function fmtRange(from, to, lang, presentLabel) {
   return `${a} — ${b}`;
 }
 
+
+/** Format harga USD, tanpa desimal. */
+const fmtUsd = n => '$' + Number(n).toLocaleString('en-US');
+
+/** Konversi USD ke rupiah lalu dibulatkan agar terbaca sebagai harga, bukan
+    hasil kalkulator. Kurs dan tanggalnya disimpan di data/site.json. */
+function fmtIdr(usd, cur) {
+  const kasar = Number(usd) * cur.idrPerUsd;
+  const bulat = Math.round(kasar / cur.roundIdrTo) * cur.roundIdrTo;
+  return 'Rp' + bulat.toLocaleString('id-ID');
+}
+
+/** "2026-09-11" -> "11 September 2026" / "11 September 2026" */
+const fmtDate = (iso, lang) => {
+  const [y, m, d] = iso.split('-');
+  return `${Number(d)} ${MONTH[lang][Number(m) - 1]} ${y}`;
+};
+
 /** Tahun pengalaman dihitung dari tahun mulai. */
 const yearsSince = start => Math.max(1, new Date().getFullYear() - start);
 
 /** Saring entri berdasarkan penanda showOn. */
 const shown = (arr, surface) => (arr || []).filter(x => !x.showOn || x.showOn.includes(surface));
 
-module.exports = { esc, join, each, icon, t, prefix, SEGMENT, pageUrl, cvPdf, absUrl, fmtMonth, fmtRange, yearsSince, shown };
+module.exports = { esc, join, each, icon, setIconVersion, t, prefix, SEGMENT, pageUrl, cvPdf, absUrl, fmtMonth, fmtRange, fmtUsd, fmtIdr, fmtDate, yearsSince, shown };

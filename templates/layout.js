@@ -38,8 +38,8 @@ ${each(alternates, a => `  <link rel="alternate" hreflang="${esc(a.lang)}" href=
   <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180">
   <script>${THEME_BOOT}</script>
-${ctx.fontHref ? `  <link rel="preload" href="${esc(ctx.fontHref)}" as="font" type="font/woff2" crossorigin>\n` : ''}  <link rel="stylesheet" href="/assets/css/main.css">${ctx.extraCss ? `
-  <link rel="stylesheet" href="${esc(ctx.extraCss)}">` : ''}
+${ctx.fontHref ? `  <link rel="preload" href="${esc(ctx.fontHref)}" as="font" type="font/woff2" crossorigin>\n` : ''}  <link rel="stylesheet" href="/assets/css/main.css?v=${ctx.ver.css}">${ctx.extraCss ? `
+  <link rel="stylesheet" href="${esc(ctx.extraCss)}?v=${ctx.ver.cvCss}">` : ''}
 ${each(jsonld, b => `  <script type="application/ld+json">${JSON.stringify(b)}</script>\n`)}`;
 }
 
@@ -95,7 +95,7 @@ function footer(ctx) {
     <div class="container-wide footer__inner">
       <p class="footer__text">
         © <span data-year>${new Date().getFullYear()}</span> ${esc(site.profile.name)} ·
-        ${esc(lang === 'id' ? 'Dibangun sendiri tanpa framework' : 'Hand-built, no framework')}
+        ${esc(lang === 'id' ? 'Web Developer · Tuban, Jawa Timur' : 'Web Developer · Tuban, East Java, Indonesia')}
       </p>
       <ul class="socials" style="list-style:none;margin:0;padding:0">
 ${each(socials, s => `        <li style="margin:0"><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(s.key)}">${icon(s.icon)}</a></li>\n`)}
@@ -116,8 +116,21 @@ ${header(ctx)}
   <main id="main">
 ${body}
   </main>
+  <dialog class="lightbox" data-lightbox>
+    <img alt="">
+    <div class="lightbox__bar">
+      <span data-lightbox-caption></span>
+      <button class="lightbox__close" type="button" data-lightbox-close
+              aria-label="${esc(ctx.lang === 'id' ? 'Tutup' : 'Close')}">${icon('close')}</button>
+    </div>
+  </dialog>
+
+  <button class="back-to-top" type="button" data-back-to-top tabindex="-1"
+          aria-label="${esc(ctx.lang === 'id' ? 'Kembali ke atas' : 'Back to top')}">
+    ${icon('arrow-up')}
+  </button>
 ${footer(ctx)}
-  <script type="module" src="/assets/js/main.js"></script>
+  <script type="module" src="/assets/js/main.js?v=${ctx.ver.js}"></script>
 </body>
 </html>
 `;

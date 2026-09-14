@@ -91,7 +91,14 @@ async function ogImage(lang, out) {
   for (const p of projects) {
     for (const img of p.images) {
       const src = path.join(ROOT, img.source);
-      if (!fs.existsSync(src)) { missing.push(img.source); continue; }
+      if (!fs.existsSync(src)) {
+        // Sumber asli sengaja dihapus setelah migrasi. Itu baru masalah kalau
+        // turunannya juga belum ada — kalau sudah ada, tidak ada yang perlu
+        // dikerjakan dan tidak perlu ada peringatan.
+        const contoh = path.join(portfolioDir, `${img.name}-960.jpg`);
+        if (!fs.existsSync(contoh)) missing.push(img.source);
+        continue;
+      }
       // thumb dipakai kecil di grid, gambar galeri dipakai besar
       const widths = thumbs.has(img.name) ? [480, 960, 1440] : [960, 1440];
       await variants(src, portfolioDir, img.name, widths, 960);
@@ -105,15 +112,17 @@ async function ogImage(lang, out) {
 
   // --- 2. Foto profil (1524x1524 -> 480, dipakai sebagai avatar hero)
   const profileSrc = path.join(ROOT, 'my_pages/assets/img/profile-img.jpg');
+  const profilSudahAda = fs.existsSync(path.join(OUT, 'profile-480.jpg'));
   if (fs.existsSync(profileSrc)) {
     await emit(profileSrc, path.join(OUT, 'profile-480.avif'),
       () => sharp(profileSrc).resize(480, 480, { fit: 'cover' }).avif(AVIF));
     await emit(profileSrc, path.join(OUT, 'profile-480.jpg'),
       () => sharp(profileSrc).resize(480, 480, { fit: 'cover' }).jpeg(JPEG));
-  } else missing.push('my_pages/assets/img/profile-img.jpg');
+  } else if (!profilSudahAda) missing.push('my_pages/assets/img/profile-img.jpg');
 
   // --- 3. Logo, favicon, apple-touch-icon
   const logoSrc = path.join(ROOT, 'my_pages/assets/img/logo.png');
+  const logoSudahAda = fs.existsSync(path.join(OUT, 'logo.png')) && fs.existsSync(path.join(ROOT, 'favicon.ico'));
   if (fs.existsSync(logoSrc)) {
     const transparent = { r: 0, g: 0, b: 0, alpha: 0 };
     await emit(logoSrc, path.join(OUT, 'logo.png'),
@@ -144,7 +153,24 @@ async function ogImage(lang, out) {
     const ico = Buffer.concat([header, entry, icoPng]);
     fs.writeFileSync(path.join(ROOT, 'favicon.ico'), ico);
     made++; bytes += ico.length;
-  } else missing.push('my_pages/assets/img/logo.png');
+  } else if (!logoSudahAda) missing.push('my_pages/assets/img/logo.png');
+
+  // --- 3b. Gambar sertifikat (dibuka lewat lightbox di bagian Resume)
+  const certDir = path.join(OUT, 'certificates');
+  for (const c of site.certificates) {
+    if (!c.image || !c.$sourceImage) continue;
+    const src = path.join(ROOT, c.$sourceImage);
+    if (!fs.existsSync(src)) {
+      if (!fs.existsSync(path.join(certDir, `${c.image}-1000.jpg`))) missing.push(c.$sourceImage);
+      continue;
+    }
+    await emit(src, path.join(certDir, `${c.image}-360.avif`),
+      () => sharp(src).resize({ width: 360, withoutEnlargement: true }).avif(AVIF));
+    await emit(src, path.join(certDir, `${c.image}-1000.avif`),
+      () => sharp(src).resize({ width: 1000, withoutEnlargement: true }).avif(AVIF));
+    await emit(src, path.join(certDir, `${c.image}-1000.jpg`),
+      () => sharp(src).resize({ width: 1000, withoutEnlargement: true }).jpeg(JPEG));
+  }
 
   // --- 4. Gambar OG per bahasa
   for (const lang of site.site.langs) {
@@ -160,8 +186,12 @@ async function ogImage(lang, out) {
   console.log(`dibuat        : ${made} berkas`);
   console.log(`dilewati      : ${skipped} (sudah mutakhir)`);
   console.log(`ukuran keluaran: ${(bytes / 1024 / 1024).toFixed(1)} MB`);
-  console.log(`sumber asli    : ${(srcBytes / 1024 / 1024).toFixed(1)} MB (${projects.flatMap(p => p.images).length} tangkapan layar)`);
-  console.log(`penghematan    : ${(100 - bytes / srcBytes * 100).toFixed(1)}%`);
+  if (srcBytes > 0) {
+    console.log(`sumber asli    : ${(srcBytes / 1024 / 1024).toFixed(1)} MB (${projects.flatMap(p => p.images).length} tangkapan layar)`);
+    console.log(`penghematan    : ${(100 - bytes / srcBytes * 100).toFixed(1)}%`);
+  } else {
+    console.log('sumber asli    : tidak ada di working tree (lihat catatan pemulihan di kepala berkas ini)');
+  }
   console.log(`durasi         : ${((Date.now() - t0) / 1000).toFixed(1)}s`);
   if (missing.length) {
     console.log(`\nSUMBER HILANG (${missing.length}):`);

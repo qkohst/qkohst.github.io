@@ -25,7 +25,7 @@ module.exports = function project(ctx, p) {
           </ol>
         </nav>
 
-        <div class="section__head" data-reveal>
+        <div class="section__head page-head" data-reveal>
           <div class="project__meta" style="margin-bottom:var(--sp-3)">
             <span class="tag tag--accent">${esc(ui.categories[p.category] || p.category)}</span>
             ${p.framework ? `<span class="tag">${esc(p.framework)}</span>` : ''}
@@ -50,6 +50,8 @@ ${each(p.images, (img, i) => `                <figure class="gallery__slide" sty
                 </figure>\n`)}              </div>
 
               <div class="gallery__nav">
+                <span class="gallery__dots" data-gallery-dots role="tablist"
+                      data-template="${esc(lang === 'id' ? 'Gambar {n}' : 'Image {n}')}"></span>
                 <span class="gallery__count" data-gallery-count
                       data-template="${esc(lang === 'id' ? '{n} dari {total}' : '{n} of {total}')}">1 / ${p.images.length}</span>
                 <span style="display:flex;gap:var(--sp-2)">
@@ -79,14 +81,5 @@ ${each(c.features, f => `                <li>${esc(f)}</li>\n`)}              </
           </aside>
         </div>
       </div>
-    </section>
-
-    <dialog class="lightbox" data-lightbox>
-      <img alt="">
-      <div class="lightbox__bar">
-        <span data-lightbox-caption></span>
-        <button class="lightbox__close" type="button" data-lightbox-close
-                aria-label="${esc(lang === 'id' ? 'Tutup' : 'Close')}">${icon('close')}</button>
-      </div>
-    </dialog>`;
+    </section>`;
 };

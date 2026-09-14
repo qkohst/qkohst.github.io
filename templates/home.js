@@ -1,5 +1,5 @@
 /* Beranda: hero, tentang, kemampuan, framework, resume, layanan, proyek pilihan, kontak. */
-const { esc, each, icon, t, pageUrl, fmtRange, yearsSince, shown } = require('../tools/lib');
+const { esc, each, icon, t, pageUrl, fmtMonth, fmtRange, yearsSince, shown } = require('../tools/lib');
 const { projectCard, meter, contactSection } = require('./partials');
 
 module.exports = function home(ctx, projects) {
@@ -53,9 +53,7 @@ module.exports = function home(ctx, projects) {
         <div class="grid grid--2" data-reveal>
           <div class="stack">
             <p>${esc(p.about)}</p>
-            <p class="text-muted">${esc(lang === 'id'
-              ? `Sekitar ${years} tahun pengalaman, dan terus berusaha mengasah kemampuan.`
-              : `Around ${years} years of experience, and always working to sharpen my skills.`)}</p>
+            <p>${esc(p.about2)}</p>
           </div>
           <ul class="info-list" style="margin:0">
             <li><span class="k">Email</span><span class="v">${esc(c.email)}</span></li>
@@ -122,11 +120,17 @@ ${each(education, e => {
             <ol class="timeline">
 ${each(certificates, e => {
   const x = t(e, lang);
+  const gambar = `/assets/img/certificates/${e.image}-1000.jpg`;
   return `              <li class="timeline__item">
-                <p class="timeline__date">${esc(require('../tools/lib').fmtMonth(e.date, lang))}</p>
+                <p class="timeline__date">${esc(fmtMonth(e.date, lang))}</p>
                 <h4 class="timeline__title">${esc(x.title)}</h4>
                 <p class="timeline__org">${esc(x.issuer)}</p>
                 <p class="timeline__text">${esc(x.summary)}</p>
+                <button class="link-btn" type="button"
+                        data-zoom-src="${esc(gambar)}"
+                        data-zoom-alt="${esc(`${x.title} — ${x.issuer}`)}">
+                  ${icon('zoom')} ${esc(ui.viewCertificate)}
+                </button>
               </li>\n`;
 })}            </ol>
           </div>

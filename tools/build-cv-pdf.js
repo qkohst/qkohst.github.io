@@ -17,10 +17,12 @@ const os = require('os');
 const path = require('path');
 const http = require('http');
 const { spawn } = require('child_process');
+const { pageUrl, setPrefixes } = require('./lib');
 
 const ROOT = path.resolve(__dirname, '..');
 const OUT_DIR = path.join(ROOT, 'assets', 'cv');
 const site = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/site.json'), 'utf8'));
+setPrefixes(site.site.pathPrefix);   // path CV mengikuti konfigurasi bahasa
 
 /** Kandidat lokasi peramban, diurutkan dari yang paling disukai. */
 const BROWSERS = [
@@ -80,7 +82,7 @@ function serve() {
 }
 
 (async () => {
-  if (!fs.existsSync(path.join(ROOT, 'cv', 'index.html'))) {
+  if (!fs.existsSync(path.join(ROOT, pageUrl('cv', site.site.defaultLang), 'index.html'))) {
     console.error('Halaman /cv/ belum ada. Jalankan `node tools/build.js --out .` lebih dulu.');
     process.exit(1);
   }
@@ -91,7 +93,7 @@ function serve() {
 
   const hasil = [];
   for (const lang of site.site.langs) {
-    const url = `http://127.0.0.1:${port}${lang === 'id' ? '/cv/' : '/en/cv/'}`;
+    const url = `http://127.0.0.1:${port}${pageUrl('cv', lang)}`;
     const out = path.join(OUT_DIR, `cv-${site.profile.handle}-${lang}.pdf`);
 
     // Profil terpisah itu wajib: bila Chrome milik pengguna sedang berjalan,

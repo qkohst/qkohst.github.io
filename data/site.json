@@ -3,14 +3,14 @@
   "site": {
     "origin": "https://qkohst.github.io",
     "repo": "https://github.com/qkohst/qkohst.github.io",
-    "defaultLang": "id",
+    "defaultLang": "en",
     "langs": [
       "id",
       "en"
     ],
     "pathPrefix": {
-      "id": "",
-      "en": "/en"
+      "id": "/id",
+      "en": ""
     },
     "themeColor": {
       "light": "#fbfcfc",
@@ -19,7 +19,8 @@
     "accent": "#0bad94",
     "crispWebsiteId": "1389c3f9-bf80-4645-ba9e-f3834eec71c6",
     "$crispThemeNote": "Crisp hanya menerima nama warna dari daftar bakunya, bukan nilai hex. 'teal' (#00947C) adalah yang paling dekat dengan aksen logo #0bad94.",
-    "crispTheme": "teal"
+    "crispTheme": "teal",
+    "$langNote": "Bahasa default menempati akar situs (tanpa prefiks) dan menjadi x-default pada hreflang. Menukar nilai di pathPrefix akan memindahkan seluruh URL, jadi sediakan stub untuk path lama bila diubah."
   },
   "profile": {
     "name": "Kukoh Santoso",
@@ -50,7 +51,9 @@
       "aboutCv": "I'm Kukoh Santoso, from Tuban, East Java, Indonesia. I'm a person with a strong passion for learning new things. Currently I'm focused on software development.",
       "seoDescription": "Kukoh Santoso (qkohst) — Web Developer based in Tuban, East Java, Indonesia. Experienced in building web applications with Laravel, CodeIgniter, and Silverstripe.",
       "about2": "My work covers both sides: designing the database structure and server-side logic, and building interfaces that are pleasant to use. What matters most to me is code that stays clean, stays maintainable, and actually solves the user problem."
-    }
+    },
+    "brandName": "Qkoh St",
+    "$brandNote": "Nama pendek untuk header. Nama lengkap tetap dipakai di judul halaman, CV, dan data terstruktur."
   },
   "contact": {
     "email": "kukohsantoso013@gmail.com",

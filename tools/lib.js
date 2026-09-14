@@ -20,8 +20,11 @@ const icon = (name, cls = '') =>
 /** Ambil blok bahasa dari objek {id, en}. */
 const t = (obj, lang) => (obj && obj[lang]) || {};
 
-/** Prefiks path per bahasa: id -> '', en -> '/en'. */
-const prefix = lang => (lang === 'en' ? '/en' : '');
+/** Prefiks path per bahasa, disetel dari data/site.json oleh build.js.
+    Bahasa default memakai prefiks kosong sehingga menempati akar situs. */
+let PREFIX = { id: '', en: '/en' };
+const setPrefixes = p => { PREFIX = { ...PREFIX, ...p }; };
+const prefix = lang => PREFIX[lang] || '';
 
 /** Segmen path yang berbeda per bahasa. */
 const SEGMENT = {
@@ -88,4 +91,4 @@ const yearsSince = start => Math.max(1, new Date().getFullYear() - start);
 /** Saring entri berdasarkan penanda showOn. */
 const shown = (arr, surface) => (arr || []).filter(x => !x.showOn || x.showOn.includes(surface));
 
-module.exports = { esc, join, each, icon, setIconVersion, t, prefix, SEGMENT, pageUrl, cvPdf, absUrl, fmtMonth, fmtRange, fmtUsd, fmtIdr, fmtDate, yearsSince, shown };
+module.exports = { esc, join, each, icon, setIconVersion, setPrefixes, t, prefix, SEGMENT, pageUrl, cvPdf, absUrl, fmtMonth, fmtRange, fmtUsd, fmtIdr, fmtDate, yearsSince, shown };

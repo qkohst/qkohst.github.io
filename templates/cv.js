@@ -30,16 +30,17 @@ module.exports = function cv(ctx) {
   const socials = shown(site.socials, 'cv');
 
   const L = lang === 'id'
-    ? { about: 'Tentang Saya', unduh: 'Unduh PDF', print: 'Cetak', back: 'Kembali ke beranda',
+    ? { about: 'Tentang Saya', unduh: 'Unduh PDF', menyiapkan: 'Menyiapkan berkas…', print: 'Cetak', back: 'Kembali ke beranda',
         hint: 'Berkas PDF sudah disiapkan dalam satu halaman A4. Tombol Cetak membuka dialog cetak peramban.',
         exp: `Sekitar ${years} tahun pengalaman, dan terus berusaha mengasah kemampuan.` }
-    : { about: 'About Me', unduh: 'Download PDF', print: 'Print', back: 'Back to home',
+    : { about: 'About Me', unduh: 'Download PDF', menyiapkan: 'Preparing file…', print: 'Print', back: 'Back to home',
         hint: 'The PDF is prepared as a single A4 page. The Print button opens your browser print dialog.',
         exp: `Around ${years} years of experience, and always working to sharpen my skills.` };
 
   return `
     <div class="cv-actions">
-      <a class="btn btn--primary" href="${esc(cvPdf(site.profile.handle, lang))}" download>${icon('download')} ${esc(L.unduh)}</a>
+      <a class="btn btn--primary" href="${esc(cvPdf(site.profile.handle, lang))}" download
+         data-download-pdf data-label-loading="${esc(L.menyiapkan)}">${icon('download')} ${esc(L.unduh)}</a>
       <button class="btn btn--ghost" type="button" data-print>${esc(L.print)}</button>
       <a class="btn btn--ghost" href="${lang === 'id' ? '/' : '/en/'}">${esc(L.back)}</a>
     </div>

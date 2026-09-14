@@ -24,7 +24,10 @@ const SKIP = /^(\.git|\.claude|\.playwright-mcp|node_modules|my_pages|assets|dat
       if (d === DIR && SKIP.test(e.name)) continue;
       walk(path.join(d, e.name));
     } else if (e.name === 'index.html') {
-      pages.push(path.join(d, e.name));
+      // Stub redirect bukan halaman konten: ia sengaja noindex, tidak masuk
+      // sitemap, dan tidak perlu memenuhi syarat SEO halaman biasa.
+      const f = path.join(d, e.name);
+      if (!/http-equiv="refresh"/.test(fs.readFileSync(f, 'utf8'))) pages.push(f);
     }
   }
 })(DIR);

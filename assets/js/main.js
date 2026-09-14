@@ -14,9 +14,8 @@ function initTheme() {
   const btn = $('[data-theme-toggle]');
   if (!btn) return;
 
-  const systemDark = matchMedia('(prefers-color-scheme: dark)');
-  const current = () =>
-    document.documentElement.dataset.theme || (systemDark.matches ? 'dark' : 'light');
+  const DEFAULT = 'dark';   // default situs; pilihan tersimpan tetap menang
+  const current = () => document.documentElement.dataset.theme || DEFAULT;
 
   const sync = () => {
     const dark = current() === 'dark';
@@ -32,13 +31,6 @@ function initTheme() {
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem('theme', next); } catch {}
     sync();
-  });
-
-  // ikuti sistem selama pengguna belum memilih manual
-  systemDark.addEventListener('change', () => {
-    let stored = null;
-    try { stored = localStorage.getItem('theme'); } catch {}
-    if (!stored) { delete document.documentElement.dataset.theme; sync(); }
   });
 
   sync();
@@ -125,6 +117,23 @@ function initHeader() {
   }, { rootMargin: '0px' }).observe(sentinel);
 }
 
+/* --- Pengalih bahasa membawa posisi baca ---------------------------------
+   Tanpa ini, berpindah bahasa dari tengah halaman selalu mendarat di puncak
+   halaman versi lain. Anchor section yang sedang dibaca ikut dibawa sehingga
+   pengunjung tetap berada di bagian yang sama. */
+function initLangSwitch() {
+  const tautan = $$('.lang-switch a');
+  if (!tautan.length) return;
+
+  tautan.forEach(a => a.addEventListener('click', () => {
+    const aktifSekarang = $('.nav__link.is-active[href*="#"]');
+    const hash = location.hash || (aktifSekarang ? '#' + aktifSekarang.getAttribute('href').split('#')[1] : '');
+    if (!hash) return;
+    const dasar = a.getAttribute('href').split('#')[0];
+    a.setAttribute('href', dasar + hash);
+  }));
+}
+
 /* --- Penanda menu aktif (pengganti scrollspy jQuery) ---------------------
    Nav memancarkan href absolut ("/#about"), bukan "#about", supaya tautannya
    tetap benar dari halaman mana pun. Selektor lama hanya mencari href yang
@@ -144,14 +153,24 @@ function initScrollSpy() {
   }
   if (!peta.size) return;      // bukan halaman beranda
 
-  // Tautan "Beranda" aktif saat pengunjung masih di puncak halaman.
-  const beranda = $$('.nav__link').find(a => {
-    const h = a.getAttribute('href') || '';
-    return h === '/' || h === '/en/';
-  });
+  // Tautan "Beranda" aktif saat pengunjung masih di puncak halaman. Ditandai
+  // lewat atribut oleh generator, bukan ditebak dari href — prefiks bahasa
+  // dapat berubah (mis. beranda Indonesia pindah dari "/" ke "/id/") dan
+  // tebakan berbasis href akan diam-diam berhenti bekerja.
+  const beranda = $('.nav__link[data-nav-home]');
 
   const semua = [...peta.values(), beranda].filter(Boolean);
-  const tandai = aktif => semua.forEach(a => a.classList.toggle('is-active', a === aktif));
+
+  // Di halaman ini scrollspy yang memegang kendali sorotan. aria-current="page"
+  // yang dipasang generator pada tautan Beranda harus dilepas, kalau tidak
+  // garisnya tetap menyala bersamaan dengan section yang sedang dibaca.
+  semua.forEach(a => a.removeAttribute('aria-current'));
+
+  const tandai = aktif => semua.forEach(a => {
+    const on = a === aktif;
+    a.classList.toggle('is-active', on);
+    if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+  });
 
   const DI_PUNCAK = 140;   // px; di bawah ini dianggap masih di area hero
   let terlihat = new Set();
@@ -342,7 +361,10 @@ function initLightbox() {
 
   $('[data-lightbox-close]', dialog)?.addEventListener('click', () => dialog.close());
   // klik di area gelap menutup
-  dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+  dialog.addEventListener('click', e => {
+    // hanya tutup bila yang diklik area gelap, bukan isi dialog
+    if (e.target === dialog) dialog.close();
+  });
   // kembalikan fokus ke gambar asal
   dialog.addEventListener('close', () => { img.removeAttribute('src'); opener?.focus(); });
 }
@@ -412,6 +434,52 @@ function initChat() {
   else setTimeout(load, 4000);
 }
 
+/* --- Tombol unduh CV dengan status memuat --------------------------------
+   PDF-nya sudah jadi berkas statis hasil cetak Chrome sungguhan (teks asli,
+   bukan rasterisasi), jadi tidak ada yang perlu dibangkitkan di browser.
+   Yang ditambahkan di sini hanya umpan balik visual selama berkas diambil.
+   Bila fetch gagal karena alasan apa pun, tautannya dibiarkan berjalan
+   sebagaimana biasa. */
+function initUnduhCV() {
+  const tombol = $('[data-download-pdf]');
+  if (!tombol || !('fetch' in window)) return;
+
+  const labelAsli = tombol.innerHTML;
+
+  tombol.addEventListener('click', async e => {
+    if (tombol.classList.contains('is-loading')) { e.preventDefault(); return; }
+    const url = tombol.getAttribute('href');
+    const nama = url.split('/').pop();
+
+    e.preventDefault();
+    tombol.classList.add('is-loading');
+    tombol.setAttribute('aria-busy', 'true');
+    tombol.innerHTML = `<span class="spinner" aria-hidden="true"></span> ${tombol.dataset.labelLoading || ''}`;
+
+    try {
+      const r = await fetch(url, { cache: 'no-store' });
+      if (!r.ok) throw new Error(r.status);
+      const blob = await r.blob();
+      const objek = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = objek;
+      a.download = nama;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      // beri waktu peramban memulai unduhan sebelum URL dilepas
+      setTimeout(() => URL.revokeObjectURL(objek), 4000);
+    } catch (err) {
+      console.error('[main.js] unduh PDF gagal, membuka tautan langsung:', err);
+      window.location.href = url;
+    } finally {
+      tombol.classList.remove('is-loading');
+      tombol.removeAttribute('aria-busy');
+      tombol.innerHTML = labelAsli;
+    }
+  });
+}
+
 /* --- Tombol cetak pada halaman CV ---------------------------------------- */
 function initPrint() {
   $$('[data-print]').forEach(btn => btn.addEventListener('click', () => window.print()));
@@ -423,6 +491,6 @@ function initYear() {
 }
 
 /* --- Jalankan ------------------------------------------------------------ */
-for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initFilter, initGallery, initLightbox, initPrint, initBackToTop, initChat, initYear]) {
+for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initLangSwitch, initFilter, initGallery, initLightbox, initPrint, initUnduhCV, initBackToTop, initChat, initYear]) {
   try { init(); } catch (err) { console.error(`[main.js] ${init.name} gagal:`, err); }
 }

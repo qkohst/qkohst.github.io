@@ -8,7 +8,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { esc, pageUrl, absUrl, t, setIconVersion } = require('./lib');
+const { esc, pageUrl, absUrl, t, setIconVersion, setPrefixes } = require('./lib');
 const layout = require('../templates/layout');
 const homeTpl = require('../templates/home');
 const projectsTpl = require('../templates/projects');
@@ -21,9 +21,14 @@ const argOut = process.argv.indexOf('--out');
 const OUT = path.resolve(ROOT, argOut > -1 ? process.argv[argOut + 1] : '_preview');
 
 const site = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/site.json'), 'utf8'));
-const projects = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/projects.json'), 'utf8'));
+/* Proyek diurutkan dari waktu pengerjaan terbaru. Urutannya ditentukan di sini,
+   bukan di data, supaya data/projects.json tetap mudah dibaca dan disunting. */
+const projects = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/projects.json'), 'utf8'))
+  .sort((a, b) => String(b.date).localeCompare(String(a.date)));
 const ORIGIN = site.site.origin;
 const LANGS = site.site.langs;
+const DEFAULT_LANG = site.site.defaultLang;
+setPrefixes(site.site.pathPrefix);
 
 /* Sidik konten untuk CSS/JS. Ditempelkan sebagai ?v=... pada URL aset supaya
    peramban mengambil versi baru begitu berkasnya berubah, tanpa perlu pengguna
@@ -81,7 +86,7 @@ function write(urlPath, html) {
 
 /** Bersihkan hanya direktori yang memang dikelola generator. */
 function clean() {
-  const managed = ['en', 'proyek', 'layanan', 'projects', 'services'];
+  const managed = ['en', 'id', 'proyek', 'layanan', 'projects', 'services', 'cv'];
   if (path.basename(OUT) === '_preview') {
     fs.rmSync(OUT, { recursive: true, force: true });
   } else {
@@ -109,7 +114,7 @@ function alternatesFor(kind, slugByLang) {
     lang: l,
     url: absUrl(ORIGIN, pageUrl(kind, l, slugByLang && slugByLang[l]))
   }));
-  list.push({ lang: 'x-default', url: absUrl(ORIGIN, pageUrl(kind, 'id', slugByLang && slugByLang.id)) });
+  list.push({ lang: 'x-default', url: absUrl(ORIGIN, pageUrl(kind, DEFAULT_LANG, slugByLang && slugByLang[DEFAULT_LANG])) });
   return list;
 }
 
@@ -326,11 +331,34 @@ a{color:#14c8a6}</style>
 }
 
 const redirects = [
-  { from: 'my_pages/portfolio.html',         to: pageUrl('projects', 'id') },
-  { from: 'my_pages/web_dev_services.html',  to: pageUrl('services', 'id') }
+  // 1. Halaman situs lama (sebelum redesign). Isinya berbahasa Inggris,
+  //    jadi diarahkan ke versi Inggris.
+  { from: 'my_pages/portfolio.html',        to: pageUrl('projects', 'en') },
+  { from: 'my_pages/web_dev_services.html', to: pageUrl('services', 'en') }
 ];
 for (const p of projects) {
-  redirects.push({ from: p.legacyPath, to: pageUrl('project', 'id', p.slug.id) });
+  redirects.push({ from: p.legacyPath, to: pageUrl('project', 'en', p.slug.en) });
+}
+
+// 2. URL yang berpindah ketika bahasa default ditukar ke Inggris. Path lama
+//    diarahkan ke halaman yang sama dalam bahasa yang sama, supaya tautan
+//    yang sudah terlanjur dibagikan tidak mati.
+const PINDAH = [
+  { dari: '/proyek/',      ke: pageUrl('projects', 'id') },
+  { dari: '/layanan/',     ke: pageUrl('services', 'id') },
+  { dari: '/en/',          ke: pageUrl('home', 'en') },
+  { dari: '/en/projects/', ke: pageUrl('projects', 'en') },
+  { dari: '/en/services/', ke: pageUrl('services', 'en') },
+  { dari: '/en/cv/',       ke: pageUrl('cv', 'en') }
+];
+for (const p of projects) {
+  PINDAH.push({ dari: `/proyek/${p.slug.id}/`,      ke: pageUrl('project', 'id', p.slug.id) });
+  PINDAH.push({ dari: `/en/projects/${p.slug.en}/`, ke: pageUrl('project', 'en', p.slug.en) });
+}
+for (const r of PINDAH) {
+  // lewati bila path lama kini justru dipakai halaman sungguhan
+  if (r.dari === r.ke) continue;
+  redirects.push({ from: path.join(r.dari, 'index.html'), to: r.ke });
 }
 
 for (const r of redirects) {
@@ -347,7 +375,7 @@ const push = (kind, slugByLang, priority, changefreq) => {
       loc: absUrl(ORIGIN, pageUrl(kind, lang, slugByLang && slugByLang[lang])),
       priority, changefreq,
       alt: LANGS.map(l => ({ lang: l, url: absUrl(ORIGIN, pageUrl(kind, l, slugByLang && slugByLang[l])) }))
-        .concat([{ lang: 'x-default', url: absUrl(ORIGIN, pageUrl(kind, 'id', slugByLang && slugByLang.id)) }])
+        .concat([{ lang: 'x-default', url: absUrl(ORIGIN, pageUrl(kind, DEFAULT_LANG, slugByLang && slugByLang[DEFAULT_LANG])) }])
     });
   }
 };

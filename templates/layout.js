@@ -2,10 +2,11 @@
    Semua halaman melewati fungsi ini agar blok SEO tidak pernah lupa dipasang. */
 const { esc, each, icon, t, pageUrl, absUrl } = require('../tools/lib');
 
-/** Skrip anti-kedip. Harus inline dan sebelum CSS: membaca pilihan tersimpan
-    lalu menyetel data-theme sebelum paint pertama. Tanpa ini, halaman
-    berkedip terang saat pengguna memakai mode gelap. */
-const THEME_BOOT = `try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}`;
+/** Skrip anti-kedip. Harus inline dan sebelum CSS: menetapkan tema sebelum
+    paint pertama, kalau tidak halaman akan berkedip terang lebih dulu.
+    Gelap adalah default situs ini; pilihan pengunjung yang tersimpan
+    selalu menang atas default itu. */
+const THEME_BOOT = `try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}`;
 
 function head(ctx) {
   const { site, lang, title, description, canonical, alternates, ogImage, ogType, jsonld, noindex } = ctx;
@@ -54,16 +55,16 @@ function header(ctx) {
         <span class="brand__logo">
           <img class="brand__mark" src="/assets/img/logo.png" alt="" aria-hidden="true" width="180" height="180" loading="eager" decoding="async">
         </span>
-        <span>${esc(site.profile.name)}</span>
+        <span class="brand__name">${esc(site.profile.brandName || site.profile.name)}</span>
       </a>
 
       <nav class="nav" id="site-nav" aria-label="${esc(ui.nav.home)}">
-${each(nav, n => `        <a class="nav__link${n.current ? ' is-active' : ''}" href="${esc(n.href)}"${n.current ? ' aria-current="page"' : ''}>${esc(n.label)}</a>\n`)}
+${each(nav, n => `        <a class="nav__link${n.current ? ' is-active' : ''}" href="${esc(n.href)}"${n.key === 'home' ? ' data-nav-home' : ''}${n.current ? ' aria-current="page"' : ''}>${esc(n.label)}</a>\n`)}
       </nav>
 
       <div class="header__tools">
         <div class="lang-switch">
-          <a href="${esc(pageUrl('home', 'id'))}"${lang === 'id' ? ' aria-current="true"' : ''} hreflang="id" lang="id">ID</a>
+          <a href="${esc(altUrl.id || pageUrl('home', 'id'))}"${lang === 'id' ? ' aria-current="true"' : ''} hreflang="id" lang="id">ID</a>
           <a href="${esc(altUrl.en || pageUrl('home', 'en'))}"${lang === 'en' ? ' aria-current="true"' : ''} hreflang="en" lang="en">EN</a>
         </div>
 
@@ -117,11 +118,11 @@ ${header(ctx)}
 ${body}
   </main>
   <dialog class="lightbox" data-lightbox>
-    <img alt="">
-    <div class="lightbox__bar">
-      <span data-lightbox-caption></span>
+    <div class="lightbox__inner">
       <button class="lightbox__close" type="button" data-lightbox-close
               aria-label="${esc(ctx.lang === 'id' ? 'Tutup' : 'Close')}">${icon('close')}</button>
+      <img alt="">
+      <div class="lightbox__bar"><span data-lightbox-caption></span></div>
     </div>
   </dialog>
 

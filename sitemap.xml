@@ -1,466 +1,466 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://qkohst.github.io/id/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://qkohst.github.io/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/"/>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/"/>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://qkohst.github.io/proyek/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/"/>
+    <loc>https://qkohst.github.io/id/proyek/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/"/>
+    <loc>https://qkohst.github.io/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/layanan/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/layanan/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/services/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/layanan/"/>
+    <loc>https://qkohst.github.io/id/layanan/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/layanan/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/services/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/services/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/services/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/layanan/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/services/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/layanan/"/>
+    <loc>https://qkohst.github.io/services/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/layanan/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/services/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/services/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/asmarine/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/asmarine/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/asmarine/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/asmarine/"/>
+    <loc>https://qkohst.github.io/id/proyek/treeport/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/treeport/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/treeport/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/treeport/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/asmarine/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/asmarine/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/asmarine/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/asmarine/"/>
+    <loc>https://qkohst.github.io/projects/treeport/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/treeport/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/treeport/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/treeport/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/backoffice-dlik-ojk/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/backoffice-dlik-ojk/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/backoffice-dlik-ojk/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/backoffice-dlik-ojk/"/>
+    <loc>https://qkohst.github.io/id/proyek/api-treeport/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/api-treeport/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/treeport-api/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/treeport-api/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/backoffice-dlik-ojk/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/backoffice-dlik-ojk/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/backoffice-dlik-ojk/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/backoffice-dlik-ojk/"/>
+    <loc>https://qkohst.github.io/projects/treeport-api/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/api-treeport/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/treeport-api/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/treeport-api/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/sistem-login-codeigniter/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/sistem-login-codeigniter/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/ci-login-system/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/sistem-login-codeigniter/"/>
+    <loc>https://qkohst.github.io/id/proyek/pabrik-plastik/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/pabrik-plastik/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/plastic-factory/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/plastic-factory/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/ci-login-system/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/sistem-login-codeigniter/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/ci-login-system/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/sistem-login-codeigniter/"/>
+    <loc>https://qkohst.github.io/projects/plastic-factory/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/pabrik-plastik/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/plastic-factory/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/plastic-factory/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/dinamika/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/dinamika/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/dinamika/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/dinamika/"/>
+    <loc>https://qkohst.github.io/id/proyek/api-pabrik-plastik/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/api-pabrik-plastik/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/plastic-factory-api/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/plastic-factory-api/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/dinamika/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/dinamika/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/dinamika/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/dinamika/"/>
+    <loc>https://qkohst.github.io/projects/plastic-factory-api/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/api-pabrik-plastik/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/plastic-factory-api/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/plastic-factory-api/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/klien-web-e-skripsi/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/klien-web-e-skripsi/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/e-skripsi-web-client/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/klien-web-e-skripsi/"/>
+    <loc>https://qkohst.github.io/id/proyek/backoffice-dlik-ojk/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/backoffice-dlik-ojk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/backoffice-dlik-ojk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/backoffice-dlik-ojk/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/e-skripsi-web-client/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/klien-web-e-skripsi/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/e-skripsi-web-client/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/klien-web-e-skripsi/"/>
+    <loc>https://qkohst.github.io/projects/backoffice-dlik-ojk/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/backoffice-dlik-ojk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/backoffice-dlik-ojk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/backoffice-dlik-ojk/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/e-raport/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/e-raport/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/e-raport/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/e-raport/"/>
+    <loc>https://qkohst.github.io/id/proyek/lms-eksternal-ojk/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/lms-eksternal-ojk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/lms-external-ojk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/lms-external-ojk/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/e-raport/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/e-raport/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/e-raport/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/e-raport/"/>
+    <loc>https://qkohst.github.io/projects/lms-external-ojk/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/lms-eksternal-ojk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/lms-external-ojk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/lms-external-ojk/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/klien-mobile-e-skripsi/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/klien-mobile-e-skripsi/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/e-skripsi-mobile-client/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/klien-mobile-e-skripsi/"/>
+    <loc>https://qkohst.github.io/id/proyek/lms-internal-ojk/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/lms-internal-ojk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/lms-internal-ojk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/lms-internal-ojk/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/e-skripsi-mobile-client/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/klien-mobile-e-skripsi/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/e-skripsi-mobile-client/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/klien-mobile-e-skripsi/"/>
+    <loc>https://qkohst.github.io/projects/lms-internal-ojk/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/lms-internal-ojk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/lms-internal-ojk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/lms-internal-ojk/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/api-e-skripsi/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/api-e-skripsi/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/e-skripsi-api/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/api-e-skripsi/"/>
+    <loc>https://qkohst.github.io/id/proyek/st-pamdes/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/st-pamdes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/st-pamdes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/st-pamdes/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/e-skripsi-api/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/api-e-skripsi/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/e-skripsi-api/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/api-e-skripsi/"/>
+    <loc>https://qkohst.github.io/projects/st-pamdes/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/st-pamdes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/st-pamdes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/st-pamdes/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/manajemen-karyawan/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/manajemen-karyawan/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/employee-management/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/manajemen-karyawan/"/>
+    <loc>https://qkohst.github.io/id/proyek/mg-schedule/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/mg-schedule/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/mg-schedule/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/mg-schedule/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/employee-management/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/manajemen-karyawan/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/employee-management/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/manajemen-karyawan/"/>
+    <loc>https://qkohst.github.io/projects/mg-schedule/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/mg-schedule/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/mg-schedule/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/mg-schedule/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/indonesia-peduli/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/indonesia-peduli/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/indonesia-peduli/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/indonesia-peduli/"/>
+    <loc>https://qkohst.github.io/id/proyek/hotel-megaria/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/hotel-megaria/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/megaria-hotel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/megaria-hotel/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/indonesia-peduli/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/indonesia-peduli/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/indonesia-peduli/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/indonesia-peduli/"/>
+    <loc>https://qkohst.github.io/projects/megaria-hotel/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/hotel-megaria/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/megaria-hotel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/megaria-hotel/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/lms-eksternal-ojk/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/lms-eksternal-ojk/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/lms-external-ojk/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/lms-eksternal-ojk/"/>
+    <loc>https://qkohst.github.io/id/proyek/api-properti/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/api-properti/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/property-api/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/property-api/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/lms-external-ojk/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/lms-eksternal-ojk/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/lms-external-ojk/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/lms-eksternal-ojk/"/>
+    <loc>https://qkohst.github.io/projects/property-api/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/api-properti/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/property-api/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/property-api/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/lms-internal-ojk/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/lms-internal-ojk/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/lms-internal-ojk/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/lms-internal-ojk/"/>
+    <loc>https://qkohst.github.io/id/proyek/dinamika/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/dinamika/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/dinamika/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/dinamika/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/lms-internal-ojk/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/lms-internal-ojk/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/lms-internal-ojk/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/lms-internal-ojk/"/>
+    <loc>https://qkohst.github.io/projects/dinamika/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/dinamika/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/dinamika/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/dinamika/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/website-sekolah-manbaul-huda/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/website-sekolah-manbaul-huda/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/manbaul-huda-school-website/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/website-sekolah-manbaul-huda/"/>
+    <loc>https://qkohst.github.io/id/proyek/asmarine/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/asmarine/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/asmarine/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/asmarine/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/manbaul-huda-school-website/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/website-sekolah-manbaul-huda/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/manbaul-huda-school-website/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/website-sekolah-manbaul-huda/"/>
+    <loc>https://qkohst.github.io/projects/asmarine/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/asmarine/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/asmarine/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/asmarine/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/hotel-megaria/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/hotel-megaria/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/megaria-hotel/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/hotel-megaria/"/>
+    <loc>https://qkohst.github.io/id/proyek/indonesia-peduli/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/indonesia-peduli/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/indonesia-peduli/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/indonesia-peduli/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/megaria-hotel/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/hotel-megaria/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/megaria-hotel/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/hotel-megaria/"/>
+    <loc>https://qkohst.github.io/projects/indonesia-peduli/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/indonesia-peduli/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/indonesia-peduli/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/indonesia-peduli/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/mg-schedule/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/mg-schedule/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/mg-schedule/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/mg-schedule/"/>
+    <loc>https://qkohst.github.io/id/proyek/e-raport/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/e-raport/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/e-raport/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/e-raport/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/mg-schedule/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/mg-schedule/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/mg-schedule/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/mg-schedule/"/>
+    <loc>https://qkohst.github.io/projects/e-raport/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/e-raport/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/e-raport/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/e-raport/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/pabrik-plastik/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/pabrik-plastik/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/plastic-factory/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/pabrik-plastik/"/>
+    <loc>https://qkohst.github.io/id/proyek/klien-web-e-skripsi/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/klien-web-e-skripsi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/e-skripsi-web-client/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/e-skripsi-web-client/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/plastic-factory/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/pabrik-plastik/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/plastic-factory/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/pabrik-plastik/"/>
+    <loc>https://qkohst.github.io/projects/e-skripsi-web-client/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/klien-web-e-skripsi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/e-skripsi-web-client/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/e-skripsi-web-client/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/api-pabrik-plastik/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/api-pabrik-plastik/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/plastic-factory-api/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/api-pabrik-plastik/"/>
+    <loc>https://qkohst.github.io/id/proyek/klien-mobile-e-skripsi/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/klien-mobile-e-skripsi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/e-skripsi-mobile-client/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/e-skripsi-mobile-client/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/plastic-factory-api/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/api-pabrik-plastik/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/plastic-factory-api/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/api-pabrik-plastik/"/>
+    <loc>https://qkohst.github.io/projects/e-skripsi-mobile-client/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/klien-mobile-e-skripsi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/e-skripsi-mobile-client/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/e-skripsi-mobile-client/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/st-pamdes/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/st-pamdes/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/st-pamdes/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/st-pamdes/"/>
+    <loc>https://qkohst.github.io/id/proyek/api-e-skripsi/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/api-e-skripsi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/e-skripsi-api/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/e-skripsi-api/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/st-pamdes/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/st-pamdes/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/st-pamdes/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/st-pamdes/"/>
+    <loc>https://qkohst.github.io/projects/e-skripsi-api/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/api-e-skripsi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/e-skripsi-api/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/e-skripsi-api/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/ppdb-pkbm/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/ppdb-pkbm/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/student-admission-pkbm/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/ppdb-pkbm/"/>
+    <loc>https://qkohst.github.io/id/proyek/website-sekolah-manbaul-huda/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/website-sekolah-manbaul-huda/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/manbaul-huda-school-website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/manbaul-huda-school-website/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/student-admission-pkbm/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/ppdb-pkbm/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/student-admission-pkbm/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/ppdb-pkbm/"/>
+    <loc>https://qkohst.github.io/projects/manbaul-huda-school-website/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/website-sekolah-manbaul-huda/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/manbaul-huda-school-website/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/manbaul-huda-school-website/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/api-properti/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/api-properti/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/property-api/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/api-properti/"/>
+    <loc>https://qkohst.github.io/id/proyek/jejaring-sosial-laravel/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/jejaring-sosial-laravel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/laravel-social-network/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/laravel-social-network/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/property-api/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/api-properti/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/property-api/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/api-properti/"/>
+    <loc>https://qkohst.github.io/projects/laravel-social-network/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/jejaring-sosial-laravel/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/laravel-social-network/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/laravel-social-network/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/rental-mobil/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/rental-mobil/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/car-rental/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/rental-mobil/"/>
+    <loc>https://qkohst.github.io/id/proyek/ppdb-pkbm/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/ppdb-pkbm/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/student-admission-pkbm/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/student-admission-pkbm/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/car-rental/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/rental-mobil/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/car-rental/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/rental-mobil/"/>
+    <loc>https://qkohst.github.io/projects/student-admission-pkbm/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/ppdb-pkbm/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/student-admission-pkbm/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/student-admission-pkbm/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/sistem-administrasi-sekolah/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/sistem-administrasi-sekolah/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/school-administration-system/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/sistem-administrasi-sekolah/"/>
+    <loc>https://qkohst.github.io/id/proyek/sistem-login-codeigniter/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/sistem-login-codeigniter/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/ci-login-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/ci-login-system/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/school-administration-system/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/sistem-administrasi-sekolah/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/school-administration-system/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/sistem-administrasi-sekolah/"/>
+    <loc>https://qkohst.github.io/projects/ci-login-system/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/sistem-login-codeigniter/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/ci-login-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/ci-login-system/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/jejaring-sosial-laravel/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/jejaring-sosial-laravel/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/laravel-social-network/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/jejaring-sosial-laravel/"/>
+    <loc>https://qkohst.github.io/id/proyek/sistem-administrasi-sekolah/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/sistem-administrasi-sekolah/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/school-administration-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/school-administration-system/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/laravel-social-network/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/jejaring-sosial-laravel/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/laravel-social-network/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/jejaring-sosial-laravel/"/>
+    <loc>https://qkohst.github.io/projects/school-administration-system/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/sistem-administrasi-sekolah/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/school-administration-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/school-administration-system/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/manajemen-surat/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/manajemen-surat/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/mail-management-system/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/manajemen-surat/"/>
+    <loc>https://qkohst.github.io/id/proyek/manajemen-surat/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/manajemen-surat/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/mail-management-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/mail-management-system/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/mail-management-system/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/manajemen-surat/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/mail-management-system/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/manajemen-surat/"/>
+    <loc>https://qkohst.github.io/projects/mail-management-system/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/manajemen-surat/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/mail-management-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/mail-management-system/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/treeport/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/treeport/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/treeport/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/treeport/"/>
+    <loc>https://qkohst.github.io/id/proyek/manajemen-karyawan/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/manajemen-karyawan/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/employee-management/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/employee-management/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/treeport/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/treeport/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/treeport/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/treeport/"/>
+    <loc>https://qkohst.github.io/projects/employee-management/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/manajemen-karyawan/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/employee-management/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/employee-management/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/proyek/api-treeport/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/api-treeport/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/treeport-api/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/api-treeport/"/>
+    <loc>https://qkohst.github.io/id/proyek/rental-mobil/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/rental-mobil/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/car-rental/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/car-rental/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://qkohst.github.io/en/projects/treeport-api/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/proyek/api-treeport/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/en/projects/treeport-api/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proyek/api-treeport/"/>
+    <loc>https://qkohst.github.io/projects/car-rental/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/rental-mobil/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/car-rental/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/car-rental/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

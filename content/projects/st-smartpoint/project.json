@@ -1,0 +1,65 @@
+{
+  "$panduan": [
+    "Gambar: 01 login, 02 dashboard admin, 03 data produk, 04 layar POS,",
+    "05 modal pembayaran, 06 riwayat transaksi kasir, 07 pembelian, 08 laporan penjualan."
+  ],
+  "slug": {
+    "id": "st-smartpoint",
+    "en": "st-smartpoint"
+  },
+  "category": "web",
+  "framework": "Laravel",
+  "client": null,
+  "date": "2026-05",
+  "thumb": 4,
+  "link": {
+    "type": "whatsapp",
+    "url": "https://api.whatsapp.com/send?phone=6285232077932&text=I%27m+interested+to+view+your+web+project+St+SmartPoint."
+  },
+  "id": {
+    "title": "St SmartPoint",
+    "summary": "Aplikasi kasir (POS) berbasis web untuk toko dan minimarket: penjualan, stok, pembelian dari supplier, dan laporan dalam satu sistem.",
+    "body": [
+      "St SmartPoint adalah aplikasi Point of Sale berbasis web untuk toko kelontong, minimarket, dan usaha kecil yang membutuhkan sistem kasir sederhana namun lengkap. Karena berjalan di peramban, aplikasi ini bisa dipakai dari komputer kasir mana pun yang terhubung ke jaringan toko tanpa perlu memasang perangkat lunak tambahan.",
+      "Layar kasir dirancang untuk dipakai cepat: produk dicari dengan mengetik nama atau memindai SKU, subtotal dan kembalian dihitung langsung, dan seluruh alur bisa dijalankan lewat pintasan papan ketik tanpa menyentuh tetikus. Satu produk dapat dijual dalam satuan berbeda — misalnya rokok per bungkus atau per slop — dengan stok yang tetap terhitung benar.",
+      "Sisi admin menangani data master, pencatatan pembelian dari supplier yang otomatis menambah stok, serta laporan penjualan harian, per produk, dan per kasir yang dapat diekspor ke Excel. Dashboard menampilkan tren penjualan, produk terlaris, dan peringatan stok menipis."
+    ],
+    "features": [
+      "Dua peran pengguna dengan hak akses terpisah: Admin dan Kasir.",
+      "Layar kasir dengan pencarian produk cepat lewat nama atau pemindaian SKU.",
+      "Penjualan multi-satuan: satu produk dapat dijual dalam satuan berbeda dengan konversi stok otomatis.",
+      "Perhitungan langsung untuk subtotal, diskon per item, pajak, total bayar, dan kembalian.",
+      "Tombol nominal cepat dan opsi uang pas untuk mempercepat pembayaran.",
+      "Pintasan papan ketik untuk cari, bayar, dan batal transaksi.",
+      "Cetak struk ke printer termal 58mm, 80mm, maupun kertas A4 sesuai pengaturan.",
+      "Riwayat transaksi kasir dengan kemampuan cetak ulang struk.",
+      "Data master: pengguna, kategori, satuan, produk dengan multi-konversi, dan supplier.",
+      "Pencatatan pembelian dari supplier yang otomatis menambah stok produk.",
+      "Laporan penjualan harian, per produk, dan per kasir dengan ekspor Excel.",
+      "Dashboard berisi tren penjualan, produk terlaris, dan peringatan stok kritis."
+    ]
+  },
+  "en": {
+    "title": "St SmartPoint",
+    "summary": "A web-based point-of-sale application for shops and minimarkets: sales, stock, supplier purchasing, and reporting in one system.",
+    "body": [
+      "St SmartPoint is a web-based point-of-sale application for grocery shops, minimarkets, and small businesses that need a checkout system that is simple yet complete. Because it runs in the browser, it can be used from any till computer on the shop network without installing extra software.",
+      "The checkout screen is built for speed: products are found by typing a name or scanning an SKU, subtotals and change are calculated as you go, and the whole flow can be driven from the keyboard without touching a mouse. A single product can be sold in different units — a pack or a carton, for example — with stock still counted correctly.",
+      "The admin side handles master data, records supplier purchases that automatically increase stock, and produces daily, per-product, and per-cashier sales reports that export to Excel. The dashboard shows the sales trend, best-selling products, and low-stock warnings."
+    ],
+    "features": [
+      "Two user roles with separated permissions: Admin and Cashier.",
+      "Checkout screen with fast product lookup by name or SKU scan.",
+      "Multi-unit selling: one product can be sold in different units with automatic stock conversion.",
+      "Live calculation of subtotal, per-item discount, tax, total due, and change.",
+      "Quick cash-amount buttons and an exact-amount option to speed up payment.",
+      "Keyboard shortcuts for search, pay, and cancel.",
+      "Receipt printing to 58mm or 80mm thermal printers, or to A4 paper, per settings.",
+      "Cashier transaction history with receipt reprinting.",
+      "Master data: users, categories, units, products with multi-unit conversion, and suppliers.",
+      "Supplier purchase records that automatically increase product stock.",
+      "Daily, per-product, and per-cashier sales reports with Excel export.",
+      "Dashboard with sales trend, best-selling products, and critical stock alerts."
+    ]
+  }
+}

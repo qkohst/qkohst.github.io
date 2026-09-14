@@ -49,6 +49,22 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://qkohst.github.io/id/proyek/sistem-administrasi-sekolah/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/sistem-administrasi-sekolah/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/school-administration-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/school-administration-system/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/projects/school-administration-system/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/sistem-administrasi-sekolah/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/school-administration-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/school-administration-system/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://qkohst.github.io/id/proyek/treeport/</loc>
     <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/treeport/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/treeport/"/>
@@ -397,22 +413,6 @@
     <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/sistem-login-codeigniter/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/ci-login-system/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/ci-login-system/"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://qkohst.github.io/id/proyek/sistem-administrasi-sekolah/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/sistem-administrasi-sekolah/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/school-administration-system/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/school-administration-system/"/>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://qkohst.github.io/projects/school-administration-system/</loc>
-    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/proyek/sistem-administrasi-sekolah/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/projects/school-administration-system/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/projects/school-administration-system/"/>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

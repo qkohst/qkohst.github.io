@@ -1,0 +1,64 @@
+{
+  "$panduan": [
+    "Memperbarui entri portofolio yang sudah ada (key: siasek).",
+    "Slug sengaja dipertahankan agar URL yang sudah terbit tidak berubah.",
+    "Gambar: 01 login, 02 dashboard, 03 peserta didik, 04 jadwal, 05 pembayaran, 06 presensi, 07 poin pelanggaran."
+  ],
+  "slug": {
+    "id": "sistem-administrasi-sekolah",
+    "en": "school-administration-system"
+  },
+  "category": "web",
+  "framework": "Laravel",
+  "client": null,
+  "date": "2026-08",
+  "thumb": 2,
+  "link": {
+    "type": "github",
+    "url": "https://github.com/qkohst/si_administrasi_sekolah"
+  },
+  "id": {
+    "title": "Sistem Informasi Manajemen Sekolah",
+    "summary": "Platform administrasi sekolah terpadu: akademik, kesiswaan, keuangan, dan persuratan dalam satu sistem dengan enam peran pengguna.",
+    "body": [
+      "Sistem informasi manajemen sekolah yang menyatukan pekerjaan administrasi yang biasanya tersebar di banyak berkas dan spreadsheet. Satu platform menangani data induk sekolah, kesiswaan, keuangan siswa maupun sekolah, dan persuratan — dengan hak akses yang dipisahkan menurut peran masing-masing petugas.",
+      "Terdapat enam peran pengguna: Admin, Admin Surat, Admin Keuangan, Guru, Guru BK, dan Siswa. Setiap peran hanya melihat menu dan data yang menjadi tanggung jawabnya, sehingga guru cukup mengisi presensi kelasnya, petugas keuangan tidak menyentuh data akademik, dan siswa hanya melihat catatan dirinya sendiri.",
+      "Sistem ini dikembangkan bertahap sejak 2021 dan terus dilanjutkan hingga sekarang — dari sistem persuratan sederhana menjadi platform administrasi sekolah yang utuh, lengkap dengan notifikasi WhatsApp ke wali murid dan panduan interaktif di dalam aplikasi."
+    ],
+    "features": [
+      "Enam peran pengguna dengan hak akses terpisah: Admin, Admin Surat, Admin Keuangan, Guru, Guru BK, dan Siswa.",
+      "Data master sekolah: profil sekolah, tahun pelajaran, guru, tenaga kependidikan, rombongan belajar, peserta didik, alumni, dan siswa keluar.",
+      "Kesiswaan: mata pelajaran, jadwal pelajaran, presensi harian per mata pelajaran oleh guru pengampu.",
+      "Sistem poin pelanggaran dengan akumulasi otomatis dan pencatatan oleh Guru BK.",
+      "Persuratan digital: klasifikasi, surat masuk dan keluar, disposisi, serta agenda surat.",
+      "Keuangan siswa: rincian tagihan, transaksi pembayaran, dan tabungan (setor dan tarik).",
+      "Keuangan sekolah: kategori, pencatatan pemasukan dan pengeluaran.",
+      "Laporan keuangan, presensi, dan pelanggaran yang dapat diekspor ke Excel maupun PDF.",
+      "Notifikasi WhatsApp otomatis ke wali murid untuk presensi, pelanggaran, dan bukti transaksi.",
+      "Panduan dalam aplikasi: tur interaktif, dokumentasi, dan bantuan kontekstual per halaman.",
+      "Impor data massal lewat berkas Excel dan pencarian cepat pada setiap tabel data."
+    ]
+  },
+  "en": {
+    "title": "School Management Information System",
+    "summary": "An integrated school administration platform covering academics, student affairs, finance, and correspondence across six user roles.",
+    "body": [
+      "A school management information system that consolidates administrative work normally scattered across files and spreadsheets. One platform handles school master data, student affairs, both student and school finances, and correspondence — with access rights separated according to each staff member's role.",
+      "There are six user roles: Admin, Correspondence Admin, Finance Admin, Teacher, Counselling Teacher, and Student. Each role sees only the menus and data it is responsible for, so a teacher simply records attendance for their own class, finance staff never touch academic records, and students only see their own information.",
+      "The system has been developed incrementally since 2021 and is still being extended — growing from a simple correspondence tool into a complete school administration platform, with WhatsApp notifications to parents and an interactive in-app guide."
+    ],
+    "features": [
+      "Six user roles with separated permissions: Admin, Correspondence Admin, Finance Admin, Teacher, Counselling Teacher, and Student.",
+      "School master data: school profile, academic year, teachers, staff, study groups, students, alumni, and departed students.",
+      "Student affairs: subjects, class timetables, and daily per-subject attendance recorded by the teaching staff.",
+      "Violation point system with automatic accumulation, recorded by the counselling teacher.",
+      "Digital correspondence: classification, incoming and outgoing mail, disposition, and mail agenda.",
+      "Student finances: billing details, payment transactions, and savings (deposits and withdrawals).",
+      "School finances: categories plus income and expenditure records.",
+      "Financial, attendance, and violation reports exportable to both Excel and PDF.",
+      "Automatic WhatsApp notifications to parents for attendance, violations, and transaction receipts.",
+      "In-app guidance: interactive tour, documentation, and contextual help on each page.",
+      "Bulk data import from Excel files and quick search on every data table."
+    ]
+  }
+}

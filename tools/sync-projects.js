@@ -90,7 +90,14 @@ for (const key of fs.readdirSync(CONTENT).sort()) {
     en: { title: m.en.title, summary: m.en.summary, body: m.en.body || [], features: m.en.features || [] }
   };
 
-  if (perKey.has(key)) diperbarui++; else ditambah++;
+  // Saat memperbarui entri lama, bawa serta field yang hanya dimiliki proyek
+  // hasil migrasi. legacyPath dipakai untuk menulis stub redirect dari URL
+  // situs lawas; kalau hilang, tautan lama itu mati tanpa peringatan.
+  const sebelumnya = perKey.get(key);
+  if (sebelumnya) {
+    if (sebelumnya.legacyPath) entri.legacyPath = sebelumnya.legacyPath;
+    diperbarui++;
+  } else ditambah++;
   perKey.set(key, entri);
 }
 

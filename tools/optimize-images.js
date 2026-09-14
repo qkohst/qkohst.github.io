@@ -177,6 +177,30 @@ async function ogImage(lang, out) {
     await ogImage(lang, path.join(OUT, 'og', `og-${lang}.png`));
   }
 
+  // --- 5. Bersihkan turunan yatim
+  // Saat gambar sebuah proyek diganti, turunan lama tetap tertinggal di
+  // assets/img/ dan ikut ter-commit selamanya. Di sini berkas yang tidak lagi
+  // dirujuk projects.json dihapus, supaya repo tidak menumpuk berkas mati.
+  const dipakai = new Set();
+  for (const p of projects) {
+    for (const img of p.images) dipakai.add(img.name);
+    if (p.thumb) dipakai.add(p.thumb);
+  }
+  let yatim = 0, byteYatim = 0;
+  if (fs.existsSync(portfolioDir)) {
+    for (const f of fs.readdirSync(portfolioDir)) {
+      // nama berkas: <nama>-<lebar>.<ext> atau <nama>-1200x630.jpg
+      const nama = f.replace(/-(\d+|1200x630)\.(avif|jpe?g|webp|png)$/i, '');
+      if (nama === f) continue;            // pola tak dikenali, jangan disentuh
+      if (dipakai.has(nama)) continue;
+      const penuh = path.join(portfolioDir, f);
+      byteYatim += fs.statSync(penuh).size;
+      fs.unlinkSync(penuh);
+      yatim++;
+    }
+  }
+  if (yatim) console.log(`turunan yatim  : ${yatim} berkas dihapus (${(byteYatim / 1024).toFixed(0)} KB)`);
+
   // --- Ringkasan
   const srcBytes = projects.flatMap(p => p.images)
     .filter(i => fs.existsSync(path.join(ROOT, i.source)))

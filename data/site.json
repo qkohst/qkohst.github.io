@@ -9,7 +9,9 @@
     "pathPrefix": { "id": "", "en": "/en" },
     "themeColor": { "light": "#fbfcfc", "dark": "#080c0b" },
     "accent": "#0bad94",
-    "crispWebsiteId": "1389c3f9-bf80-4645-ba9e-f3834eec71c6"
+    "crispWebsiteId": "1389c3f9-bf80-4645-ba9e-f3834eec71c6",
+    "$crispThemeNote": "Crisp hanya menerima nama warna dari daftar bakunya, bukan nilai hex. 'teal' (#00947C) adalah yang paling dekat dengan aksen logo #0bad94.",
+    "crispTheme": "teal"
   },
 
   "profile": {

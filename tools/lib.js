@@ -37,6 +37,9 @@ function pageUrl(kind, lang, slug) {
   return `${p}/${SEGMENT[kind][lang]}/`;
 }
 
+/** Berkas PDF CV statis yang dihasilkan tools/build-cv-pdf.js. */
+const cvPdf = (handle, lang) => `/assets/cv/cv-${handle}-${lang}.pdf`;
+
 /** URL penuh dengan origin, untuk canonical/OG/sitemap. */
 const absUrl = (origin, path) => origin.replace(/\/$/, '') + path;
 
@@ -65,4 +68,4 @@ const yearsSince = start => Math.max(1, new Date().getFullYear() - start);
 /** Saring entri berdasarkan penanda showOn. */
 const shown = (arr, surface) => (arr || []).filter(x => !x.showOn || x.showOn.includes(surface));
 
-module.exports = { esc, join, each, icon, t, prefix, SEGMENT, pageUrl, absUrl, fmtMonth, fmtRange, yearsSince, shown };
+module.exports = { esc, join, each, icon, t, prefix, SEGMENT, pageUrl, cvPdf, absUrl, fmtMonth, fmtRange, yearsSince, shown };

@@ -1,7 +1,7 @@
 /* Halaman CV. Tata letak A4 dua kolom mempertahankan struktur CV lama;
    seluruh isinya datang dari data/site.json, jadi selalu ikut konten situs.
    Entri disaring dengan showOn: 'cv'. */
-const { esc, each, icon, t, fmtMonth, fmtRange, yearsSince, shown } = require('../tools/lib');
+const { esc, each, icon, t, cvPdf, fmtMonth, fmtRange, yearsSince, shown } = require('../tools/lib');
 
 /** Meter blok tersegmen seperti pada CV lama (10 kotak per baris). */
 const skillRow = s => {
@@ -30,16 +30,17 @@ module.exports = function cv(ctx) {
   const socials = shown(site.socials, 'cv');
 
   const L = lang === 'id'
-    ? { about: 'Tentang Saya', print: 'Cetak / Simpan PDF', back: 'Kembali ke beranda',
-        hint: 'Pilih tujuan “Save as PDF” pada dialog cetak untuk menyimpan sebagai berkas PDF.',
+    ? { about: 'Tentang Saya', unduh: 'Unduh PDF', print: 'Cetak', back: 'Kembali ke beranda',
+        hint: 'Berkas PDF sudah disiapkan dalam satu halaman A4. Tombol Cetak membuka dialog cetak peramban.',
         exp: `Sekitar ${years} tahun pengalaman, dan terus berusaha mengasah kemampuan.` }
-    : { about: 'About Me', print: 'Print / Save as PDF', back: 'Back to home',
-        hint: 'Choose the “Save as PDF” destination in the print dialog to store it as a PDF file.',
+    : { about: 'About Me', unduh: 'Download PDF', print: 'Print', back: 'Back to home',
+        hint: 'The PDF is prepared as a single A4 page. The Print button opens your browser print dialog.',
         exp: `Around ${years} years of experience, and always working to sharpen my skills.` };
 
   return `
     <div class="cv-actions">
-      <button class="btn btn--primary" type="button" data-print>${icon('download')} ${esc(L.print)}</button>
+      <a class="btn btn--primary" href="${esc(cvPdf(site.profile.handle, lang))}" download>${icon('download')} ${esc(L.unduh)}</a>
+      <button class="btn btn--ghost" type="button" data-print>${esc(L.print)}</button>
       <a class="btn btn--ghost" href="${lang === 'id' ? '/' : '/en/'}">${esc(L.back)}</a>
     </div>
     <p class="cv-hint">${esc(L.hint)}</p>

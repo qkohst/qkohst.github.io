@@ -1,5 +1,5 @@
 /* Beranda: hero, tentang, kemampuan, framework, resume, layanan, proyek pilihan, kontak. */
-const { esc, each, icon, t, pageUrl, fmtRange, yearsSince, shown } = require('../tools/lib');
+const { esc, each, icon, t, pageUrl, cvPdf, fmtRange, yearsSince, shown } = require('../tools/lib');
 const { projectCard, meter, contactSection } = require('./partials');
 
 module.exports = function home(ctx, projects) {
@@ -27,7 +27,7 @@ module.exports = function home(ctx, projects) {
           <p class="hero__tagline">${esc(p.tagline)}</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="${esc(c.whatsappQr)}" target="_blank" rel="noopener noreferrer">${icon('whatsapp')} ${esc(ui.hire)}</a>
-            <a class="btn btn--ghost" href="${esc(pageUrl('cv', lang))}">${icon('download')} ${esc(ui.downloadCv)}</a>
+            <a class="btn btn--ghost" href="${esc(cvPdf(site.profile.handle, lang))}" download>${icon('download')} ${esc(ui.downloadCv)}</a>
           </div>
           <dl class="hero__stats">
             <div class="hero__stat"><strong>${years}+</strong><span>${esc(ui.experienceSuffix)}</span></div>

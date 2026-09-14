@@ -257,6 +257,22 @@ function initChat() {
     done = true;
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = id;
+    // Warna widget diselaraskan dengan aksen situs. Crisp hanya menerima nama
+    // warna dari daftar bakunya, bukan nilai hex.
+    const tema = document.documentElement.dataset.crispTheme;
+    if (tema) {
+      const pasangWarna = () => window.$crisp.push(['config', 'color:theme', [tema]]);
+      pasangWarna();                    // lewat antrean, sebelum SDK termuat
+      // Antrean pra-muat tidak selalu memproses 'config', jadi pasang sekali lagi
+      // begitu SDK benar-benar siap. Aman dipanggil dua kali.
+      let sisa = 40;
+      const tunggu = setInterval(() => {
+        if (window.$crisp && typeof window.$crisp.is === 'function') {
+          clearInterval(tunggu);
+          pasangWarna();
+        } else if (--sisa <= 0) clearInterval(tunggu);
+      }, 250);
+    }
     const s = document.createElement('script');
     s.src = 'https://client.crisp.chat/l.js';
     s.async = true;

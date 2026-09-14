@@ -107,7 +107,7 @@ ${each(socials, s => `        <li style="margin:0"><a href="${esc(s.url)}" targe
 /** Bungkus isi halaman menjadi dokumen HTML utuh. */
 function document_(ctx, body) {
   return `<!DOCTYPE html>
-<html lang="${esc(ctx.lang)}"${ctx.site.site.crispWebsiteId ? ` data-crisp="${esc(ctx.site.site.crispWebsiteId)}"` : ''}>
+<html lang="${esc(ctx.lang)}"${ctx.site.site.crispWebsiteId ? ` data-crisp="${esc(ctx.site.site.crispWebsiteId)}"` : ''}${ctx.site.site.crispTheme ? ` data-crisp-theme="${esc(ctx.site.site.crispTheme)}"` : ''}>
 <head>${head(ctx)}
 </head>
 <body>

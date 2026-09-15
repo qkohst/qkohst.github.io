@@ -30,7 +30,7 @@
   <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180">
   <script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=52da02a0">
+  <link rel="stylesheet" href="/assets/css/main.css?v=b27eed04">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"API Pabrik Plastik","description":"RESTful API untuk operasional pabrik plastik: produk, pelanggan, pesanan, dan pelaporan.","inLanguage":"id","dateCreated":"2024-08","url":"https://qkohst.github.io/id/proyek/api-pabrik-plastik/","image":"https://qkohst.github.io/assets/img/portfolio/pabrik-plastik-api-3-960.jpg","creator":{"@type":"Person","name":"Kukoh Santoso","url":"https://qkohst.github.io"},"sourceOrganization":{"@type":"Organization","name":"Morning Glory Enterprise"},"keywords":["Silverstripe","api"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Beranda","item":"https://qkohst.github.io/id/"},{"@type":"ListItem","position":2,"name":"Portofolio","item":"https://qkohst.github.io/id/proyek/"},{"@type":"ListItem","position":3,"name":"API Pabrik Plastik","item":"https://qkohst.github.io/id/proyek/api-pabrik-plastik/"}]}</script>
 
@@ -94,7 +94,7 @@
 
         <div class="section__head page-head" data-reveal>
           <div class="project__meta" style="margin-bottom:var(--sp-3)">
-            <span class="tag tag--accent">API</span>
+            <span class="tag tag--accent">RESTful API</span>
             <span class="tag">Silverstripe</span>
             <span class="tag">Agustus 2024</span>
           </div>
@@ -163,12 +163,17 @@
           <aside class="info-card" data-reveal data-reveal-delay="100">
             <h2 style="font-size:var(--step-1)">Informasi Proyek</h2>
             <ul class="info-list">
-              <li><span class="k">Kategori</span><span class="v">API</span></li>
+              <li><span class="k">Kategori</span><span class="v">RESTful API</span></li>
               <li><span class="k">Framework</span><span class="v">Silverstripe</span></li>
               <li><span class="k">Klien</span><span class="v">Morning Glory Enterprise</span></li>
               <li><span class="k">Waktu Pengerjaan</span><span class="v">Agustus 2024</span></li>
             </ul>
-            <a class="btn btn--primary" style="width:100%" href="https://documenter.getpostman.com/view/12304685/2sAYX3qhuk" target="_blank" rel="noopener noreferrer"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-external"></use></svg> Lihat dokumentasi</a>
+            <a class="btn btn--primary" style="width:100%"
+               href="https://api.whatsapp.com/send?phone=6285232077932&amp;text=Halo%2C+saya+melihat+proyek+%22API+Pabrik+Plastik%22+di+portofolio+Anda.+Boleh+saya+tahu+lebih+lanjut+tentang+proyek+ini%3F"
+               target="_blank" rel="noopener noreferrer">
+              <svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-whatsapp"></use></svg> Tanya proyek ini
+            </a>
+            <a class="btn btn--ghost" style="width:100%;margin-top:var(--sp-3)" href="https://documenter.getpostman.com/view/12304685/2sAYX3qhuk" target="_blank" rel="noopener noreferrer"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-external"></use></svg> Lihat dokumentasi API</a>
           </aside>
         </div>
       </div>
@@ -178,8 +183,16 @@
     <div class="lightbox__inner">
       <button class="lightbox__close" type="button" data-lightbox-close
               aria-label="Tutup"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-close"></use></svg></button>
+      <button class="lightbox__nav lightbox__nav--prev" type="button" data-lightbox-prev hidden
+              aria-label="Gambar sebelumnya"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-arrow-left"></use></svg></button>
       <img alt="">
-      <div class="lightbox__bar"><span data-lightbox-caption></span></div>
+      <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next hidden
+              aria-label="Gambar berikutnya"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-arrow-right"></use></svg></button>
+      <div class="lightbox__bar">
+        <span data-lightbox-caption></span>
+        <span class="lightbox__count" data-lightbox-count hidden
+              data-template="{n} dari {total}"></span>
+      </div>
     </div>
   </dialog>
 
@@ -206,6 +219,6 @@
       </ul>
     </div>
   </footer>
-  <script type="module" src="/assets/js/main.js?v=2c9df294"></script>
+  <script type="module" src="/assets/js/main.js?v=84e9d400"></script>
 </body>
 </html>

@@ -14,6 +14,7 @@ const homeTpl = require('../templates/home');
 const projectsTpl = require('../templates/projects');
 const projectTpl = require('../templates/project');
 const servicesTpl = require('../templates/services');
+const serviceTpl = require('../templates/service');
 const cvTpl = require('../templates/cv');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -197,26 +198,26 @@ const projectLd = (p, lang) => {
   };
 };
 
-const serviceLd = lang => ({
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  serviceType: t(site.servicesPage, lang).title,
-  provider: { '@type': 'Person', name: site.profile.name, url: ORIGIN },
-  areaServed: 'ID',
-  // Harga kini berupa titik awal, jadi dinyatakan sebagai rentang terbuka
-  // (minPrice) agar mesin pencari tidak menampilkannya sebagai harga pasti.
-  offers: site.pricing.map(tier => ({
-    '@type': 'Offer',
-    name: t(tier, lang).name,
-    priceSpecification: {
-      '@type': 'PriceSpecification',
-      minPrice: tier.from,
-      priceCurrency: tier.currency
-    },
-    description: t(tier, lang).summary,
-    url: absUrl(ORIGIN, pageUrl('services', lang))
-  }))
-});
+const serviceLd = (lang, svc) => {
+  const x = svc ? t(svc, lang) : t(site.servicesPage, lang);
+  const dasar = svc ? svc.from : site.pricing[0].from;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: x.title,
+    description: x.summary || x.heading,
+    provider: { '@type': 'Person', name: site.profile.name, url: ORIGIN },
+    areaServed: 'ID',
+    offers: site.pricing.map(tier => ({
+      '@type': 'Offer',
+      name: t(tier, lang).name,
+      price: Math.round(dasar * (tier.from / site.pricing[0].from)),
+      priceCurrency: tier.currency,
+      description: t(tier, lang).summary,
+      url: absUrl(ORIGIN, svc ? pageUrl('service', lang, svc.slug[lang]) : pageUrl('services', lang))
+    }))
+  };
+};
 
 /* --- Render -------------------------------------------------------------- */
 setIconVersion(ASSET_VER.icons);
@@ -261,8 +262,12 @@ for (const lang of LANGS) {
     const sp = t(site.servicesPage, lang);
     const ctx = ctxFor({
       lang, kind: 'services',
-      title: `${sp.title} — ${site.profile.name}`,
-      description: sp.body[0].slice(0, 155),
+      // Judul indeks harus berbeda dari halaman detail "Pengembangan Web",
+      // kalau tidak keduanya memakai judul yang sama persis.
+      title: `${ui.sections.services} — ${site.profile.name}`,
+      description: lang === 'id'
+        ? `Empat layanan pengembangan web oleh ${site.profile.name}: pengembangan web, desain web, RESTful API, dan perancangan basis data.`
+        : `Four web development services by ${site.profile.name}: web development, web design, RESTful APIs, and database design.`,
       navKey: 'services',
       jsonld: [serviceLd(lang), breadcrumbLd([
         { name: ui.nav.home, url: pageUrl('home', lang) },
@@ -270,6 +275,23 @@ for (const lang of LANGS) {
       ])]
     });
     write(pageUrl('services', lang), layout.document(ctx, servicesTpl(ctx)));
+  }
+
+  // halaman detail tiap layanan
+  for (const s of site.services) {
+    const x = t(s, lang);
+    const ctx = ctxFor({
+      lang, kind: 'service', slugByLang: s.slug,
+      title: `${x.title} — ${site.profile.name}`,
+      description: x.summary,
+      navKey: 'services',
+      jsonld: [serviceLd(lang, s), breadcrumbLd([
+        { name: ui.nav.home, url: pageUrl('home', lang) },
+        { name: ui.sections.services, url: pageUrl('services', lang) },
+        { name: x.title, url: pageUrl('service', lang, s.slug[lang]) }
+      ])]
+    });
+    write(pageUrl('service', lang, s.slug[lang]), layout.document(ctx, serviceTpl(ctx, s)));
   }
 
   // halaman CV (noindex: bukan halaman pendaratan, tapi tetap perlu bisa dibuka
@@ -397,6 +419,7 @@ push('home', null, '1.0', 'monthly');
 push('projects', null, '0.9', 'monthly');
 push('services', null, '0.9', 'monthly');
 for (const p of projects) push('project', p.slug, '0.7', 'yearly');
+for (const s of site.services) push('service', s.slug, '0.8', 'monthly');
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">

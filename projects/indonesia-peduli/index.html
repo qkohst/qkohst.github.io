@@ -30,8 +30,8 @@
   <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180">
   <script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=52da02a0">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Indonesia Peduli","description":"An online fundraising site for donations, built with Laravel and integrated with online payments.","inLanguage":"en","dateCreated":"2022-03","url":"https://qkohst.github.io/projects/indonesia-peduli/","image":"https://qkohst.github.io/assets/img/portfolio/indonesia-peduli-1-960.jpg","creator":{"@type":"Person","name":"Kukoh Santoso","url":"https://qkohst.github.io"},"keywords":["Laravel","web"]}</script>
+  <link rel="stylesheet" href="/assets/css/main.css?v=b27eed04">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Indonesia Peduli","description":"An online fundraising site for donations, built with Laravel and integrated with online payments.","inLanguage":"en","dateCreated":"2022-03","url":"https://qkohst.github.io/projects/indonesia-peduli/","image":"https://qkohst.github.io/assets/img/portfolio/indonesia-peduli-1-960.jpg","creator":{"@type":"Person","name":"Kukoh Santoso","url":"https://qkohst.github.io"},"keywords":["Laravel","transaksi"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://qkohst.github.io/"},{"@type":"ListItem","position":2,"name":"Portfolio","item":"https://qkohst.github.io/projects/"},{"@type":"ListItem","position":3,"name":"Indonesia Peduli","item":"https://qkohst.github.io/projects/indonesia-peduli/"}]}</script>
 
 </head>
@@ -94,7 +94,7 @@
 
         <div class="section__head page-head" data-reveal>
           <div class="project__meta" style="margin-bottom:var(--sp-3)">
-            <span class="tag tag--accent">Web</span>
+            <span class="tag tag--accent">Transactions &amp; Finance</span>
             <span class="tag">Laravel</span>
             <span class="tag">March 2022</span>
           </div>
@@ -211,12 +211,17 @@
           <aside class="info-card" data-reveal data-reveal-delay="100">
             <h2 style="font-size:var(--step-1)">Project Information</h2>
             <ul class="info-list">
-              <li><span class="k">Category</span><span class="v">Web</span></li>
+              <li><span class="k">Category</span><span class="v">Transactions &amp; Finance</span></li>
               <li><span class="k">Framework</span><span class="v">Laravel</span></li>
               
               <li><span class="k">Project time</span><span class="v">March 2022</span></li>
             </ul>
-            <a class="btn btn--primary" style="width:100%" href="https://github.com/qkohst/indonesia_peduli" target="_blank" rel="noopener noreferrer"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-github"></use></svg> View on GitHub</a>
+            <a class="btn btn--primary" style="width:100%"
+               href="https://api.whatsapp.com/send?phone=6285232077932&amp;text=Hello%2C+I+came+across+your+%22Indonesia+Peduli%22+project+in+your+portfolio.+Could+you+tell+me+more+about+it%3F"
+               target="_blank" rel="noopener noreferrer">
+              <svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-whatsapp"></use></svg> Ask about this project
+            </a>
+            
           </aside>
         </div>
       </div>
@@ -226,8 +231,16 @@
     <div class="lightbox__inner">
       <button class="lightbox__close" type="button" data-lightbox-close
               aria-label="Close"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-close"></use></svg></button>
+      <button class="lightbox__nav lightbox__nav--prev" type="button" data-lightbox-prev hidden
+              aria-label="Previous image"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-arrow-left"></use></svg></button>
       <img alt="">
-      <div class="lightbox__bar"><span data-lightbox-caption></span></div>
+      <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next hidden
+              aria-label="Next image"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-arrow-right"></use></svg></button>
+      <div class="lightbox__bar">
+        <span data-lightbox-caption></span>
+        <span class="lightbox__count" data-lightbox-count hidden
+              data-template="{n} of {total}"></span>
+      </div>
     </div>
   </dialog>
 
@@ -254,6 +267,6 @@
       </ul>
     </div>
   </footer>
-  <script type="module" src="/assets/js/main.js?v=2c9df294"></script>
+  <script type="module" src="/assets/js/main.js?v=84e9d400"></script>
 </body>
 </html>

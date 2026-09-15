@@ -30,7 +30,7 @@
   <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180">
   <script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=52da02a0">
+  <link rel="stylesheet" href="/assets/css/main.css?v=b27eed04">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://qkohst.github.io/"},{"@type":"ListItem","position":2,"name":"Portfolio","item":"https://qkohst.github.io/projects/"}]}</script>
 
 </head>
@@ -99,10 +99,12 @@
 
       <div class="filters" data-filter-bar role="group" aria-label="Portfolio">
         <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
-        <button class="filter" type="button" data-filter="web" aria-pressed="false">Web</button>
-        <button class="filter" type="button" data-filter="api" aria-pressed="false">API</button>
-        <button class="filter" type="button" data-filter="app" aria-pressed="false">Mobile</button>
-        <button class="filter" type="button" data-filter="desktop" aria-pressed="false">Desktop</button>
+        <button class="filter" type="button" data-filter="pendidikan" aria-pressed="false">Education</button>
+        <button class="filter" type="button" data-filter="transaksi" aria-pressed="false">Transactions &amp; Finance</button>
+        <button class="filter" type="button" data-filter="backoffice" aria-pressed="false">Back-office &amp; ERP</button>
+        <button class="filter" type="button" data-filter="api" aria-pressed="false">RESTful API</button>
+        <button class="filter" type="button" data-filter="lainnya" aria-pressed="false">Other</button>
+        <button class="filter" type="button" data-filter="internal" aria-pressed="false">Internal Tools</button>
 
       </div>
 
@@ -110,7 +112,7 @@
 
         <ul class="project-grid" style="list-style:none;margin:var(--sp-5) 0 0;padding:0">
 
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="pendidikan" data-reveal>
           <a class="project__card" href="/projects/school-administration-system/">
             <div class="project__media">
               <picture>
@@ -121,7 +123,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Education</span>
                 <span class="tag">Laravel</span>
               </div>
               <h3 class="project__title">School Management Information System</h3>
@@ -130,7 +132,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="transaksi" data-reveal>
           <a class="project__card" href="/projects/st-smartpoint/">
             <div class="project__media">
               <picture>
@@ -141,7 +143,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Transactions &amp; Finance</span>
                 <span class="tag">Laravel</span>
               </div>
               <h3 class="project__title">St SmartPoint</h3>
@@ -150,7 +152,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="backoffice" data-reveal>
           <a class="project__card" href="/projects/treeport/">
             <div class="project__media">
               <picture>
@@ -161,7 +163,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Back-office &amp; ERP</span>
                 <span class="tag">Silverstripe</span>
               </div>
               <h3 class="project__title">TreePort</h3>
@@ -181,7 +183,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">API</span>
+                <span class="tag tag--accent">RESTful API</span>
                 <span class="tag">Silverstripe</span>
               </div>
               <h3 class="project__title">TreePort API</h3>
@@ -190,7 +192,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="backoffice" data-reveal>
           <a class="project__card" href="/projects/plastic-factory/">
             <div class="project__media">
               <picture>
@@ -201,7 +203,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Back-office &amp; ERP</span>
                 <span class="tag">Silverstripe</span>
               </div>
               <h3 class="project__title">Plastic Factory</h3>
@@ -221,7 +223,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">API</span>
+                <span class="tag tag--accent">RESTful API</span>
                 <span class="tag">Silverstripe</span>
               </div>
               <h3 class="project__title">Plastic Factory API</h3>
@@ -230,7 +232,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="backoffice" data-reveal>
           <a class="project__card" href="/projects/backoffice-dlik-ojk/">
             <div class="project__media">
               <picture>
@@ -241,7 +243,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Back-office &amp; ERP</span>
                 <span class="tag">CodeIgniter</span>
               </div>
               <h3 class="project__title">Backoffice DLIK OJK</h3>
@@ -250,7 +252,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="pendidikan" data-reveal>
           <a class="project__card" href="/projects/lms-external-ojk/">
             <div class="project__media">
               <picture>
@@ -261,7 +263,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Education</span>
                 <span class="tag">CodeIgniter</span>
               </div>
               <h3 class="project__title">LMS External OJK</h3>
@@ -270,7 +272,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="pendidikan" data-reveal>
           <a class="project__card" href="/projects/lms-internal-ojk/">
             <div class="project__media">
               <picture>
@@ -281,7 +283,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Education</span>
                 <span class="tag">CodeIgniter</span>
               </div>
               <h3 class="project__title">LMS Internal OJK</h3>
@@ -290,7 +292,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="transaksi" data-reveal>
           <a class="project__card" href="/projects/st-pamdes/">
             <div class="project__media">
               <picture>
@@ -301,7 +303,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Transactions &amp; Finance</span>
                 <span class="tag">Laravel</span>
               </div>
               <h3 class="project__title">St Pamdes</h3>
@@ -310,7 +312,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="backoffice" data-reveal>
           <a class="project__card" href="/projects/mg-schedule/">
             <div class="project__media">
               <picture>
@@ -321,7 +323,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Back-office &amp; ERP</span>
                 <span class="tag">Silverstripe</span>
               </div>
               <h3 class="project__title">MG Schedule</h3>
@@ -330,7 +332,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="backoffice" data-reveal>
           <a class="project__card" href="/projects/megaria-hotel/">
             <div class="project__media">
               <picture>
@@ -341,7 +343,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Back-office &amp; ERP</span>
                 <span class="tag">Silverstripe</span>
               </div>
               <h3 class="project__title">Megaria Hotel</h3>
@@ -361,7 +363,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">API</span>
+                <span class="tag tag--accent">RESTful API</span>
                 <span class="tag">Silverstripe</span>
               </div>
               <h3 class="project__title">Property API</h3>
@@ -370,7 +372,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="backoffice" data-reveal>
           <a class="project__card" href="/projects/dinamika/">
             <div class="project__media">
               <picture>
@@ -381,7 +383,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Back-office &amp; ERP</span>
                 <span class="tag">Silverstripe</span>
               </div>
               <h3 class="project__title">Dinamika</h3>
@@ -390,7 +392,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="backoffice" data-reveal>
           <a class="project__card" href="/projects/asmarine/">
             <div class="project__media">
               <picture>
@@ -401,7 +403,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Back-office &amp; ERP</span>
                 <span class="tag">Silverstripe</span>
               </div>
               <h3 class="project__title">ASMARINE</h3>
@@ -410,7 +412,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="transaksi" data-reveal>
           <a class="project__card" href="/projects/indonesia-peduli/">
             <div class="project__media">
               <picture>
@@ -421,7 +423,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Transactions &amp; Finance</span>
                 <span class="tag">Laravel</span>
               </div>
               <h3 class="project__title">Indonesia Peduli</h3>
@@ -430,7 +432,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="pendidikan" data-reveal>
           <a class="project__card" href="/projects/e-raport/">
             <div class="project__media">
               <picture>
@@ -441,7 +443,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Education</span>
                 <span class="tag">Laravel</span>
               </div>
               <h3 class="project__title">E-Raport Application</h3>
@@ -450,7 +452,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="pendidikan" data-reveal>
           <a class="project__card" href="/projects/e-skripsi-web-client/">
             <div class="project__media">
               <picture>
@@ -461,7 +463,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Education</span>
                 <span class="tag">Laravel</span>
               </div>
               <h3 class="project__title">RESTful API Web Client</h3>
@@ -470,7 +472,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="app" data-reveal>
+        <li class="project" data-category="pendidikan" data-reveal>
           <a class="project__card" href="/projects/e-skripsi-mobile-client/">
             <div class="project__media">
               <picture>
@@ -481,7 +483,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Mobile</span>
+                <span class="tag tag--accent">Education</span>
                 <span class="tag">Flutter</span>
               </div>
               <h3 class="project__title">RESTful API Mobile Client</h3>
@@ -501,7 +503,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">API</span>
+                <span class="tag tag--accent">RESTful API</span>
                 <span class="tag">Laravel</span>
               </div>
               <h3 class="project__title">RESTful API E-Skripsi</h3>
@@ -510,7 +512,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="pendidikan" data-reveal>
           <a class="project__card" href="/projects/manbaul-huda-school-website/">
             <div class="project__media">
               <picture>
@@ -521,7 +523,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Education</span>
                 <span class="tag">Laravel</span>
               </div>
               <h3 class="project__title">School Website</h3>
@@ -530,7 +532,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="lainnya" data-reveal>
           <a class="project__card" href="/projects/laravel-social-network/">
             <div class="project__media">
               <picture>
@@ -541,7 +543,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Other</span>
                 <span class="tag">Laravel</span>
               </div>
               <h3 class="project__title">Social Network</h3>
@@ -550,7 +552,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="pendidikan" data-reveal>
           <a class="project__card" href="/projects/student-admission-pkbm/">
             <div class="project__media">
               <picture>
@@ -561,7 +563,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Education</span>
                 <span class="tag">Laravel</span>
               </div>
               <h3 class="project__title">New Student Admission Site</h3>
@@ -570,7 +572,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="lainnya" data-reveal>
           <a class="project__card" href="/projects/ci-login-system/">
             <div class="project__media">
               <picture>
@@ -581,7 +583,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Other</span>
                 <span class="tag">CodeIgniter</span>
               </div>
               <h3 class="project__title">Complete Login System</h3>
@@ -590,7 +592,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="internal" data-reveal>
           <a class="project__card" href="/projects/mail-management-system/">
             <div class="project__media">
               <picture>
@@ -601,7 +603,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Internal Tools</span>
                 <span class="tag">Laravel</span>
               </div>
               <h3 class="project__title">Mail Management System</h3>
@@ -610,7 +612,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="web" data-reveal>
+        <li class="project" data-category="internal" data-reveal>
           <a class="project__card" href="/projects/employee-management/">
             <div class="project__media">
               <picture>
@@ -621,7 +623,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Web</span>
+                <span class="tag tag--accent">Internal Tools</span>
                 <span class="tag">Laravel</span>
               </div>
               <h3 class="project__title">Employee Management</h3>
@@ -630,7 +632,7 @@
             </div>
           </a>
         </li>
-        <li class="project" data-category="desktop" data-reveal>
+        <li class="project" data-category="lainnya" data-reveal>
           <a class="project__card" href="/projects/car-rental/">
             <div class="project__media">
               <picture>
@@ -641,7 +643,7 @@
             </div>
             <div class="project__body">
               <div class="project__meta">
-                <span class="tag tag--accent">Desktop</span>
+                <span class="tag tag--accent">Other</span>
                 
               </div>
               <h3 class="project__title">Car Rental</h3>
@@ -658,8 +660,16 @@
     <div class="lightbox__inner">
       <button class="lightbox__close" type="button" data-lightbox-close
               aria-label="Close"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-close"></use></svg></button>
+      <button class="lightbox__nav lightbox__nav--prev" type="button" data-lightbox-prev hidden
+              aria-label="Previous image"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-arrow-left"></use></svg></button>
       <img alt="">
-      <div class="lightbox__bar"><span data-lightbox-caption></span></div>
+      <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next hidden
+              aria-label="Next image"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-arrow-right"></use></svg></button>
+      <div class="lightbox__bar">
+        <span data-lightbox-caption></span>
+        <span class="lightbox__count" data-lightbox-count hidden
+              data-template="{n} of {total}"></span>
+      </div>
     </div>
   </dialog>
 
@@ -686,6 +696,6 @@
       </ul>
     </div>
   </footer>
-  <script type="module" src="/assets/js/main.js?v=2c9df294"></script>
+  <script type="module" src="/assets/js/main.js?v=84e9d400"></script>
 </body>
 </html>

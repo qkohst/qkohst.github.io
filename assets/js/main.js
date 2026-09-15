@@ -338,36 +338,83 @@ function initLightbox() {
 
   const img = $('img', dialog);
   const caption = $('[data-lightbox-caption]', dialog);
+  const hitung = $('[data-lightbox-count]', dialog);
+  const tPrev = $('[data-lightbox-prev]', dialog);
+  const tNext = $('[data-lightbox-next]', dialog);
+
   // Dua bentuk pemicu:
   //   <img data-zoom>            -> gambar galeri, sumbernya dirinya sendiri
   //   <button data-zoom-src=...> -> tombol "lihat sertifikat", sumbernya atribut
   const pemicu = $$('[data-zoom], [data-zoom-src]');
   if (!pemicu.length) return;
 
+  // Pemicu yang berada dalam satu galeri membentuk satu rangkaian yang bisa
+  // digeser maju-mundur di dalam dialog. Pemicu lepas (mis. sertifikat)
+  // menjadi rangkaian berisi satu gambar sehingga tombolnya disembunyikan.
+  const rangkaianDari = el => {
+    const galeri = el.closest('[data-gallery]');
+    return galeri ? $$('[data-zoom]', galeri) : [el];
+  };
+
+  let rangkaian = [];
+  let posisi = 0;
   let opener = null;
+
+  const sumber = el => el.dataset.zoomSrc || el.currentSrc || el.src;
+  const teks = el => el.dataset.zoomAlt || el.alt || '';
+
+  const tampilkan = i => {
+    posisi = (i + rangkaian.length) % rangkaian.length;   // melingkar
+    const el = rangkaian[posisi];
+    img.src = sumber(el);
+    img.alt = teks(el);
+    if (caption) caption.textContent = teks(el);
+    const banyak = rangkaian.length > 1;
+    if (hitung) {
+      hitung.hidden = !banyak;
+      hitung.textContent = (hitung.dataset.template || '{n}/{total}')
+        .replace('{n}', posisi + 1).replace('{total}', rangkaian.length);
+    }
+    if (tPrev) tPrev.hidden = !banyak;
+    if (tNext) tNext.hidden = !banyak;
+  };
 
   for (const el of pemicu) {
     el.addEventListener('click', () => {
+      if (!sumber(el)) return;
       opener = el;
-      const src = el.dataset.zoomSrc || el.currentSrc || el.src;
-      const alt = el.dataset.zoomAlt || el.alt || '';
-      if (!src) return;
-      img.src = src;
-      img.alt = alt;
-      if (caption) caption.textContent = alt;
+      rangkaian = rangkaianDari(el);
+      tampilkan(Math.max(0, rangkaian.indexOf(el)));
       dialog.showModal();
     });
   }
 
-  $('[data-lightbox-close]', dialog)?.addEventListener('click', () => dialog.close());
-  // klik di area gelap menutup
-  dialog.addEventListener('click', e => {
-    // hanya tutup bila yang diklik area gelap, bukan isi dialog
-    if (e.target === dialog) dialog.close();
+  tPrev?.addEventListener('click', () => tampilkan(posisi - 1));
+  tNext?.addEventListener('click', () => tampilkan(posisi + 1));
+
+  // panah kiri/kanan untuk berpindah gambar
+  dialog.addEventListener('keydown', e => {
+    if (rangkaian.length < 2) return;
+    if (e.key === 'ArrowLeft') { e.preventDefault(); tampilkan(posisi - 1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); tampilkan(posisi + 1); }
   });
-  // kembalikan fokus ke gambar asal
+
+  // geser dengan sentuhan pada layar sentuh
+  let mulaiX = null;
+  dialog.addEventListener('pointerdown', e => { mulaiX = e.clientX; });
+  dialog.addEventListener('pointerup', e => {
+    if (mulaiX === null || rangkaian.length < 2) { mulaiX = null; return; }
+    const jarak = e.clientX - mulaiX;
+    mulaiX = null;
+    if (Math.abs(jarak) > 45) tampilkan(posisi + (jarak < 0 ? 1 : -1));
+  });
+
+  $('[data-lightbox-close]', dialog)?.addEventListener('click', () => dialog.close());
+  // klik di area gelap menutup, klik pada isi dialog tidak
+  dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
   dialog.addEventListener('close', () => { img.removeAttribute('src'); opener?.focus(); });
 }
+
 
 /* --- Tombol kembali ke atas ---------------------------------------------
    Ditempatkan di atas peluncur Crisp agar keduanya tidak bertumpuk. */

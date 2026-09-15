@@ -412,6 +412,18 @@ li:last-child { margin-bottom: 0; }
 .hero__inner { display: grid; gap: var(--sp-6); align-items: center; grid-template-columns: 1fr; }
 @media (min-width: 56rem) { .hero__inner { grid-template-columns: 1.3fr .7fr; gap: var(--sp-7); } }
 
+/* Di bawah 56rem tata letaknya menjadi satu kolom (tablet dan ponsel). Di sana
+   foto dinaikkan ke atas teks: wajah lebih dulu terlihat tanpa menggulir, dan
+   pengunjung tidak perlu melewati blok teks panjang untuk menemukannya.
+   Ukurannya ditahan agar tetap proporsional, tidak melebar penuh. */
+@media (max-width: 56rem) {
+  .hero__inner { justify-items: center; text-align: center; }
+  .hero__portrait { order: -1; width: min(72vw, 16rem); }
+  .hero__tagline { margin-inline: auto; }
+  .hero__actions { justify-content: center; }
+  .hero__stats { justify-content: center; text-align: center; }
+}
+
 .hero__eyebrow {
   display: inline-flex; align-items: center; gap: var(--sp-2);
   padding: .35rem .8rem .35rem .65rem; margin-bottom: var(--sp-5);
@@ -530,7 +542,13 @@ li:last-child { margin-bottom: 0; }
 .timeline__item { position: relative; margin-bottom: var(--sp-6); }
 .timeline__item:last-child { margin-bottom: 0; }
 .timeline__item::before {
-  content: ""; position: absolute; left: calc(-1 * var(--sp-5) + .03rem); top: .5rem;
+  content: ""; position: absolute; left: calc(-1 * var(--sp-5) + .03rem);
+  /* Titik diselaraskan ke tengah baris PERTAMA label tanggal, bukan ke jarak
+     tetap dari atas. font-size disamakan dengan tanggal agar satuan em di bawah
+     mengacu ke baris yang benar: .84em = setengah tinggi baris (line-height
+     1.68), dikurangi setengah tinggi titik. */
+  font-size: var(--step--2);
+  top: calc(.84em - .275rem);
   width: .55rem; height: .55rem; border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 0 3px var(--bg), 0 0 12px var(--glow);
@@ -703,11 +721,15 @@ li:last-child { margin-bottom: 0; }
 
 .feature-list { list-style: none; padding: 0; margin: 0; }
 .feature-list li {
-  position: relative; padding-left: 1.85rem; margin-bottom: var(--sp-3);
+  position: relative; padding-left: 1.6rem; margin-bottom: var(--sp-3);
   color: var(--text-muted); font-size: var(--step--1);
 }
+/* Penanda diselaraskan ke tengah baris pertama dan ikut mengecil bersama teks,
+   sehingga tetap lurus saat butirnya membungkus ke beberapa baris di layar
+   sempit — kasus yang paling sering meleset sebelumnya. */
 .feature-list li::before {
-  content: ""; position: absolute; left: 0; top: .5em;
+  content: ""; position: absolute; left: 0;
+  top: calc(.84em - .25rem);
   width: .5rem; height: .5rem; border-radius: 2px;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
 }
@@ -792,6 +814,28 @@ li:last-child { margin-bottom: 0; }
   .lightbox img { max-width: 90vw; max-height: 74dvh; }
 }
 
+/* Tombol geser di dalam lightbox. Disembunyikan sendiri oleh JS bila gambarnya
+   hanya satu, sehingga sertifikat tidak menampilkan panah yang tidak berguna. */
+.lightbox__nav {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 2.75rem; height: 2.75rem; display: grid; place-items: center;
+  background: rgba(255, 255, 255, .12); border: 0; border-radius: 50%;
+  color: #fff; cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), transform var(--dur) var(--ease);
+}
+.lightbox__nav:hover { background: rgba(255, 255, 255, .26); }
+.lightbox__nav--prev { left: var(--sp-3); }
+.lightbox__nav--next { right: var(--sp-3); }
+.lightbox__nav[hidden] { display: none; }
+.lightbox__nav svg { width: 1.2rem; height: 1.2rem; }
+.lightbox__count { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lightbox__count[hidden] { display: none; }
+@media (max-width: 40rem) {
+  .lightbox__nav { width: 2.35rem; height: 2.35rem; }
+  .lightbox__nav--prev { left: var(--sp-2); }
+  .lightbox__nav--next { right: var(--sp-2); }
+}
+
 /* --- 13. Harga ---------------------------------------------------------- */
 .price-grid { display: grid; gap: var(--sp-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); align-items: start; }
 .price { display: flex; flex-direction: column; height: 100%; }
@@ -866,6 +910,24 @@ li:last-child { margin-bottom: 0; }
   font-family: var(--font-mono); font-size: var(--step--2);
   letter-spacing: .06em; color: var(--text-faint);
 }
+
+/* Kartu layanan pada indeks: sama seperti kartu biasa, ditambah baris harga
+   di bagian bawah supaya pengunjung langsung tahu titik awal biayanya. */
+.service-card { display: flex; flex-direction: column; }
+.service-card__price {
+  margin: auto 0 0; padding-top: var(--sp-4);
+  border-top: 1px solid var(--border);
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: var(--sp-2);
+}
+.service-card__from {
+  font-family: var(--font-mono); font-size: var(--step--2);
+  letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint);
+}
+.service-card__price strong {
+  font-size: var(--step-1); letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums; color: var(--accent);
+}
+.service-card__idr { font-size: var(--step--1); color: var(--text-muted); font-variant-numeric: tabular-nums; }
 
 /* --- 14. Kontak & footer ------------------------------------------------ */
 .contact-card {
@@ -993,7 +1055,7 @@ li:last-child { margin-bottom: 0; }
 
   .hero { padding-block: var(--sp-6) var(--sp-7); }
   .hero__inner { gap: var(--sp-5); }
-  .hero__portrait { width: min(100%, 14rem); }
+  .hero__portrait { width: min(62vw, 13rem); }
   .hero__tagline { margin-bottom: var(--sp-5); }
   .hero__actions { gap: var(--sp-2); }
   .hero__actions .btn { flex: 1 1 auto; justify-content: center; }

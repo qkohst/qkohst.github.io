@@ -480,4 +480,68 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://qkohst.github.io/id/layanan/pengembangan-web/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/layanan/pengembangan-web/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/services/web-development/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/services/web-development/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/services/web-development/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/layanan/pengembangan-web/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/services/web-development/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/services/web-development/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/id/layanan/desain-web/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/layanan/desain-web/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/services/web-design/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/services/web-design/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/services/web-design/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/layanan/desain-web/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/services/web-design/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/services/web-design/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/id/layanan/pengembangan-restful-api/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/layanan/pengembangan-restful-api/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/services/restful-api-development/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/services/restful-api-development/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/services/restful-api-development/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/layanan/pengembangan-restful-api/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/services/restful-api-development/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/services/restful-api-development/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/id/layanan/perancangan-basis-data/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/layanan/perancangan-basis-data/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/services/database-design/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/services/database-design/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/services/database-design/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/layanan/perancangan-basis-data/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/services/database-design/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/services/database-design/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

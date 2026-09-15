@@ -8,7 +8,7 @@
     "id": "sistem-administrasi-sekolah",
     "en": "school-administration-system"
   },
-  "category": "web",
+  "category": "pendidikan",
   "framework": "Laravel",
   "client": null,
   "date": "2026-08",
@@ -60,5 +60,6 @@
       "In-app guidance: interactive tour, documentation, and contextual help on each page.",
       "Bulk data import from Excel files and quick search on every data table."
     ]
-  }
+  },
+  "$categoryPilihan": "backoffice | pendidikan | transaksi | api | internal | lainnya"
 }

@@ -470,53 +470,177 @@
     {
       "key": "web-development",
       "icon": "code",
-      "link": "services",
+      "featured": true,
+      "slug": {
+        "id": "pengembangan-web",
+        "en": "web-development"
+      },
+      "from": 80,
       "id": {
         "title": "Pengembangan Web",
-        "summary": "Saya membangun website baru atau memperbaiki website yang sudah ada."
+        "summary": "Membangun website dan aplikasi web sesuai alur kerja bisnis Anda.",
+        "heading": "Website dan aplikasi web yang dibangun untuk dipakai jangka panjang",
+        "body": [
+          "Saya membantu bisnis, lembaga, dan perorangan membangun website maupun aplikasi web sesuai kebutuhan nyata — bukan sekadar tampilan yang bagus, tapi sistem yang benar-benar memudahkan pekerjaan sehari-hari.",
+          "Lingkup yang biasa saya kerjakan: profil perusahaan, sistem manajemen internal, alur pemesanan dan transaksi, pengelolaan data beserta pelaporannya, serta integrasi antar sistem. Saya juga menangani perbaikan dan pengembangan lanjutan untuk website yang sudah berjalan.",
+          "Setelah serah terima ada masa pendampingan, jadi Anda tidak ditinggal begitu saja saat sistemnya mulai dipakai."
+        ],
+        "deliverables": [
+          "Rancangan alur halaman dan struktur data sebelum pengerjaan dimulai",
+          "Antarmuka yang rapi di ponsel, tablet, maupun desktop",
+          "Panel pengelolaan untuk mengubah isi tanpa menyentuh kode",
+          "Pemasangan ke server beserta panduan pemakaian",
+          "Masa pendampingan setelah serah terima"
+        ]
       },
       "en": {
         "title": "Web Development",
-        "summary": "I build new websites or fix existing ones."
+        "summary": "Building websites and web applications around your business workflow.",
+        "heading": "Websites and web applications built to last",
+        "body": [
+          "I help businesses, institutions, and individuals build websites and web applications around real needs — not just something that looks good, but a system that genuinely makes day-to-day work easier.",
+          "The work I usually take on: company profiles, internal management systems, ordering and transaction flows, data management and reporting, and integration between systems. I also handle fixes and further development for sites that are already running.",
+          "After handover there is a support period, so you are not left on your own once the system goes into daily use."
+        ],
+        "deliverables": [
+          "Page flow and data structure designed before development starts",
+          "Interfaces that hold up on phones, tablets, and desktops",
+          "An admin panel so you can change content without touching code",
+          "Deployment to your server plus a usage walkthrough",
+          "A support period after handover"
+        ]
       }
     },
     {
       "key": "web-design",
       "icon": "layout",
-      "link": null,
+      "featured": false,
+      "slug": {
+        "id": "desain-web",
+        "en": "web-design"
+      },
+      "from": 60,
       "id": {
         "title": "Desain Web",
-        "summary": "Desain web profesional untuk menopang pertumbuhan bisnis dan penjualan Anda."
+        "summary": "Menyusun tampilan dan alur halaman yang enak dipakai dan sesuai identitas Anda.",
+        "heading": "Tampilan yang menuntun pengunjung, bukan sekadar terlihat bagus",
+        "body": [
+          "Desain yang baik bukan soal ramai atau sepi, tapi soal apakah pengunjung menemukan yang mereka cari dan tahu harus berbuat apa. Saya menyusun tata letak, hierarki informasi, dan alur halaman dengan sasaran itu.",
+          "Pekerjaan ini bisa berdiri sendiri — Anda menerima rancangan siap bangun — atau menjadi tahap awal sebelum pengembangan. Bila Anda sudah punya logo dan warna perusahaan, rancangannya menyesuaikan identitas tersebut.",
+          "Saya juga menangani perbaikan tampilan untuk situs yang sudah berjalan namun terasa usang atau sulit dipakai di ponsel."
+        ],
+        "deliverables": [
+          "Rancangan halaman untuk tampilan ponsel dan desktop",
+          "Sistem warna dan tipografi yang konsisten di seluruh halaman",
+          "Komponen yang dapat dipakai ulang: tombol, kartu, formulir, tabel",
+          "Penyesuaian dengan logo dan identitas yang sudah Anda miliki",
+          "Berkas rancangan yang siap diserahkan ke pengembang mana pun"
+        ]
       },
       "en": {
         "title": "Web Design",
-        "summary": "Professional web design to support your business growth and sales."
+        "summary": "Designing layouts and page flows that are pleasant to use and true to your identity.",
+        "heading": "A design that guides visitors, not just one that looks good",
+        "body": [
+          "Good design is not about being busy or minimal — it is about whether visitors find what they came for and know what to do next. I work on layout, information hierarchy, and page flow with that as the goal.",
+          "This can stand on its own, delivering a build-ready design, or serve as the first stage before development. If you already have a logo and brand colours, the design follows that identity.",
+          "I also take on redesigns for sites that still work but feel dated or are awkward to use on a phone."
+        ],
+        "deliverables": [
+          "Page designs for both mobile and desktop",
+          "A consistent colour and typography system across every page",
+          "Reusable components: buttons, cards, forms, tables",
+          "Alignment with the logo and identity you already have",
+          "Design files ready to hand to any developer"
+        ]
       }
     },
     {
       "key": "restful-api",
       "icon": "api",
-      "link": null,
+      "featured": false,
+      "slug": {
+        "id": "pengembangan-restful-api",
+        "en": "restful-api-development"
+      },
+      "from": 120,
       "id": {
         "title": "Pengembangan RESTful API",
-        "summary": "Layanan pembuatan RESTful API: pengerjaan cepat dengan harga yang wajar."
+        "summary": "Membangun API yang rapi dan terdokumentasi untuk aplikasi web maupun mobile.",
+        "heading": "API yang jelas kontraknya dan siap dipakai tim lain",
+        "body": [
+          "Ketika satu sistem perlu dipakai oleh beberapa aplikasi — web, mobile, atau sistem pihak ketiga — API menjadi penghubungnya. Saya membangun RESTful API dengan struktur endpoint yang konsisten, format balasan yang seragam, dan penanganan galat yang jelas.",
+          "Setiap API yang saya serahkan disertai dokumentasi berisi daftar endpoint, parameter, contoh permintaan, dan contoh balasan — sehingga tim lain bisa langsung memakainya tanpa harus menebak.",
+          "Saya juga menangani autentikasi, pembatasan akses per peran, dan penyiapan API untuk sistem yang sudah berjalan namun belum punya antarmuka terprogram."
+        ],
+        "deliverables": [
+          "Endpoint dengan penamaan dan struktur balasan yang konsisten",
+          "Autentikasi beserta pembatasan akses per peran pengguna",
+          "Validasi masukan dan pesan galat yang mudah ditindaklanjuti",
+          "Dokumentasi berisi contoh permintaan dan balasan tiap endpoint",
+          "Koleksi pengujian yang dapat langsung dijalankan"
+        ]
       },
       "en": {
         "title": "RESTful API Development",
-        "summary": "RESTful API services: fast turnaround at a fair price."
+        "summary": "Building clean, documented APIs for web and mobile applications.",
+        "heading": "APIs with a clear contract, ready for another team to use",
+        "body": [
+          "When one system needs to serve several applications — web, mobile, or third-party systems — the API is what connects them. I build RESTful APIs with consistent endpoint structure, uniform response formats, and clear error handling.",
+          "Every API I hand over comes with documentation covering the endpoint list, parameters, sample requests, and sample responses — so another team can start using it without guesswork.",
+          "I also handle authentication, per-role access control, and adding an API layer to systems that are already running but have no programmatic interface."
+        ],
+        "deliverables": [
+          "Endpoints with consistent naming and response structure",
+          "Authentication plus per-role access control",
+          "Input validation and error messages you can act on",
+          "Documentation with sample requests and responses per endpoint",
+          "A ready-to-run test collection"
+        ]
       }
     },
     {
       "key": "database-design",
       "icon": "database",
-      "link": null,
+      "featured": false,
+      "slug": {
+        "id": "perancangan-basis-data",
+        "en": "database-design"
+      },
+      "from": 70,
       "id": {
         "title": "Perancangan Basis Data",
-        "summary": "Pembuatan aplikasi basis data berbasis desktop maupun web untuk kebutuhan bisnis dan perkantoran."
+        "summary": "Menyusun struktur data yang tahan tumbuh dan tidak menyulitkan di kemudian hari.",
+        "heading": "Struktur data yang rapi sejak awal menghemat pekerjaan bertahun-tahun",
+        "body": [
+          "Sebagian besar kesulitan pada aplikasi yang sudah berjalan berakar pada struktur data yang disusun terburu-buru. Data ganda, relasi yang tidak jelas, dan laporan yang sulit dibuat biasanya bukan masalah tampilan, melainkan masalah rancangan.",
+          "Saya menyusun struktur basis data berdasarkan alur kerja yang sebenarnya: entitas apa yang ada, bagaimana hubungannya, dan pertanyaan apa yang nantinya perlu dijawab lewat laporan.",
+          "Layanan ini juga mencakup penataan ulang basis data yang sudah berjalan — termasuk perencanaan migrasi agar data lama tetap aman saat strukturnya dirapikan."
+        ],
+        "deliverables": [
+          "Diagram relasi antar entitas beserta penjelasannya",
+          "Skema tabel lengkap dengan tipe data, indeks, dan batasan",
+          "Rancangan yang mempertimbangkan kebutuhan laporan sejak awal",
+          "Berkas migrasi yang siap dijalankan",
+          "Rencana penataan ulang beserta langkah pengamanan data lama"
+        ]
       },
       "en": {
         "title": "Database Design",
-        "summary": "Desktop and web-based database applications for business and office needs."
+        "summary": "Structuring data so it can grow without becoming a burden later.",
+        "heading": "A clean data structure up front saves years of work later",
+        "body": [
+          "Most of the trouble in a running application traces back to a data structure that was put together in a hurry. Duplicate records, unclear relationships, and reports that are hard to produce are usually not interface problems — they are design problems.",
+          "I structure databases around the actual workflow: which entities exist, how they relate, and what questions the reports will eventually need to answer.",
+          "This service also covers restructuring databases that are already in production, including migration planning so existing data stays safe while the structure is tidied up."
+        ],
+        "deliverables": [
+          "An entity relationship diagram with accompanying notes",
+          "Table schemas with data types, indexes, and constraints",
+          "A design that accounts for reporting needs from the start",
+          "Migration files ready to run",
+          "A restructuring plan with safeguards for existing data"
+        ]
       }
     }
   ],
@@ -703,10 +827,12 @@
         "date": "Waktu Pengerjaan"
       },
       "categories": {
-        "web": "Web",
-        "app": "Mobile",
-        "api": "API",
-        "desktop": "Desktop"
+        "backoffice": "Backoffice & ERP",
+        "pendidikan": "Pendidikan",
+        "transaksi": "Transaksi & Keuangan",
+        "api": "RESTful API",
+        "internal": "Manajemen Internal",
+        "lainnya": "Lainnya"
       },
       "experienceSuffix": "tahun pengalaman",
       "present": "Sekarang",
@@ -714,7 +840,12 @@
       "startFrom": "Mulai dari",
       "perProject": "per proyek",
       "viewCertificate": "Lihat sertifikat",
-      "rateNote": "Kurs {rate} per {date}"
+      "rateNote": "Kurs {rate} per {date}",
+      "serviceDeliverables": "Yang Anda terima",
+      "allServices": "Semua layanan",
+      "otherServices": "Layanan lainnya",
+      "askAboutService": "Diskusikan kebutuhan Anda",
+      "askAboutProject": "Tanya proyek ini"
     },
     "en": {
       "nav": {
@@ -751,10 +882,12 @@
         "date": "Project time"
       },
       "categories": {
-        "web": "Web",
-        "app": "Mobile",
-        "api": "API",
-        "desktop": "Desktop"
+        "backoffice": "Back-office & ERP",
+        "pendidikan": "Education",
+        "transaksi": "Transactions & Finance",
+        "api": "RESTful API",
+        "internal": "Internal Tools",
+        "lainnya": "Other"
       },
       "experienceSuffix": "years of experience",
       "present": "Present",
@@ -762,7 +895,12 @@
       "startFrom": "Starting from",
       "perProject": "per project",
       "viewCertificate": "View certificate",
-      "rateNote": "Rate {rate} as of {date}"
+      "rateNote": "Rate {rate} as of {date}",
+      "serviceDeliverables": "What you receive",
+      "allServices": "All services",
+      "otherServices": "Other services",
+      "askAboutService": "Discuss your needs",
+      "askAboutProject": "Ask about this project"
     }
   },
   "currency": {

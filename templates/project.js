@@ -1,13 +1,11 @@
 /* Halaman detail satu proyek: galeri scroll-snap, info, deskripsi, fitur. */
-const { esc, each, icon, t, pageUrl, fmtMonth } = require('../tools/lib');
+const { esc, each, icon, t, pageUrl, fmtMonth, waLink, WA_TEKS } = require('../tools/lib');
 
-const LINK_ICON = { github: 'github', postman: 'external', whatsapp: 'whatsapp', link: 'external' };
-const LINK_LABEL = {
-  github:   { id: 'Lihat di GitHub',    en: 'View on GitHub' },
-  postman:  { id: 'Lihat dokumentasi',  en: 'View documentation' },
-  whatsapp: { id: 'Tanya proyek ini',   en: 'Ask about this project' },
-  link:     { id: 'Lihat proyek',       en: 'View project' }
-};
+/* CTA utama selalu mengajak berdiskusi lewat WhatsApp dengan pesan yang sudah
+   terisi judul proyek dan bahasa halaman. Tautan dokumentasi Postman tetap
+   ditampilkan sebagai tombol sekunder karena memang berguna dibuka sendiri;
+   tautan repositori tidak lagi ditawarkan sebagai tombol. */
+const DOC_LABEL = { id: 'Lihat dokumentasi API', en: 'View API documentation' };
 
 module.exports = function project(ctx, p) {
   const { lang, ui } = ctx;
@@ -77,7 +75,12 @@ ${each(c.features, f => `                <li>${esc(f)}</li>\n`)}              </
               ${p.client ? `<li><span class="k">${esc(ui.meta.client)}</span><span class="v">${esc(p.client)}</span></li>` : ''}
               <li><span class="k">${esc(ui.meta.date)}</span><span class="v">${esc(fmtMonth(p.date, lang))}</span></li>
             </ul>
-            ${link ? `<a class="btn btn--primary" style="width:100%" href="${esc(link.url)}" target="_blank" rel="noopener noreferrer">${icon(LINK_ICON[link.type] || 'external')} ${esc(LINK_LABEL[link.type][lang])}</a>` : ''}
+            <a class="btn btn--primary" style="width:100%"
+               href="${esc(waLink(ctx.site.contact.phoneE164, WA_TEKS.project[lang](c.title)))}"
+               target="_blank" rel="noopener noreferrer">
+              ${icon('whatsapp')} ${esc(ui.askAboutProject)}
+            </a>
+            ${link && link.type === 'postman' ? `<a class="btn btn--ghost" style="width:100%;margin-top:var(--sp-3)" href="${esc(link.url)}" target="_blank" rel="noopener noreferrer">${icon('external')} ${esc(DOC_LABEL[lang])}</a>` : ''}
           </aside>
         </div>
       </div>

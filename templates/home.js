@@ -1,5 +1,5 @@
 /* Beranda: hero, tentang, kemampuan, framework, resume, layanan, proyek pilihan, kontak. */
-const { esc, each, icon, t, pageUrl, fmtMonth, fmtRange, yearsSince, shown } = require('../tools/lib');
+const { esc, each, icon, t, pageUrl, fmtMonth, fmtRange, yearsSince, shown, waLink, WA_TEKS } = require('../tools/lib');
 const { projectCard, meter, contactSection } = require('./partials');
 
 module.exports = function home(ctx, projects) {
@@ -26,7 +26,7 @@ module.exports = function home(ctx, projects) {
           <h1 class="hero__title">${esc(site.profile.name)}<br><span class="hero__role">${esc(p.role)}</span></h1>
           <p class="hero__tagline">${esc(p.tagline)}</p>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="${esc(c.whatsappQr)}" target="_blank" rel="noopener noreferrer">${icon('whatsapp')} ${esc(ui.hire)}</a>
+            <a class="btn btn--primary" href="${esc(waLink(c.phoneE164, WA_TEKS.umum[lang]()))}" target="_blank" rel="noopener noreferrer">${icon('whatsapp')} ${esc(ui.hire)}</a>
             <a class="btn btn--ghost" href="${esc(pageUrl('cv', lang))}">${icon('download')} ${esc(ui.downloadCv)}</a>
           </div>
           <dl class="hero__stats">
@@ -147,18 +147,19 @@ ${each(certificates, e => {
         <ul class="grid grid--4" style="list-style:none;margin:0;padding:0">
 ${each(site.services, (s, i) => {
   const x = t(s, lang);
-  const inner = `
+  return `          <li style="margin:0" data-reveal data-reveal-delay="${i * 80}">
+            <a class="card card--link" href="${esc(pageUrl('service', lang, s.slug[lang]))}"
+               style="display:block;text-decoration:none;color:inherit;height:100%">
               <span class="card__icon">${icon(s.icon)}</span>
               <h3 class="card__title">${esc(x.title)}</h3>
-              <p class="card__text">${esc(x.summary)}</p>`;
-  return `          <li style="margin:0" data-reveal data-reveal-delay="${i * 80}">
-            ${s.link
-              ? `<a class="card card--link" href="${esc(pageUrl('services', lang))}" style="display:block;text-decoration:none;color:inherit;height:100%">${inner}
-            </a>`
-              : `<div class="card" style="height:100%">${inner}
-            </div>`}
-          </li>\n`;
+              <p class="card__text">${esc(x.summary)}</p>
+            </a>
+          </li>
+`;
 })}        </ul>
+        <p style="margin-top:var(--sp-5)" data-reveal>
+          <a class="btn btn--ghost" href="${esc(pageUrl('services', lang))}">${esc(ui.allServices)} ${icon('arrow-right')}</a>
+        </p>
       </div>
     </section>
 

@@ -30,8 +30,8 @@
   <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180">
   <script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=52da02a0">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"MG Schedule","description":"Platform penjadwalan proyek dan manajemen tugas dengan kalender dinamis serta pelaporan.","inLanguage":"id","dateCreated":"2023-07","url":"https://qkohst.github.io/id/proyek/mg-schedule/","image":"https://qkohst.github.io/assets/img/portfolio/mgschedule-3-960.jpg","creator":{"@type":"Person","name":"Kukoh Santoso","url":"https://qkohst.github.io"},"sourceOrganization":{"@type":"Organization","name":"Morning Glory Enterprise"},"keywords":["Silverstripe","web"]}</script>
+  <link rel="stylesheet" href="/assets/css/main.css?v=b27eed04">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"MG Schedule","description":"Platform penjadwalan proyek dan manajemen tugas dengan kalender dinamis serta pelaporan.","inLanguage":"id","dateCreated":"2023-07","url":"https://qkohst.github.io/id/proyek/mg-schedule/","image":"https://qkohst.github.io/assets/img/portfolio/mgschedule-3-960.jpg","creator":{"@type":"Person","name":"Kukoh Santoso","url":"https://qkohst.github.io"},"sourceOrganization":{"@type":"Organization","name":"Morning Glory Enterprise"},"keywords":["Silverstripe","backoffice"]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Beranda","item":"https://qkohst.github.io/id/"},{"@type":"ListItem","position":2,"name":"Portofolio","item":"https://qkohst.github.io/id/proyek/"},{"@type":"ListItem","position":3,"name":"MG Schedule","item":"https://qkohst.github.io/id/proyek/mg-schedule/"}]}</script>
 
 </head>
@@ -94,7 +94,7 @@
 
         <div class="section__head page-head" data-reveal>
           <div class="project__meta" style="margin-bottom:var(--sp-3)">
-            <span class="tag tag--accent">Web</span>
+            <span class="tag tag--accent">Backoffice &amp; ERP</span>
             <span class="tag">Silverstripe</span>
             <span class="tag">Juli 2023</span>
           </div>
@@ -183,12 +183,17 @@
           <aside class="info-card" data-reveal data-reveal-delay="100">
             <h2 style="font-size:var(--step-1)">Informasi Proyek</h2>
             <ul class="info-list">
-              <li><span class="k">Kategori</span><span class="v">Web</span></li>
+              <li><span class="k">Kategori</span><span class="v">Backoffice &amp; ERP</span></li>
               <li><span class="k">Framework</span><span class="v">Silverstripe</span></li>
               <li><span class="k">Klien</span><span class="v">Morning Glory Enterprise</span></li>
               <li><span class="k">Waktu Pengerjaan</span><span class="v">Juli 2023</span></li>
             </ul>
-            <a class="btn btn--primary" style="width:100%" href="https://api.whatsapp.com/send?phone=6285232077932&amp;text=I%27m+interested+to+view+your+web+project+MG+Schedule." target="_blank" rel="noopener noreferrer"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-whatsapp"></use></svg> Tanya proyek ini</a>
+            <a class="btn btn--primary" style="width:100%"
+               href="https://api.whatsapp.com/send?phone=6285232077932&amp;text=Halo%2C+saya+melihat+proyek+%22MG+Schedule%22+di+portofolio+Anda.+Boleh+saya+tahu+lebih+lanjut+tentang+proyek+ini%3F"
+               target="_blank" rel="noopener noreferrer">
+              <svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-whatsapp"></use></svg> Tanya proyek ini
+            </a>
+            
           </aside>
         </div>
       </div>
@@ -198,8 +203,16 @@
     <div class="lightbox__inner">
       <button class="lightbox__close" type="button" data-lightbox-close
               aria-label="Tutup"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-close"></use></svg></button>
+      <button class="lightbox__nav lightbox__nav--prev" type="button" data-lightbox-prev hidden
+              aria-label="Gambar sebelumnya"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-arrow-left"></use></svg></button>
       <img alt="">
-      <div class="lightbox__bar"><span data-lightbox-caption></span></div>
+      <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next hidden
+              aria-label="Gambar berikutnya"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=913ea69e#i-arrow-right"></use></svg></button>
+      <div class="lightbox__bar">
+        <span data-lightbox-caption></span>
+        <span class="lightbox__count" data-lightbox-count hidden
+              data-template="{n} dari {total}"></span>
+      </div>
     </div>
   </dialog>
 
@@ -226,6 +239,6 @@
       </ul>
     </div>
   </footer>
-  <script type="module" src="/assets/js/main.js?v=2c9df294"></script>
+  <script type="module" src="/assets/js/main.js?v=84e9d400"></script>
 </body>
 </html>

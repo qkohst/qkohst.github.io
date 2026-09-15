@@ -7,7 +7,7 @@
     "id": "st-smartpoint",
     "en": "st-smartpoint"
   },
-  "category": "web",
+  "category": "transaksi",
   "framework": "Laravel",
   "client": null,
   "date": "2026-05",
@@ -61,5 +61,6 @@
       "Daily, per-product, and per-cashier sales reports with Excel export.",
       "Dashboard with sales trend, best-selling products, and critical stock alerts."
     ]
-  }
+  },
+  "$categoryPilihan": "backoffice | pendidikan | transaksi | api | internal | lainnya"
 }

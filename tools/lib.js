@@ -39,8 +39,36 @@ function pageUrl(kind, lang, slug) {
   if (kind === 'home') return p ? `${p}/` : '/';
   if (kind === 'project') return `${p}/${SEGMENT.projects[lang]}/${slug}/`;
   if (kind === 'projects') return `${p}/${SEGMENT.projects[lang]}/`;
+  if (kind === 'service') return `${p}/${SEGMENT.services[lang]}/${slug}/`;
   return `${p}/${SEGMENT[kind][lang]}/`;
 }
+
+/** Tautan WhatsApp dengan pesan yang sudah terisi sesuai konteks dan bahasa.
+    Pesan dibangkitkan saat build, bukan disimpan di data, supaya isinya selalu
+    mengikuti bahasa halaman dan judul yang sedang dibuka. */
+function waLink(phoneE164, pesan) {
+  return `https://api.whatsapp.com/send?${new URLSearchParams({ phone: phoneE164, text: pesan })}`;
+}
+
+/** Pesan WhatsApp baku per konteks. */
+const WA_TEKS = {
+  project: {
+    id: judul => `Halo, saya melihat proyek "${judul}" di portofolio Anda. Boleh saya tahu lebih lanjut tentang proyek ini?`,
+    en: judul => `Hello, I came across your "${judul}" project in your portfolio. Could you tell me more about it?`
+  },
+  service: {
+    id: judul => `Halo, saya tertarik dengan layanan ${judul}. Boleh dibantu untuk konsultasi dan penawarannya?`,
+    en: judul => `Hello, I am interested in your ${judul} service. Could you help me with a consultation and a quote?`
+  },
+  paket: {
+    id: (judul, paket) => `Halo, saya tertarik dengan layanan ${judul} paket ${paket}. Boleh dibantu untuk penawarannya?`,
+    en: (judul, paket) => `Hello, I am interested in the ${paket} package for your ${judul} service. Could you send me a quote?`
+  },
+  umum: {
+    id: () => 'Halo, saya menemukan portofolio Anda dan ingin berdiskusi tentang sebuah proyek.',
+    en: () => 'Hello, I found your portfolio and would like to discuss a project.'
+  }
+};
 
 /** Berkas PDF CV statis yang dihasilkan tools/build-cv-pdf.js. */
 const cvPdf = (handle, lang) => `/assets/cv/cv-${handle}-${lang}.pdf`;
@@ -91,4 +119,4 @@ const yearsSince = start => Math.max(1, new Date().getFullYear() - start);
 /** Saring entri berdasarkan penanda showOn. */
 const shown = (arr, surface) => (arr || []).filter(x => !x.showOn || x.showOn.includes(surface));
 
-module.exports = { esc, join, each, icon, setIconVersion, setPrefixes, t, prefix, SEGMENT, pageUrl, cvPdf, absUrl, fmtMonth, fmtRange, fmtUsd, fmtIdr, fmtDate, yearsSince, shown };
+module.exports = { esc, join, each, icon, setIconVersion, setPrefixes, t, prefix, SEGMENT, pageUrl, cvPdf, waLink, WA_TEKS, absUrl, fmtMonth, fmtRange, fmtUsd, fmtIdr, fmtDate, yearsSince, shown };

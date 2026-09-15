@@ -1,5 +1,5 @@
 /* Potongan yang dipakai lebih dari satu halaman. */
-const { esc, each, icon, t, pageUrl, fmtMonth, fmtRange, shown } = require('../tools/lib');
+const { esc, each, icon, t, pageUrl, fmtMonth, fmtRange, shown, waLink, WA_TEKS } = require('../tools/lib');
 
 /** Kartu proyek untuk grid. */
 function projectCard(p, lang, ui, opts = {}) {
@@ -79,7 +79,7 @@ function contactSection(site, lang, ui) {
         </div>
         <div class="grid grid--3" data-reveal>
 ${contactCard('mail', 'Email', c.email, `mailto:${c.email}`)}
-${contactCard('whatsapp', 'WhatsApp', c.phone, c.whatsapp)}
+${contactCard('whatsapp', 'WhatsApp', c.phone, waLink(c.phoneE164, WA_TEKS.umum[lang]()))}
 ${contactCard('map-pin', lang === 'id' ? 'Alamat' : 'Address', cl.addressShort, c.mapsUrl)}
         </div>
       </div>

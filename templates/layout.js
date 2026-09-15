@@ -121,8 +121,16 @@ ${body}
     <div class="lightbox__inner">
       <button class="lightbox__close" type="button" data-lightbox-close
               aria-label="${esc(ctx.lang === 'id' ? 'Tutup' : 'Close')}">${icon('close')}</button>
+      <button class="lightbox__nav lightbox__nav--prev" type="button" data-lightbox-prev hidden
+              aria-label="${esc(ctx.lang === 'id' ? 'Gambar sebelumnya' : 'Previous image')}">${icon('arrow-left')}</button>
       <img alt="">
-      <div class="lightbox__bar"><span data-lightbox-caption></span></div>
+      <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next hidden
+              aria-label="${esc(ctx.lang === 'id' ? 'Gambar berikutnya' : 'Next image')}">${icon('arrow-right')}</button>
+      <div class="lightbox__bar">
+        <span data-lightbox-caption></span>
+        <span class="lightbox__count" data-lightbox-count hidden
+              data-template="${esc(ctx.lang === 'id' ? '{n} dari {total}' : '{n} of {total}')}"></span>
+      </div>
     </div>
   </dialog>
 

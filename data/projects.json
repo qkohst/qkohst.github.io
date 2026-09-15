@@ -5,7 +5,7 @@
       "id": "asmarine",
       "en": "asmarine"
     },
-    "category": "web",
+    "category": "backoffice",
     "framework": "Silverstripe",
     "client": "Morning Glory Enterprise",
     "date": "2022-07",
@@ -100,7 +100,7 @@
       "id": "backoffice-dlik-ojk",
       "en": "backoffice-dlik-ojk"
     },
-    "category": "web",
+    "category": "backoffice",
     "framework": "CodeIgniter",
     "client": "Otoritas Jasa Keuangan",
     "date": "2024-07",
@@ -231,7 +231,7 @@
       "id": "sistem-login-codeigniter",
       "en": "ci-login-system"
     },
-    "category": "web",
+    "category": "lainnya",
     "framework": "CodeIgniter",
     "client": null,
     "date": "2020-08",
@@ -306,7 +306,7 @@
       "id": "dinamika",
       "en": "dinamika"
     },
-    "category": "web",
+    "category": "backoffice",
     "framework": "Silverstripe",
     "client": "Morning Glory Enterprise",
     "date": "2022-08",
@@ -415,7 +415,7 @@
       "id": "klien-web-e-skripsi",
       "en": "e-skripsi-web-client"
     },
-    "category": "web",
+    "category": "pendidikan",
     "framework": "Laravel",
     "client": null,
     "date": "2021-08",
@@ -490,7 +490,7 @@
       "id": "e-raport",
       "en": "e-raport"
     },
-    "category": "web",
+    "category": "pendidikan",
     "framework": "Laravel",
     "client": null,
     "date": "2021-12",
@@ -619,7 +619,7 @@
       "id": "klien-mobile-e-skripsi",
       "en": "e-skripsi-mobile-client"
     },
-    "category": "app",
+    "category": "pendidikan",
     "framework": "Flutter",
     "client": null,
     "date": "2021-08",
@@ -729,7 +729,7 @@
       "id": "manajemen-karyawan",
       "en": "employee-management"
     },
-    "category": "web",
+    "category": "internal",
     "framework": "Laravel",
     "client": null,
     "date": "2020-01",
@@ -814,7 +814,7 @@
       "id": "indonesia-peduli",
       "en": "indonesia-peduli"
     },
-    "category": "web",
+    "category": "transaksi",
     "framework": "Laravel",
     "client": null,
     "date": "2022-03",
@@ -929,7 +929,7 @@
       "id": "lms-eksternal-ojk",
       "en": "lms-external-ojk"
     },
-    "category": "web",
+    "category": "pendidikan",
     "framework": "CodeIgniter",
     "client": "Otoritas Jasa Keuangan",
     "date": "2024-07",
@@ -1046,7 +1046,7 @@
       "id": "lms-internal-ojk",
       "en": "lms-internal-ojk"
     },
-    "category": "web",
+    "category": "pendidikan",
     "framework": "CodeIgniter",
     "client": "Otoritas Jasa Keuangan",
     "date": "2024-07",
@@ -1171,7 +1171,7 @@
       "id": "website-sekolah-manbaul-huda",
       "en": "manbaul-huda-school-website"
     },
-    "category": "web",
+    "category": "pendidikan",
     "framework": "Laravel",
     "client": "MTs. Manba'ul Huda",
     "date": "2021-01",
@@ -1236,7 +1236,7 @@
       "id": "hotel-megaria",
       "en": "megaria-hotel"
     },
-    "category": "web",
+    "category": "backoffice",
     "framework": "Silverstripe",
     "client": "Morning Glory Enterprise",
     "date": "2023-05",
@@ -1339,7 +1339,7 @@
       "id": "mg-schedule",
       "en": "mg-schedule"
     },
-    "category": "web",
+    "category": "backoffice",
     "framework": "Silverstripe",
     "client": "Morning Glory Enterprise",
     "date": "2023-07",
@@ -1436,7 +1436,7 @@
       "id": "pabrik-plastik",
       "en": "plastic-factory"
     },
-    "category": "web",
+    "category": "backoffice",
     "framework": "Silverstripe",
     "client": "Morning Glory Enterprise",
     "date": "2024-08",
@@ -1608,7 +1608,7 @@
       "id": "st-pamdes",
       "en": "st-pamdes"
     },
-    "category": "web",
+    "category": "transaksi",
     "framework": "Laravel",
     "client": "Pamdes Baitul Amin",
     "date": "2023-10",
@@ -1743,7 +1743,7 @@
       "id": "ppdb-pkbm",
       "en": "student-admission-pkbm"
     },
-    "category": "web",
+    "category": "pendidikan",
     "framework": "Laravel",
     "client": "PKBM Nurul Jadid",
     "date": "2020-09",
@@ -1881,7 +1881,7 @@
       "id": "rental-mobil",
       "en": "car-rental"
     },
-    "category": "desktop",
+    "category": "lainnya",
     "framework": null,
     "client": null,
     "date": "2019-02",
@@ -1932,7 +1932,7 @@
       "id": "sistem-administrasi-sekolah",
       "en": "school-administration-system"
     },
-    "category": "web",
+    "category": "pendidikan",
     "framework": "Laravel",
     "client": null,
     "date": "2026-08",
@@ -2051,7 +2051,7 @@
       "id": "jejaring-sosial-laravel",
       "en": "laravel-social-network"
     },
-    "category": "web",
+    "category": "lainnya",
     "framework": "Laravel",
     "client": null,
     "date": "2020-11",
@@ -2128,7 +2128,7 @@
       "id": "manajemen-surat",
       "en": "mail-management-system"
     },
-    "category": "web",
+    "category": "internal",
     "framework": "Laravel",
     "client": null,
     "date": "2020-02",
@@ -2201,7 +2201,7 @@
       "id": "treeport",
       "en": "treeport"
     },
-    "category": "web",
+    "category": "backoffice",
     "framework": "Silverstripe",
     "client": "Morning Glory Enterprise",
     "date": "2024-09",
@@ -2367,7 +2367,7 @@
       "id": "st-smartpoint",
       "en": "st-smartpoint"
     },
-    "category": "web",
+    "category": "transaksi",
     "framework": "Laravel",
     "client": null,
     "date": "2026-05",

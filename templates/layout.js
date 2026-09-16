@@ -8,6 +8,12 @@ const { esc, each, icon, t, pageUrl, absUrl } = require('../tools/lib');
     selalu menang atas default itu. */
 const THEME_BOOT = `try{document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}`;
 
+/* CATATAN: sidik jari untuk stylesheet tambahan datang dari ctx.extraCssVer,
+   BUKAN dari ctx.ver.cvCss. Sebelumnya baris itu mematok hash cv.css untuk
+   extraCss apa pun, sehingga stylesheet halaman lain akan distempel hash berkas
+   yang tidak ada hubungannya: berkasnya diubah, URL-nya tidak, dan peramban
+   pengunjung tetap menyajikan versi lama. Setiap halaman yang memakai extraCss
+   wajib ikut mengirim extraCssVer. */
 function head(ctx) {
   const { site, lang, title, description, canonical, alternates, ogImage, ogType, jsonld, noindex } = ctx;
   const locale = lang === 'id' ? 'id_ID' : 'en_US';
@@ -40,7 +46,7 @@ ${each(alternates, a => `  <link rel="alternate" hreflang="${esc(a.lang)}" href=
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180">
   <script>${THEME_BOOT}</script>
 ${ctx.fontHref ? `  <link rel="preload" href="${esc(ctx.fontHref)}" as="font" type="font/woff2" crossorigin>\n` : ''}  <link rel="stylesheet" href="/assets/css/main.css?v=${ctx.ver.css}">${ctx.extraCss ? `
-  <link rel="stylesheet" href="${esc(ctx.extraCss)}?v=${ctx.ver.cvCss}">` : ''}
+  <link rel="stylesheet" href="${esc(ctx.extraCss)}?v=${esc(ctx.extraCssVer || '')}">` : ''}
 ${each(jsonld, b => `  <script type="application/ld+json">${JSON.stringify(b)}</script>\n`)}`;
 }
 

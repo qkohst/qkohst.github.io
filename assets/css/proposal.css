@@ -1,0 +1,385 @@
+/* ==========================================================================
+   Halaman penawaran — dokumen A4 BANYAK halaman.
+
+   Perluasan dari pola assets/css/cv.css, yang hanya satu halaman. Bedanya ada
+   pada pemisah halaman antar .pr-page dan pada header/footer yang berulang.
+
+   Seluruh ukuran ditulis dalam mm dan pt, bukan rem, karena satuan itulah yang
+   berarti di atas kertas: 1 pt selalu 1/72 inci di hasil cetak, sedangkan rem
+   ikut berubah bersama pengaturan peramban dan membuat tata letak A4 meleset.
+   ========================================================================== */
+
+@page { size: A4; margin: 0; }
+
+.pr-doc {
+  --pr-accent: #0bad94;
+  --pr-accent-dark: #047664;
+  --pr-ink: #2e2e2e;
+  --pr-muted: #5e5e5e;
+  --pr-rule: #d8dedd;
+  --pr-soft: #f2f7f6;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8mm;
+  padding: 8mm 0;
+}
+
+.pr-page {
+  position: relative;
+  width: 210mm;
+  min-height: 297mm;
+  padding: 14mm 16mm 16mm;
+  background: #fff;
+  color: var(--pr-ink);
+  font-family: var(--font);
+  font-size: 9.5pt;
+  line-height: 1.5;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Sampul -------------------------------------------------------------- */
+/* Tiga blok berjangkar, bukan satu tumpukan yang mengambang di tengah: merek di
+   kepala, judul di badan, identitas dokumen di kaki. Dengan space-between, sisa
+   ruang jatuh sebagai jeda antar blok — bukan menumpuk jadi satu bidang kosong
+   besar di atas seperti tata letak terpusat.
+
+   Latar disusun dari gradien CSS saja, tanpa berkas gambar: tidak menambah satu
+   pun permintaan jaringan, dan tetap tajam di resolusi cetak berapa pun. */
+.pr-page--cover {
+  position: relative;
+  overflow: hidden;
+  justify-content: space-between;
+  padding: 18mm;
+  border-top: 7mm solid var(--pr-accent);
+  background:
+    /* kisi halus, memberi tekstur tanpa mengganggu keterbacaan judul */
+    repeating-linear-gradient(90deg, rgba(4, 118, 100, .055) 0 1px, transparent 1px 9mm),
+    repeating-linear-gradient(0deg, rgba(4, 118, 100, .04) 0 1px, transparent 1px 9mm),
+    /* dua sapuan cahaya di sudut berlawanan, memberi kedalaman */
+    radial-gradient(75% 55% at 100% 0%, rgba(11, 173, 148, .16) 0%, transparent 68%),
+    radial-gradient(65% 50% at -8% 100%, rgba(4, 118, 100, .12) 0%, transparent 70%),
+    #fff;
+}
+
+/* Baji aksen di sudut bawah-kanan. Dipotong dengan clip-path alih-alih memakai
+   gambar, dan sengaja berada di BAWAH lapisan isi (z-index) supaya tidak pernah
+   menutupi teks sepanjang apa pun judulnya. */
+.pr-cover__deco {
+  position: absolute; right: 0; bottom: 0; z-index: 0;
+  width: 115mm; height: 105mm;
+  background: linear-gradient(135deg, rgba(11, 173, 148, .22) 0%, rgba(4, 118, 100, .30) 100%);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+.pr-cover__deco::after {
+  content: ""; position: absolute; right: 0; bottom: 0;
+  width: 62mm; height: 56mm;
+  background: linear-gradient(135deg, var(--pr-accent) 0%, var(--pr-accent-dark) 100%);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.pr-cover__brand,
+.pr-cover__main,
+.pr-cover__foot { position: relative; z-index: 1; }
+
+.pr-cover__brand { display: flex; align-items: center; gap: 4mm; }
+.pr-cover__logo { width: 13mm; height: 13mm; display: block; }
+.pr-cover__brandname {
+  font-size: 12pt; font-weight: 700; letter-spacing: -.01em; color: #10221d;
+}
+.pr-cover__kicker {
+  margin-left: auto;
+  font-family: var(--font-mono); font-size: 8pt; letter-spacing: .2em;
+  text-transform: uppercase; color: #fff;
+  padding: 1.8mm 4.5mm; border-radius: 12mm;
+  background: linear-gradient(135deg, var(--pr-accent), var(--pr-accent-dark));
+}
+
+.pr-cover__main { padding-bottom: 6mm; max-width: 150mm; }
+.pr-cover__title {
+  font-size: 34pt; line-height: 1.08; letter-spacing: -.02em;
+  margin: 0; color: #10221d;
+}
+/* Garis aksen pendek di bawah judul: penanda hierarki yang tetap terbaca
+   walau dokumen dicetak hitam-putih. */
+.pr-cover__rule {
+  display: block; width: 28mm; height: 1.6mm; margin: 7mm 0 6mm;
+  background: linear-gradient(90deg, var(--pr-accent), var(--pr-accent-dark));
+  border-radius: 1mm;
+}
+.pr-cover__tagline {
+  font-size: 13pt; line-height: 1.45; color: var(--pr-muted);
+  margin: 0; max-width: 140mm;
+}
+.pr-cover__proven {
+  display: inline-block; margin: 8mm 0 0; padding: 2.2mm 4.5mm;
+  background: #fff; color: var(--pr-accent-dark);
+  border: 1px solid var(--pr-accent); border-radius: 12mm; font-size: 9pt;
+}
+.pr-cover__proven strong { font-weight: 700; color: #10221d; }
+
+/* Latar putih di sini bukan hiasan: ia menjaga teks tetap terbaca saat melintas
+   di atas baji aksen. Karena tampak sebagai panel, ia harus diberi padding di
+   SEMUA sisi — sebelumnya hanya sisi atas yang punya, sehingga teks menempel
+   pada tepi kiri dan bawah panelnya sendiri.
+
+   Margin negatif sebesar padding-nya membuat panel melebar keluar kolom,
+   sementara teksnya tetap lurus dengan judul dan merek di atasnya. Tanpa itu,
+   memberi padding akan menggeser teks dan merusak kelurusan satu halaman. */
+.pr-cover__foot {
+  border-top: 1px solid var(--pr-rule);
+  padding: 6mm;
+  margin: 0 -6mm -6mm;
+  background: linear-gradient(90deg, #fff 66%, transparent);
+}
+.pr-cover__meta { display: flex; flex-wrap: wrap; gap: 12mm; margin: 0 0 5mm; }
+.pr-cover__meta dt {
+  font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--pr-muted); margin-bottom: 1mm;
+}
+.pr-cover__meta dd { margin: 0; font-size: 10pt; font-weight: 600; }
+.pr-cover__contact { margin: 1mm 0 0; font-size: 8.5pt; color: var(--pr-muted); }
+
+/* --- Header dan footer berulang ------------------------------------------ */
+.pr-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 4mm; margin-bottom: 8mm; border-bottom: 1px solid var(--pr-rule);
+}
+.pr-head__doc { font-size: 8pt; color: var(--pr-muted); }
+.pr-head__no {
+  font-family: var(--font-mono); font-size: 14pt; font-weight: 700;
+  color: var(--pr-accent); letter-spacing: -.02em;
+}
+.pr-body { flex: 1 1 auto; }
+.pr-foot {
+  display: flex; justify-content: space-between;
+  padding-top: 4mm; margin-top: 8mm; border-top: 1px solid var(--pr-rule);
+  font-size: 7.5pt; color: var(--pr-muted);
+}
+
+.pr-title {
+  font-size: 17pt; line-height: 1.2; margin: 0 0 5mm; color: #10221d;
+}
+.pr-sub {
+  font-size: 11pt; margin: 7mm 0 3mm; color: var(--pr-accent-dark);
+}
+.pr-prose p { margin: 0 0 3.5mm; }
+/* Paragraf pertama sedikit lebih besar: memberi titik masuk baca yang jelas
+   pada halaman yang seluruhnya berupa prosa. */
+.pr-prose--lead p:first-child { font-size: 10.5pt; color: var(--pr-ink); }
+.pr-prose p:last-child { margin-bottom: 0; }
+
+/* --- Daftar --------------------------------------------------------------- */
+.pr-list { list-style: none; margin: 0; padding: 0; }
+.pr-list li { position: relative; padding-left: 7mm; margin-bottom: 3mm; }
+.pr-list li:last-child { margin-bottom: 0; }
+.pr-list--lead li { font-size: 10.5pt; }
+
+/* Penanda dibuat dari bentuk, bukan karakter teks: karakter bullet berubah
+   rupa antar font dan sering bergeser dari garis pertama teksnya. */
+.pr-list--mark li::before,
+.pr-list--lead li::before {
+  content: ""; position: absolute; left: 1mm; top: 2.1mm;
+  width: 2mm; height: 2mm; border-radius: 50%; background: var(--pr-accent);
+}
+.pr-list--yes li::before,
+.pr-list--no li::before {
+  position: absolute; left: 0; top: 0; font-weight: 700; font-size: 11pt; line-height: 1.4;
+}
+.pr-list--yes li::before { content: "+"; color: var(--pr-accent-dark); }
+.pr-list--no li::before { content: "\2013"; color: var(--pr-muted); }
+
+/* --- Poin ringkasan ------------------------------------------------------- */
+/* Dua kolom, bukan satu daftar memanjang: empat poin sebagai satu kolom hanya
+   mengisi sepertiga lembar dan terbaca seperti catatan, bukan ringkasan. */
+.pr-points {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 6mm;
+}
+.pr-points li {
+  display: flex; gap: 3.5mm; align-items: flex-start;
+  padding: 4mm 4.5mm;
+  background: var(--pr-soft); border-radius: 2mm;
+  border-left: 1mm solid var(--pr-accent);
+}
+.pr-points__n {
+  flex: 0 0 auto;
+  font-family: var(--font-mono); font-size: 12pt; font-weight: 700;
+  color: var(--pr-accent); line-height: 1.1;
+}
+.pr-points p { margin: 0; font-size: 9pt; line-height: 1.45; }
+
+/* --- Kartu masalah -------------------------------------------------------- */
+.pr-cards {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm 5mm;
+}
+.pr-cards li {
+  position: relative; padding: 3.5mm 4mm 3.5mm 8mm;
+  font-size: 9pt; line-height: 1.45;
+  border: 1px solid var(--pr-rule); border-radius: 2mm; background: #fff;
+}
+/* Tanda silang digambar dari dua garis, bukan karakter "x": bentuknya tetap
+   sama di semua font dan tidak ikut bergeser saat ukuran teks berubah. */
+.pr-cards li::before,
+.pr-cards li::after {
+  content: ""; position: absolute; left: 3.4mm; top: 5mm;
+  width: 2.6mm; height: .5mm; background: var(--pr-muted); border-radius: .5mm;
+}
+.pr-cards li::before { transform: rotate(45deg); }
+.pr-cards li::after { transform: rotate(-45deg); }
+
+/* --- Peran ---------------------------------------------------------------- */
+.pr-roles { list-style: none; margin: 0; padding: 0; }
+.pr-roles li {
+  display: grid; grid-template-columns: 42mm 1fr; gap: 4mm;
+  padding: 3mm 0; border-bottom: 1px solid var(--pr-rule);
+}
+.pr-roles li:last-child { border-bottom: 0; }
+.pr-roles__name { font-weight: 700; font-size: 9.5pt; color: var(--pr-accent-dark); }
+.pr-roles__duty { font-size: 9pt; color: var(--pr-muted); }
+
+/* --- Syarat --------------------------------------------------------------- */
+.pr-terms { margin: 0; padding: 0; list-style: none; counter-reset: syarat; }
+.pr-terms li {
+  counter-increment: syarat; position: relative;
+  padding-left: 9mm; margin-bottom: 3mm; font-size: 9pt;
+}
+.pr-terms li:last-child { margin-bottom: 0; }
+.pr-terms li::before {
+  content: counter(syarat, decimal-leading-zero);
+  position: absolute; left: 0; top: 0;
+  font-family: var(--font-mono); font-size: 8.5pt; font-weight: 700;
+  color: var(--pr-accent);
+}
+.pr-valid {
+  margin: 6mm 0 0; padding: 3.5mm 4.5mm; font-size: 9.5pt;
+  background: var(--pr-soft); border-left: 1mm solid var(--pr-accent);
+  border-radius: 0 2mm 2mm 0;
+}
+.pr-valid strong { color: var(--pr-accent-dark); }
+
+/* --- Tabel ---------------------------------------------------------------- */
+.pr-table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+.pr-table th {
+  text-align: left; padding: 2.5mm 3mm;
+  background: var(--pr-accent); color: #fff;
+  font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; font-weight: 600;
+}
+.pr-table td { padding: 2.5mm 3mm; border-bottom: 1px solid var(--pr-rule); vertical-align: top; }
+.pr-table tbody tr:nth-child(even) { background: var(--pr-soft); }
+.pr-table th:first-child, .pr-table td:first-child { width: 38%; font-weight: 600; }
+.pr-table tbody td:first-child { color: var(--pr-accent-dark); box-shadow: inset 1mm 0 0 -0.4mm var(--pr-accent); }
+.pr-table--price td:first-child { width: 50%; }
+.pr-table--price td { font-variant-numeric: tabular-nums; }
+
+/* --- Sorotan harga -------------------------------------------------------- */
+.pr-callout {
+  margin-top: 8mm; padding: 5mm 6mm;
+  background: var(--pr-soft); border-left: 1.5mm solid var(--pr-accent); border-radius: 0 2mm 2mm 0;
+}
+.pr-callout__label {
+  font-family: var(--font-mono); font-size: 7.5pt; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--pr-muted); margin: 0 0 2mm;
+}
+.pr-callout__figure {
+  margin: 0 0 1.5mm; font-size: 15pt; font-weight: 700; color: var(--pr-accent-dark);
+  font-variant-numeric: tabular-nums;
+}
+.pr-callout__figure:last-child { margin-bottom: 0; }
+.pr-callout__figure span { font-size: 9pt; font-weight: 400; color: var(--pr-muted); }
+
+/* --- Dua kolom ------------------------------------------------------------ */
+.pr-two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.pr-way { padding: 5mm; border: 1px solid var(--pr-rule); border-radius: 2mm; }
+.pr-way--pick { border-color: var(--pr-accent); border-width: 1.5px; background: var(--pr-soft); }
+.pr-way h3 { font-size: 11pt; margin: 0 0 2.5mm; color: #10221d; }
+.pr-way p { margin: 0 0 3mm; font-size: 9pt; color: var(--pr-muted); }
+.pr-way__price {
+  font-size: 15pt; font-weight: 700; color: var(--pr-accent-dark);
+  margin: 4mm 0 1mm !important; font-variant-numeric: tabular-nums;
+}
+.pr-way__sub { font-size: 8pt; margin: 0 !important; }
+
+/* --- Tangkapan layar ------------------------------------------------------ */
+.pr-shot { margin: 0 0 6mm; }
+.pr-shot:last-child { margin-bottom: 0; }
+.pr-shot picture { display: block; }
+/* Tinggi dibatasi, bukan lebar. Tangkapan layar aplikasi rasionya berbeda-beda
+   (terukur 1,600 sampai 1,992); bila hanya lebarnya yang diatur, gambar berasio
+   paling tinggi membuat lembar tangkapan layar tumpah ke kertas berikutnya.
+   Dengan batas tinggi, dua gambar beserta keterangannya selalu muat. */
+.pr-shot img {
+  max-width: 100%; max-height: 100mm; width: auto; height: auto;
+  display: block; margin-inline: auto;
+  border: 1px solid var(--pr-rule); border-radius: 1.5mm;
+}
+.pr-shot figcaption {
+  margin-top: 2mm; font-size: 8.5pt; color: var(--pr-muted);
+  padding-left: 3mm; border-left: 1mm solid var(--pr-accent);
+}
+
+/* --- Tahapan -------------------------------------------------------------- */
+.pr-steps { list-style: none; margin: 0; padding: 0; counter-reset: none; }
+.pr-steps li { display: flex; gap: 5mm; margin-bottom: 5mm; }
+.pr-steps li:last-child { margin-bottom: 0; }
+.pr-steps__num {
+  flex: 0 0 auto; width: 10mm; height: 10mm; border-radius: 50%;
+  background: var(--pr-accent); color: #fff;
+  display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 9pt; font-weight: 700;
+}
+.pr-steps h3 { font-size: 10.5pt; margin: 1mm 0 1.5mm; }
+.pr-steps p { margin: 0; font-size: 9pt; color: var(--pr-muted); }
+.pr-steps__dur {
+  margin-top: 1.5mm !important; font-family: var(--font-mono);
+  font-size: 8pt; color: var(--pr-accent-dark);
+}
+
+.pr-note { font-size: 8.5pt; color: var(--pr-muted); margin: 3mm 0 0; }
+
+.pr-sign { margin-top: 8mm; padding-top: 4mm; border-top: 1px solid var(--pr-rule); }
+.pr-sign p { margin: 0 0 1mm; font-size: 9pt; color: var(--pr-muted); }
+.pr-sign__name { font-size: 11pt !important; font-weight: 700; color: #10221d !important; }
+
+/* --- Batang aksi (hanya di layar) ----------------------------------------- */
+.pr-actions {
+  display: flex; gap: var(--sp-3); justify-content: center; flex-wrap: wrap;
+  padding: var(--sp-6) var(--sp-4) var(--sp-3);
+}
+.pr-hint { text-align: center; padding-bottom: var(--sp-7); margin: 0; font-size: var(--step--1); }
+
+/* --- Layar sempit --------------------------------------------------------- */
+/* Tidak ada pelipatan tata letak di sini, dan itu disengaja: dokumen ini harus
+   tampil SAMA di ponsel, tablet, maupun desktop. Lebarnya tetap 210mm; yang
+   menyesuaikan adalah skalanya, diatur initSkalaDokumen() di assets/js/main.js.
+   Menyetelnya lewat media query tidak mungkin — faktor skala bergantung pada
+   lebar layar sebagai bilangan, dan CSS tidak bisa menghitungnya. */
+
+/* --- Cetak ---------------------------------------------------------------- */
+@media print {
+  .header, .footer, .skip-link, .pr-actions, .pr-hint, .back-to-top { display: none !important; }
+  /* Kertas selalu ukuran penuh, berapa pun skala di layar saat mencetak. */
+  [data-doc-scale] { zoom: 1 !important; }
+  body { background: #fff; }
+  .pr-doc { display: block; padding: 0; gap: 0; }
+
+  .pr-page {
+    width: 210mm;
+    min-height: 296mm;
+    box-shadow: none; margin: 0;
+    /* Tanpa ini Chrome membuang seluruh blok beraksen — kepala tabel, lencana
+       sampul, dan nomor tahapan tercetak putih di atas putih. */
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  /* Inilah yang membedakan dokumen ini dari CV: tiap bagian mulai di lembar
+     barunya sendiri. break-before dipakai, bukan break-after, supaya tidak ada
+     lembar kosong tersisa setelah bagian terakhir. */
+  .pr-page + .pr-page { break-before: page; }
+
+  .pr-shot, .pr-steps li, .pr-way, .pr-callout, .pr-table tr { break-inside: avoid; }
+  .pr-table thead { display: table-header-group; }
+}

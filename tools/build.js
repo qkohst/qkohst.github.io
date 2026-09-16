@@ -15,6 +15,7 @@ const projectsTpl = require('../templates/projects');
 const projectTpl = require('../templates/project');
 const servicesTpl = require('../templates/services');
 const serviceTpl = require('../templates/service');
+const proposalTpl = require('../templates/proposal');
 const cvTpl = require('../templates/cv');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -38,6 +39,8 @@ const site = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/site.json'), 'utf8
    bukan di data, supaya data/projects.json tetap mudah dibaca dan disunting. */
 const projects = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/projects.json'), 'utf8'))
   .sort((a, b) => String(b.date).localeCompare(String(a.date)));
+const proposalDoc = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/proposals.json'), 'utf8'));
+const proposals = proposalDoc.items;
 const ORIGIN = site.site.origin;
 const LANGS = site.site.langs;
 const DEFAULT_LANG = site.site.defaultLang;
@@ -56,9 +59,33 @@ const sidik = rel => {
 const ASSET_VER = {
   css: sidik('assets/css/main.css'),
   cvCss: sidik('assets/css/cv.css'),
+  proposalCss: sidik('assets/css/proposal.css'),
   js: sidik('assets/js/main.js'),
   icons: sidik('assets/icons.svg')
 };
+
+/* Ukuran asli sebuah JPEG, dibaca dari penanda SOF-nya.
+
+   Dipakai agar atribut width/height gambar penawaran menyatakan ukuran yang
+   SEBENARNYA. Menuliskannya tetap terasa aman, tapi tidak: turunan gambar di
+   repo ini rasionya berbeda-beda (terukur 960x600 dan 960x482), sedangkan
+   tinggi render mengikuti rasio asli. Angka yang keliru membuat ruang yang
+   dipesan browser meleset, dan pada dokumen A4 satu lembar tangkapan layar
+   tumpah ke kertas berikutnya. */
+function ukuranJpeg(rel) {
+  const f = path.join(ROOT, rel);
+  if (!fs.existsSync(f)) return null;
+  const d = fs.readFileSync(f);
+  let i = 2;
+  while (i < d.length - 9) {
+    if (d[i] !== 0xFF) { i++; continue; }
+    const m = d[i + 1];
+    if (m >= 0xC0 && m <= 0xC3) return { h: d.readUInt16BE(i + 5), w: d.readUInt16BE(i + 7) };
+    if (m === 0xD8 || m === 0xD9 || (m >= 0xD0 && m <= 0xD7)) { i += 2; continue; }
+    i += 2 + d.readUInt16BE(i + 2);
+  }
+  return null;
+}
 
 /* Preload font hanya dipancarkan bila berkasnya benar-benar ada, supaya
    tidak menimbulkan 404 di tiap halaman selama font belum dipasang. */
@@ -80,6 +107,33 @@ for (const lang of LANGS) {
       if (!img.alt[lang]) fatal.push(`${p.key}: alt ${lang} kosong pada ${img.name}`);
     }
   }
+
+  /* Penawaran menumpang data proyek untuk judul, gambar, klien, dan slug.
+     Tautan yang putus akan menghasilkan halaman separuh jadi yang lolos begitu
+     saja, jadi diperiksa di sini bersama slug dan angka harganya. */
+  const slugPenawaran = new Set();
+  for (const p of proposals) {
+    const proyek = projects.find(x => x.key === p.key);
+    if (!proyek) { fatal.push(`penawaran ${p.key}: tidak ada proyek dengan key ini`); continue; }
+    const s = p.slug && p.slug[lang];
+    if (!s) fatal.push(`penawaran ${p.key}: slug ${lang} kosong`);
+    else if (slugPenawaran.has(s)) fatal.push(`slug penawaran ${lang} ganda: ${s}`);
+    slugPenawaran.add(s);
+    if (!(p.licenseUsd > 0)) fatal.push(`penawaran ${p.key}: licenseUsd harus angka positif`);
+    if (!(p.annualUsd > 0)) fatal.push(`penawaran ${p.key}: annualUsd harus angka positif`);
+    const c = t(p, lang);
+    if (!c.tagline) fatal.push(`penawaran ${p.key}: tagline ${lang} kosong`);
+    for (const bagian of ['ringkasan', 'masalah', 'solusi', 'peran', 'modul', 'termasuk', 'tidakTermasuk', 'tahapan', 'syarat']) {
+      if (!Array.isArray(c[bagian]) || !c[bagian].length) fatal.push(`penawaran ${p.key}: ${bagian} ${lang} kosong`);
+    }
+    for (const s2 of p.shots || []) {
+      if (!proyek.images.some(i => i.name === s2.name)) fatal.push(`penawaran ${p.key}: gambar ${s2.name} tidak ada pada proyeknya`);
+      if (!s2[lang]) fatal.push(`penawaran ${p.key}: keterangan ${lang} kosong pada ${s2.name}`);
+      // Ukuran dibaca dari berkasnya, sekali, lalu dipakai ulang kedua bahasa.
+      if (!s2.ukuran) s2.ukuran = ukuranJpeg(`assets/img/portfolio/${s2.name}-960.jpg`);
+      if (!s2.ukuran) fatal.push(`penawaran ${p.key}: ukuran ${s2.name}-960.jpg tidak terbaca`);
+    }
+  }
 }
 if (fatal.length) {
   console.error('Build dibatalkan, data belum valid:');
@@ -99,7 +153,7 @@ function write(urlPath, html) {
 
 /** Bersihkan hanya direktori yang memang dikelola generator. */
 function clean() {
-  const managed = ['en', 'id', 'proyek', 'layanan', 'projects', 'services', 'cv'];
+  const managed = ['en', 'id', 'proyek', 'layanan', 'projects', 'services', 'proposals', 'penawaran', 'cv'];
   if (path.basename(OUT) === '_preview') {
     fs.rmSync(OUT, { recursive: true, force: true });
   } else {
@@ -131,12 +185,12 @@ function alternatesFor(kind, slugByLang) {
   return list;
 }
 
-function ctxFor({ lang, kind, slugByLang, title, description, ogImage, ogType, jsonld, navKey, noindex, extraCss }) {
+function ctxFor({ lang, kind, slugByLang, title, description, ogImage, ogType, jsonld, navKey, noindex, extraCss, extraCssVer }) {
   const ui = site.ui[lang];
   const alts = alternatesFor(kind, slugByLang);
   const altUrl = Object.fromEntries(alts.filter(a => a.lang !== 'x-default').map(a => [a.lang, pageUrl(kind, a.lang, slugByLang && slugByLang[a.lang])]));
   return {
-    site, lang, ui, fontHref: FONT_HREF, extraCss, ver: ASSET_VER,
+    site, lang, ui, fontHref: FONT_HREF, extraCss, extraCssVer, ver: ASSET_VER,
     title, description, noindex,
     canonical: absUrl(ORIGIN, pageUrl(kind, lang, slugByLang && slugByLang[lang])),
     alternates: alts,
@@ -197,6 +251,29 @@ const projectLd = (p, lang) => {
     ...(p.framework ? { keywords: [p.framework, p.category] } : {})
   };
 };
+
+/* Penawaran produk siap pakai: SoftwareApplication dengan satu Offer berharga
+   pasti. Harga ditulis dalam USD karena itulah satuan yang disimpan di data;
+   rupiah pada halaman hanyalah hasil konversi saat build, jadi mencantumkannya
+   di sini akan basi begitu kurs diperbarui. */
+const offerLd = (lang, p, judul, ringkas) => ({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: judul,
+  description: ringkas,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  inLanguage: lang,
+  url: absUrl(ORIGIN, pageUrl('proposal', lang, p.slug[lang])),
+  author: { '@type': 'Person', name: site.profile.name, url: ORIGIN },
+  offers: {
+    '@type': 'Offer',
+    price: p.licenseUsd,
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    url: absUrl(ORIGIN, pageUrl('proposal', lang, p.slug[lang]))
+  }
+});
 
 const serviceLd = (lang, svc) => {
   const x = svc ? t(svc, lang) : t(site.servicesPage, lang);
@@ -274,7 +351,18 @@ for (const lang of LANGS) {
         { name: sp.title, url: pageUrl('services', lang) }
       ])]
     });
-    write(pageUrl('services', lang), layout.document(ctx, servicesTpl(ctx)));
+    /* Produk siap pakai dirangkum di sini, bukan di templat, supaya templat
+       tidak perlu tahu cara menyambungkan proposals.json ke projects.json. */
+    const produk = proposals.map(x => {
+      const proyek = projects.find(o => o.key === x.key);
+      return {
+        slug: x.slug, licenseUsd: x.licenseUsd,
+        judul: t(proyek, lang).title,
+        ringkas: t(x, lang).tagline,
+        thumb: proyek.thumb
+      };
+    });
+    write(pageUrl('services', lang), layout.document(ctx, servicesTpl(ctx, produk)));
   }
 
   // halaman detail tiap layanan
@@ -294,6 +382,30 @@ for (const lang of LANGS) {
     write(pageUrl('service', lang, s.slug[lang]), layout.document(ctx, serviceTpl(ctx, s)));
   }
 
+  // halaman penawaran produk siap pakai
+  for (const p of proposals) {
+    const proyek = projects.find(x => x.key === p.key);   // dijamin ada oleh gerbang validasi
+    const c = t(p, lang);
+    const judul = t(proyek, lang).title;
+    const ctx = ctxFor({
+      lang, kind: 'proposal', slugByLang: p.slug,
+      // Judul dibedakan dari halaman proyek yang memakai nama sama persis;
+      // audit.js mensyaratkan judul unik per bahasa.
+      title: `${ui.proposal.docTitle}: ${judul} — ${site.profile.name}`,
+      description: c.tagline,
+      ogImage: `/assets/img/portfolio/${proyek.thumb}-1200x630.jpg`,
+      navKey: 'services',
+      jsonld: [offerLd(lang, p, judul, c.tagline), breadcrumbLd([
+        { name: ui.nav.home, url: pageUrl('home', lang) },
+        { name: ui.sections.services, url: pageUrl('services', lang) },
+        { name: `${ui.proposal.docTitle}: ${judul}`, url: pageUrl('proposal', lang, p.slug[lang]) }
+      ])],
+      extraCss: '/assets/css/proposal.css',
+      extraCssVer: ASSET_VER.proposalCss
+    });
+    write(pageUrl('proposal', lang, p.slug[lang]), layout.document(ctx, proposalTpl(ctx, p, proyek, proposalDoc)));
+  }
+
   // halaman CV (noindex: bukan halaman pendaratan, tapi tetap perlu bisa dibuka
   // dan dicetak; isinya ikut site.json sehingga selalu selaras dengan situs)
   {
@@ -306,7 +418,8 @@ for (const lang of LANGS) {
       navKey: null,
       noindex: true,
       jsonld: [personLd(lang)],
-      extraCss: '/assets/css/cv.css'
+      extraCss: '/assets/css/cv.css',
+      extraCssVer: ASSET_VER.cvCss
     });
     write(pageUrl('cv', lang), layout.document(ctx, cvTpl(ctx)));
   }
@@ -327,7 +440,10 @@ for (const lang of LANGS) {
         { name: c.title, url: pageUrl('project', lang, p.slug[lang]) }
       ])]
     });
-    write(pageUrl('project', lang, p.slug[lang]), layout.document(ctx, projectTpl(ctx, p, projects)));
+    // Penawaran ditentukan dari data, bukan daftar slug yang ditulis tangan,
+    // supaya produk berikutnya cukup ditambahkan ke data/proposals.json.
+    const penawaran = proposals.find(x => x.key === p.key) || null;
+    write(pageUrl('project', lang, p.slug[lang]), layout.document(ctx, projectTpl(ctx, p, projects, penawaran)));
   }
 }
 
@@ -420,6 +536,7 @@ push('projects', null, '0.9', 'monthly');
 push('services', null, '0.9', 'monthly');
 for (const p of projects) push('project', p.slug, '0.7', 'yearly');
 for (const s of site.services) push('service', s.slug, '0.8', 'monthly');
+for (const p of proposals) push('proposal', p.slug, '0.8', 'monthly');
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">

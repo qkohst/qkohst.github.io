@@ -687,6 +687,42 @@ function initYear() {
 }
 
 /* --- Jalankan ------------------------------------------------------------ */
-for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initLangSwitch, initFilter, initFilterStuck, initGallery, initLightbox, initPrint, initUnduhCV, initBackToTop, initCopyLink, initChat, initYear]) {
+/* Dokumen A4 — halaman penawaran dan CV — tampil SAMA di ponsel, tablet, dan
+   desktop: tata letaknya tidak pernah dilipat, hanya diperkecil utuh.
+
+   Memakai `zoom`, bukan `transform: scale()`. Keduanya sama-sama memperkecil,
+   tetapi transform tidak mengubah ruang yang ditempati elemen di aliran
+   dokumen — halaman akan menyisakan area kosong setinggi ukuran aslinya di
+   bawah dokumen yang sudah mengecil. zoom ikut mengecilkan ruang itu.
+
+   Faktor skalanya tidak bisa ditulis di CSS: ia bergantung pada lebar layar
+   sebagai bilangan, sedangkan media query hanya bisa memilih nilai tetap. */
+function initSkalaDokumen() {
+  const dokumen = $$('[data-doc-scale]');
+  if (!dokumen.length) return;
+
+  const LEBAR_A4 = 210 / 25.4 * 96;   // 210mm dalam piksel CSS
+  const TEPI = 24;                    // sisa napas kiri-kanan di layar sempit
+
+  const terapkan = () => {
+    const ruang = document.documentElement.clientWidth - TEPI * 2;
+    const k = Math.min(1, ruang / LEBAR_A4);
+    for (const d of dokumen) {
+      // Pada layar yang memang cukup lebar, properti dilepas sama sekali agar
+      // tidak ada pembulatan yang menggeser tata letak satu piksel pun.
+      d.style.zoom = k >= 1 ? '' : String(Math.round(k * 1000) / 1000);
+    }
+  };
+
+  terapkan();
+  let menunggu = false;
+  addEventListener('resize', () => {
+    if (menunggu) return;
+    menunggu = true;
+    requestAnimationFrame(() => { menunggu = false; terapkan(); });
+  }, { passive: true });
+}
+
+for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initLangSwitch, initFilter, initFilterStuck, initGallery, initLightbox, initPrint, initUnduhCV, initSkalaDokumen, initBackToTop, initCopyLink, initChat, initYear]) {
   try { init(); } catch (err) { console.error(`[main.js] ${init.name} gagal:`, err); }
 }

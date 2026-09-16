@@ -23,7 +23,7 @@ const BAGIKAN = [
     url: (u, j) => `https://t.me/share/url?${new URLSearchParams({ url: u, text: j })}` }
 ];
 
-module.exports = function project(ctx, p, semuaProyek = []) {
+module.exports = function project(ctx, p, semuaProyek = [], penawaran = null) {
   const { lang, ui, site } = ctx;
   const c = t(p, lang);
   const link = p.link;
@@ -114,6 +114,7 @@ ${each(BAGIKAN, b => `                <li><a class="share__btn share__btn--${b.k
                target="_blank" rel="noopener noreferrer">
               ${icon('whatsapp')} ${esc(ui.askAboutProject)}
             </a>
+            ${penawaran ? `<a class="btn btn--ghost" style="width:100%;margin-top:var(--sp-3)" href="${esc(pageUrl('proposal', lang, penawaran.slug[lang]))}">${icon('download')} ${esc(ui.proposal.viewProposal)}</a>` : ''}
             ${link && link.type === 'postman' ? `<a class="btn btn--ghost" style="width:100%;margin-top:var(--sp-3)" href="${esc(link.url)}" target="_blank" rel="noopener noreferrer">${icon('external')} ${esc(DOC_LABEL[lang])}</a>` : ''}
             </div>
           </aside>

@@ -28,18 +28,26 @@ const prefix = lang => PREFIX[lang] || '';
 
 /** Segmen path yang berbeda per bahasa. */
 const SEGMENT = {
-  projects: { id: 'proyek', en: 'projects' },
-  services: { id: 'layanan', en: 'services' },
-  cv:       { id: 'cv', en: 'cv' }
+  projects:  { id: 'proyek', en: 'projects' },
+  services:  { id: 'layanan', en: 'services' },
+  proposals: { id: 'penawaran', en: 'proposals' },
+  cv:        { id: 'cv', en: 'cv' }
 };
 
-/** URL internal absolut-dari-root untuk sebuah halaman. */
+/** URL internal absolut-dari-root untuk sebuah halaman.
+
+    Jenis halaman yang memakai slug WAJIB punya cabang eksplisit di sini. Baris
+    terakhir adalah jalur untuk halaman indeks dan mengakses SEGMENT[kind]
+    langsung; kind berslug seperti 'proposal' tidak ada di SEGMENT (yang ada
+    bentuk jamaknya), sehingga tanpa cabangnya sendiri baris itu melempar
+    TypeError, bukan menghasilkan URL yang salah diam-diam. */
 function pageUrl(kind, lang, slug) {
   const p = prefix(lang);
   if (kind === 'home') return p ? `${p}/` : '/';
   if (kind === 'project') return `${p}/${SEGMENT.projects[lang]}/${slug}/`;
   if (kind === 'projects') return `${p}/${SEGMENT.projects[lang]}/`;
   if (kind === 'service') return `${p}/${SEGMENT.services[lang]}/${slug}/`;
+  if (kind === 'proposal') return `${p}/${SEGMENT.proposals[lang]}/${slug}/`;
   return `${p}/${SEGMENT[kind][lang]}/`;
 }
 
@@ -63,6 +71,14 @@ const WA_TEKS = {
   paket: {
     id: (judul, paket) => `Halo, saya tertarik dengan layanan ${judul} paket ${paket}. Boleh dibantu untuk penawarannya?`,
     en: (judul, paket) => `Hello, I am interested in the ${paket} package for your ${judul} service. Could you send me a quote?`
+  },
+  proposal: {
+    id: judul => `Halo, saya membaca proposal penawaran ${judul}. Boleh dibantu untuk diskusi lebih lanjut dan penyesuaian kebutuhan kami?`,
+    en: judul => `Hello, I have read your ${judul} proposal. Could we discuss it further and adjust it to our needs?`
+  },
+  demo: {
+    id: judul => `Halo, saya ingin mencoba demo ${judul} sebelum memutuskan. Boleh dijadwalkan?`,
+    en: judul => `Hello, I would like to try a demo of ${judul} before deciding. Could we schedule one?`
   },
   umum: {
     id: () => 'Halo, saya menemukan portofolio Anda dan ingin berdiskusi tentang sebuah proyek.',

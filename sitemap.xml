@@ -544,4 +544,52 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://qkohst.github.io/id/penawaran/sistem-informasi-sekolah/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/penawaran/sistem-informasi-sekolah/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/proposals/school-information-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proposals/school-information-system/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/proposals/school-information-system/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/penawaran/sistem-informasi-sekolah/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/proposals/school-information-system/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proposals/school-information-system/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/id/penawaran/st-smartpoint/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/penawaran/st-smartpoint/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/proposals/st-smartpoint/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proposals/st-smartpoint/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/proposals/st-smartpoint/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/penawaran/st-smartpoint/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/proposals/st-smartpoint/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proposals/st-smartpoint/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/id/penawaran/st-pamdes/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/penawaran/st-pamdes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/proposals/st-pamdes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proposals/st-pamdes/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/proposals/st-pamdes/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/penawaran/st-pamdes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/proposals/st-pamdes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proposals/st-pamdes/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

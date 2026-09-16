@@ -111,14 +111,13 @@
 }
 .cv-hint { text-align: center; color: var(--text-muted); font-size: var(--step--1); padding-bottom: var(--sp-6); margin: 0; }
 
-@media (max-width: 220mm) {
-  .cv-page { width: 100%; min-height: 0; grid-template-columns: 1fr; }
-  .cv-col { padding: var(--sp-5); }
-  .cv-namebar { margin-inline: calc(-1 * var(--sp-5)); padding-inline: var(--sp-5); }
-}
+/* Tidak dilipat menjadi satu kolom di layar sempit: CV tampil sama di ponsel,
+   tablet, dan desktop. Lebarnya tetap 210mm dan hanya skalanya yang menyesuaikan,
+   diatur initSkalaDokumen() di assets/js/main.js. */
 
 @media print {
   .header, .footer, .cv-actions, .cv-hint, .skip-link { display: none !important; }
+  [data-doc-scale] { zoom: 1 !important; }
   body { background: #fff; }
   .cv-page {
     width: 210mm; min-height: 297mm; box-shadow: none; margin: 0;

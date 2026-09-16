@@ -46,7 +46,7 @@ module.exports = function cv(ctx) {
     </div>
     <p class="cv-hint">${esc(L.hint)}</p>
 
-    <article class="cv-page">
+    <article class="cv-page" data-doc-scale>
       <div class="cv-col cv-col--left">
         <picture>
           <source type="image/avif" srcset="/assets/img/profile-480.avif">

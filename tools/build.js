@@ -327,7 +327,7 @@ for (const lang of LANGS) {
         { name: c.title, url: pageUrl('project', lang, p.slug[lang]) }
       ])]
     });
-    write(pageUrl('project', lang, p.slug[lang]), layout.document(ctx, projectTpl(ctx, p)));
+    write(pageUrl('project', lang, p.slug[lang]), layout.document(ctx, projectTpl(ctx, p, projects)));
   }
 }
 

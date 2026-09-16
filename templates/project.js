@@ -1,5 +1,6 @@
 /* Halaman detail satu proyek: galeri scroll-snap, info, deskripsi, fitur. */
 const { esc, each, icon, t, pageUrl, fmtMonth, waLink, WA_TEKS } = require('../tools/lib');
+const { projectCard } = require('./partials');
 
 /* CTA utama selalu mengajak berdiskusi lewat WhatsApp dengan pesan yang sudah
    terisi judul proyek dan bahasa halaman. Tautan dokumentasi Postman tetap
@@ -7,10 +8,27 @@ const { esc, each, icon, t, pageUrl, fmtMonth, waLink, WA_TEKS } = require('../t
    tautan repositori tidak lagi ditawarkan sebagai tombol. */
 const DOC_LABEL = { id: 'Lihat dokumentasi API', en: 'View API documentation' };
 
-module.exports = function project(ctx, p) {
-  const { lang, ui } = ctx;
+/* Kanal berbagi. Tiap entri membangun URL bagikan baku milik platformnya,
+   memakai URL kanonis halaman dan judul proyek. */
+const BAGIKAN = [
+  { key: 'whatsapp', icon: 'whatsapp', label: 'WhatsApp',
+    url: (u, j) => `https://api.whatsapp.com/send?${new URLSearchParams({ text: `${j} — ${u}` })}` },
+  { key: 'facebook', icon: 'facebook', label: 'Facebook',
+    url: u => `https://www.facebook.com/sharer/sharer.php?${new URLSearchParams({ u })}` },
+  { key: 'twitter', icon: 'twitter', label: 'X',
+    url: (u, j) => `https://twitter.com/intent/tweet?${new URLSearchParams({ url: u, text: j })}` },
+  { key: 'linkedin', icon: 'linkedin', label: 'LinkedIn',
+    url: u => `https://www.linkedin.com/sharing/share-offsite/?${new URLSearchParams({ url: u })}` },
+  { key: 'telegram', icon: 'telegram', label: 'Telegram',
+    url: (u, j) => `https://t.me/share/url?${new URLSearchParams({ url: u, text: j })}` }
+];
+
+module.exports = function project(ctx, p, semuaProyek = []) {
+  const { lang, ui, site } = ctx;
   const c = t(p, lang);
   const link = p.link;
+  // Maksimal tiga proyek lain pada kategori yang sama, terbaru lebih dulu.
+  const terkait = semuaProyek.filter(o => o.key !== p.key && o.category === p.category).slice(0, 3);
 
   return `
     <section class="section">
@@ -67,7 +85,23 @@ ${each(c.features, f => `                <li>${esc(f)}</li>\n`)}              </
             </div>
           </div>
 
-          <aside class="info-card" data-reveal data-reveal-delay="100">
+          <aside class="detail__side">
+            <div class="card share" data-reveal data-reveal-delay="80">
+              <h2 class="share__title">${icon('share')} ${esc(ui.shareTitle)}</h2>
+              <ul class="share__list list-plain">
+${each(BAGIKAN, b => `                <li><a class="share__btn share__btn--${b.key}" href="${esc(b.url(ctx.canonical, c.title))}"
+                       target="_blank" rel="noopener noreferrer" aria-label="${esc(b.label)}" title="${esc(b.label)}">${icon(b.icon)}</a></li>
+`)}
+                <li>
+                  <button class="share__btn share__btn--link" type="button"
+                          data-copy-link="${esc(ctx.canonical)}"
+                          data-label-copy="${esc(ui.copyLink)}" data-label-done="${esc(ui.linkCopied)}"
+                          aria-label="${esc(ui.copyLink)}" title="${esc(ui.copyLink)}">${icon('link')}</button>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card info-card" data-reveal data-reveal-delay="100">
             <h2 style="font-size:var(--step-1)">${esc(ui.sections.projectInfo)}</h2>
             <ul class="info-list">
               <li><span class="k">${esc(ui.meta.category)}</span><span class="v">${esc(ui.categories[p.category] || p.category)}</span></li>
@@ -81,8 +115,27 @@ ${each(c.features, f => `                <li>${esc(f)}</li>\n`)}              </
               ${icon('whatsapp')} ${esc(ui.askAboutProject)}
             </a>
             ${link && link.type === 'postman' ? `<a class="btn btn--ghost" style="width:100%;margin-top:var(--sp-3)" href="${esc(link.url)}" target="_blank" rel="noopener noreferrer">${icon('external')} ${esc(DOC_LABEL[lang])}</a>` : ''}
+            </div>
           </aside>
         </div>
       </div>
-    </section>`;
+    </section>
+
+${terkait.length ? `
+    <section class="section section--subtle">
+      <div class="container-wide">
+        <div class="section__head" data-reveal>
+          <span class="section__eyebrow">${esc(ui.categories[p.category] || p.category)}</span>
+          <h2 style="font-size:var(--step-2)">${esc(ui.relatedTitle)}</h2>
+        </div>
+        <ul class="project-grid list-plain">
+${each(terkait, o => projectCard(o, lang, ui, { reveal: true }))}
+        </ul>
+        <p style="margin-top:var(--sp-5)" data-reveal>
+          <a class="btn btn--ghost" href="${esc(pageUrl('projects', lang))}#${esc(p.category)}">
+            ${esc(ui.viewAllInCategory)} ${icon('arrow-right')}
+          </a>
+        </p>
+      </div>
+    </section>` : ''}`;
 };

@@ -14,37 +14,46 @@
 
 /* --- 1. Token ----------------------------------------------------------- */
 :root {
-  /* Permukaan berlapis (terang). Netral bersemburat hijau-arang agar
-     menyatu dengan teal dan abu arang pada logo. */
-  --bg:          #fbfcfc;
-  --surface:     #ffffff;
-  --surface-hi:  #ffffff;
-  --raised:      #ffffff;
-  --inset:       #f0f6f4;
+  /* Permukaan berlapis (terang). Netral abu sejuk, ditarik dari keluarga
+     grafit pada logo (#2e2e2e / #5e5e5e) — bukan mint, dan bukan putih murni.
+     Latar netral membuat tangkapan layar proyek, yang warnanya sangat beragam,
+     tidak bersaing dengan warna halaman.
 
-  --border:        #e1eae7;
-  --border-bright: #c8d8d4;
-  --highlight:     rgba(255, 255, 255, .9);
+     CATATAN: --accent tetap memakai teal DALAM (#04715f), bukan teal terang
+     logo. Token ini dipakai sekaligus untuk teks tautan dan label; teal terang
+     di atas latar terang hanya mencapai sekitar 2,5:1 dan tidak terbaca. Teal
+     terang logo tetap hadir lewat --glow dan --accent-dim. */
+  --bg:          #eceef0;
+  --surface:     #f6f7f8;
+  --surface-hi:  #fbfbfc;
+  --raised:      #f6f7f8;
+  --inset:       #e0e3e6;
 
-  --text:       #14201d;
-  --text-muted: #52635f;
-  --text-faint: #82948f;
+  --border:      #cfd4d8;
+  --border-bright: #b3bbc1;
+  --highlight:   rgba(255, 255, 255, .55);
+
+  --text:       #16191b;
+  --text-muted: #4c5459;
+  --text-faint: #5e666c;
   --on-accent:  #ffffff;
 
-  /* Diturunkan dari logo: #0bad94 (teal terang) dan #047664 (teal dalam). */
-  --accent:     #047664;
-  --accent-2:   #0e8f8f;
-  --accent-hi:  #035c4e;
-  --accent-dim: #e6f5f1;
-  --glow:       rgba(4, 118, 100, .13);
-  --glow-2:     rgba(14, 143, 143, .09);
+  /* Diturunkan dari logo: #0bad94 (teal terang) dan #047563 (teal dalam).
+     Aksen tetap teal agar identitas merek bertahan di atas netral abu. */
+  --accent:     #04715f;
+  --accent-2:   #0a6f70;
+  --accent-hi:  #03554a;
+  --accent-dim: #d9ece7;
+  --glow:       rgba(11, 173, 148, .14);
+  --glow-2:     rgba(4, 113, 95, .09);
 
-  --shadow-sm: 0 1px 2px rgba(20, 32, 29, .05);
-  --shadow-md: 0 6px 16px -4px rgba(20, 32, 29, .10), 0 2px 6px -2px rgba(20, 32, 29, .06);
-  --shadow-lg: 0 20px 40px -12px rgba(20, 32, 29, .16), 0 6px 14px -6px rgba(20, 32, 29, .08);
-  --shadow-accent: 0 8px 24px -6px rgba(4, 118, 100, .35);
+  /* Bayangan netral sejuk agar menyatu dengan latar abu. */
+  --shadow-sm: 0 1px 2px rgba(22, 25, 27, .05);
+  --shadow-md: 0 8px 20px -6px rgba(22, 25, 27, .09), 0 2px 6px -2px rgba(22, 25, 27, .06);
+  --shadow-lg: 0 24px 48px -16px rgba(22, 25, 27, .14), 0 8px 16px -8px rgba(22, 25, 27, .07);
+  --shadow-accent: 0 8px 24px -6px rgba(4, 113, 95, .28);
 
-  --grid-line: rgba(20, 32, 29, .045);
+  --grid-line: rgba(22, 25, 27, .045);
 
   /* Tipografi */
   --step--2: clamp(.70rem, .69rem + .05vw, .74rem);
@@ -94,7 +103,7 @@
 
     --text:       #e7efed;
     --text-muted: #99aaa6;
-    --text-faint: #647672;
+    --text-faint: #768884;
     --on-accent:  #04211c;
 
     /* Teal logo dicerahkan agar kontras di atas latar gelap. */
@@ -129,7 +138,7 @@
 
   --text:       #e7efed;
   --text-muted: #99aaa6;
-  --text-faint: #647672;
+  --text-faint: #768884;
   --on-accent:  #04211c;
 
   /* Teal logo dicerahkan agar kontras di atas latar gelap. */
@@ -250,6 +259,14 @@ li:last-child { margin-bottom: 0; }
 .grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
 .grid--4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
 
+/* Keempat kartu layanan berjejer pada desktop. Sengaja TIDAK memakai auto-fit
+   seperti utilitas grid di atas: dengan tepat empat kartu, auto-fit menghasilkan
+   3 kolom + 1 kartu yatim pada lebar tablet. Tangga eksplisit menjaga barisnya
+   selalu genap: 4 -> 2 -> 1. */
+.grid--services { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 64rem) { .grid--services { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 40rem) { .grid--services { grid-template-columns: 1fr; } }
+
 /* --- 4. Header ---------------------------------------------------------- */
 .header {
   position: sticky; top: 0; z-index: 50;
@@ -362,11 +379,16 @@ li:last-child { margin-bottom: 0; }
 }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(0); transition-duration: 80ms; }
-.btn svg { width: 1.05rem; height: 1.05rem; transition: transform var(--dur) var(--ease); }
+/* flex: 0 0 auto wajib. Tanpa itu ikon ikut dipadatkan saat labelnya panjang —
+   terukur 11px dari 17px yang seharusnya, dan terbaca sebagai ikon samar. */
+.btn svg { width: 1.05rem; height: 1.05rem; flex: 0 0 auto; transition: transform var(--dur) var(--ease); }
 
+/* Warna teks WAJIB memakai --on-accent, bukan #fff. Di mode gelap aksennya
+   teal cerah; teks putih di atasnya hanya mencapai kontras 2:1 dan praktis
+   tidak terbaca. Token ini memang disediakan untuk itu. */
 .btn--primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff; box-shadow: var(--shadow-accent);
+  color: var(--on-accent); box-shadow: var(--shadow-accent);
 }
 /* kilau tipis yang menyapu saat hover */
 .btn--primary::before {
@@ -376,7 +398,7 @@ li:last-child { margin-bottom: 0; }
   transition: transform 700ms var(--ease);
 }
 .btn--primary:hover::before { transform: translateX(120%); }
-.btn--primary:hover { color: #fff; box-shadow: 0 14px 34px -8px rgba(91, 157, 255, .55); }
+.btn--primary:hover { color: var(--on-accent); box-shadow: 0 14px 34px -8px rgba(91, 157, 255, .55); }
 
 .btn--ghost {
   background: var(--surface); color: var(--text); border-color: var(--border);
@@ -418,10 +440,11 @@ li:last-child { margin-bottom: 0; }
    Ukurannya ditahan agar tetap proporsional, tidak melebar penuh. */
 @media (max-width: 56rem) {
   .hero__inner { justify-items: center; text-align: center; }
-  .hero__portrait { order: -1; width: min(72vw, 16rem); }
   .hero__tagline { margin-inline: auto; }
   .hero__actions { justify-content: center; }
   .hero__stats { justify-content: center; text-align: center; }
+
+  .hero__portrait { order: -1; }
 }
 
 .hero__eyebrow {
@@ -479,6 +502,28 @@ li:last-child { margin-bottom: 0; }
 }
 .hero__portrait picture { display: block; width: 100%; height: 100%; }
 .hero__portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Di kolom tunggal (tablet dan ponsel) avatar menjadi lingkaran.
+   CATATAN URUTAN: aturan ini harus berada SESUDAH definisi dasar di atas.
+   Ditulis lebih awal, border-radius dasar akan menimpanya dan bentuknya
+   menjadi kotak membulat berisi gradien — terlihat seperti cacat. */
+@media (max-width: 56rem) {
+  .hero__portrait {
+    width: min(52vw, 11rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    /* Cincin tipis, bukan bidang gradien tebal. */
+    box-shadow: 0 0 0 2px var(--accent), 0 0 0 8px var(--glow), var(--shadow-lg);
+    background: none;
+    padding: 0;
+    overflow: hidden;
+  }
+  .hero__portrait picture { display: block; width: 100%; height: 100%; border-radius: 50%; overflow: hidden; }
+  .hero__portrait img { border-radius: 50%; }
+  /* Kilau sudut dimatikan: pada lingkaran ia terbaca sebagai noda. */
+  .hero__portrait::after { display: none; }
+}
 
 /* --- 7. Kartu berlapis -------------------------------------------------- */
 .card {
@@ -563,7 +608,25 @@ li:last-child { margin-bottom: 0; }
 .timeline__text { font-size: var(--step--1); color: var(--text-muted); margin: 0; }
 
 /* --- 10. Portofolio ----------------------------------------------------- */
-.filters { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-5); }
+/* Bar filter menempel di bawah header saat halaman digulir, sehingga kategori
+   tetap terjangkau pada daftar yang panjang. Latar buram dipakai agar kartu
+   yang lewat di belakangnya tidak mengganggu keterbacaan. */
+.filters {
+  position: sticky; top: var(--header-h); z-index: 30;
+  display: flex; flex-wrap: wrap; gap: var(--sp-2);
+  margin-bottom: var(--sp-5);
+  padding-block: var(--sp-3);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px) saturate(160%);
+}
+/* Garis bawah hanya muncul setelah bar benar-benar menempel. */
+.filters::after {
+  content: ""; position: absolute; left: 50%; bottom: 0;
+  width: 100vw; height: 1px; transform: translateX(-50%);
+  background: var(--border); opacity: 0;
+  transition: opacity var(--dur) var(--ease);
+}
+.filters.is-stuck::after { opacity: 1; }
 .filter {
   padding: .45rem 1.05rem; min-height: 2.35rem;
   background: var(--surface); border: 1px solid var(--border);
@@ -577,11 +640,51 @@ li:last-child { margin-bottom: 0; }
 }
 .filter:hover { color: var(--text); border-color: var(--border-bright); transform: translateY(-1px); }
 .filter[aria-pressed="true"] {
+  /* Disamakan dengan .btn--primary: gradien aksen + --on-accent. */
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  border-color: transparent; color: #fff;
+  border-color: transparent; color: var(--on-accent);
   box-shadow: var(--shadow-accent);
 }
 
+
+/* Tablet dan ponsel: pil diganti tab bergaris bawah yang dapat digeser
+   mendatar. Pil tujuh kategori membungkus menjadi tiga baris di layar sempit
+   dan memakan ruang yang seharusnya untuk daftar proyek. */
+@media (max-width: 64rem) {
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 0;
+    margin-inline: calc(-1 * var(--sp-4));
+    padding-inline: var(--sp-4);
+    scroll-snap-type: x proximity;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+
+  .filter {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: .55rem .85rem;
+    min-height: 2.6rem;
+    white-space: nowrap;
+  }
+  .filter:hover { transform: none; background: none; }
+  /* Tab aktif memakai gradien aksen yang sama dengan tombol utama, dipakai
+     sebagai garis bawah agar tetap berbentuk tab, bukan pil. */
+  .filter[aria-pressed="true"] {
+    background: none;
+    border-bottom-color: transparent;
+    border-image: linear-gradient(135deg, var(--accent), var(--accent-2)) 1;
+    color: var(--accent);
+    box-shadow: none;
+  }
+}
 .project-grid {
   display: grid; gap: var(--sp-5);
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
@@ -630,7 +733,8 @@ li:last-child { margin-bottom: 0; }
 .project__arrow {
   position: absolute; right: var(--sp-3); bottom: var(--sp-3); z-index: 1;
   width: 2.2rem; height: 2.2rem; display: grid; place-items: center;
-  background: var(--accent); color: #fff; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: var(--on-accent); border-radius: 50%;
   opacity: 0; transform: translateY(8px) scale(.85);
   transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
   box-shadow: var(--shadow-accent);
@@ -697,14 +801,18 @@ li:last-child { margin-bottom: 0; }
   color: var(--text-faint); font-variant-numeric: tabular-nums;
 }
 
-.info-card {
+.detail__side {
+  display: flex; flex-direction: column; gap: var(--sp-4);
   position: sticky; top: calc(var(--header-h) + 1.5rem);
+}
+@media (max-width: 56rem) { .detail__side { position: static; } }
+
+.info-card {
   background: linear-gradient(180deg, var(--surface-hi), var(--surface));
   border: 1px solid var(--border); border-radius: var(--radius);
   padding: var(--sp-5);
   box-shadow: 0 1px 0 0 var(--highlight) inset, var(--shadow-sm);
 }
-@media (max-width: 56rem) { .info-card { position: static; } }
 
 .info-list { list-style: none; margin: 0 0 var(--sp-5); padding: 0; }
 .info-list li {
@@ -752,7 +860,7 @@ li:last-child { margin-bottom: 0; }
   width: 2.75rem; height: 2.75rem;
   display: grid; place-items: center;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
+  color: var(--on-accent);
   border: 0; border-radius: 50%;
   box-shadow: var(--shadow-accent); cursor: pointer;
   opacity: 0; visibility: hidden; transform: translateY(10px) scale(.9);
@@ -761,46 +869,107 @@ li:last-child { margin-bottom: 0; }
               border-color var(--dur-fast) var(--ease-out);
 }
 .back-to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
-.back-to-top:hover { color: #fff; box-shadow: 0 14px 34px -8px rgba(20, 200, 166, .55); }
+.back-to-top:hover { color: var(--on-accent); box-shadow: 0 14px 34px -8px rgba(20, 200, 166, .55); }
 .back-to-top svg { width: 1.15rem; height: 1.15rem; }
 @media (max-width: 30rem) {
   .back-to-top { right: 1rem; bottom: 5.25rem; width: 2.6rem; height: 2.6rem; }
 }
 
 /* --- 12. Lightbox ------------------------------------------------------- */
-/* Dialog gambar. Tombol tutup mengambang di pojok kanan atas, dan dialognya
-   tidak pernah menggulir — gambar diskalakan agar selalu muat di layar. */
-/* JANGAN menyetel position di sini. <dialog> yang dibuka dengan showModal()
-   memakai position: fixed dari UA; menimpanya dengan relative membuat dialog
-   ikut alur dokumen, dan peramban menggulir halaman ke elemennya saat fokus
-   berpindah — halaman terasa melompat ke atas. Penempatan tombol tutup
-   ditangani .lightbox__inner. */
+/* JANGAN menyetel position pada .lightbox. <dialog> yang dibuka dengan
+   showModal() memakai position: fixed dari UA; menimpanya dengan relative
+   membuat dialog ikut alur dokumen dan halaman melompat saat fokus berpindah.
+   Penempatan tombol ditangani .lightbox__inner dan .lightbox__stage. */
 .lightbox {
   border: 0; padding: 0; background: transparent;
   max-width: 100vw; max-height: 100dvh;
   overflow: visible;
 }
-.lightbox__inner { position: relative; display: inline-block; }
 .lightbox::backdrop { background: rgba(5, 9, 8, .92); backdrop-filter: blur(6px); }
-.lightbox img {
+
+/* Kolom terpusat: panggung gambar di atas, keterangan di bawah. Sebelumnya
+   inner memakai inline-block sehingga isinya tidak pernah benar-benar
+   terpusat di layar sempit. */
+.lightbox__inner {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--sp-3);
+  max-width: 96vw;
+}
+
+/* Panggung membungkus gambar saja, sehingga panah menempel pada tepi GAMBAR,
+   bukan pada tepi kolom. */
+.lightbox__stage { position: relative; display: flex; }
+
+/* Perpindahan gambar memakai MEKANISME yang sama dengan galeri di halaman
+   detail proyek: scroll-snap horizontal, bukan animasi tukar-gambar. Dengan
+   begitu easing dan durasinya dijamin identik — keduanya gulir native yang
+   digerakkan scrollIntoView({ behavior: 'smooth' }), bukan dua keyframe
+   terpisah yang harus dijaga tetap selaras.
+
+   Lebar track dikunci: seluruh tangkapan layar proyek berasio 16/9, sehingga
+   kotak setinggi 78dvh berarti lebar maksimum 78dvh x 16/9. Batas ketiga itu
+   menjaga gambar tetap utuh di layar pendek sekaligus membuat tepi track
+   berimpit dengan tepi gambar, supaya panah tetap menempel pada gambar. */
+.lightbox__track {
+  display: flex; gap: var(--sp-3);
+  width: min(92vw, 68rem, calc(78dvh * 16 / 9));
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  border-radius: var(--radius);
+}
+.lightbox__track::-webkit-scrollbar { display: none; }
+.lightbox__slide {
+  flex: 0 0 100%; scroll-snap-align: center;
+  display: flex; align-items: center; justify-content: center;
+}
+/* <picture> bawaan browser bersifat inline dan tidak mengisi slide. */
+.lightbox__slide picture { display: flex; justify-content: center; width: 100%; }
+
+/* Gambar TIDAK dipaksa 16/9. Rasio itu hanya benar untuk tangkapan layar
+   proyek; sertifikat berbentuk bujur sangkar, dan mengunci kotaknya ke 16/9
+   membuat sertifikat 750x750 menyusut menjadi 612x612 dengan pita kosong di
+   kiri-kanan. Dibiarkan berukuran alami dengan batas atas, tangkapan layar
+   16/9 tetap mengisi lebar track (lebar track memang sudah dibatasi
+   78dvh x 16/9), sedangkan sertifikat memakai tinggi penuh yang tersedia. */
+.lightbox__slide img {
   display: block;
-  max-width: min(92vw, 68rem);
-  max-height: 82dvh;
+  max-width: 100%; max-height: 78dvh;
   width: auto; height: auto; object-fit: contain;
   border-radius: var(--radius);
   background: var(--surface);
 }
+
+/* Hanya gambar di dalam <picture> yang direntang penuh, yaitu tangkapan layar
+   proyek yang seluruhnya 16/9. Tanpa ini lebarnya mengikuti atribut `sizes`
+   milik galeri (46rem = 736px) dan gambar tampil menyusut di dalam track
+   selebar 1088px. Sertifikat (tanpa <picture>) sengaja dibiarkan berukuran
+   alami, karena rasionya berbeda. */
+.lightbox__slide picture img { width: 100%; }
+
 .lightbox[open] { animation: zoomIn var(--dur) var(--ease); }
 @keyframes zoomIn { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
 
+/* Keterangan dan penghitung ditumpuk dan dipusatkan; sebelumnya keduanya
+   berbagi satu baris sehingga penghitung terdorong keluar layar saat
+   keterangannya panjang. */
 .lightbox__bar {
-  display: flex; justify-content: center; align-items: center;
-  padding-top: var(--sp-3); color: #cbd5e1;
-  font-family: var(--font-mono); font-size: var(--step--2);
-  letter-spacing: .06em; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: var(--sp-2);
+  max-width: min(92vw, 68rem);
+  color: #cbd5e1; text-align: center;
+  font-family: var(--font-mono); font-size: var(--step--2); letter-spacing: .06em;
 }
+.lightbox__caption { text-wrap: pretty; }
+.lightbox__count {
+  padding: .2rem .7rem; border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, .12); color: #fff;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.lightbox__count[hidden] { display: none; }
+
 .lightbox__close {
-  position: absolute; top: -.75rem; right: -.75rem; z-index: 2;
+  position: absolute; top: -.75rem; right: -.75rem; z-index: 3;
   background: var(--surface); border: 1px solid var(--border); color: var(--text);
   width: 2.5rem; height: 2.5rem; border-radius: 50%; cursor: pointer;
   display: grid; place-items: center;
@@ -809,31 +978,44 @@ li:last-child { margin-bottom: 0; }
               color var(--dur-fast) var(--ease-out);
 }
 .lightbox__close:hover { color: var(--accent); transform: rotate(90deg); }
-@media (max-width: 40rem) {
-  .lightbox__close { top: -.6rem; right: -.35rem; width: 2.25rem; height: 2.25rem; }
-  .lightbox img { max-width: 90vw; max-height: 74dvh; }
-}
 
-/* Tombol geser di dalam lightbox. Disembunyikan sendiri oleh JS bila gambarnya
-   hanya satu, sehingga sertifikat tidak menampilkan panah yang tidak berguna. */
+/* Panah memakai permukaan solid bertema, bukan putih transparan. Tangkapan
+   layar aplikasi hampir selalu berlatar terang, sehingga panah putih tembus
+   pandang praktis tidak terlihat di atasnya. */
 .lightbox__nav {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
   width: 2.75rem; height: 2.75rem; display: grid; place-items: center;
-  background: rgba(255, 255, 255, .12); border: 0; border-radius: 50%;
-  color: #fff; cursor: pointer;
-  transition: background var(--dur-fast) var(--ease-out), transform var(--dur) var(--ease);
+  background: var(--surface); border: 1px solid var(--border); color: var(--text);
+  border-radius: 50%; cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out),
+              transform var(--dur) var(--ease);
 }
-.lightbox__nav:hover { background: rgba(255, 255, 255, .26); }
-.lightbox__nav--prev { left: var(--sp-3); }
-.lightbox__nav--next { right: var(--sp-3); }
+.lightbox__nav:hover { color: var(--accent); border-color: var(--accent); }
+.lightbox__nav--prev { left: -1.15rem; }
+.lightbox__nav--next { right: -1.15rem; }
+.lightbox__nav--prev:hover { transform: translateY(-50%) translateX(-2px); }
+.lightbox__nav--next:hover { transform: translateY(-50%) translateX(2px); }
 .lightbox__nav[hidden] { display: none; }
-.lightbox__nav svg { width: 1.2rem; height: 1.2rem; }
-.lightbox__count { font-variant-numeric: tabular-nums; white-space: nowrap; }
-.lightbox__count[hidden] { display: none; }
+.lightbox__nav svg { width: 1.15rem; height: 1.15rem; }
+
 @media (max-width: 40rem) {
-  .lightbox__nav { width: 2.35rem; height: 2.35rem; }
-  .lightbox__nav--prev { left: var(--sp-2); }
-  .lightbox__nav--next { right: var(--sp-2); }
+  .lightbox__inner { gap: var(--sp-2); }
+  /* Batas ukuran di layar sempit dipasang pada TRACK, bukan pada gambar.
+     Track yang menentukan lebar slide; membatasi gambarnya saja membuat
+     gambar lebih sempit daripada slide-nya sendiri (terukur 330px di dalam
+     track 345px) sehingga tepi kanan-kirinya tidak lagi berimpit. */
+  .lightbox__track { width: min(88vw, calc(76dvh * 16 / 9)); }
+  .lightbox__slide img { max-height: 76dvh; }
+  /* Tombol tutup ditarik ke DALAM sudut gambar. Di luar tepi, ia melewati
+     sisi layar dan ikut terpotong. */
+  .lightbox__close { top: .5rem; right: .5rem; width: 2.25rem; height: 2.25rem; }
+  /* Di layar sempit panah ditarik ke dalam tepi gambar supaya tidak terpotong
+     oleh sisi layar. */
+  .lightbox__nav { width: 2.4rem; height: 2.4rem; }
+  .lightbox__nav--prev { left: .5rem; }
+  .lightbox__nav--next { right: .5rem; }
+  .lightbox__nav--prev:hover, .lightbox__nav--next:hover { transform: translateY(-50%); }
 }
 
 /* --- 13. Harga ---------------------------------------------------------- */
@@ -845,7 +1027,7 @@ li:last-child { margin-bottom: 0; }
 }
 .price__badge {
   position: absolute; top: 0; right: var(--sp-5); transform: translateY(-50%);
-  background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--on-accent);
   padding: .25rem .8rem; border-radius: var(--radius-full);
   font-family: var(--font-mono); font-size: var(--step--2);
   letter-spacing: .08em; text-transform: uppercase;
@@ -913,7 +1095,15 @@ li:last-child { margin-bottom: 0; }
 
 /* Kartu layanan pada indeks: sama seperti kartu biasa, ditambah baris harga
    di bagian bawah supaya pengunjung langsung tahu titik awal biayanya. */
-.service-card { display: flex; flex-direction: column; }
+/* Kolom fleks agar blok harga (margin-top: auto) mendarat di dasar kartu,
+   sehingga garis pemisahnya sejajar meski judul dan ringkasan tiap layanan
+   berbeda panjang. display/height/warna DIPASANG DI SINI, bukan sebagai gaya
+   sebaris di templat: gaya sebaris menang atas kelas, dan `display:block`
+   sebaris pernah membuat kolom fleks ini diam-diam tidak pernah aktif. */
+.service-card {
+  display: flex; flex-direction: column; height: 100%;
+  text-decoration: none; color: inherit;
+}
 .service-card__price {
   margin: auto 0 0; padding-top: var(--sp-4);
   border-top: 1px solid var(--border);
@@ -922,12 +1112,58 @@ li:last-child { margin-bottom: 0; }
 .service-card__from {
   font-family: var(--font-mono); font-size: var(--step--2);
   letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint);
+  /* Selalu satu baris penuh, supaya harga dan rupiah berbagi baris berikutnya
+     dan blok ini setinggi dua baris di SEMUA kartu. Dibiarkan membungkus bebas,
+     tingginya bergantung panjang label per bahasa: "MULAI DARI" lebih panjang
+     dari "STARTING FROM", sehingga kartu dengan angka terbesar pecah jadi tiga
+     baris dan garis pemisahnya naik sendirian. */
+  flex: 1 0 100%;
 }
 .service-card__price strong {
   font-size: var(--step-1); letter-spacing: -.02em;
   font-variant-numeric: tabular-nums; color: var(--accent);
 }
 .service-card__idr { font-size: var(--step--1); color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+/* Tombol di dalam kartu sisi dibuat lebih ringkas: ukuran penuh terasa
+   terlalu berat pada kolom sempit. */
+.info-card .btn {
+  min-height: 2.5rem; padding: .5rem 1rem;
+  font-size: var(--step--1);
+}
+.info-card .btn svg { width: .95rem; height: .95rem; }
+
+/* --- Kartu bagikan ------------------------------------------------------- */
+.share__title {
+  display: flex; align-items: center; gap: var(--sp-2);
+  font-size: var(--step--1); margin-bottom: var(--sp-4);
+  font-family: var(--font-mono); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-faint);
+}
+.share__title svg { width: 1rem; height: 1rem; color: var(--accent); }
+/* Enam kanal selalu dalam SATU baris di semua lebar layar. Tombolnya dibuat
+   lentur (flex: 1) dan berbentuk bujur sangkar lewat aspect-ratio, sehingga
+   menyusut mengikuti lebar kartu alih-alih membungkus ke baris kedua. */
+.share__list { display: flex; flex-wrap: nowrap; gap: var(--sp-2); }
+/* Yang menjadi item flex adalah <li>-nya, bukan tombol. Melenturkan tombol
+   secara langsung tidak berpengaruh dan justru membuatnya menyusut tak
+   terkendali. */
+.share__list > li { flex: 1 1 0; min-width: 0; max-width: 3rem; margin: 0; }
+.share__btn {
+  width: 100%; aspect-ratio: 1; height: auto;
+  display: grid; place-items: center;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+  color: var(--text-muted); cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out),
+              transform var(--dur) var(--ease), background var(--dur-fast) var(--ease-out);
+}
+.share__btn:hover {
+  color: var(--accent); border-color: var(--accent);
+  background: var(--accent-dim); transform: translateY(-2px);
+}
+.share__btn svg { width: 1.15rem; height: 1.15rem; flex: 0 0 auto; }
+/* Umpan balik setelah tautan disalin. */
+.share__btn.is-done { color: var(--accent); border-color: var(--accent); background: var(--accent-dim); }
 
 /* --- 14. Kontak & footer ------------------------------------------------ */
 .contact-card {
@@ -1055,7 +1291,7 @@ li:last-child { margin-bottom: 0; }
 
   .hero { padding-block: var(--sp-6) var(--sp-7); }
   .hero__inner { gap: var(--sp-5); }
-  .hero__portrait { width: min(62vw, 13rem); }
+  .hero__portrait { width: min(46vw, 9.5rem); }
   .hero__tagline { margin-bottom: var(--sp-5); }
   .hero__actions { gap: var(--sp-2); }
   .hero__actions .btn { flex: 1 1 auto; justify-content: center; }
@@ -1086,8 +1322,10 @@ li:last-child { margin-bottom: 0; }
   .gallery__nav { flex-wrap: wrap; gap: var(--sp-2); }
   .breadcrumb ol { row-gap: var(--sp-1); }
 
-  /* dialog lightbox memenuhi layar kecil dengan lebih baik */
-  .lightbox img { max-height: 76vh; }
+  /* Batas tinggi lightbox di layar kecil DIPUSATKAN di blok lightbox
+     (cari .lightbox__track). Sebelumnya nilainya ditulis di dua blok mobile
+     yang berbeda — 66dvh di sana dan 76vh di sini — dan yang belakangan diam
+     diam menang. */
 
   /* Target sentuh minimal 40px agar nyaman dijangkau jempol. */
   .link-btn { min-height: 2.5rem; padding-inline: .9rem; }

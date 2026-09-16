@@ -151,13 +151,22 @@ function initScrollSpy() {
     const el = document.getElementById(decodeURIComponent(id));
     if (el) peta.set(el, a);
   }
-  if (!peta.size) return;      // bukan halaman beranda
+  if (!peta.size) return;
 
   // Tautan "Beranda" aktif saat pengunjung masih di puncak halaman. Ditandai
   // lewat atribut oleh generator, bukan ditebak dari href — prefiks bahasa
   // dapat berubah (mis. beranda Indonesia pindah dari "/" ke "/id/") dan
   // tebakan berbasis href akan diam-diam berhenti bekerja.
   const beranda = $('.nav__link[data-nav-home]');
+
+  // Scrollspy hanya boleh hidup di beranda, dan itu HARUS ditanyakan ke
+  // penanda halaman — bukan disimpulkan dari "ada section yang cocok".
+  // Halaman layanan dan detail layanan juga memuat <section id="contact">,
+  // sehingga satu tautan nav ikut cocok dan penjaga di atas lolos. Akibatnya
+  // scrollspy menyorot Beranda (saat di puncak) atau Kontak (saat digulir)
+  // di samping sorotan statis "Layanan" milik generator — dua tombol menyala
+  // sekaligus, karena scrollspy hanya melepas sorotan tautan yang ia kelola.
+  if (!beranda || beranda.getAttribute('aria-current') !== 'page') return;
 
   const semua = [...peta.values(), beranda].filter(Boolean);
 
@@ -223,22 +232,76 @@ function initFilter() {
   if (!bar || !items.length) return;
 
   const counter = $('[data-filter-count]');
+  const tombol = $$('[data-filter]', bar);
+
+  const terapkan = (mau, gulir) => {
+    const btn = tombol.find(b => b.dataset.filter === mau);
+    if (!btn) return false;
+    tombol.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+
+    let tampil = 0;
+    for (const item of items) {
+      const cocok = mau === 'all' || item.dataset.category === mau;
+      item.hidden = !cocok;
+      if (cocok) tampil++;
+    }
+    if (counter) counter.textContent = counter.dataset.template.replace('{n}', tampil);
+    if (gulir) keAwalDaftar();
+    return true;
+  };
+
+  // Setelah menyaring, bawa pandangan ke awal daftar. Tanpa ini pengunjung
+  // yang menyaring dari tengah halaman mendarat di tengah daftar baru yang
+  // lebih pendek — kadang di bawah ujungnya, sehingga tampak kosong.
+  const keAwalDaftar = () => {
+    const daftar = $('.project-grid');
+    if (!daftar) return;
+
+    // Posisi bar saat MENEMPEL dihitung dari nilai sticky `top` + tingginya,
+    // bukan dibaca dari getBoundingClientRect().bottom saat ini. Menyembunyikan
+    // kartu memendekkan halaman, browser lalu menjepit posisi gulir ke batas
+    // baru, dan pada posisi jepitan itu bar kerap belum menempel sehingga
+    // bottom-nya jauh lebih besar. Karena scrollY saling meniadakan di rumus
+    // di bawah, sasaran jadi hanya bergantung angka tersebut — akibatnya tiap
+    // klik mendarat di tempat berbeda dan layar merayap sedikit demi sedikit.
+    const atasMenempel = parseFloat(getComputedStyle(bar).top) || 0;
+    const bawahBarMenempel = atasMenempel + bar.offsetHeight;
+
+    const sasaran = window.scrollY + daftar.getBoundingClientRect().top - bawahBarMenempel - 12;
+    window.scrollTo({ top: Math.max(0, sasaran), behavior: reduceMotion ? 'auto' : 'smooth' });
+  };
 
   bar.addEventListener('click', e => {
     const btn = e.target.closest('[data-filter]');
     if (!btn) return;
-
-    const want = btn.dataset.filter;
-    $$('[data-filter]', bar).forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
-
-    let shown = 0;
-    for (const item of items) {
-      const match = want === 'all' || item.dataset.category === want;
-      item.hidden = !match;
-      if (match) shown++;
-    }
-    if (counter) counter.textContent = counter.dataset.template.replace('{n}', shown);
+    terapkan(btn.dataset.filter, true);
   });
+
+  // Tautan "lihat semua di kategori ini" dari halaman detail proyek datang
+  // sebagai /projects/#<kategori>. Tanpa penanganan ini, tandanya diabaikan
+  // dan halaman terbuka pada "Semua".
+  const dariTanda = () => {
+    const kunci = decodeURIComponent((location.hash || '').slice(1));
+    if (kunci) terapkan(kunci, false);
+  };
+  dariTanda();
+  addEventListener('hashchange', dariTanda);
+}
+
+/* --- Bar filter: tandai saat menempel di bawah header -------------------- */
+function initFilterStuck() {
+  const bar = $('[data-filter-bar]');
+  if (!bar) return;
+  const penanda = document.createElement('div');
+  penanda.setAttribute('aria-hidden', 'true');
+  penanda.style.cssText = 'height:1px;width:100%';
+  bar.parentNode.insertBefore(penanda, bar);
+
+  const header = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 4;
+  const px = header * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  new IntersectionObserver(([e]) => {
+    bar.classList.toggle('is-stuck', !e.isIntersecting);
+  }, { rootMargin: `-${Math.round(px)}px 0px 0px 0px` }).observe(penanda);
 }
 
 /* --- Galeri proyek (pengganti Owl Carousel) ------------------------------
@@ -336,11 +399,12 @@ function initLightbox() {
   const dialog = $('[data-lightbox]');
   if (!dialog || typeof dialog.showModal !== 'function') return;
 
-  const img = $('img', dialog);
+  const track = $('[data-lightbox-track]', dialog);
   const caption = $('[data-lightbox-caption]', dialog);
   const hitung = $('[data-lightbox-count]', dialog);
   const tPrev = $('[data-lightbox-prev]', dialog);
   const tNext = $('[data-lightbox-next]', dialog);
+  if (!track) return;
 
   // Dua bentuk pemicu:
   //   <img data-zoom>            -> gambar galeri, sumbernya dirinya sendiri
@@ -357,26 +421,74 @@ function initLightbox() {
   };
 
   let rangkaian = [];
-  let posisi = 0;
   let opener = null;
 
   const sumber = el => el.dataset.zoomSrc || el.currentSrc || el.src;
   const teks = el => el.dataset.zoomAlt || el.alt || '';
 
-  const tampilkan = i => {
-    posisi = (i + rangkaian.length) % rangkaian.length;   // melingkar
-    const el = rangkaian[posisi];
-    img.src = sumber(el);
-    img.alt = teks(el);
-    if (caption) caption.textContent = teks(el);
+  const slides = () => $$('.lightbox__slide', track);
+
+  const indexSaatIni = () => {
+    const n = slides().length;
+    if (!n) return 0;
+    return Math.min(n - 1, Math.round(track.scrollLeft / (track.scrollWidth / n)));
+  };
+
+  const perbarui = () => {
+    const i = indexSaatIni();
+    const el = rangkaian[i];
+    if (caption) caption.textContent = el ? teks(el) : '';
     const banyak = rangkaian.length > 1;
     if (hitung) {
       hitung.hidden = !banyak;
       hitung.textContent = (hitung.dataset.template || '{n}/{total}')
-        .replace('{n}', posisi + 1).replace('{total}', rangkaian.length);
+        .replace('{n}', i + 1).replace('{total}', rangkaian.length);
     }
     if (tPrev) tPrev.hidden = !banyak;
     if (tNext) tNext.hidden = !banyak;
+  };
+
+  // Panggilan yang SAMA PERSIS dengan galeri di halaman detail proyek, supaya
+  // gerak dan easing-nya identik tanpa perlu menyelaraskan dua animasi.
+  const ke = (i, halus = true) => {
+    const s = slides();
+    if (!s.length) return;
+    const n = (i + s.length) % s.length;        // melingkar
+    s[n].scrollIntoView({
+      behavior: (halus && !reduceMotion) ? 'smooth' : 'auto',
+      block: 'nearest', inline: 'center'
+    });
+  };
+  const geser = langkah => ke(indexSaatIni() + langkah);
+
+  const bangun = () => {
+    track.innerHTML = '';
+    for (const el of rangkaian) {
+      const slide = document.createElement('div');
+      slide.className = 'lightbox__slide';
+
+      // <picture> pemicu disalin utuh berikut <source> AVIF-nya, bukan disalin
+      // alamatnya. Menyalin currentSrc tampak lebih sederhana, tetapi gambar
+      // galeri yang belum selesai dimuat (loading="lazy", di luar layar)
+      // currentSrc-nya masih kosong — nilainya lalu jatuh ke src, yaitu JPEG
+      // cadangan. Terukur: satu slide terunduh ulang sebagai JPEG 10KB padahal
+      // AVIF-nya 4KB. Dengan menyalin <picture>, browser sendiri yang memilih
+      // dan berkas yang sama persis dipakai ulang dari cache.
+      const gambar = el.closest('picture');
+      if (gambar) {
+        const salinan = gambar.cloneNode(true);
+        const im = salinan.querySelector('img');
+        if (im) { im.removeAttribute('loading'); im.decoding = 'async'; im.alt = teks(el); }
+        slide.appendChild(salinan);
+      } else {
+        const im = document.createElement('img');
+        im.src = sumber(el);
+        im.alt = teks(el);
+        im.decoding = 'async';
+        slide.appendChild(im);
+      }
+      track.appendChild(slide);
+    }
   };
 
   for (const el of pemicu) {
@@ -384,35 +496,38 @@ function initLightbox() {
       if (!sumber(el)) return;
       opener = el;
       rangkaian = rangkaianDari(el);
-      tampilkan(Math.max(0, rangkaian.indexOf(el)));
+      bangun();
       dialog.showModal();
+      // Lompat tanpa animasi ke gambar yang diklik. Harus SETELAH showModal(),
+      // karena sebelum dialog tampil track belum punya lebar dan gulirnya
+      // tidak akan bergerak.
+      ke(Math.max(0, rangkaian.indexOf(el)), false);
+      perbarui();
     });
   }
 
-  tPrev?.addEventListener('click', () => tampilkan(posisi - 1));
-  tNext?.addEventListener('click', () => tampilkan(posisi + 1));
+  tPrev?.addEventListener('click', () => geser(-1));
+  tNext?.addEventListener('click', () => geser(1));
 
   // panah kiri/kanan untuk berpindah gambar
   dialog.addEventListener('keydown', e => {
     if (rangkaian.length < 2) return;
-    if (e.key === 'ArrowLeft') { e.preventDefault(); tampilkan(posisi - 1); }
-    if (e.key === 'ArrowRight') { e.preventDefault(); tampilkan(posisi + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); geser(-1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); geser(1); }
   });
 
-  // geser dengan sentuhan pada layar sentuh
-  let mulaiX = null;
-  dialog.addEventListener('pointerdown', e => { mulaiX = e.clientX; });
-  dialog.addEventListener('pointerup', e => {
-    if (mulaiX === null || rangkaian.length < 2) { mulaiX = null; return; }
-    const jarak = e.clientX - mulaiX;
-    mulaiX = null;
-    if (Math.abs(jarak) > 45) tampilkan(posisi + (jarak < 0 ? 1 : -1));
-  });
+  // Geser sentuh tidak lagi ditangani sendiri: scroll-snap sudah memberi
+  // gulir sentuh native, lengkap dengan momentum dan tarikan balik.
+  let tick;
+  track.addEventListener('scroll', () => {
+    clearTimeout(tick);
+    tick = setTimeout(perbarui, 90);
+  }, { passive: true });
 
   $('[data-lightbox-close]', dialog)?.addEventListener('click', () => dialog.close());
   // klik di area gelap menutup, klik pada isi dialog tidak
   dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
-  dialog.addEventListener('close', () => { img.removeAttribute('src'); opener?.focus(); });
+  dialog.addEventListener('close', () => { track.innerHTML = ''; opener?.focus(); });
 }
 
 
@@ -435,6 +550,40 @@ function initBackToTop() {
     btn.classList.toggle('is-visible', !e.isIntersecting);
     btn.tabIndex = e.isIntersecting ? -1 : 0;
   }, { rootMargin: '0px' }).observe(penanda);
+}
+
+/* --- Tombol salin tautan pada kartu bagikan ------------------------------ */
+function initCopyLink() {
+  for (const btn of $$('[data-copy-link]')) {
+    btn.addEventListener('click', async () => {
+      const url = btn.dataset.copyLink;
+      let ok = false;
+      try {
+        await navigator.clipboard.writeText(url);
+        ok = true;
+      } catch {
+        // Clipboard API ditolak (mis. konteks tidak aman) — pakai cara lama.
+        const ta = document.createElement('textarea');
+        ta.value = url;
+        ta.setAttribute('readonly', '');
+        ta.style.cssText = 'position:fixed;top:-100px;opacity:0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { ok = document.execCommand('copy'); } catch {}
+        ta.remove();
+      }
+      if (!ok) return;
+      const semula = btn.getAttribute('aria-label');
+      btn.classList.add('is-done');
+      btn.setAttribute('aria-label', btn.dataset.labelDone || semula);
+      btn.title = btn.dataset.labelDone || semula;
+      setTimeout(() => {
+        btn.classList.remove('is-done');
+        btn.setAttribute('aria-label', semula);
+        btn.title = semula;
+      }, 2000);
+    });
+  }
 }
 
 /* --- Crisp: dimuat saat senggang agar tidak membebani muat awal ---------- */
@@ -538,6 +687,6 @@ function initYear() {
 }
 
 /* --- Jalankan ------------------------------------------------------------ */
-for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initLangSwitch, initFilter, initGallery, initLightbox, initPrint, initUnduhCV, initBackToTop, initChat, initYear]) {
+for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initLangSwitch, initFilter, initFilterStuck, initGallery, initLightbox, initPrint, initUnduhCV, initBackToTop, initCopyLink, initChat, initYear]) {
   try { init(); } catch (err) { console.error(`[main.js] ${init.name} gagal:`, err); }
 }

@@ -27,12 +27,11 @@ module.exports = function services(ctx) {
             : 'Four services that complement each other. Take just one, or combine them into a single end-to-end engagement.')}</p>
         </div>
 
-        <ul class="grid grid--2 list-plain">
+        <ul class="grid grid--services list-plain">
 ${each(site.services, (s, i) => {
   const x = t(s, lang);
   return `          <li data-reveal data-reveal-delay="${i * 80}">
-            <a class="card card--link service-card" href="${esc(pageUrl('service', lang, s.slug[lang]))}"
-               style="display:block;text-decoration:none;color:inherit;height:100%">
+            <a class="card card--link service-card" href="${esc(pageUrl('service', lang, s.slug[lang]))}">
               <span class="card__icon">${icon(s.icon)}</span>
               <h2 class="card__title">${esc(x.title)}</h2>
               <p class="card__text">${esc(x.summary)}</p>

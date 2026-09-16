@@ -553,6 +553,37 @@ function initBackToTop() {
 }
 
 /* --- Tombol salin tautan pada kartu bagikan ------------------------------ */
+/* Pemberitahuan singkat yang muncul sendiri lalu hilang.
+
+   Dipakai sebagai ganti window.alert(): alert memblokir seluruh halaman sampai
+   ditutup dan tampil sebagai dialog sistem yang lepas dari tema situs.
+
+   role="status" dengan aria-live="polite" membuat pembaca layar ikut
+   mengumumkannya. Tanpa itu, perubahan yang hanya terlihat mata tidak pernah
+   sampai ke pengguna yang tidak melihat layar — padahal justru merekalah yang
+   paling butuh kepastian bahwa penyalinan berhasil. */
+let toastTimer = null;
+function toast(pesan) {
+  if (!pesan) return;
+  let el = $('[data-toast]');
+  if (!el) {
+    el = document.createElement('div');
+    el.className = 'toast';
+    el.setAttribute('data-toast', '');
+    el.setAttribute('role', 'status');
+    el.setAttribute('aria-live', 'polite');
+    document.body.appendChild(el);
+  }
+  el.textContent = pesan;
+  // Reflow dipaksa supaya animasi terputar ulang saat tombol ditekan berturut-
+  // turut; tanpa ini kelasnya sudah terpasang dan animasinya diam.
+  el.classList.remove('is-on');
+  void el.offsetWidth;
+  el.classList.add('is-on');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('is-on'), 2600);
+}
+
 function initCopyLink() {
   for (const btn of $$('[data-copy-link]')) {
     btn.addEventListener('click', async () => {
@@ -573,6 +604,7 @@ function initCopyLink() {
         ta.remove();
       }
       if (!ok) return;
+      toast(btn.dataset.labelToast || btn.dataset.labelDone);
       const semula = btn.getAttribute('aria-label');
       btn.classList.add('is-done');
       btn.setAttribute('aria-label', btn.dataset.labelDone || semula);

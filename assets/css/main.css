@@ -1260,9 +1260,30 @@ li:last-child { margin-bottom: 0; }
   @view-transition { navigation: none; }
 }
 
+/* --- Pemberitahuan singkat ------------------------------------------------ */
+/* Muncul di atas seluruh isi halaman, termasuk di atas dialog lightbox, karena
+   tombol salin tautan juga bisa ditekan saat dialog terbuka. */
+.toast {
+  position: fixed; z-index: 100;
+  left: 50%; bottom: calc(var(--sp-6) + env(safe-area-inset-bottom, 0px));
+  transform: translate(-50%, 1rem);
+  max-width: min(92vw, 26rem);
+  padding: var(--sp-3) var(--sp-5);
+  background: var(--surface-hi); color: var(--text);
+  border: 1px solid var(--border); border-radius: var(--radius-full);
+  box-shadow: var(--shadow-lg);
+  font-size: var(--step--1); text-align: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur) var(--ease);
+}
+.toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) {
+  .toast { transition: opacity var(--dur-fast) linear; transform: translate(-50%, 0); }
+}
+
 /* --- 17. Cetak ---------------------------------------------------------- */
 @media print {
-  .header, .footer, .skip-link, .filters, .gallery__nav, .project__arrow { display: none !important; }
+  .header, .footer, .skip-link, .filters, .gallery__nav, .project__arrow, .toast { display: none !important; }
   body { background: #fff; color: #000; }
   a { text-decoration: none; color: #000; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }

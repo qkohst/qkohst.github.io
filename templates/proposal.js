@@ -10,6 +10,7 @@
    <h2>, karena tools/audit.js mensyaratkan tepat satu <h1> per halaman dan
    dokumen ini punya belasan bagian. */
 const { esc, each, icon, t, pageUrl, fmtUsd, fmtIdr, fmtDate, fmtMonth, waLink, WA_TEKS } = require('../tools/lib');
+const { shareList } = require('./partials');
 
 /** Pecah daftar menjadi potongan sepanjang n, supaya tabel panjang tidak
     melimpah keluar batas A4 dan kehilangan header/footer halamannya. */
@@ -235,6 +236,11 @@ ${h.isi}
       <button class="btn btn--ghost" type="button" data-print>
         ${icon('download')} ${esc(L.print)}
       </button>
+    </div>
+
+    <div class="pr-share">
+      <span class="pr-share__title">${icon('share')} ${esc(L.shareTitle)}</span>
+      ${shareList(ctx.canonical, `${L.docTitle}: ${judul}`, ui)}
     </div>
     <p class="pr-hint">
       <a href="${esc(pageUrl('project', lang, proyek.slug[lang]))}">${esc(ui.viewProject)}: ${esc(judul)}</a>

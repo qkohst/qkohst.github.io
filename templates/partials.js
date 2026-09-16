@@ -86,4 +86,41 @@ ${contactCard('map-pin', lang === 'id' ? 'Alamat' : 'Address', cl.addressShort, 
     </section>`;
 }
 
-module.exports = { projectCard, filterBar, meter, contactCard, contactSection };
+
+/* Kanal berbagi. Tiap entri membangun URL bagikan baku milik platformnya dari
+   URL kanonis halaman dan judulnya.
+
+   Definisinya tinggal di sini, bukan di templat pemakainya, karena dipakai dua
+   halaman: detail proyek dan penawaran. Disalin ke masing-masing, satu kanal
+   baru harus ditambahkan dua kali dan cepat atau lambat keduanya berselisih. */
+const BAGIKAN = [
+  { key: 'whatsapp', icon: 'whatsapp', label: 'WhatsApp',
+    url: (u, j) => `https://api.whatsapp.com/send?${new URLSearchParams({ text: `${j} — ${u}` })}` },
+  { key: 'facebook', icon: 'facebook', label: 'Facebook',
+    url: u => `https://www.facebook.com/sharer/sharer.php?${new URLSearchParams({ u })}` },
+  { key: 'twitter', icon: 'twitter', label: 'X',
+    url: (u, j) => `https://twitter.com/intent/tweet?${new URLSearchParams({ url: u, text: j })}` },
+  { key: 'linkedin', icon: 'linkedin', label: 'LinkedIn',
+    url: u => `https://www.linkedin.com/sharing/share-offsite/?${new URLSearchParams({ url: u })}` },
+  { key: 'telegram', icon: 'telegram', label: 'Telegram',
+    url: (u, j) => `https://t.me/share/url?${new URLSearchParams({ url: u, text: j })}` }
+];
+
+/** Deretan tombol berbagi, ditutup tombol salin tautan.
+    `url` harus URL kanonis absolut — tautan bagikan yang berisi path relatif
+    tidak berarti apa-apa di luar situs. */
+function shareList(url, judul, ui) {
+  return `<ul class="share__list list-plain">
+${each(BAGIKAN, b => `          <li><a class="share__btn share__btn--${b.key}" href="${esc(b.url(url, judul))}"
+                 target="_blank" rel="noopener noreferrer" aria-label="${esc(b.label)}" title="${esc(b.label)}">${icon(b.icon)}</a></li>
+`)}          <li>
+            <button class="share__btn share__btn--link" type="button"
+                    data-copy-link="${esc(url)}"
+                    data-label-copy="${esc(ui.copyLink)}" data-label-done="${esc(ui.linkCopied)}"
+                    data-label-toast="${esc(ui.linkCopiedToast)}"
+                    aria-label="${esc(ui.copyLink)}" title="${esc(ui.copyLink)}">${icon('link')}</button>
+          </li>
+        </ul>`;
+}
+
+module.exports = { projectCard, filterBar, meter, contactCard, contactSection, shareList };

@@ -1,6 +1,6 @@
 /* Halaman detail satu proyek: galeri scroll-snap, info, deskripsi, fitur. */
 const { esc, each, icon, t, pageUrl, fmtMonth, waLink, WA_TEKS } = require('../tools/lib');
-const { projectCard } = require('./partials');
+const { projectCard, shareList } = require('./partials');
 
 /* CTA utama selalu mengajak berdiskusi lewat WhatsApp dengan pesan yang sudah
    terisi judul proyek dan bahasa halaman. Tautan dokumentasi Postman tetap
@@ -8,20 +8,6 @@ const { projectCard } = require('./partials');
    tautan repositori tidak lagi ditawarkan sebagai tombol. */
 const DOC_LABEL = { id: 'Lihat dokumentasi API', en: 'View API documentation' };
 
-/* Kanal berbagi. Tiap entri membangun URL bagikan baku milik platformnya,
-   memakai URL kanonis halaman dan judul proyek. */
-const BAGIKAN = [
-  { key: 'whatsapp', icon: 'whatsapp', label: 'WhatsApp',
-    url: (u, j) => `https://api.whatsapp.com/send?${new URLSearchParams({ text: `${j} — ${u}` })}` },
-  { key: 'facebook', icon: 'facebook', label: 'Facebook',
-    url: u => `https://www.facebook.com/sharer/sharer.php?${new URLSearchParams({ u })}` },
-  { key: 'twitter', icon: 'twitter', label: 'X',
-    url: (u, j) => `https://twitter.com/intent/tweet?${new URLSearchParams({ url: u, text: j })}` },
-  { key: 'linkedin', icon: 'linkedin', label: 'LinkedIn',
-    url: u => `https://www.linkedin.com/sharing/share-offsite/?${new URLSearchParams({ url: u })}` },
-  { key: 'telegram', icon: 'telegram', label: 'Telegram',
-    url: (u, j) => `https://t.me/share/url?${new URLSearchParams({ url: u, text: j })}` }
-];
 
 module.exports = function project(ctx, p, semuaProyek = [], penawaran = null) {
   const { lang, ui, site } = ctx;
@@ -88,17 +74,7 @@ ${each(c.features, f => `                <li>${esc(f)}</li>\n`)}              </
           <aside class="detail__side">
             <div class="card share" data-reveal data-reveal-delay="80">
               <h2 class="share__title">${icon('share')} ${esc(ui.shareTitle)}</h2>
-              <ul class="share__list list-plain">
-${each(BAGIKAN, b => `                <li><a class="share__btn share__btn--${b.key}" href="${esc(b.url(ctx.canonical, c.title))}"
-                       target="_blank" rel="noopener noreferrer" aria-label="${esc(b.label)}" title="${esc(b.label)}">${icon(b.icon)}</a></li>
-`)}
-                <li>
-                  <button class="share__btn share__btn--link" type="button"
-                          data-copy-link="${esc(ctx.canonical)}"
-                          data-label-copy="${esc(ui.copyLink)}" data-label-done="${esc(ui.linkCopied)}"
-                          aria-label="${esc(ui.copyLink)}" title="${esc(ui.copyLink)}">${icon('link')}</button>
-                </li>
-              </ul>
+              ${shareList(ctx.canonical, c.title, ui)}
             </div>
 
             <div class="card info-card" data-reveal data-reveal-delay="100">

@@ -352,6 +352,22 @@
 }
 .pr-hint { text-align: center; padding-bottom: var(--sp-7); margin: 0; font-size: var(--step--1); }
 
+/* Blok berbagi. Lebarnya dibatasi supaya enam tombol tetap berukuran sentuh
+   yang wajar — .share__list melenturkan tiap tombol mengikuti lebar induknya,
+   jadi tanpa batas ini mereka akan melar mengikuti lebar halaman. */
+.pr-share {
+  display: flex; flex-direction: column; align-items: center; gap: var(--sp-3);
+  width: min(100% - 2rem, 22rem);
+  margin: 0 auto; padding-bottom: var(--sp-5);
+}
+.pr-share .share__list { width: 100%; }
+.pr-share__title {
+  display: flex; align-items: center; gap: var(--sp-2);
+  font-family: var(--font-mono); font-size: var(--step--2);
+  letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint);
+}
+.pr-share__title svg { width: 1rem; height: 1rem; color: var(--accent); }
+
 /* --- Layar sempit --------------------------------------------------------- */
 /* Tidak ada pelipatan tata letak di sini, dan itu disengaja: dokumen ini harus
    tampil SAMA di ponsel, tablet, maupun desktop. Lebarnya tetap 210mm; yang
@@ -361,7 +377,7 @@
 
 /* --- Cetak ---------------------------------------------------------------- */
 @media print {
-  .header, .footer, .skip-link, .pr-actions, .pr-hint, .back-to-top { display: none !important; }
+  .header, .footer, .skip-link, .pr-actions, .pr-share, .pr-hint, .back-to-top { display: none !important; }
   /* Kertas selalu ukuran penuh, berapa pun skala di layar saat mencetak. */
   [data-doc-scale] { zoom: 1 !important; }
   body { background: #fff; }

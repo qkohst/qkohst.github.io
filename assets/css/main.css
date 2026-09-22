@@ -14,46 +14,65 @@
 
 /* --- 1. Token ----------------------------------------------------------- */
 :root {
-  /* Permukaan berlapis (terang). Netral abu sejuk, ditarik dari keluarga
-     grafit pada logo (#2e2e2e / #5e5e5e) — bukan mint, dan bukan putih murni.
-     Latar netral membuat tangkapan layar proyek, yang warnanya sangat beragam,
-     tidak bersaing dengan warna halaman.
+  /* Permukaan berlapis (terang). Bernada teal, ditarik dari sisi teal logo
+     (#0bad94 / #047563) pada hue 170° dengan saturasi rendah — bukan putih
+     murni dan bukan abu netral.
+
+     Seluruh TANGGA permukaan ikut bernada, bukan hanya --bg. Yang menutupi
+     sebagian besar layar adalah --surface (pita .section--subtle) dan
+     --surface-hi (puncak gradien kartu); kalau keduanya dibiarkan nyaris
+     putih, halaman tetap terbaca polos betapa pun --bg digeser.
+
+     Saturasi ditahan di ~20% supaya tangkapan layar proyek, yang warnanya
+     sangat beragam, tetap terbaca dan tidak bersaing dengan warna halaman.
 
      CATATAN: --accent tetap memakai teal DALAM (#04715f), bukan teal terang
      logo. Token ini dipakai sekaligus untuk teks tautan dan label; teal terang
      di atas latar terang hanya mencapai sekitar 2,5:1 dan tidak terbaca. Teal
      terang logo tetap hadir lewat --glow dan --accent-dim. */
-  --bg:          #eceef0;
-  --surface:     #f6f7f8;
-  --surface-hi:  #fbfbfc;
-  --raised:      #f6f7f8;
-  --inset:       #e0e3e6;
+  --bg:          #e3edeb;
+  --surface:     #f1f6f5;
+  --surface-hi:  #f9fbfb;
+  --raised:      #f1f6f5;
+  /* Dipakai sebagai latar chip (.tag), lintasan meter, dan bingkai gambar.
+     Diperdalam dari #d4e5e2: terhadap kartu ia hanya terpisah 1,19:1 dan chip
+     ikut melebur begitu permukaan dan chip sehue. Kini 1,27:1. */
+  --inset:       #cbdfdb;
 
-  --border:      #cfd4d8;
-  --border-bright: #b3bbc1;
+  --border:      #c3dad6;
+  --border-bright: #a6c9c3;
   --highlight:   rgba(255, 255, 255, .55);
 
-  --text:       #16191b;
-  --text-muted: #4c5459;
-  --text-faint: #5e666c;
+  /* Teks ikut bernada teal, seperti di mode gelap. Abu netral-sejuk yang lama
+     (#4c5459 / #5e666c) condong ke biru; di atas permukaan kehijauan ia
+     terbaca sebagai hue yang meleset, bukan sebagai abu. Pergeseran ini juga
+     sedikit menaikkan kontras: --text-faint 4,89:1 -> 5,24:1. */
+  --text:       #121a18;
+  --text-muted: #46524f;
+  --text-faint: #57635f;
   --on-accent:  #ffffff;
 
   /* Diturunkan dari logo: #0bad94 (teal terang) dan #047563 (teal dalam).
-     Aksen tetap teal agar identitas merek bertahan di atas netral abu. */
+     Aksen dijaga jauh lebih gelap daripada latar yang kini senada dengannya,
+     supaya tautan dan label tetap menonjol alih-alih larut ke permukaan. */
   --accent:     #04715f;
   --accent-2:   #0a6f70;
   --accent-hi:  #03554a;
-  --accent-dim: #d9ece7;
+  --accent-dim: #d3eae5;
   --glow:       rgba(11, 173, 148, .14);
   --glow-2:     rgba(4, 113, 95, .09);
 
-  /* Bayangan netral sejuk agar menyatu dengan latar abu. */
+  /* Bayangan tetap netral sejuk: di atas latar bernada teal, bayangan yang
+     ikut diberi warna membuat tepi kartu terbaca kehijauan, bukan terangkat. */
   --shadow-sm: 0 1px 2px rgba(22, 25, 27, .05);
   --shadow-md: 0 8px 20px -6px rgba(22, 25, 27, .09), 0 2px 6px -2px rgba(22, 25, 27, .06);
   --shadow-lg: 0 24px 48px -16px rgba(22, 25, 27, .14), 0 8px 16px -8px rgba(22, 25, 27, .07);
   --shadow-accent: 0 8px 24px -6px rgba(4, 113, 95, .28);
 
-  --grid-line: rgba(22, 25, 27, .045);
+  /* Garis petak ikut bernada teal; abu netral di atas latar bernada terbaca
+     kotor, bukan samar. Alfa dipilih agar kisinya benar-benar terbaca sebagai
+     garis: di bawah ~.08 ia hanya menjadi noda saat di-antialias. */
+  --grid-line: rgba(4, 113, 95, .13);
 
   /* Tipografi */
   --step--2: clamp(.70rem, .69rem + .05vw, .74rem);
@@ -119,7 +138,7 @@
     --shadow-lg: 0 28px 56px -16px rgba(0, 0, 0, .75);
     --shadow-accent: 0 10px 30px -8px rgba(20, 200, 166, .40);
 
-    --grid-line: rgba(255, 255, 255, .035);
+    --grid-line: rgba(255, 255, 255, .065);
 
     color-scheme: dark;
   }
@@ -154,7 +173,7 @@
   --shadow-lg: 0 28px 56px -16px rgba(0, 0, 0, .75);
   --shadow-accent: 0 10px 30px -8px rgba(20, 200, 166, .40);
 
-  --grid-line: rgba(255, 255, 255, .035);
+  --grid-line: rgba(255, 255, 255, .065);
 
   color-scheme: dark;
 }
@@ -398,10 +417,16 @@ li:last-child { margin-bottom: 0; }
   transition: transform 700ms var(--ease);
 }
 .btn--primary:hover::before { transform: translateX(120%); }
-.btn--primary:hover { color: var(--on-accent); box-shadow: 0 14px 34px -8px rgba(91, 157, 255, .55); }
+/* Bayangan hover ini sebelumnya rgba(91,157,255,.55) — biru, peninggalan dari
+   aksen ganda biru->violet sebelum situs pindah ke teal logo. Di bawah tombol
+   teal ia menyemburkan halo biru yang tidak ada hubungannya dengan palet. */
+.btn--primary:hover { color: var(--on-accent); box-shadow: 0 14px 34px -8px rgba(4, 113, 95, .45); }
 
+/* Memakai --surface-hi, bukan --surface: terhadap latar yang kini bernada,
+   --surface hanya terpisah 1,09:1 dan tombol hantu berhenti terbaca sebagai
+   tombol. --surface-hi mengangkatnya ke 1,15:1 dan garis tepinya tetap ada. */
 .btn--ghost {
-  background: var(--surface); color: var(--text); border-color: var(--border);
+  background: var(--surface-hi); color: var(--text); border-color: var(--border);
   box-shadow: 0 1px 0 0 var(--highlight) inset;
 }
 .btn--ghost:hover { border-color: var(--border-bright); color: var(--text); box-shadow: var(--shadow-md); }
@@ -412,7 +437,12 @@ li:last-child { margin-bottom: 0; }
 /* --- 6. Hero ------------------------------------------------------------ */
 .hero { padding-block: calc(var(--sp-8) + 1rem) var(--sp-8); overflow: hidden; }
 
-/* Cahaya gradien + kisi titik sebagai latar. Murni CSS, nol byte gambar. */
+/* Cahaya gradien + kisi titik sebagai latar. Murni CSS, nol byte gambar.
+
+   Kisinya diberi inti pekat dulu (#000 sampai 38%) sebelum memudar, bukan
+   langsung meluruh dari titik pusat. Tanpa inti itu garis paling tengah pun
+   sudah ikut tersamar, sehingga kisi hanya terbaca sebagai kotor, bukan
+   sebagai garis. */
 .hero::before {
   content: ""; position: absolute; z-index: -2;
   inset: -30% -20% auto; height: 90vh;
@@ -427,7 +457,39 @@ li:last-child { margin-bottom: 0; }
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 64px 64px;
-  mask-image: radial-gradient(70% 60% at 50% 20%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(82% 72% at 50% 18%, #000 0%, #000 38%, transparent 82%);
+  pointer-events: none;
+}
+
+/* Latar yang sama untuk kepala halaman dalam: daftar proyek, detail proyek,
+   daftar layanan, dan detail layanan. Tujuannya agar setiap halaman berangkat
+   dari bidang yang sama seperti beranda, bukan langsung dari latar kosong.
+
+   Dua beda yang disengaja terhadap .hero:
+
+   1. TIDAK memakai overflow:hidden. Section ini membungkus SELURUH isi
+      halaman, dan di dalamnya ada .filters (daftar proyek) serta .detail__side
+      (detail proyek) yang position:sticky — satu leluhur ber-overflow:hidden
+      mematikan sticky di keduanya.
+   2. Karena itu kedua lapisan dikurung di dalam kotak section: tingginya
+      dipatok dan tidak ada inset negatif kiri/kanan, sehingga tak ada yang
+      meluber dan perlu dipotong. */
+.section--banner::before {
+  content: ""; position: absolute; z-index: -2;
+  inset: 0 0 auto; height: 34rem;
+  background:
+    radial-gradient(58% 70% at 20% 0%, var(--glow) 0%, transparent 70%),
+    radial-gradient(48% 60% at 82% 4%, var(--glow-2) 0%, transparent 72%);
+  pointer-events: none;
+}
+.section--banner::after {
+  content: ""; position: absolute; z-index: -1;
+  inset: 0 0 auto; height: 30rem;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(88% 100% at 50% 0%, #000 0%, #000 42%, transparent 85%);
   pointer-events: none;
 }
 
@@ -456,9 +518,13 @@ li:last-child { margin-bottom: 0; }
   font-family: var(--font-mono); font-size: var(--step--2);
   letter-spacing: .10em; text-transform: uppercase; color: var(--text-muted);
 }
+/* Titik ini dulu #22c55e — hijau baku yang hue-nya 26 derajat dari teal logo.
+   Selisih sedekat itu terbaca sebagai warna yang meleset, bukan sebagai warna
+   kedua yang disengaja. Makna "tersedia" toh sudah dibawa teks di sebelahnya,
+   bukan oleh warna titiknya. */
 .hero__dot {
   position: relative; width: .5rem; height: .5rem; border-radius: 50%;
-  background: #22c55e; flex: 0 0 auto;
+  background: #0bad94; flex: 0 0 auto;
 }
 .hero__dot::after {
   content: ""; position: absolute; inset: 0; border-radius: 50%;
@@ -759,7 +825,15 @@ li:last-child { margin-bottom: 0; }
   font-family: var(--font-mono); font-size: var(--step--2);
   letter-spacing: .06em; text-transform: uppercase;
 }
-.tag--accent { background: var(--accent-dim); color: var(--accent); border-color: transparent; }
+/* Garis tepinya TIDAK boleh transparan seperti dulu. Isian dan permukaan di
+   belakangnya kini sehue, sehingga selisihnya tinggal 1,15:1 dan badge melebur
+   menjadi sekadar teks berwarna. Memperdalam isiannya bukan jalan keluar:
+   itu menjatuhkan kontras teks aksen di bawah 4,5:1. Tepi tipislah yang
+   membuatnya terbaca sebagai objek, tanpa menyentuh kontras teks. */
+.tag--accent {
+  background: var(--accent-dim); color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 32%, transparent);
+}
 
 /* --- 11. Halaman detail ------------------------------------------------- */
 .breadcrumb { margin-bottom: var(--sp-5); }
@@ -957,7 +1031,9 @@ li:last-child { margin-bottom: 0; }
 .lightbox__bar {
   display: flex; flex-direction: column; align-items: center; gap: var(--sp-2);
   max-width: min(92vw, 68rem);
-  color: #cbd5e1; text-align: center;
+  /* Dulu #cbd5e1 — abu batu tulis yang condong biru. Disamakan dengan
+     --text-muted mode gelap agar sekeluarga dengan teks situs lainnya. */
+  color: #99aaa6; text-align: center;
   font-family: var(--font-mono); font-size: var(--step--2); letter-spacing: .06em;
 }
 .lightbox__caption { text-wrap: pretty; }

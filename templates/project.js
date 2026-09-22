@@ -17,7 +17,7 @@ module.exports = function project(ctx, p, semuaProyek = [], penawaran = null) {
   const terkait = semuaProyek.filter(o => o.key !== p.key && o.category === p.category).slice(0, 3);
 
   return `
-    <section class="section">
+    <section class="section section--banner">
       <div class="container-wide">
         <nav class="breadcrumb" aria-label="${esc(lang === 'id' ? 'Remah roti' : 'Breadcrumb')}">
           <ol>

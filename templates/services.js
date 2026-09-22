@@ -8,7 +8,7 @@ module.exports = function services(ctx, produk = []) {
   const cur = site.currency;
 
   return `
-    <section class="section">
+    <section class="section section--banner">
       <div class="container">
         <nav class="breadcrumb" aria-label="${esc(lang === 'id' ? 'Remah roti' : 'Breadcrumb')}">
           <ol>

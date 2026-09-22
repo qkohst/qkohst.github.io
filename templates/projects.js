@@ -6,7 +6,7 @@ module.exports = function projectsIndex(ctx, projects) {
   const { lang, ui } = ctx;
 
   return `
-    <section class="section">
+    <section class="section section--banner">
       <div class="container-wide">
         <nav class="breadcrumb" aria-label="${esc(lang === 'id' ? 'Remah roti' : 'Breadcrumb')}">
           <ol>

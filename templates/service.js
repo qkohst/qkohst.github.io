@@ -17,7 +17,7 @@ module.exports = function service(ctx, s) {
   const waPaket = paket => waLink(site.contact.phoneE164, WA_TEKS.paket[lang](x.title, paket));
 
   return `
-    <section class="section">
+    <section class="section section--banner">
       <div class="container">
         <nav class="breadcrumb" aria-label="${esc(lang === 'id' ? 'Remah roti' : 'Breadcrumb')}">
           <ol>

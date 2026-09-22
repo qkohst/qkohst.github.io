@@ -62,7 +62,7 @@ ${produk.length ? `
           <h2>${esc(ui.proposal.readyProducts)}</h2>
           <p class="section__lead">${esc(ui.proposal.readyProductsLead)}</p>
         </div>
-        <ul class="grid grid--3 list-plain">
+        <ul class="grid grid--services list-plain">
 ${each(produk, (x, i) => `          <li data-reveal data-reveal-delay="${i * 80}">
             <a class="card card--link service-card" href="${esc(pageUrl('proposal', lang, x.slug[lang]))}">
               <span class="card__icon">${icon('download')}</span>

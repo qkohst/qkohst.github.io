@@ -33,7 +33,14 @@ function projectCard(p, lang, ui, opts = {}) {
 
 /** Bar penyaring kategori. */
 function filterBar(projects, lang, ui) {
-  const cats = [...new Set(projects.map(p => p.category))];
+  /* "Lainnya" selalu paling belakang. Urutan kategori lain sengaja dibiarkan
+     mengikuti kemunculan pertama pada daftar proyek yang sudah diurutkan dari
+     yang terbaru; hanya kategori penampung ini yang dipaksa ke ujung, karena
+     ia bukan kategori setara melainkan tempat sisa. Array.prototype.sort stabil,
+     jadi urutan kategori lainnya tidak ikut teracak. */
+  const SISA = 'lainnya';
+  const cats = [...new Set(projects.map(p => p.category))]
+    .sort((a, b) => (a === SISA ? 1 : 0) - (b === SISA ? 1 : 0));
   return `
       <div class="filters" data-filter-bar role="group" aria-label="${esc(ui.sections.portfolio)}">
         <button class="filter" type="button" data-filter="all" aria-pressed="true">${esc(ui.allProjects)}</button>

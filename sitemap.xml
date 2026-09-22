@@ -561,6 +561,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://qkohst.github.io/id/penawaran/aplikasi-e-raport/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/penawaran/aplikasi-e-raport/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/proposals/e-raport-application/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proposals/e-raport-application/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qkohst.github.io/proposals/e-raport-application/</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/penawaran/aplikasi-e-raport/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/proposals/e-raport-application/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://qkohst.github.io/proposals/e-raport-application/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://qkohst.github.io/id/penawaran/st-smartpoint/</loc>
     <xhtml:link rel="alternate" hreflang="id" href="https://qkohst.github.io/id/penawaran/st-smartpoint/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://qkohst.github.io/proposals/st-smartpoint/"/>

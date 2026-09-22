@@ -7,24 +7,40 @@
     "Aturan harga: biaya tahunan = 25% lisensi, dan lisensi selalu di bawah harga",
     "bangun-khusus (site.pricing paket Premium) supaya tawarannya tetap masuk akal."
   ],
-
   "$tanggalNote": "Tanggal terbit sengaja disimpan sebagai nilai tetap, bukan diambil dari jam build. Kalau dinamis, keenam halaman berubah isinya setiap kali generator dijalankan dan mengotori riwayat git. Perbarui manual saat penawaran diterbitkan ulang.",
   "issued": "2026-09-16",
   "berlakuHari": 30,
-
   "items": [
     {
       "key": "siasek",
-      "slug": { "id": "sistem-informasi-sekolah", "en": "school-information-system" },
+      "slug": {
+        "id": "sistem-informasi-sekolah",
+        "en": "school-information-system"
+      },
       "licenseUsd": 400,
       "annualUsd": 100,
       "shots": [
-        { "name": "siasek-2", "id": "Dasbor ringkasan sekolah", "en": "School summary dashboard" },
-        { "name": "siasek-3", "id": "Data peserta didik", "en": "Student records" },
-        { "name": "siasek-6", "id": "Presensi harian per mata pelajaran", "en": "Daily per-subject attendance" },
-        { "name": "siasek-5", "id": "Tagihan dan transaksi pembayaran", "en": "Billing and payment transactions" }
+        {
+          "name": "siasek-2",
+          "id": "Dasbor ringkasan sekolah",
+          "en": "School summary dashboard"
+        },
+        {
+          "name": "siasek-3",
+          "id": "Data peserta didik",
+          "en": "Student records"
+        },
+        {
+          "name": "siasek-6",
+          "id": "Presensi harian per mata pelajaran",
+          "en": "Daily per-subject attendance"
+        },
+        {
+          "name": "siasek-5",
+          "id": "Tagihan dan transaksi pembayaran",
+          "en": "Billing and payment transactions"
+        }
       ],
-
       "id": {
         "tagline": "Satu sistem untuk akademik, kesiswaan, keuangan, dan persuratan sekolah.",
         "ringkasan": [
@@ -47,26 +63,80 @@
           "Semua laporan dapat diekspor ke Excel maupun PDF, jadi format yang selama ini dipakai sekolah untuk pelaporan ke dinas tetap bisa dihasilkan tanpa mengetik ulang."
         ],
         "peran": [
-          { "nama": "Admin", "tugas": "Data master sekolah, tahun pelajaran, guru, rombongan belajar, dan peserta didik." },
-          { "nama": "Admin Surat", "tugas": "Klasifikasi, surat masuk dan keluar, disposisi, serta agenda surat." },
-          { "nama": "Admin Keuangan", "tugas": "Tagihan siswa, transaksi pembayaran, tabungan, serta kas masuk dan keluar sekolah." },
-          { "nama": "Guru", "tugas": "Presensi harian mata pelajaran yang diampu dan jadwal mengajar." },
-          { "nama": "Guru BK", "tugas": "Pencatatan poin pelanggaran dan penanganan kasus kesiswaan." },
-          { "nama": "Siswa", "tugas": "Melihat presensi, tagihan, tabungan, dan catatan pelanggaran dirinya sendiri." }
+          {
+            "nama": "Admin",
+            "tugas": "Data master sekolah, tahun pelajaran, guru, rombongan belajar, dan peserta didik."
+          },
+          {
+            "nama": "Admin Surat",
+            "tugas": "Klasifikasi, surat masuk dan keluar, disposisi, serta agenda surat."
+          },
+          {
+            "nama": "Admin Keuangan",
+            "tugas": "Tagihan siswa, transaksi pembayaran, tabungan, serta kas masuk dan keluar sekolah."
+          },
+          {
+            "nama": "Guru",
+            "tugas": "Presensi harian mata pelajaran yang diampu dan jadwal mengajar."
+          },
+          {
+            "nama": "Guru BK",
+            "tugas": "Pencatatan poin pelanggaran dan penanganan kasus kesiswaan."
+          },
+          {
+            "nama": "Siswa",
+            "tugas": "Melihat presensi, tagihan, tabungan, dan catatan pelanggaran dirinya sendiri."
+          }
         ],
         "modul": [
-          { "nama": "Peran dan hak akses", "isi": "Enam peran dengan menu dan data yang dipisah tegas menurut tanggung jawab." },
-          { "nama": "Data master sekolah", "isi": "Profil sekolah, tahun pelajaran, guru, tenaga kependidikan, rombongan belajar, peserta didik, alumni, dan siswa keluar." },
-          { "nama": "Jadwal dan mata pelajaran", "isi": "Penyusunan mata pelajaran dan jadwal pelajaran per rombongan belajar." },
-          { "nama": "Presensi harian", "isi": "Presensi per mata pelajaran yang diisi langsung oleh guru pengampu." },
-          { "nama": "Poin pelanggaran", "isi": "Pencatatan oleh Guru BK dengan akumulasi poin yang berjalan otomatis." },
-          { "nama": "Persuratan digital", "isi": "Klasifikasi, surat masuk dan keluar, disposisi, serta agenda surat." },
-          { "nama": "Keuangan siswa", "isi": "Rincian tagihan, transaksi pembayaran, dan tabungan setor maupun tarik." },
-          { "nama": "Keuangan sekolah", "isi": "Kategori kas serta pencatatan pemasukan dan pengeluaran sekolah." },
-          { "nama": "Laporan dan ekspor", "isi": "Laporan keuangan, presensi, dan pelanggaran yang dapat diekspor ke Excel maupun PDF." },
-          { "nama": "Notifikasi WhatsApp", "isi": "Pengiriman otomatis ke wali murid untuk presensi, pelanggaran, dan bukti transaksi." },
-          { "nama": "Panduan dalam aplikasi", "isi": "Tur interaktif, dokumentasi, dan bantuan kontekstual pada tiap halaman." },
-          { "nama": "Impor massal", "isi": "Pemasukan data awal lewat berkas Excel dan pencarian cepat pada setiap tabel." }
+          {
+            "nama": "Peran dan hak akses",
+            "isi": "Enam peran dengan menu dan data yang dipisah tegas menurut tanggung jawab."
+          },
+          {
+            "nama": "Data master sekolah",
+            "isi": "Profil sekolah, tahun pelajaran, guru, tenaga kependidikan, rombongan belajar, peserta didik, alumni, dan siswa keluar."
+          },
+          {
+            "nama": "Jadwal dan mata pelajaran",
+            "isi": "Penyusunan mata pelajaran dan jadwal pelajaran per rombongan belajar."
+          },
+          {
+            "nama": "Presensi harian",
+            "isi": "Presensi per mata pelajaran yang diisi langsung oleh guru pengampu."
+          },
+          {
+            "nama": "Poin pelanggaran",
+            "isi": "Pencatatan oleh Guru BK dengan akumulasi poin yang berjalan otomatis."
+          },
+          {
+            "nama": "Persuratan digital",
+            "isi": "Klasifikasi, surat masuk dan keluar, disposisi, serta agenda surat."
+          },
+          {
+            "nama": "Keuangan siswa",
+            "isi": "Rincian tagihan, transaksi pembayaran, dan tabungan setor maupun tarik."
+          },
+          {
+            "nama": "Keuangan sekolah",
+            "isi": "Kategori kas serta pencatatan pemasukan dan pengeluaran sekolah."
+          },
+          {
+            "nama": "Laporan dan ekspor",
+            "isi": "Laporan keuangan, presensi, dan pelanggaran yang dapat diekspor ke Excel maupun PDF."
+          },
+          {
+            "nama": "Notifikasi WhatsApp",
+            "isi": "Pengiriman otomatis ke wali murid untuk presensi, pelanggaran, dan bukti transaksi."
+          },
+          {
+            "nama": "Panduan dalam aplikasi",
+            "isi": "Tur interaktif, dokumentasi, dan bantuan kontekstual pada tiap halaman."
+          },
+          {
+            "nama": "Impor massal",
+            "isi": "Pemasukan data awal lewat berkas Excel dan pencarian cepat pada setiap tabel."
+          }
         ],
         "termasuk": [
           "Lisensi pemakaian untuk satu sekolah, tanpa batas jumlah pengguna maupun siswa.",
@@ -83,11 +153,31 @@
           "Penambahan modul baru di luar daftar di atas — dihitung sebagai pekerjaan terpisah."
         ],
         "tahapan": [
-          { "judul": "Konsultasi", "isi": "Pendataan kebutuhan, aturan sekolah, dan format laporan yang selama ini dipakai.", "durasi": "2–3 hari" },
-          { "judul": "Pemasangan", "isi": "Penyiapan server, pemasangan aplikasi, dan penyesuaian identitas sekolah.", "durasi": "2 hari" },
-          { "judul": "Pemindahan data", "isi": "Impor data guru, peserta didik, rombongan belajar, dan tagihan berjalan.", "durasi": "3–5 hari" },
-          { "judul": "Pelatihan", "isi": "Pendampingan admin dan guru sampai bisa memakai sendiri tanpa dibantu.", "durasi": "2 hari" },
-          { "judul": "Serah terima", "isi": "Aplikasi berjalan penuh, disertai dokumentasi dan akun seluruh pengguna.", "durasi": "1 hari" }
+          {
+            "judul": "Konsultasi",
+            "isi": "Pendataan kebutuhan, aturan sekolah, dan format laporan yang selama ini dipakai.",
+            "durasi": "2–3 hari"
+          },
+          {
+            "judul": "Pemasangan",
+            "isi": "Penyiapan server, pemasangan aplikasi, dan penyesuaian identitas sekolah.",
+            "durasi": "2 hari"
+          },
+          {
+            "judul": "Pemindahan data",
+            "isi": "Impor data guru, peserta didik, rombongan belajar, dan tagihan berjalan.",
+            "durasi": "3–5 hari"
+          },
+          {
+            "judul": "Pelatihan",
+            "isi": "Pendampingan admin dan guru sampai bisa memakai sendiri tanpa dibantu.",
+            "durasi": "2 hari"
+          },
+          {
+            "judul": "Serah terima",
+            "isi": "Aplikasi berjalan penuh, disertai dokumentasi dan akun seluruh pengguna.",
+            "durasi": "1 hari"
+          }
         ],
         "syarat": [
           "Pembayaran lisensi: 50% saat kesepakatan, 50% saat serah terima.",
@@ -97,7 +187,6 @@
           "Harga belum termasuk pajak yang berlaku."
         ]
       },
-
       "en": {
         "tagline": "One system for a school's academics, student affairs, finance, and correspondence.",
         "ringkasan": [
@@ -120,26 +209,80 @@
           "Every report exports to both Excel and PDF, so the formats the school already uses for district reporting can still be produced without retyping anything."
         ],
         "peran": [
-          { "nama": "Admin", "tugas": "School master data, academic year, teachers, study groups, and students." },
-          { "nama": "Correspondence Admin", "tugas": "Classification, incoming and outgoing mail, disposition, and mail agenda." },
-          { "nama": "Finance Admin", "tugas": "Student billing, payment transactions, savings, and school cash flow." },
-          { "nama": "Teacher", "tugas": "Daily attendance for the subjects they teach, and their teaching timetable." },
-          { "nama": "Counselling Teacher", "tugas": "Recording violation points and handling student welfare cases." },
-          { "nama": "Student", "tugas": "Viewing their own attendance, bills, savings, and discipline record." }
+          {
+            "nama": "Admin",
+            "tugas": "School master data, academic year, teachers, study groups, and students."
+          },
+          {
+            "nama": "Correspondence Admin",
+            "tugas": "Classification, incoming and outgoing mail, disposition, and mail agenda."
+          },
+          {
+            "nama": "Finance Admin",
+            "tugas": "Student billing, payment transactions, savings, and school cash flow."
+          },
+          {
+            "nama": "Teacher",
+            "tugas": "Daily attendance for the subjects they teach, and their teaching timetable."
+          },
+          {
+            "nama": "Counselling Teacher",
+            "tugas": "Recording violation points and handling student welfare cases."
+          },
+          {
+            "nama": "Student",
+            "tugas": "Viewing their own attendance, bills, savings, and discipline record."
+          }
         ],
         "modul": [
-          { "nama": "Roles and permissions", "isi": "Six roles with menus and data firmly separated by responsibility." },
-          { "nama": "School master data", "isi": "School profile, academic year, teachers, staff, study groups, students, alumni, and departed students." },
-          { "nama": "Timetable and subjects", "isi": "Subject setup and class timetables per study group." },
-          { "nama": "Daily attendance", "isi": "Per-subject attendance recorded directly by the teaching staff." },
-          { "nama": "Violation points", "isi": "Recorded by the counselling teacher, with points accumulating automatically." },
-          { "nama": "Digital correspondence", "isi": "Classification, incoming and outgoing mail, disposition, and mail agenda." },
-          { "nama": "Student finances", "isi": "Billing details, payment transactions, and savings deposits and withdrawals." },
-          { "nama": "School finances", "isi": "Cash categories plus income and expenditure records." },
-          { "nama": "Reports and export", "isi": "Financial, attendance, and violation reports exportable to both Excel and PDF." },
-          { "nama": "WhatsApp notifications", "isi": "Automatic messages to parents for attendance, violations, and transaction receipts." },
-          { "nama": "In-app guidance", "isi": "Interactive tour, documentation, and contextual help on every page." },
-          { "nama": "Bulk import", "isi": "Initial data loaded from Excel files, with quick search on every data table." }
+          {
+            "nama": "Roles and permissions",
+            "isi": "Six roles with menus and data firmly separated by responsibility."
+          },
+          {
+            "nama": "School master data",
+            "isi": "School profile, academic year, teachers, staff, study groups, students, alumni, and departed students."
+          },
+          {
+            "nama": "Timetable and subjects",
+            "isi": "Subject setup and class timetables per study group."
+          },
+          {
+            "nama": "Daily attendance",
+            "isi": "Per-subject attendance recorded directly by the teaching staff."
+          },
+          {
+            "nama": "Violation points",
+            "isi": "Recorded by the counselling teacher, with points accumulating automatically."
+          },
+          {
+            "nama": "Digital correspondence",
+            "isi": "Classification, incoming and outgoing mail, disposition, and mail agenda."
+          },
+          {
+            "nama": "Student finances",
+            "isi": "Billing details, payment transactions, and savings deposits and withdrawals."
+          },
+          {
+            "nama": "School finances",
+            "isi": "Cash categories plus income and expenditure records."
+          },
+          {
+            "nama": "Reports and export",
+            "isi": "Financial, attendance, and violation reports exportable to both Excel and PDF."
+          },
+          {
+            "nama": "WhatsApp notifications",
+            "isi": "Automatic messages to parents for attendance, violations, and transaction receipts."
+          },
+          {
+            "nama": "In-app guidance",
+            "isi": "Interactive tour, documentation, and contextual help on every page."
+          },
+          {
+            "nama": "Bulk import",
+            "isi": "Initial data loaded from Excel files, with quick search on every data table."
+          }
         ],
         "termasuk": [
           "Usage licence for one school, with no cap on users or student numbers.",
@@ -156,11 +299,31 @@
           "New modules beyond the list above — quoted as separate work."
         ],
         "tahapan": [
-          { "judul": "Consultation", "isi": "Gathering requirements, school rules, and the report formats already in use.", "durasi": "2–3 days" },
-          { "judul": "Installation", "isi": "Server preparation, application setup, and school identity configuration.", "durasi": "2 days" },
-          { "judul": "Data migration", "isi": "Importing teachers, students, study groups, and outstanding bills.", "durasi": "3–5 days" },
-          { "judul": "Training", "isi": "Walking administrators and teachers through it until they can work unaided.", "durasi": "2 days" },
-          { "judul": "Handover", "isi": "The system fully running, with documentation and accounts for every user.", "durasi": "1 day" }
+          {
+            "judul": "Consultation",
+            "isi": "Gathering requirements, school rules, and the report formats already in use.",
+            "durasi": "2–3 days"
+          },
+          {
+            "judul": "Installation",
+            "isi": "Server preparation, application setup, and school identity configuration.",
+            "durasi": "2 days"
+          },
+          {
+            "judul": "Data migration",
+            "isi": "Importing teachers, students, study groups, and outstanding bills.",
+            "durasi": "3–5 days"
+          },
+          {
+            "judul": "Training",
+            "isi": "Walking administrators and teachers through it until they can work unaided.",
+            "durasi": "2 days"
+          },
+          {
+            "judul": "Handover",
+            "isi": "The system fully running, with documentation and accounts for every user.",
+            "durasi": "1 day"
+          }
         ],
         "syarat": [
           "Licence payment: 50% on agreement, 50% on handover.",
@@ -171,19 +334,359 @@
         ]
       }
     },
-
+    {
+      "key": "e_raport",
+      "slug": {
+        "id": "aplikasi-e-raport",
+        "en": "e-raport-application"
+      },
+      "licenseUsd": 240,
+      "annualUsd": 60,
+      "shots": [
+        {
+          "name": "e-raport-2",
+          "id": "Dasbor sekolah dan rekap jumlah",
+          "en": "School dashboard and headline counts"
+        },
+        {
+          "name": "e-raport-4",
+          "id": "Pemantauan kelengkapan nilai per guru",
+          "en": "Per-teacher grading progress monitor"
+        },
+        {
+          "name": "e-raport-9",
+          "id": "Pengisian nilai per kompetensi dasar oleh guru",
+          "en": "Teacher entering marks per basic competency"
+        },
+        {
+          "name": "e-raport-6",
+          "id": "Raport siap cetak dalam format PDF",
+          "en": "Print-ready report card in PDF"
+        }
+      ],
+      "id": {
+        "tagline": "Raport digital untuk SMP dan PKBM yang punya banyak mata pelajaran muatan lokal.",
+        "ringkasan": [
+          "Aplikasi raport yang mengikuti daftar mata pelajaran sekolah Anda sendiri, termasuk muatan lokal yang tidak tertampung aplikasi bawaan dinas.",
+          "Mendukung dua kurikulum sekaligus, KTSP 2006 dan K13, sehingga sekolah yang sedang beralih tidak perlu dua sistem terpisah.",
+          "Empat peran pengguna: Admin, Guru Mata Pelajaran, Wali Kelas, dan Siswa — masing-masing hanya melihat pekerjaannya sendiri.",
+          "Tersedia dua jalur: beli lisensi siap pakai, atau dibangun khusus mengikuti aturan penilaian sekolah Anda."
+        ],
+        "masalah": [
+          "Aplikasi raport bawaan dinas tidak menampung mata pelajaran muatan lokal, sehingga nilainya tetap dihitung manual di luar sistem.",
+          "Nilai dikumpulkan lewat berkas Excel yang bentuknya berbeda-beda dari tiap guru, lalu disatukan ulang oleh satu orang.",
+          "Wali kelas mengetik ulang deskripsi capaian tiap siswa, padahal acuannya kompetensi dasar yang sama.",
+          "Menjelang pembagian raport, tidak ada cara cepat mengetahui guru mana yang nilainya belum lengkap.",
+          "Predikat dan ketuntasan dihitung manual, sehingga selisih kecil sulit ditelusuri ketika ada koreksi.",
+          "Raport dan kartu pelajar disusun ulang tiap semester dari berkas yang tahun lalu sudah pernah dibuat."
+        ],
+        "solusi": [
+          "Mata pelajaran didaftarkan sendiri oleh sekolah, muatan lokal termasuk, lengkap dengan KKM dan interval predikatnya. Sistem memakai daftar itu apa adanya, jadi tidak ada lagi mata pelajaran yang harus dihitung di luar aplikasi.",
+          "Guru mengisi nilai langsung pada kompetensi dasar yang ia ampu, dan deskripsi capaian siswa disusun sistem dari kompetensi yang sama. Wali kelas tinggal memeriksa, bukan mengetik ulang.",
+          "Admin melihat papan kelengkapan yang menunjukkan status perencanaan dan penilaian tiap guru per mata pelajaran, sehingga yang tertinggal ketahuan jauh sebelum tanggal pembagian raport."
+        ],
+        "peran": [
+          {
+            "nama": "Admin",
+            "tugas": "Data master, pemetaan pengampu, KKM, interval predikat, dan pemantauan kelengkapan nilai."
+          },
+          {
+            "nama": "Guru Mata Pelajaran",
+            "tugas": "Rencana penilaian serta pengisian nilai pengetahuan, keterampilan, sikap, dan ekstrakurikuler."
+          },
+          {
+            "nama": "Wali Kelas",
+            "tugas": "Kehadiran, catatan, pemeriksaan nilai kelasnya, serta pencetakan raport."
+          },
+          {
+            "nama": "Siswa",
+            "tugas": "Melihat nilai dan hasil raport dirinya sendiri."
+          }
+        ],
+        "modul": [
+          {
+            "nama": "Peran dan hak akses",
+            "isi": "Empat peran dengan menu yang dipisah menurut tanggung jawab masing-masing."
+          },
+          {
+            "nama": "Dua kurikulum",
+            "isi": "KTSP 2006 dan K13 berjalan berdampingan, dipilih saat masuk aplikasi."
+          },
+          {
+            "nama": "Data master",
+            "isi": "Profil sekolah, tahun pelajaran, guru, kelas, peserta didik, dan ekstrakurikuler."
+          },
+          {
+            "nama": "Muatan lokal",
+            "isi": "Pendaftaran mata pelajaran bebas, termasuk yang tidak ada pada aplikasi bawaan dinas."
+          },
+          {
+            "nama": "Pemetaan pengampu",
+            "isi": "Penugasan guru pengampu untuk tiap mata pelajaran di tiap kelas."
+          },
+          {
+            "nama": "KKM dan predikat",
+            "isi": "Ambang ketuntasan per mata pelajaran dan rentang nilai untuk tiap huruf predikat."
+          },
+          {
+            "nama": "Kompetensi dasar",
+            "isi": "Butir kompetensi per mata pelajaran sebagai dasar penilaian dan deskripsi."
+          },
+          {
+            "nama": "Rencana dan input nilai",
+            "isi": "Penilaian pengetahuan, keterampilan, sikap spiritual, dan sikap sosial."
+          },
+          {
+            "nama": "Nilai ekstrakurikuler",
+            "isi": "Pencatatan nilai kegiatan di luar mata pelajaran."
+          },
+          {
+            "nama": "Deskripsi otomatis",
+            "isi": "Deskripsi capaian tiap siswa disusun dari kompetensi dasar yang dinilai."
+          },
+          {
+            "nama": "Pemantauan kelengkapan",
+            "isi": "Papan status perencanaan dan penilaian tiap guru, per mata pelajaran dan kelas."
+          },
+          {
+            "nama": "Leger dan kehadiran",
+            "isi": "Leger nilai per kelas dan rekap kehadiran siswa, dapat diunduh ke Excel."
+          },
+          {
+            "nama": "Cetak raport dan kartu",
+            "isi": "Berkas raport dan kartu pelajar siap cetak dalam format PDF."
+          },
+          {
+            "nama": "Impor Excel",
+            "isi": "Pemasukan data dan nilai secara massal lewat berkas Excel."
+          }
+        ],
+        "termasuk": [
+          "Lisensi pemakaian untuk satu sekolah, tanpa batas jumlah guru maupun siswa.",
+          "Pemasangan ke server sekolah atau hosting pilihan Anda.",
+          "Pemasukan data awal guru, kelas, peserta didik, dan mata pelajaran dari berkas Excel.",
+          "Penyesuaian identitas sekolah, kop raport, dan tanda tangan kepala sekolah.",
+          "Pelatihan daring untuk admin, wali kelas, dan perwakilan guru mata pelajaran.",
+          "Pendampingan tiga bulan pertama setelah serah terima."
+        ],
+        "tidakTermasuk": [
+          "Biaya server, domain, dan sertifikat SSL (dapat kami bantu pengadaannya).",
+          "Perangkat keras seperti komputer dan printer.",
+          "Format raport di luar dua kurikulum yang didukung — dihitung sebagai pekerjaan terpisah.",
+          "Pengiriman nilai ke sistem lain milik dinas."
+        ],
+        "tahapan": [
+          {
+            "judul": "Konsultasi",
+            "isi": "Pendataan kurikulum yang dipakai, daftar mata pelajaran, dan format raport sekolah.",
+            "durasi": "2–3 hari"
+          },
+          {
+            "judul": "Pemasangan",
+            "isi": "Penyiapan server, pemasangan aplikasi, dan penyesuaian identitas sekolah.",
+            "durasi": "2 hari"
+          },
+          {
+            "judul": "Pemasukan data",
+            "isi": "Impor guru, kelas, peserta didik, mata pelajaran, KKM, dan kompetensi dasar.",
+            "durasi": "3–5 hari"
+          },
+          {
+            "judul": "Pelatihan",
+            "isi": "Pendampingan admin, wali kelas, dan guru sampai satu siklus penilaian tuntas.",
+            "durasi": "2 hari"
+          },
+          {
+            "judul": "Serah terima",
+            "isi": "Aplikasi berjalan penuh beserta dokumentasi dan akun seluruh pengguna.",
+            "durasi": "1 hari"
+          }
+        ],
+        "syarat": [
+          "Pembayaran lisensi: 50% saat kesepakatan, 50% saat serah terima.",
+          "Biaya tahunan mulai berlaku pada tahun kedua; tahun pertama sudah termasuk lisensi.",
+          "Biaya tahunan mencakup pembaruan versi, perbaikan kesalahan, dan pendampingan teknis.",
+          "Kode sumber tidak termasuk dalam pembelian lisensi; tersedia sebagai kesepakatan terpisah.",
+          "Harga belum termasuk pajak yang berlaku."
+        ]
+      },
+      "en": {
+        "tagline": "Digital report cards for junior high schools carrying many local-content subjects.",
+        "ringkasan": [
+          "A report-card application that follows your own subject list, including the local-content subjects the government-issued tool cannot hold.",
+          "Supports two curricula side by side, KTSP 2006 and K13, so a school mid-transition does not need two separate systems.",
+          "Four user roles — Admin, Subject Teacher, Homeroom Teacher, and Student — each seeing only their own work.",
+          "Two routes available: buy a ready-to-use licence, or have it built around your school's own assessment rules."
+        ],
+        "masalah": [
+          "The government-issued report tool has no room for local-content subjects, so those marks are still worked out by hand outside the system.",
+          "Marks arrive as spreadsheets in a different shape from every teacher, then have to be merged again by one person.",
+          "Homeroom teachers retype an achievement description for every student, even though they all derive from the same competencies.",
+          "As report day approaches, there is no quick way to see whose marks are still missing.",
+          "Predicates and pass thresholds are worked out by hand, so a small discrepancy is hard to trace when a correction comes in.",
+          "Report cards and student ID cards are rebuilt from scratch every term, from files that already existed last year."
+        ],
+        "solusi": [
+          "The school registers its own subjects, local content included, each with its pass threshold and predicate bands. The system takes that list as given, so no subject is left to be calculated outside the application.",
+          "Teachers enter marks directly against the basic competencies they teach, and each student's achievement description is assembled from those same competencies. The homeroom teacher reviews rather than retypes.",
+          "The admin sees a completeness board showing each teacher's planning and assessment status per subject, so anything lagging surfaces well before report day."
+        ],
+        "peran": [
+          {
+            "nama": "Admin",
+            "tugas": "Master data, teaching assignments, pass thresholds, predicate bands, and grading progress monitoring."
+          },
+          {
+            "nama": "Subject Teacher",
+            "tugas": "Assessment plans and entry of knowledge, skill, attitude, and extracurricular marks."
+          },
+          {
+            "nama": "Homeroom Teacher",
+            "tugas": "Attendance, notes, review of their class's marks, and printing report cards."
+          },
+          {
+            "nama": "Student",
+            "tugas": "Viewing their own marks and report results."
+          }
+        ],
+        "modul": [
+          {
+            "nama": "Roles and permissions",
+            "isi": "Four roles with menus separated by each one's responsibility."
+          },
+          {
+            "nama": "Two curricula",
+            "isi": "KTSP 2006 and K13 run side by side, chosen at sign-in."
+          },
+          {
+            "nama": "Master data",
+            "isi": "School profile, academic year, teachers, classes, students, and extracurriculars."
+          },
+          {
+            "nama": "Local-content subjects",
+            "isi": "Free subject registration, including those absent from the government-issued tool."
+          },
+          {
+            "nama": "Teaching assignments",
+            "isi": "Assigning the teacher responsible for each subject in each class."
+          },
+          {
+            "nama": "Thresholds and predicates",
+            "isi": "Per-subject pass threshold and the score range behind each predicate letter."
+          },
+          {
+            "nama": "Basic competencies",
+            "isi": "Competency items per subject, the basis for both marking and descriptions."
+          },
+          {
+            "nama": "Assessment plan and entry",
+            "isi": "Knowledge, skill, spiritual attitude, and social attitude assessment."
+          },
+          {
+            "nama": "Extracurricular marks",
+            "isi": "Recording marks for activities outside the subject list."
+          },
+          {
+            "nama": "Automatic descriptions",
+            "isi": "Each student's description assembled from the competencies assessed."
+          },
+          {
+            "nama": "Completeness monitor",
+            "isi": "A board of planning and assessment status per teacher, subject, and class."
+          },
+          {
+            "nama": "Ledger and attendance",
+            "isi": "Per-class mark ledger and student attendance summary, exportable to Excel."
+          },
+          {
+            "nama": "Report and card printing",
+            "isi": "Report cards and student ID cards ready to print as PDF."
+          },
+          {
+            "nama": "Excel import",
+            "isi": "Bulk loading of data and marks from Excel files."
+          }
+        ],
+        "termasuk": [
+          "Usage licence for one school, with no cap on teachers or students.",
+          "Installation on the school's server or a host of your choosing.",
+          "Loading your initial teacher, class, student, and subject data from Excel files.",
+          "School identity setup, report letterhead, and head teacher signature.",
+          "Online training for administrators, homeroom teachers, and teacher representatives.",
+          "Three months of support after handover."
+        ],
+        "tidakTermasuk": [
+          "Server, domain, and SSL certificate costs (we can help arrange these).",
+          "Hardware such as computers and printers.",
+          "Report formats beyond the two supported curricula — quoted as separate work.",
+          "Pushing marks into other government systems."
+        ],
+        "tahapan": [
+          {
+            "judul": "Consultation",
+            "isi": "Recording the curriculum in use, the subject list, and the school's report format.",
+            "durasi": "2–3 days"
+          },
+          {
+            "judul": "Installation",
+            "isi": "Server preparation, application setup, and school identity configuration.",
+            "durasi": "2 days"
+          },
+          {
+            "judul": "Data loading",
+            "isi": "Importing teachers, classes, students, subjects, thresholds, and competencies.",
+            "durasi": "3–5 days"
+          },
+          {
+            "judul": "Training",
+            "isi": "Working with admins, homeroom and subject teachers through one full assessment cycle.",
+            "durasi": "2 days"
+          },
+          {
+            "judul": "Handover",
+            "isi": "The system fully running, with documentation and accounts for every user.",
+            "durasi": "1 day"
+          }
+        ],
+        "syarat": [
+          "Licence payment: 50% on agreement, 50% on handover.",
+          "The annual fee starts in the second year; the first year is included in the licence.",
+          "The annual fee covers version updates, bug fixes, and technical support.",
+          "Source code is not included in the licence; it is available as a separate agreement.",
+          "Prices are exclusive of applicable taxes."
+        ]
+      }
+    },
     {
       "key": "st-smartpoint",
-      "slug": { "id": "st-smartpoint", "en": "st-smartpoint" },
+      "slug": {
+        "id": "st-smartpoint",
+        "en": "st-smartpoint"
+      },
       "licenseUsd": 200,
       "annualUsd": 50,
       "shots": [
-        { "name": "st-smartpoint-4", "id": "Layar kasir", "en": "Checkout screen" },
-        { "name": "st-smartpoint-5", "id": "Pembayaran dan kembalian", "en": "Payment and change" },
-        { "name": "st-smartpoint-3", "id": "Data produk dan stok", "en": "Product and stock data" },
-        { "name": "st-smartpoint-8", "id": "Laporan penjualan", "en": "Sales report" }
+        {
+          "name": "st-smartpoint-4",
+          "id": "Layar kasir",
+          "en": "Checkout screen"
+        },
+        {
+          "name": "st-smartpoint-5",
+          "id": "Pembayaran dan kembalian",
+          "en": "Payment and change"
+        },
+        {
+          "name": "st-smartpoint-3",
+          "id": "Data produk dan stok",
+          "en": "Product and stock data"
+        },
+        {
+          "name": "st-smartpoint-8",
+          "id": "Laporan penjualan",
+          "en": "Sales report"
+        }
       ],
-
       "id": {
         "tagline": "Aplikasi kasir berbasis web untuk toko, minimarket, dan usaha kecil.",
         "ringkasan": [
@@ -206,22 +709,64 @@
           "Karena berbasis web, satu pemasangan melayani beberapa komputer kasir sekaligus di jaringan toko, dan pemiliknya bisa melihat laporan dari mana saja."
         ],
         "peran": [
-          { "nama": "Admin", "tugas": "Data master, pembelian dari supplier, laporan, dan pengaturan aplikasi." },
-          { "nama": "Kasir", "tugas": "Melayani penjualan, mencetak struk, dan melihat riwayat transaksinya sendiri." }
+          {
+            "nama": "Admin",
+            "tugas": "Data master, pembelian dari supplier, laporan, dan pengaturan aplikasi."
+          },
+          {
+            "nama": "Kasir",
+            "tugas": "Melayani penjualan, mencetak struk, dan melihat riwayat transaksinya sendiri."
+          }
         ],
         "modul": [
-          { "nama": "Peran dan hak akses", "isi": "Dua peran, Admin dan Kasir, dengan menu yang dipisah menurut tanggung jawab." },
-          { "nama": "Layar kasir", "isi": "Pencarian produk cepat lewat nama atau pemindaian SKU." },
-          { "nama": "Penjualan multi-satuan", "isi": "Satu produk dijual dalam satuan berbeda dengan konversi stok otomatis." },
-          { "nama": "Perhitungan transaksi", "isi": "Subtotal, diskon per item, pajak, total bayar, dan kembalian dihitung langsung." },
-          { "nama": "Pembayaran cepat", "isi": "Tombol nominal cepat dan opsi uang pas untuk mempersingkat antrean." },
-          { "nama": "Pintasan papan ketik", "isi": "Cari, bayar, dan batal transaksi tanpa menyentuh tetikus." },
-          { "nama": "Cetak struk", "isi": "Printer termal 58mm dan 80mm, atau kertas A4, sesuai pengaturan." },
-          { "nama": "Riwayat transaksi", "isi": "Penelusuran transaksi kasir beserta kemampuan cetak ulang struk." },
-          { "nama": "Data master", "isi": "Pengguna, kategori, satuan, produk dengan multi-konversi, dan supplier." },
-          { "nama": "Pembelian supplier", "isi": "Pencatatan pembelian yang otomatis menambah stok produk." },
-          { "nama": "Laporan penjualan", "isi": "Laporan harian, per produk, dan per kasir dengan ekspor Excel." },
-          { "nama": "Dasbor", "isi": "Tren penjualan, produk terlaris, dan peringatan stok kritis." }
+          {
+            "nama": "Peran dan hak akses",
+            "isi": "Dua peran, Admin dan Kasir, dengan menu yang dipisah menurut tanggung jawab."
+          },
+          {
+            "nama": "Layar kasir",
+            "isi": "Pencarian produk cepat lewat nama atau pemindaian SKU."
+          },
+          {
+            "nama": "Penjualan multi-satuan",
+            "isi": "Satu produk dijual dalam satuan berbeda dengan konversi stok otomatis."
+          },
+          {
+            "nama": "Perhitungan transaksi",
+            "isi": "Subtotal, diskon per item, pajak, total bayar, dan kembalian dihitung langsung."
+          },
+          {
+            "nama": "Pembayaran cepat",
+            "isi": "Tombol nominal cepat dan opsi uang pas untuk mempersingkat antrean."
+          },
+          {
+            "nama": "Pintasan papan ketik",
+            "isi": "Cari, bayar, dan batal transaksi tanpa menyentuh tetikus."
+          },
+          {
+            "nama": "Cetak struk",
+            "isi": "Printer termal 58mm dan 80mm, atau kertas A4, sesuai pengaturan."
+          },
+          {
+            "nama": "Riwayat transaksi",
+            "isi": "Penelusuran transaksi kasir beserta kemampuan cetak ulang struk."
+          },
+          {
+            "nama": "Data master",
+            "isi": "Pengguna, kategori, satuan, produk dengan multi-konversi, dan supplier."
+          },
+          {
+            "nama": "Pembelian supplier",
+            "isi": "Pencatatan pembelian yang otomatis menambah stok produk."
+          },
+          {
+            "nama": "Laporan penjualan",
+            "isi": "Laporan harian, per produk, dan per kasir dengan ekspor Excel."
+          },
+          {
+            "nama": "Dasbor",
+            "isi": "Tren penjualan, produk terlaris, dan peringatan stok kritis."
+          }
         ],
         "termasuk": [
           "Lisensi pemakaian untuk satu toko, tanpa batas jumlah komputer kasir.",
@@ -238,11 +783,31 @@
           "Penambahan modul baru di luar daftar di atas."
         ],
         "tahapan": [
-          { "judul": "Konsultasi", "isi": "Pendataan jenis produk, satuan jual, dan alur kasir yang dipakai sekarang.", "durasi": "1–2 hari" },
-          { "judul": "Pemasangan", "isi": "Penyiapan server toko, pemasangan aplikasi, dan pengaturan printer struk.", "durasi": "1 hari" },
-          { "judul": "Pemasukan data", "isi": "Impor produk, kategori, satuan, konversi, dan stok awal.", "durasi": "2–3 hari" },
-          { "judul": "Pelatihan", "isi": "Pendampingan kasir sampai lancar melayani tanpa dibantu.", "durasi": "1 hari" },
-          { "judul": "Serah terima", "isi": "Aplikasi berjalan penuh beserta dokumentasi dan akun pengguna.", "durasi": "1 hari" }
+          {
+            "judul": "Konsultasi",
+            "isi": "Pendataan jenis produk, satuan jual, dan alur kasir yang dipakai sekarang.",
+            "durasi": "1–2 hari"
+          },
+          {
+            "judul": "Pemasangan",
+            "isi": "Penyiapan server toko, pemasangan aplikasi, dan pengaturan printer struk.",
+            "durasi": "1 hari"
+          },
+          {
+            "judul": "Pemasukan data",
+            "isi": "Impor produk, kategori, satuan, konversi, dan stok awal.",
+            "durasi": "2–3 hari"
+          },
+          {
+            "judul": "Pelatihan",
+            "isi": "Pendampingan kasir sampai lancar melayani tanpa dibantu.",
+            "durasi": "1 hari"
+          },
+          {
+            "judul": "Serah terima",
+            "isi": "Aplikasi berjalan penuh beserta dokumentasi dan akun pengguna.",
+            "durasi": "1 hari"
+          }
         ],
         "syarat": [
           "Pembayaran lisensi: 50% saat kesepakatan, 50% saat serah terima.",
@@ -252,7 +817,6 @@
           "Harga belum termasuk pajak yang berlaku."
         ]
       },
-
       "en": {
         "tagline": "A web-based point-of-sale application for shops, minimarkets, and small businesses.",
         "ringkasan": [
@@ -275,22 +839,64 @@
           "Being web-based, one installation serves several till computers on the shop network at once, and the owner can read the reports from anywhere."
         ],
         "peran": [
-          { "nama": "Admin", "tugas": "Master data, supplier purchasing, reports, and application settings." },
-          { "nama": "Cashier", "tugas": "Serving sales, printing receipts, and reviewing their own transaction history." }
+          {
+            "nama": "Admin",
+            "tugas": "Master data, supplier purchasing, reports, and application settings."
+          },
+          {
+            "nama": "Cashier",
+            "tugas": "Serving sales, printing receipts, and reviewing their own transaction history."
+          }
         ],
         "modul": [
-          { "nama": "Roles and permissions", "isi": "Two roles, Admin and Cashier, with menus separated by responsibility." },
-          { "nama": "Checkout screen", "isi": "Fast product lookup by name or SKU scan." },
-          { "nama": "Multi-unit selling", "isi": "One product sold in different units with automatic stock conversion." },
-          { "nama": "Transaction maths", "isi": "Subtotal, per-item discount, tax, total due, and change calculated live." },
-          { "nama": "Fast payment", "isi": "Quick cash-amount buttons and an exact-amount option to shorten the queue." },
-          { "nama": "Keyboard shortcuts", "isi": "Search, pay, and cancel without touching a mouse." },
-          { "nama": "Receipt printing", "isi": "58mm and 80mm thermal printers, or A4 paper, per settings." },
-          { "nama": "Transaction history", "isi": "Cashier transaction lookup with receipt reprinting." },
-          { "nama": "Master data", "isi": "Users, categories, units, products with multi-unit conversion, and suppliers." },
-          { "nama": "Supplier purchasing", "isi": "Purchase records that automatically increase product stock." },
-          { "nama": "Sales reports", "isi": "Daily, per-product, and per-cashier reports with Excel export." },
-          { "nama": "Dashboard", "isi": "Sales trend, best-selling products, and critical stock alerts." }
+          {
+            "nama": "Roles and permissions",
+            "isi": "Two roles, Admin and Cashier, with menus separated by responsibility."
+          },
+          {
+            "nama": "Checkout screen",
+            "isi": "Fast product lookup by name or SKU scan."
+          },
+          {
+            "nama": "Multi-unit selling",
+            "isi": "One product sold in different units with automatic stock conversion."
+          },
+          {
+            "nama": "Transaction maths",
+            "isi": "Subtotal, per-item discount, tax, total due, and change calculated live."
+          },
+          {
+            "nama": "Fast payment",
+            "isi": "Quick cash-amount buttons and an exact-amount option to shorten the queue."
+          },
+          {
+            "nama": "Keyboard shortcuts",
+            "isi": "Search, pay, and cancel without touching a mouse."
+          },
+          {
+            "nama": "Receipt printing",
+            "isi": "58mm and 80mm thermal printers, or A4 paper, per settings."
+          },
+          {
+            "nama": "Transaction history",
+            "isi": "Cashier transaction lookup with receipt reprinting."
+          },
+          {
+            "nama": "Master data",
+            "isi": "Users, categories, units, products with multi-unit conversion, and suppliers."
+          },
+          {
+            "nama": "Supplier purchasing",
+            "isi": "Purchase records that automatically increase product stock."
+          },
+          {
+            "nama": "Sales reports",
+            "isi": "Daily, per-product, and per-cashier reports with Excel export."
+          },
+          {
+            "nama": "Dashboard",
+            "isi": "Sales trend, best-selling products, and critical stock alerts."
+          }
         ],
         "termasuk": [
           "Usage licence for one shop, with no cap on the number of till computers.",
@@ -307,11 +913,31 @@
           "New modules beyond the list above."
         ],
         "tahapan": [
-          { "judul": "Consultation", "isi": "Recording product types, selling units, and the checkout flow used today.", "durasi": "1–2 days" },
-          { "judul": "Installation", "isi": "Shop server preparation, application setup, and receipt printer configuration.", "durasi": "1 day" },
-          { "judul": "Data loading", "isi": "Importing products, categories, units, conversions, and opening stock.", "durasi": "2–3 days" },
-          { "judul": "Training", "isi": "Working with cashiers until they serve customers unaided.", "durasi": "1 day" },
-          { "judul": "Handover", "isi": "The system fully running, with documentation and user accounts.", "durasi": "1 day" }
+          {
+            "judul": "Consultation",
+            "isi": "Recording product types, selling units, and the checkout flow used today.",
+            "durasi": "1–2 days"
+          },
+          {
+            "judul": "Installation",
+            "isi": "Shop server preparation, application setup, and receipt printer configuration.",
+            "durasi": "1 day"
+          },
+          {
+            "judul": "Data loading",
+            "isi": "Importing products, categories, units, conversions, and opening stock.",
+            "durasi": "2–3 days"
+          },
+          {
+            "judul": "Training",
+            "isi": "Working with cashiers until they serve customers unaided.",
+            "durasi": "1 day"
+          },
+          {
+            "judul": "Handover",
+            "isi": "The system fully running, with documentation and user accounts.",
+            "durasi": "1 day"
+          }
         ],
         "syarat": [
           "Licence payment: 50% on agreement, 50% on handover.",
@@ -322,19 +948,36 @@
         ]
       }
     },
-
     {
       "key": "pamdes",
-      "slug": { "id": "st-pamdes", "en": "st-pamdes" },
+      "slug": {
+        "id": "st-pamdes",
+        "en": "st-pamdes"
+      },
       "licenseUsd": 120,
       "annualUsd": 30,
       "shots": [
-        { "name": "pamdes-1", "id": "Dasbor rekap pelanggan dan pembayaran", "en": "Customer and payment summary dashboard" },
-        { "name": "pamdes-2", "id": "Data pelanggan", "en": "Customer records" },
-        { "name": "pamdes-5", "id": "Data pembayaran beserta status lunas", "en": "Payment records with settlement status" },
-        { "name": "pamdes-8", "id": "Bukti pembayaran air siap cetak", "en": "Printable water payment receipt" }
+        {
+          "name": "pamdes-1",
+          "id": "Dasbor rekap pelanggan dan pembayaran",
+          "en": "Customer and payment summary dashboard"
+        },
+        {
+          "name": "pamdes-2",
+          "id": "Data pelanggan",
+          "en": "Customer records"
+        },
+        {
+          "name": "pamdes-5",
+          "id": "Data pembayaran beserta status lunas",
+          "en": "Payment records with settlement status"
+        },
+        {
+          "name": "pamdes-8",
+          "id": "Bukti pembayaran air siap cetak",
+          "en": "Printable water payment receipt"
+        }
       ],
-
       "id": {
         "tagline": "Pendataan pelanggan dan tagihan air untuk pengelola air desa.",
         "ringkasan": [
@@ -357,19 +1000,52 @@
           "Bukti pembayaran dicetak dengan format seragam, ukuran kertasnya dapat diatur, dan seluruh laporan dapat diekspor ke Excel maupun PDF untuk kebutuhan rapat pengurus."
         ],
         "peran": [
-          { "nama": "Admin", "tugas": "Data pelanggan, tarif air, pengaturan biaya, laporan, dan pengelolaan pengguna." },
-          { "nama": "Petugas", "tugas": "Pencatatan pemakaian meter, penerimaan pembayaran, dan pencetakan bukti." }
+          {
+            "nama": "Admin",
+            "tugas": "Data pelanggan, tarif air, pengaturan biaya, laporan, dan pengelolaan pengguna."
+          },
+          {
+            "nama": "Petugas",
+            "tugas": "Pencatatan pemakaian meter, penerimaan pembayaran, dan pencetakan bukti."
+          }
         ],
         "modul": [
-          { "nama": "Data pelanggan", "isi": "Kode pelanggan, nama, nomor HP atau WhatsApp, alamat, dan status aktif." },
-          { "nama": "Tarif air", "isi": "Penetapan tarif per meter kubik beserta biaya pemeliharaan dan administrasi." },
-          { "nama": "Pencatatan pemakaian", "isi": "Pemasukan angka meter per pelanggan untuk tiap bulan tagihan." },
-          { "nama": "Transaksi pembayaran", "isi": "Pencatatan pembayaran dengan status lunas yang terlihat pada daftar." },
-          { "nama": "Cek tagihan", "isi": "Penelusuran tagihan berjalan dan riwayat pembayaran per pelanggan." },
-          { "nama": "Bukti pembayaran", "isi": "Cetak bukti berisi rincian pemakaian, tarif, dan biaya, dengan ukuran kertas yang dapat diatur." },
-          { "nama": "Laporan transaksi", "isi": "Rekap pembayaran per bulan dan per tahun untuk kebutuhan rapat pengurus." },
-          { "nama": "Dasbor", "isi": "Rekap jumlah pelanggan aktif dan grafik pembayaran sepanjang tahun berjalan." },
-          { "nama": "Impor dan ekspor", "isi": "Pemasukan data pelanggan lewat Excel serta ekspor laporan ke Excel dan PDF." }
+          {
+            "nama": "Data pelanggan",
+            "isi": "Kode pelanggan, nama, nomor HP atau WhatsApp, alamat, dan status aktif."
+          },
+          {
+            "nama": "Tarif air",
+            "isi": "Penetapan tarif per meter kubik beserta biaya pemeliharaan dan administrasi."
+          },
+          {
+            "nama": "Pencatatan pemakaian",
+            "isi": "Pemasukan angka meter per pelanggan untuk tiap bulan tagihan."
+          },
+          {
+            "nama": "Transaksi pembayaran",
+            "isi": "Pencatatan pembayaran dengan status lunas yang terlihat pada daftar."
+          },
+          {
+            "nama": "Cek tagihan",
+            "isi": "Penelusuran tagihan berjalan dan riwayat pembayaran per pelanggan."
+          },
+          {
+            "nama": "Bukti pembayaran",
+            "isi": "Cetak bukti berisi rincian pemakaian, tarif, dan biaya, dengan ukuran kertas yang dapat diatur."
+          },
+          {
+            "nama": "Laporan transaksi",
+            "isi": "Rekap pembayaran per bulan dan per tahun untuk kebutuhan rapat pengurus."
+          },
+          {
+            "nama": "Dasbor",
+            "isi": "Rekap jumlah pelanggan aktif dan grafik pembayaran sepanjang tahun berjalan."
+          },
+          {
+            "nama": "Impor dan ekspor",
+            "isi": "Pemasukan data pelanggan lewat Excel serta ekspor laporan ke Excel dan PDF."
+          }
         ],
         "termasuk": [
           "Lisensi pemakaian untuk satu badan pengelola air desa.",
@@ -386,11 +1062,31 @@
           "Penambahan modul baru di luar daftar di atas."
         ],
         "tahapan": [
-          { "judul": "Konsultasi", "isi": "Pendataan aturan tarif, komponen biaya, dan format bukti yang dipakai sekarang.", "durasi": "1–2 hari" },
-          { "judul": "Pemasangan", "isi": "Penyiapan server, pemasangan aplikasi, dan pengaturan tarif beserta biaya.", "durasi": "1 hari" },
-          { "judul": "Pemasukan data", "isi": "Impor data pelanggan dan tagihan berjalan yang belum lunas.", "durasi": "2–3 hari" },
-          { "judul": "Pelatihan", "isi": "Pendampingan petugas pencatat dan admin sampai bisa bekerja sendiri.", "durasi": "1 hari" },
-          { "judul": "Serah terima", "isi": "Aplikasi berjalan penuh beserta dokumentasi dan akun pengguna.", "durasi": "1 hari" }
+          {
+            "judul": "Konsultasi",
+            "isi": "Pendataan aturan tarif, komponen biaya, dan format bukti yang dipakai sekarang.",
+            "durasi": "1–2 hari"
+          },
+          {
+            "judul": "Pemasangan",
+            "isi": "Penyiapan server, pemasangan aplikasi, dan pengaturan tarif beserta biaya.",
+            "durasi": "1 hari"
+          },
+          {
+            "judul": "Pemasukan data",
+            "isi": "Impor data pelanggan dan tagihan berjalan yang belum lunas.",
+            "durasi": "2–3 hari"
+          },
+          {
+            "judul": "Pelatihan",
+            "isi": "Pendampingan petugas pencatat dan admin sampai bisa bekerja sendiri.",
+            "durasi": "1 hari"
+          },
+          {
+            "judul": "Serah terima",
+            "isi": "Aplikasi berjalan penuh beserta dokumentasi dan akun pengguna.",
+            "durasi": "1 hari"
+          }
         ],
         "syarat": [
           "Pembayaran lisensi: 50% saat kesepakatan, 50% saat serah terima.",
@@ -400,7 +1096,6 @@
           "Harga belum termasuk pajak yang berlaku."
         ]
       },
-
       "en": {
         "tagline": "Customer records and water billing for village water management.",
         "ringkasan": [
@@ -423,19 +1118,52 @@
           "Receipts print in a consistent format with a configurable paper size, and every report exports to Excel and PDF for committee meetings."
         ],
         "peran": [
-          { "nama": "Admin", "tugas": "Customer data, water tariff, fee settings, reports, and user management." },
-          { "nama": "Officer", "tugas": "Recording meter readings, taking payments, and printing receipts." }
+          {
+            "nama": "Admin",
+            "tugas": "Customer data, water tariff, fee settings, reports, and user management."
+          },
+          {
+            "nama": "Officer",
+            "tugas": "Recording meter readings, taking payments, and printing receipts."
+          }
         ],
         "modul": [
-          { "nama": "Customer records", "isi": "Customer code, name, phone or WhatsApp number, address, and active status." },
-          { "nama": "Water tariff", "isi": "Rate per cubic metre, alongside maintenance and administration fees." },
-          { "nama": "Usage recording", "isi": "Entering each customer's meter reading for every billing month." },
-          { "nama": "Payment transactions", "isi": "Payment records with settlement status visible on the list." },
-          { "nama": "Bill lookup", "isi": "Checking the current bill and payment history for any customer." },
-          { "nama": "Payment receipt", "isi": "Printed receipt showing usage, tariff, and fees, with configurable paper size." },
-          { "nama": "Transaction reports", "isi": "Monthly and annual payment summaries for committee meetings." },
-          { "nama": "Dashboard", "isi": "Active customer counts and a payment chart across the running year." },
-          { "nama": "Import and export", "isi": "Customer data loaded from Excel, with reports exported to Excel and PDF." }
+          {
+            "nama": "Customer records",
+            "isi": "Customer code, name, phone or WhatsApp number, address, and active status."
+          },
+          {
+            "nama": "Water tariff",
+            "isi": "Rate per cubic metre, alongside maintenance and administration fees."
+          },
+          {
+            "nama": "Usage recording",
+            "isi": "Entering each customer's meter reading for every billing month."
+          },
+          {
+            "nama": "Payment transactions",
+            "isi": "Payment records with settlement status visible on the list."
+          },
+          {
+            "nama": "Bill lookup",
+            "isi": "Checking the current bill and payment history for any customer."
+          },
+          {
+            "nama": "Payment receipt",
+            "isi": "Printed receipt showing usage, tariff, and fees, with configurable paper size."
+          },
+          {
+            "nama": "Transaction reports",
+            "isi": "Monthly and annual payment summaries for committee meetings."
+          },
+          {
+            "nama": "Dashboard",
+            "isi": "Active customer counts and a payment chart across the running year."
+          },
+          {
+            "nama": "Import and export",
+            "isi": "Customer data loaded from Excel, with reports exported to Excel and PDF."
+          }
         ],
         "termasuk": [
           "Usage licence for one village water management body.",
@@ -452,11 +1180,31 @@
           "New modules beyond the list above."
         ],
         "tahapan": [
-          { "judul": "Consultation", "isi": "Recording tariff rules, fee components, and the receipt format used today.", "durasi": "1–2 days" },
-          { "judul": "Installation", "isi": "Server preparation, application setup, and tariff and fee configuration.", "durasi": "1 day" },
-          { "judul": "Data loading", "isi": "Importing customer records and any outstanding bills.", "durasi": "2–3 days" },
-          { "judul": "Training", "isi": "Working with recording officers and administrators until they work unaided.", "durasi": "1 day" },
-          { "judul": "Handover", "isi": "The system fully running, with documentation and user accounts.", "durasi": "1 day" }
+          {
+            "judul": "Consultation",
+            "isi": "Recording tariff rules, fee components, and the receipt format used today.",
+            "durasi": "1–2 days"
+          },
+          {
+            "judul": "Installation",
+            "isi": "Server preparation, application setup, and tariff and fee configuration.",
+            "durasi": "1 day"
+          },
+          {
+            "judul": "Data loading",
+            "isi": "Importing customer records and any outstanding bills.",
+            "durasi": "2–3 days"
+          },
+          {
+            "judul": "Training",
+            "isi": "Working with recording officers and administrators until they work unaided.",
+            "durasi": "1 day"
+          },
+          {
+            "judul": "Handover",
+            "isi": "The system fully running, with documentation and user accounts.",
+            "durasi": "1 day"
+          }
         ],
         "syarat": [
           "Licence payment: 50% on agreement, 50% on handover.",

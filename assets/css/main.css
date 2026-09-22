@@ -978,6 +978,12 @@ li:last-child { margin-bottom: 0; }
               color var(--dur-fast) var(--ease-out);
 }
 .lightbox__close:hover { color: var(--accent); transform: rotate(90deg); }
+/* Ukuran ikon WAJIB disetel. Tanpa aturan ini SVG jatuh ke tinggi bawaannya,
+   150px — terukur 22x150 di dalam tombol 36x36 — dan luberannya menelan
+   ketukan di area bawahnya. Di layar ponsel, tempat gambar lightbox hanya
+   setinggi ~164px, luberan itu persis menutupi tombol "Gambar berikutnya",
+   sehingga ketukan pada Next justru menutup dialog. */
+.lightbox__close svg { width: 1.1rem; height: 1.1rem; }
 
 /* Panah memakai permukaan solid bertema, bukan putih transparan. Tangkapan
    layar aplikasi hampir selalu berlatar terang, sehingga panah putih tembus

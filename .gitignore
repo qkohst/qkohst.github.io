@@ -13,3 +13,11 @@ data/projects.draft.json
 
 # Sumber proyek: gambar asli disimpan, hasil optimasinya di assets/img/
 # (folder content/ ikut di-commit — ia sumber kebenaran untuk proyek baru)
+
+# Tangkapan layar ASLI yang masih memuat data pribadi. Hanya hasil samaran di
+# content/redacted/ yang boleh ter-commit; berkas di sini dipakai sebagai bahan
+# oleh tools/redact-images.js dan tidak pernah terbit.
+content/_raw/
+
+# Pengaturan alat bantu lokal, bukan bagian dari situs.
+.claude/

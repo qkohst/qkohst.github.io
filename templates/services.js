@@ -64,8 +64,13 @@ ${produk.length ? `
         </div>
         <ul class="grid grid--services list-plain">
 ${each(produk, (x, i) => `          <li data-reveal data-reveal-delay="${i * 80}">
-            <a class="card card--link service-card" href="${esc(pageUrl('proposal', lang, x.slug[lang]))}">
-              <span class="card__icon">${icon('download')}</span>
+            <a class="card card--link service-card service-card--produk" href="${esc(pageUrl('proposal', lang, x.slug[lang]))}">
+              <span class="service-card__media">
+                <picture>
+                  <source type="image/avif" srcset="/assets/img/portfolio/${esc(x.thumb)}-480.avif 480w, /assets/img/portfolio/${esc(x.thumb)}-960.avif 960w" sizes="(min-width: 64rem) 16rem, (min-width: 40rem) 45vw, 90vw">
+                  <img src="/assets/img/portfolio/${esc(x.thumb)}-960.jpg" alt="${esc(x.alt)}" width="960" height="540" loading="lazy" decoding="async">
+                </picture>
+              </span>
               <h3 class="card__title">${esc(x.judul)}</h3>
               <p class="card__text">${esc(x.ringkas)}</p>
               <p class="service-card__price">

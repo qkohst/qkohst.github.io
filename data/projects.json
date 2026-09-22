@@ -503,7 +503,7 @@
     "images": [
       {
         "name": "e-raport-1",
-        "source": "my_pages/assets/img/portfolio/e_raport (1).png",
+        "source": "content/redacted/e_raport/01.png",
         "alt": {
           "id": "Tangkapan layar 1 dari 10 — Aplikasi E-Raport",
           "en": "Screenshot 1 of 10 — E-Raport Application"
@@ -511,7 +511,7 @@
       },
       {
         "name": "e-raport-2",
-        "source": "my_pages/assets/img/portfolio/e_raport (2).png",
+        "source": "content/redacted/e_raport/02.png",
         "alt": {
           "id": "Tangkapan layar 2 dari 10 — Aplikasi E-Raport",
           "en": "Screenshot 2 of 10 — E-Raport Application"
@@ -519,7 +519,7 @@
       },
       {
         "name": "e-raport-3",
-        "source": "my_pages/assets/img/portfolio/e_raport (3).png",
+        "source": "content/redacted/e_raport/03.png",
         "alt": {
           "id": "Tangkapan layar 3 dari 10 — Aplikasi E-Raport",
           "en": "Screenshot 3 of 10 — E-Raport Application"
@@ -527,7 +527,7 @@
       },
       {
         "name": "e-raport-4",
-        "source": "my_pages/assets/img/portfolio/e_raport (4).png",
+        "source": "content/redacted/e_raport/04.png",
         "alt": {
           "id": "Tangkapan layar 4 dari 10 — Aplikasi E-Raport",
           "en": "Screenshot 4 of 10 — E-Raport Application"
@@ -535,7 +535,7 @@
       },
       {
         "name": "e-raport-5",
-        "source": "my_pages/assets/img/portfolio/e_raport (5).png",
+        "source": "content/redacted/e_raport/05.png",
         "alt": {
           "id": "Tangkapan layar 5 dari 10 — Aplikasi E-Raport",
           "en": "Screenshot 5 of 10 — E-Raport Application"
@@ -543,7 +543,7 @@
       },
       {
         "name": "e-raport-6",
-        "source": "my_pages/assets/img/portfolio/e_raport (6).png",
+        "source": "content/redacted/e_raport/06.png",
         "alt": {
           "id": "Tangkapan layar 6 dari 10 — Aplikasi E-Raport",
           "en": "Screenshot 6 of 10 — E-Raport Application"
@@ -551,7 +551,7 @@
       },
       {
         "name": "e-raport-7",
-        "source": "my_pages/assets/img/portfolio/e_raport (7).png",
+        "source": "content/redacted/e_raport/07.png",
         "alt": {
           "id": "Tangkapan layar 7 dari 10 — Aplikasi E-Raport",
           "en": "Screenshot 7 of 10 — E-Raport Application"
@@ -559,7 +559,7 @@
       },
       {
         "name": "e-raport-8",
-        "source": "my_pages/assets/img/portfolio/e_raport (8).png",
+        "source": "content/redacted/e_raport/08.png",
         "alt": {
           "id": "Tangkapan layar 8 dari 10 — Aplikasi E-Raport",
           "en": "Screenshot 8 of 10 — E-Raport Application"
@@ -567,7 +567,7 @@
       },
       {
         "name": "e-raport-9",
-        "source": "my_pages/assets/img/portfolio/e_raport (9).png",
+        "source": "content/redacted/e_raport/09.png",
         "alt": {
           "id": "Tangkapan layar 9 dari 10 — Aplikasi E-Raport",
           "en": "Screenshot 9 of 10 — E-Raport Application"
@@ -575,7 +575,7 @@
       },
       {
         "name": "e-raport-10",
-        "source": "my_pages/assets/img/portfolio/e_raport (10).png",
+        "source": "content/redacted/e_raport/10.png",
         "alt": {
           "id": "Tangkapan layar 10 dari 10 — Aplikasi E-Raport",
           "en": "Screenshot 10 of 10 — E-Raport Application"

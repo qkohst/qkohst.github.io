@@ -359,7 +359,10 @@ for (const lang of LANGS) {
         slug: x.slug, licenseUsd: x.licenseUsd,
         judul: t(proyek, lang).title,
         ringkas: t(x, lang).tagline,
-        thumb: proyek.thumb
+        thumb: proyek.thumb,
+        // Alt diambil dari gambar sampul proyeknya, bukan dikarang di templat:
+        // teksnya sudah dwibahasa dan sudah lolos gerbang validasi.
+        alt: (proyek.images.find(i => i.name === proyek.thumb) || proyek.images[0]).alt[lang]
       };
     });
     write(pageUrl('services', lang), layout.document(ctx, servicesTpl(ctx, produk)));

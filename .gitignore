@@ -21,3 +21,11 @@ content/_raw/
 
 # Pengaturan alat bantu lokal, bukan bagian dari situs.
 .claude/
+
+# Berkas PDF hasil cetak. TIDAK ikut di-commit: halaman CV dan penawaran memakai
+# mesin cetak peramban lewat tombol "Simpan sebagai PDF", yang menghasilkan PDF
+# vektor tanpa menambah bobot repo. tools/build-cv-pdf.js dan
+# tools/build-proposal-pdf.js tetap ada untuk dijalankan sesekali bila Anda
+# perlu berkasnya sendiri, misalnya untuk dilampirkan ke email.
+assets/cv/
+assets/proposals/

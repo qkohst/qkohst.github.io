@@ -8,8 +8,9 @@
     "images": "node optimize-images.js",
     "pages": "node build.js --out .",
     "pdf": "node build-cv-pdf.js",
+    "pdf:proposal": "node build-proposal-pdf.js",
     "audit": "node audit.js .",
-    "build": "npm run sync && npm run images && npm run pages && npm run pdf && npm run audit",
+    "build": "npm run sync && npm run images && npm run pages && npm run audit",
     "serve": "node -e \"const h=require('http'),f=require('fs'),p=require('path');const M={'.html':'text/html;charset=utf-8','.css':'text/css','.js':'text/javascript','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.avif':'image/avif','.ico':'image/x-icon','.pdf':'application/pdf','.xml':'application/xml','.json':'application/json'};h.createServer((q,s)=>{let u=decodeURIComponent(q.url.split('?')[0]);if(u.endsWith('/'))u+='index.html';const F=p.join('..',u);if(!f.existsSync(F)||f.statSync(F).isDirectory()){s.writeHead(404);return s.end('404')}s.writeHead(200,{'Content-Type':M[p.extname(F)]||'application/octet-stream','Cache-Control':'no-store'});f.createReadStream(F).pipe(s)}).listen(8899,'127.0.0.1',()=>console.log('http://127.0.0.1:8899'))\""
   },
   "devDependencies": {
@@ -18,5 +19,6 @@
   "dependencies": {
     "qrcode": "^1.5.4"
   },
-  "$catatanScript": "Argumen path pada build.js dan audit.js dihitung relatif terhadap akar repo, bukan folder tempat npm dijalankan. Karena itu dipakai \".\" meski skrip ini berada di tools/."
+  "$catatanScript": "Argumen path pada build.js dan audit.js dihitung relatif terhadap akar repo, bukan folder tempat npm dijalankan. Karena itu dipakai \".\" meski skrip ini berada di tools/.",
+  "$catatanPdf": "pdf dan pdf:proposal SENGAJA tidak masuk rantai build. Situs tidak menyajikan berkas PDF: halaman CV dan penawaran memakai mesin cetak peramban lewat tombol \"Simpan sebagai PDF\", sehingga repo tidak menanggung berkas 6 MB yang berubah setiap kali isinya disunting. Kedua skrip tetap ada untuk dijalankan manual ketika berkasnya memang diperlukan, misalnya untuk dilampirkan ke email; keluarannya masuk .gitignore."
 }

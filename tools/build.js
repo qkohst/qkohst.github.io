@@ -108,10 +108,47 @@ for (const lang of LANGS) {
     }
   }
 
+  /* Blok bersama memasok isi yang sama untuk keempat produk. Bila satu bagian
+     kosong, halamannya tetap terbentuk tetapi tanpa isi — cacat yang lolos
+     tanpa suara, jadi diperiksa lebih dulu di sini. */
+  {
+    const b = proposalDoc.bersama && proposalDoc.bersama[lang];
+    if (!b) fatal.push(`penawaran: blok bersama.${lang} tidak ada`);
+    else {
+      for (const bagian of ['teknis', 'tanya', 'syarat', 'langkah']) {
+        if (!Array.isArray(b[bagian]) || !b[bagian].length) fatal.push(`penawaran bersama ${lang}: ${bagian} kosong`);
+      }
+      if (!b.bayar) fatal.push(`penawaran bersama ${lang}: bayar kosong`);
+      if (!b.surat || !Array.isArray(b.surat.paragraf) || !b.surat.paragraf.length) fatal.push(`penawaran bersama ${lang}: surat.paragraf kosong`);
+      if (!b.penyedia || !Array.isArray(b.penyedia.ringkas) || !b.penyedia.ringkas.length) fatal.push(`penawaran bersama ${lang}: penyedia.ringkas kosong`);
+      if (!b.sla || !Array.isArray(b.sla.target) || !b.sla.target.length) fatal.push(`penawaran bersama ${lang}: sla.target kosong`);
+      if (!b.tambahan || !(b.tambahan.jamIdr > 0)) fatal.push(`penawaran bersama ${lang}: tambahan.jamIdr harus angka positif`);
+      if (!(b.tambahan && b.tambahan.lipatBangunKhususMaks > 1)) fatal.push(`penawaran bersama ${lang}: tambahan.lipatBangunKhususMaks harus lebih dari 1, kalau tidak rentang bangun-khusus jadi satu titik`);
+      for (const x of (b.tambahan && b.tambahan.contoh) || []) {
+        if (!(x.jamMin > 0) || !(x.jamMax >= x.jamMin)) fatal.push(`penawaran bersama ${lang}: perkiraan jam tidak wajar pada "${x.nama}"`);
+      }
+      /* Harga bangun-khusus dihitung dari pos bertanda dasarBangunKhusus. Tanpa
+         satu pun tanda, kartu "Dibangun khusus" akan memasang harga yang sama
+         persis dengan harga lisensi di sebelahnya. */
+      const dasar = ((b.tambahan && b.tambahan.contoh) || []).filter(x => x.dasarBangunKhusus);
+      if (!dasar.length) fatal.push(`penawaran bersama ${lang}: tidak ada pos tambahan bertanda dasarBangunKhusus, harga bangun-khusus akan sama dengan lisensi`);
+      const dasarLain = (((proposalDoc.bersama[lang === 'id' ? 'en' : 'id'] || {}).tambahan || {}).contoh || []).filter(x => x.dasarBangunKhusus);
+      if (dasar.length !== dasarLain.length) fatal.push(`penawaran bersama: jumlah pos dasarBangunKhusus beda antar bahasa (${dasar.length} vs ${dasarLain.length})`);
+      /* Jumlah entri harus sepadan antar bahasa. Jumlah yang berbeda berarti
+         satu bahasa kehilangan isi, dan itu tidak terlihat dari halaman jadi. */
+      const lain = proposalDoc.bersama[lang === 'id' ? 'en' : 'id'] || {};
+      for (const bagian of ['teknis', 'tanya', 'syarat', 'langkah']) {
+        const a = (b[bagian] || []).length, z = (lain[bagian] || []).length;
+        if (a !== z) fatal.push(`penawaran bersama: jumlah ${bagian} beda antar bahasa (${a} vs ${z})`);
+      }
+    }
+  }
+
   /* Penawaran menumpang data proyek untuk judul, gambar, klien, dan slug.
      Tautan yang putus akan menghasilkan halaman separuh jadi yang lolos begitu
      saja, jadi diperiksa di sini bersama slug dan angka harganya. */
   const slugPenawaran = new Set();
+  const nomorDipakai = new Set();
   for (const p of proposals) {
     const proyek = projects.find(x => x.key === p.key);
     if (!proyek) { fatal.push(`penawaran ${p.key}: tidak ada proyek dengan key ini`); continue; }
@@ -119,12 +156,23 @@ for (const lang of LANGS) {
     if (!s) fatal.push(`penawaran ${p.key}: slug ${lang} kosong`);
     else if (slugPenawaran.has(s)) fatal.push(`slug penawaran ${lang} ganda: ${s}`);
     slugPenawaran.add(s);
-    if (!(p.licenseUsd > 0)) fatal.push(`penawaran ${p.key}: licenseUsd harus angka positif`);
-    if (!(p.annualUsd > 0)) fatal.push(`penawaran ${p.key}: annualUsd harus angka positif`);
+    if (!(p.licenseIdr > 0)) fatal.push(`penawaran ${p.key}: licenseIdr harus angka positif`);
+    /* Nomor dokumen dipakai di sampul dan surat penawaran. Nomor ganda berarti
+       dua penawaran diarsipkan klien dengan nomor yang sama. */
+    if (!p.nomor) fatal.push(`penawaran ${p.key}: nomor dokumen kosong`);
+    else if (nomorDipakai.has(p.nomor)) fatal.push(`nomor penawaran ganda: ${p.nomor}`);
+    nomorDipakai.add(p.nomor);
     const c = t(p, lang);
     if (!c.tagline) fatal.push(`penawaran ${p.key}: tagline ${lang} kosong`);
-    for (const bagian of ['ringkasan', 'masalah', 'solusi', 'peran', 'modul', 'termasuk', 'tidakTermasuk', 'tahapan', 'syarat']) {
+    for (const bagian of ['ringkasan', 'masalah', 'solusi', 'peran', 'modul', 'manfaat', 'termasuk', 'tidakTermasuk', 'tahapan']) {
       if (!Array.isArray(c[bagian]) || !c[bagian].length) fatal.push(`penawaran ${p.key}: ${bagian} ${lang} kosong`);
+    }
+    /* Tabel manfaat punya empat kolom; satu kolom kosong meninggalkan sel
+       menganga di tengah halaman yang justru dipakai menjual. */
+    for (const m of c.manfaat || []) {
+      for (const kolom of ['pekerjaan', 'sebelum', 'sesudah', 'hemat']) {
+        if (!m[kolom]) fatal.push(`penawaran ${p.key}: manfaat ${lang} kekurangan "${kolom}" pada "${m.pekerjaan || '?'}"`);
+      }
     }
     for (const s2 of p.shots || []) {
       if (!proyek.images.some(i => i.name === s2.name)) fatal.push(`penawaran ${p.key}: gambar ${s2.name} tidak ada pada proyeknya`);
@@ -268,8 +316,8 @@ const offerLd = (lang, p, judul, ringkas) => ({
   author: { '@type': 'Person', name: site.profile.name, url: ORIGIN },
   offers: {
     '@type': 'Offer',
-    price: p.licenseUsd,
-    priceCurrency: 'USD',
+    price: p.licenseIdr,
+    priceCurrency: 'IDR',
     availability: 'https://schema.org/InStock',
     url: absUrl(ORIGIN, pageUrl('proposal', lang, p.slug[lang]))
   }
@@ -356,7 +404,12 @@ for (const lang of LANGS) {
     const produk = proposals.map(x => {
       const proyek = projects.find(o => o.key === x.key);
       return {
-        slug: x.slug, licenseUsd: x.licenseUsd,
+        // Kartu menautkan ke halaman PROYEK, bukan langsung ke penawaran:
+        // pengunjung yang baru melihat kartu belum tentu siap membaca dokumen
+        // penawaran enam belas halaman. Halaman proyek memperkenalkan produknya
+        // lebih dulu, dan dari sana tersedia tombol "Lihat penawaran".
+        proyekSlug: proyek.slug,
+        slug: x.slug, licenseIdr: x.licenseIdr,
         judul: t(proyek, lang).title,
         ringkas: t(x, lang).tagline,
         thumb: proyek.thumb,
@@ -406,7 +459,7 @@ for (const lang of LANGS) {
       extraCss: '/assets/css/proposal.css',
       extraCssVer: ASSET_VER.proposalCss
     });
-    write(pageUrl('proposal', lang, p.slug[lang]), layout.document(ctx, proposalTpl(ctx, p, proyek, proposalDoc)));
+    write(pageUrl('proposal', lang, p.slug[lang]), layout.document(ctx, proposalTpl(ctx, p, proyek, proposalDoc, projects.length)));
   }
 
   // halaman CV (noindex: bukan halaman pendaratan, tapi tetap perlu bisa dibuka

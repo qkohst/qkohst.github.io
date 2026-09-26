@@ -27,7 +27,7 @@ module.exports = function home(ctx, projects) {
           <p class="hero__tagline">${esc(p.tagline)}</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="${esc(waLink(c.phoneE164, WA_TEKS.umum[lang]()))}" target="_blank" rel="noopener noreferrer">${icon('whatsapp')} ${esc(ui.hire)}</a>
-            <a class="btn btn--ghost" href="${esc(pageUrl('cv', lang))}">${icon('download')} ${esc(ui.downloadCv)}</a>
+            <a class="btn btn--ghost" href="${esc(pageUrl('cv', lang))}">${icon('external')} ${esc(ui.downloadCv)}</a>
           </div>
           <dl class="hero__stats">
             <div class="hero__stat"><strong>${years}+</strong><span>${esc(ui.experienceSuffix)}</span></div>

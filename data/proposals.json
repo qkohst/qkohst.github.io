@@ -2,23 +2,412 @@
   "$panduan": [
     "Sumber tunggal untuk halaman penawaran produk siap pakai.",
     "key harus cocok dengan key di data/projects.json — build.js gagal keras bila tidak.",
-    "Harga disimpan dalam USD saja. Rupiah dihitung saat build lewat fmtIdr() memakai",
-    "site.currency, sehingga kurs dan tanggalnya selalu jujur dan ikut berubah otomatis.",
-    "Aturan harga: biaya tahunan = 25% lisensi, dan lisensi selalu di bawah harga",
-    "bangun-khusus (site.pricing paket Premium) supaya tawarannya tetap masuk akal."
+    "Lisensi dijual beli putus, tanpa biaya tahunan maupun langganan.",
+    "Harga disimpan langsung dalam rupiah (licenseIdr) dan tidak dikonversi dari mata uang lain. Halaman Inggris memakai angka rupiah yang sama, tanpa catatan kurs, supaya harga yang dibaca kedua bahasa persis sama dan tidak pernah bergerak.",
+    "Harga bangun-khusus TIDAK disimpan. Template menghitungnya sebagai rentang: batas bawah = harga lisensi + pos biaya tambahan bertanda dasarBangunKhusus pada jam tertingginya; batas atas memakai pos yang sama dikalikan tambahan.lipatBangunKhususMaks. Keduanya dibulatkan ke Rp500.000 terdekat."
   ],
-  "$tanggalNote": "Tanggal terbit sengaja disimpan sebagai nilai tetap, bukan diambil dari jam build. Kalau dinamis, keenam halaman berubah isinya setiap kali generator dijalankan dan mengotori riwayat git. Perbarui manual saat penawaran diterbitkan ulang.",
+  "$tanggalNote": "Tanggal terbit sengaja disimpan sebagai nilai tetap, bukan diambil dari jam build. Kalau dinamis, seluruh halaman berubah isinya setiap kali generator dijalankan dan mengotori riwayat git. Perbarui manual saat penawaran diterbitkan ulang.",
   "issued": "2026-09-16",
-  "berlakuHari": 30,
+  "berlakuBulan": 3,
+  "bersama": {
+    "$panduan": [
+      "Isi yang sama untuk keempat produk ditulis sekali di sini, bukan empat kali di items[].",
+      "Bila satu produk perlu tambahan, isi bidang bernama sama di item-nya — template MENAMBAHKAN",
+      "isi item setelah isi bersama, tidak menimpanya.",
+      "Jumlah entri id dan en harus sama; build.js gagal keras bila berbeda."
+    ],
+    "id": {
+      "surat": {
+        "lampiran": "1 (Satu) Bendel",
+        "perihal": "Penawaran {judul}",
+        "paragraf": [
+          "Bersama surat ini saya mengajukan penawaran {judul}. Aplikasinya sudah jadi dan sudah dipakai, sehingga dapat dipasang untuk lembaga Anda tanpa menunggu proses pembangunan dari awal.",
+          "Di dalam berkas ini Anda akan menemukan masalah yang dijawab aplikasi ini, daftar modul dan tampilan layarnya, rincian harga, spesifikasi teknis, jaminan dukungan, dan lini waktu pemasangan. Semuanya ditulis apa adanya agar bisa Anda nilai sendiri sebelum memutuskan.",
+          "Bila ada bagian yang perlu disesuaikan dengan aturan yang berlaku di lembaga Anda, silakan sampaikan. Penyesuaian seperti itu memang biasa dan sudah saya perhitungkan."
+        ]
+      },
+      "penyedia": {
+        "ringkas": [
+          "Aplikasi dalam penawaran ini saya kerjakan sendiri, bukan produk pihak lain yang dijual ulang. Karena itu setiap penyesuaian bisa dikerjakan langsung, tanpa perantara dan tanpa menunggu antrean vendor.",
+          "Sejak 2021 saya membangun sistem administrasi sekolah, aplikasi kasir, dan sistem tagihan untuk lembaga pendidikan, perusahaan swasta, otoritas di bidang keuangan, dan pemerintah desa."
+        ],
+        "teknologi": [
+          "PHP dan framework Laravel",
+          "Basis data MySQL atau MariaDB",
+          "Tampilan web yang menyesuaikan layar, bisa dibuka dari ponsel"
+        ]
+      },
+      "sla": {
+        "masuk": "Pendampingan dua bulan pertama setelah serah terima sudah termasuk dalam harga lisensi.",
+        "kanal": "WhatsApp dan email, langsung ke pengembangnya. Tidak ada nomor tiket dan tidak ada petugas perantara.",
+        "jam": "Senin sampai Jumat, pukul 08.00–17.00 WIB. Di luar jam itu pesan tetap masuk dan dibalas pada hari kerja berikutnya.",
+        "target": [
+          {
+            "kelas": "Aplikasi tidak bisa dibuka atau pekerjaan berhenti",
+            "balas": "Dibalas hari itu juga, penanganan dimulai pada hari yang sama"
+          },
+          {
+            "kelas": "Ada fungsi yang salah hitung atau salah tampil",
+            "balas": "Dibalas dalam 1 hari kerja, perbaikan 1–3 hari kerja"
+          },
+          {
+            "kelas": "Pertanyaan cara pakai",
+            "balas": "Dibalas dalam 1 hari kerja"
+          }
+        ],
+        "batas": "Yang ditangani tanpa biaya adalah perbaikan bug, yaitu fungsi yang sudah ada tetapi hasilnya salah. Permintaan yang menambah menu, laporan, atau alur kerja baru dihitung sebagai pekerjaan tambahan, dan harganya selalu disampaikan serta disetujui lebih dulu sebelum dikerjakan.",
+        "perpanjangan": "Setelah dua bulan, pendampingan dapat diperpanjang berbayar. Biaya per bulannya tercantum pada daftar biaya tambahan opsional, dan perpanjangan diambil hanya bila Anda memerlukannya."
+      },
+      "teknis": [
+        {
+          "nama": "Cara pemasangan",
+          "isi": "Bisa dipasang di server milik lembaga sendiri melalui jaringan lokal, atau di hosting dan VPS daring. Keduanya memakai aplikasi yang sama."
+        },
+        {
+          "nama": "Server minimum",
+          "isi": "1 inti prosesor, RAM 1 GB, ruang simpan 20 GB."
+        },
+        {
+          "nama": "Server disarankan",
+          "isi": "2 inti prosesor atau lebih, RAM 2 GB atau lebih, ruang simpan 40 GB atau lebih."
+        },
+        {
+          "nama": "Perangkat lunak server",
+          "isi": "PHP 8, basis data MySQL atau MariaDB, dan web server Apache atau Nginx."
+        },
+        {
+          "nama": "Komputer pengguna",
+          "isi": "Minimum dual core 1,5 GHz dengan RAM 2 GB. Disarankan setara Core i3 dengan RAM 4 GB."
+        },
+        {
+          "nama": "Browser",
+          "isi": "Chrome, Edge, atau Firefox versi terbaru. Tidak ada program yang perlu dipasang di setiap komputer."
+        },
+        {
+          "nama": "Hak akses",
+          "isi": "Setiap pengguna memakai akun sendiri dengan menu yang dibatasi menurut perannya. Kata sandi disimpan dalam bentuk terenkripsi, bukan teks biasa."
+        },
+        {
+          "nama": "Cadangan data",
+          "isi": "Basis data dapat dicadangkan terjadwal ke berkas terpisah. Caranya diajarkan saat pelatihan; pelaksanaan rutinnya menjadi wewenang Anda."
+        },
+        {
+          "nama": "Kepemilikan data",
+          "isi": "Seluruh data di dalam aplikasi adalah milik lembaga Anda. Saya tidak menyimpan salinannya dan tidak memakainya untuk keperluan apa pun."
+        }
+      ],
+      "tanya": [
+        {
+          "q": "Kalau nanti pengembangnya berhenti atau tidak bisa dihubungi, bagaimana?",
+          "a": "Aplikasi tetap berjalan karena dipasang di server Anda sendiri, bukan di layanan milik saya. Salinan basis data dan cara mencadangkannya diserahkan saat serah terima, sehingga pengembang lain dapat mengambil alih bila diperlukan."
+        },
+        {
+          "q": "Kenapa kode sumber tidak termasuk?",
+          "a": "Justru karena itu harga lisensinya jauh lebih ringan daripada membangun dari awal. Bila kode sumber memang Anda perlukan, tersedia jalur bangun khusus, atau pembelian kode sumber sebagai kesepakatan terpisah."
+        },
+        {
+          "q": "Apakah data yang sudah ada bisa dipindahkan?",
+          "a": "Bisa, selama datanya berbentuk Excel atau dapat diekspor ke Excel. Pemasukan data awal sudah termasuk dalam harga lisensi."
+        },
+        {
+          "q": "Apakah ada batas jumlah pengguna?",
+          "a": "Tidak ada. Lisensi berlaku untuk satu lembaga tanpa batas jumlah akun maupun jumlah komputer yang memakainya."
+        },
+        {
+          "q": "Bagaimana kalau kami butuh menu atau laporan yang belum ada?",
+          "a": "Bisa ditambahkan sebagai pekerjaan tambahan. Perkiraan jam dan biayanya disampaikan dan disetujui lebih dulu, tidak pernah dikerjakan diam-diam lalu ditagih kemudian."
+        },
+        {
+          "q": "Apakah harus punya internet?",
+          "a": "Tidak wajib. Bila dipasang di server lokal, aplikasi berjalan lewat jaringan di dalam gedung. Internet hanya diperlukan bila Anda ingin membukanya dari luar lokasi."
+        },
+        {
+          "q": "Bisa dicoba dulu sebelum membeli?",
+          "a": "Bisa. Saya tunjukkan aplikasinya berjalan beserta data contoh, lewat pertemuan daring atau kunjungan, sebelum Anda mengambil keputusan."
+        }
+      ],
+      "tambahan": {
+        "catatan": "Biaya di atas adalah kisaran. Angka pastinya disampaikan dan disetujui lebih dulu setelah kebutuhannya jelas, sehingga tidak ada tagihan yang muncul di luar dugaan.",
+        "contoh": [
+          {
+            "nama": "Menu atau laporan baru yang sederhana",
+            "jamMin": 3,
+            "jamMax": 5,
+            "dasarBangunKhusus": true
+          },
+          {
+            "nama": "Laporan dengan perhitungan dan penyaringan khusus",
+            "jamMin": 6,
+            "jamMax": 12,
+            "dasarBangunKhusus": true
+          },
+          {
+            "nama": "Penyesuaian format cetak agar sesuai aturan lembaga",
+            "jamMin": 2,
+            "jamMax": 4,
+            "dasarBangunKhusus": true
+          },
+          {
+            "nama": "Pemindahan data dari sistem lama di luar format Excel",
+            "jamMin": 8,
+            "jamMax": 16,
+            "dasarBangunKhusus": true
+          },
+          {
+            "nama": "Pemasangan ulang ke server baru",
+            "jamMin": 3,
+            "jamMax": 6
+          },
+          {
+            "nama": "Perpanjangan pendampingan, per bulan",
+            "jamMin": 4,
+            "jamMax": 4
+          }
+        ],
+        "jamIdr": 150000,
+        "lipatBangunKhususMaks": 3
+      },
+      "syarat": [
+        "Pembayaran lisensi: 50% saat kesepakatan, 50% saat serah terima.",
+        "Pendampingan dua bulan pertama setelah serah terima termasuk dalam harga lisensi. Setelah itu dapat diperpanjang berbayar.",
+        "Lisensi berlaku untuk satu lembaga, tanpa batas jumlah pengguna maupun komputer, dan tidak dapat dialihkan ke lembaga lain tanpa kesepakatan baru.",
+        "Kode sumber tidak termasuk dalam pembelian lisensi; tersedia sebagai kesepakatan terpisah.",
+        "Yang ditangani tanpa biaya adalah perbaikan bug. Penambahan menu, laporan, atau alur kerja baru dihitung sebagai pekerjaan tambahan dan disetujui harganya lebih dulu.",
+        "Anda menyediakan data dan keterangan yang dibutuhkan selama pemasangan. Keterlambatan penyediaan data ikut menggeser lini waktu.",
+        "Seluruh data di dalam aplikasi adalah milik Anda. Saya menjaga kerahasiaannya dan tidak memakainya untuk keperluan lain.",
+        "Tanggung jawab atas isi data dan transaksi di dalam aplikasi berada pada Anda sebagai pemakai.",
+        "Pelatihan dilakukan daring. Bila diminta hadir di lokasi, biaya perjalanan dan akomodasi dihitung terpisah.",
+        "Harga belum termasuk pajak yang berlaku, serta biaya server, domain, dan sertifikat SSL."
+      ],
+      "langkah": [
+        {
+          "judul": "Sampaikan kebutuhan Anda",
+          "isi": "Hubungi saya lewat WhatsApp atau email. Ceritakan lembaga Anda, perkiraan jumlah pengguna, dan bagian mana dari penawaran ini yang perlu disesuaikan."
+        },
+        {
+          "judul": "Pertemuan daring dan demo",
+          "isi": "Saya tunjukkan aplikasinya berjalan beserta data contoh, lalu kita sepakati lingkup pekerjaan dan lini waktunya."
+        },
+        {
+          "judul": "Tanda tangan dan pembayaran tahap pertama",
+          "isi": "Setelah lembar persetujuan ditandatangani kedua pihak dan pembayaran tahap pertama diterima, pemasangan dimulai mengikuti lini waktu di halaman sebelumnya."
+        }
+      ],
+      "bayar": "Pembayaran dilakukan lewat transfer bank ke rekening atas nama Kukoh Santoso. Nomor rekening disampaikan bersama tagihan resmi setelah lembar persetujuan ditandatangani, dan setiap pembayaran dibalas dengan bukti terima.",
+      "tahapBayar": [
+        {
+          "judul": "Tahap I",
+          "saat": "Saat kesepakatan ditandatangani",
+          "persen": 50
+        },
+        {
+          "judul": "Tahap II",
+          "saat": "Saat serah terima",
+          "persen": 50
+        }
+      ]
+    },
+    "en": {
+      "surat": {
+        "lampiran": "1 (one) bundle",
+        "perihal": "Offer for {judul}",
+        "paragraf": [
+          "With this letter I am submitting an offer for {judul}. The application is already built and already in use, so it can be installed for your institution without waiting for development to start from scratch.",
+          "Inside this bundle you will find the problems this application answers, its module list and screens, the price, technical requirements, the support commitment, and the installation timeline. Everything is stated plainly so you can judge it yourself before deciding.",
+          "If any part needs to follow rules specific to your institution, please say so. Adjustments like that are normal and already accounted for."
+        ]
+      },
+      "penyedia": {
+        "ringkas": [
+          "The applications in this offer are built by me, not resold from someone else. That is why any adjustment can be made directly, with no middleman and no waiting in a vendor queue.",
+          "Since 2021 I have built school administration systems, point-of-sale applications, and billing systems for schools, private companies, a financial-sector authority, and village administrations."
+        ],
+        "teknologi": [
+          "PHP with the Laravel framework",
+          "MySQL or MariaDB database",
+          "A web interface that adapts to the screen and opens on a phone"
+        ]
+      },
+      "sla": {
+        "masuk": "The first two months of support after handover are included in the licence price.",
+        "kanal": "WhatsApp and email, straight to the developer. No ticket numbers and no intermediary staff.",
+        "jam": "Monday to Friday, 08:00–17:00 WIB. Outside those hours messages still arrive and are answered on the next working day.",
+        "target": [
+          {
+            "kelas": "The application will not open, or work has stopped",
+            "balas": "Answered the same day, handling starts that day"
+          },
+          {
+            "kelas": "A function calculates or displays something incorrectly",
+            "balas": "Answered within 1 working day, fixed in 1–3 working days"
+          },
+          {
+            "kelas": "Questions about how to use it",
+            "balas": "Answered within 1 working day"
+          }
+        ],
+        "batas": "What is handled at no cost is bug fixing: a function that already exists but produces the wrong result. Requests that add a new menu, report, or workflow count as additional work, and the price is always stated and agreed before anything is built.",
+        "perpanjangan": "After two months, support can be extended for a fee. The monthly cost is listed under optional additional work, and you only take it when you need it."
+      },
+      "teknis": [
+        {
+          "nama": "How it is installed",
+          "isi": "It can be installed on a server the institution owns, over the local network, or on online hosting or a VPS. Both use the same application."
+        },
+        {
+          "nama": "Minimum server",
+          "isi": "1 processor core, 1 GB RAM, 20 GB storage."
+        },
+        {
+          "nama": "Recommended server",
+          "isi": "2 processor cores or more, 2 GB RAM or more, 40 GB storage or more."
+        },
+        {
+          "nama": "Server software",
+          "isi": "PHP 8, a MySQL or MariaDB database, and an Apache or Nginx web server."
+        },
+        {
+          "nama": "User computers",
+          "isi": "Minimum dual core 1.5 GHz with 2 GB RAM. A Core i3 equivalent with 4 GB RAM is recommended."
+        },
+        {
+          "nama": "Browser",
+          "isi": "A current version of Chrome, Edge, or Firefox. Nothing needs to be installed on each computer."
+        },
+        {
+          "nama": "Access control",
+          "isi": "Every user has their own account, with menus limited to their role. Passwords are stored encrypted, never as plain text."
+        },
+        {
+          "nama": "Data backup",
+          "isi": "The database can be backed up on a schedule to a separate file. How to do it is covered in the training; running it routinely stays under your control."
+        },
+        {
+          "nama": "Data ownership",
+          "isi": "All data inside the application belongs to your institution. I keep no copy of it and use it for nothing else."
+        }
+      ],
+      "tanya": [
+        {
+          "q": "What if the developer stops working or cannot be reached?",
+          "a": "The application keeps running because it is installed on your own server, not on a service I operate. A copy of the database and instructions for backing it up are handed over at handover, so another developer can take over if needed."
+        },
+        {
+          "q": "Why is the source code not included?",
+          "a": "That is precisely why the licence costs far less than building from scratch. If you do need the source code, there is the bespoke route, or buying the source code under a separate agreement."
+        },
+        {
+          "q": "Can our existing data be moved in?",
+          "a": "Yes, as long as it is in Excel or can be exported to Excel. Loading the initial data is included in the licence price."
+        },
+        {
+          "q": "Is there a limit on the number of users?",
+          "a": "No. The licence covers one institution with no cap on accounts or on the number of computers using it."
+        },
+        {
+          "q": "What if we need a menu or report that does not exist yet?",
+          "a": "It can be added as additional work. The estimated hours and cost are stated and agreed first — never built quietly and invoiced afterwards."
+        },
+        {
+          "q": "Do we need an internet connection?",
+          "a": "Not necessarily. Installed on a local server, the application runs over the network inside the building. Internet is only needed if you want to open it from outside."
+        },
+        {
+          "q": "Can we try it before buying?",
+          "a": "Yes. I will show you the application running with sample data, over an online meeting or a visit, before you decide."
+        }
+      ],
+      "tambahan": {
+        "catatan": "The figures above are ranges. The exact price is stated and agreed once the requirement is clear, so no invoice ever arrives unexpectedly.",
+        "contoh": [
+          {
+            "nama": "A simple new menu or report",
+            "jamMin": 3,
+            "jamMax": 5,
+            "dasarBangunKhusus": true
+          },
+          {
+            "nama": "A report with custom calculations and filters",
+            "jamMin": 6,
+            "jamMax": 12,
+            "dasarBangunKhusus": true
+          },
+          {
+            "nama": "Adjusting a print format to match institutional rules",
+            "jamMin": 2,
+            "jamMax": 4,
+            "dasarBangunKhusus": true
+          },
+          {
+            "nama": "Migrating data from an old system not in Excel form",
+            "jamMin": 8,
+            "jamMax": 16,
+            "dasarBangunKhusus": true
+          },
+          {
+            "nama": "Reinstalling onto a new server",
+            "jamMin": 3,
+            "jamMax": 6
+          },
+          {
+            "nama": "Extending support, per month",
+            "jamMin": 4,
+            "jamMax": 4
+          }
+        ],
+        "jamIdr": 150000,
+        "lipatBangunKhususMaks": 3
+      },
+      "syarat": [
+        "Licence payment: 50% on agreement, 50% on handover.",
+        "The first two months of support after handover are included in the licence price. After that it can be extended for a fee.",
+        "The licence covers one institution, with no cap on users or computers, and cannot be transferred to another institution without a new agreement.",
+        "Source code is not included in the licence; it is available under a separate agreement.",
+        "What is handled at no cost is bug fixing. Adding a new menu, report, or workflow counts as additional work, with the price agreed beforehand.",
+        "You provide the data and information needed during installation. Delays in providing data shift the timeline accordingly.",
+        "All data inside the application belongs to you. I keep it confidential and use it for nothing else.",
+        "Responsibility for the content and the transactions recorded in the application rests with you as the user.",
+        "Training is delivered online. If attendance on site is requested, travel and accommodation are charged separately.",
+        "Prices exclude applicable taxes, and exclude server, domain, and SSL certificate costs."
+      ],
+      "langkah": [
+        {
+          "judul": "Tell me what you need",
+          "isi": "Reach me on WhatsApp or by email. Describe your institution, roughly how many users, and which parts of this offer need adjusting."
+        },
+        {
+          "judul": "Online meeting and demo",
+          "isi": "I show you the application running with sample data, then we agree the scope of work and the timeline."
+        },
+        {
+          "judul": "Signature and first payment",
+          "isi": "Once the agreement sheet is signed by both parties and the first payment is received, installation begins along the timeline on the previous page."
+        }
+      ],
+      "bayar": "Payment is made by bank transfer to an account in the name of Kukoh Santoso. The account number is provided with the formal invoice once the agreement sheet is signed, and every payment is answered with a receipt.",
+      "tahapBayar": [
+        {
+          "judul": "Stage I",
+          "saat": "On signing the agreement",
+          "persen": 50
+        },
+        {
+          "judul": "Stage II",
+          "saat": "On handover",
+          "persen": 50
+        }
+      ]
+    }
+  },
   "items": [
     {
       "key": "siasek",
+      "nomor": "001",
       "slug": {
         "id": "sistem-informasi-sekolah",
         "en": "school-information-system"
       },
-      "licenseUsd": 400,
-      "annualUsd": 100,
+      "licenseIdr": 7000000,
       "shots": [
         {
           "name": "siasek-2",
@@ -98,6 +487,10 @@
             "isi": "Profil sekolah, tahun pelajaran, guru, tenaga kependidikan, rombongan belajar, peserta didik, alumni, dan siswa keluar."
           },
           {
+            "nama": "Alumni dan siswa keluar",
+            "isi": "Pencatatan siswa lulus dan keluar, terpisah dari data aktif, beserta ekspor Excel."
+          },
+          {
             "nama": "Jadwal dan mata pelajaran",
             "isi": "Penyusunan mata pelajaran dan jadwal pelajaran per rombongan belajar."
           },
@@ -118,6 +511,10 @@
             "isi": "Rincian tagihan, transaksi pembayaran, dan tabungan setor maupun tarik."
           },
           {
+            "nama": "Tabungan siswa",
+            "isi": "Setor dan tarik tunai tabungan siswa beserta saldo, laporan, dan pemberitahuan ke orang tua."
+          },
+          {
             "nama": "Keuangan sekolah",
             "isi": "Kategori kas serta pencatatan pemasukan dan pengeluaran sekolah."
           },
@@ -127,7 +524,15 @@
           },
           {
             "nama": "Notifikasi WhatsApp",
-            "isi": "Pengiriman otomatis ke wali murid untuk presensi, pelanggaran, dan bukti transaksi."
+            "isi": "Kehadiran, pelanggaran, pembayaran, dan tabungan dikabarkan ke orang tua pada hari yang sama. Pengirimnya berjalan di server sendiri, bukan layanan berlangganan."
+          },
+          {
+            "nama": "Pemulihan kata sandi",
+            "isi": "Pengguna mengatur ulang kata sandinya sendiri lewat kode sekali pakai, tanpa menunggu admin."
+          },
+          {
+            "nama": "Pengumuman",
+            "isi": "Pengumuman sekolah yang terbaca semua peran, dibuat oleh admin, tata usaha, atau bagian keuangan."
           },
           {
             "nama": "Panduan dalam aplikasi",
@@ -138,17 +543,49 @@
             "isi": "Pemasukan data awal lewat berkas Excel dan pencarian cepat pada setiap tabel."
           }
         ],
+        "manfaat": [
+          {
+            "pekerjaan": "Rekap kehadiran siswa satu bulan",
+            "sebelum": "Dihitung tangan dari buku absensi tiap kelas",
+            "sesudah": "Sudah terekap sendiri, tinggal cetak atau ekspor Excel",
+            "hemat": "± 6 jam per bulan"
+          },
+          {
+            "pekerjaan": "Menjawab pertanyaan orang tua soal tagihan",
+            "sebelum": "Dicari di buku kas dan tumpukan kuitansi",
+            "sesudah": "Riwayat pembayaran per siswa terbuka dalam hitungan detik",
+            "hemat": "± 10 menit jadi kurang dari 1 menit"
+          },
+          {
+            "pekerjaan": "Mengabari orang tua saat anak tidak masuk",
+            "sebelum": "Ditelepon satu per satu bila ada waktu",
+            "sesudah": "Pesan WhatsApp terkirim sendiri pada hari yang sama",
+            "hemat": "Tidak ada lagi kabar yang terlambat"
+          },
+          {
+            "pekerjaan": "Menyusun laporan keuangan sekolah",
+            "sebelum": "Disalin ulang dari beberapa buku dan berkas Excel",
+            "sesudah": "Laporan pemasukan dan pengeluaran siap ekspor per kategori dan periode",
+            "hemat": "± 1 hari kerja per bulan"
+          },
+          {
+            "pekerjaan": "Mengumpulkan catatan pelanggaran siswa",
+            "sebelum": "Tersebar di buku masing-masing guru",
+            "sesudah": "Terkumpul dalam satu riwayat per siswa beserta poinnya",
+            "hemat": "Rekap kesiswaan tidak perlu dikumpulkan ulang"
+          }
+        ],
         "termasuk": [
           "Lisensi pemakaian untuk satu sekolah, tanpa batas jumlah pengguna maupun siswa.",
           "Pemasangan ke server sekolah atau hosting pilihan Anda.",
           "Pemindahan data awal dari berkas Excel yang sudah ada.",
           "Penyesuaian identitas: nama, logo, kop surat, dan format penomoran.",
           "Pelatihan daring untuk admin dan perwakilan guru.",
-          "Pendampingan tiga bulan pertama setelah serah terima."
+          "Pendampingan dua bulan pertama setelah serah terima."
         ],
         "tidakTermasuk": [
           "Biaya server, domain, dan sertifikat SSL (dapat kami bantu pengadaannya).",
-          "Biaya layanan pengiriman WhatsApp dari penyedia pihak ketiga.",
+          "Nomor WhatsApp khusus untuk pengiriman pemberitahuan, beserta layanan pengirimnya yang berjalan di server yang sama.",
           "Perangkat keras seperti komputer, pemindai, maupun printer.",
           "Penambahan modul baru di luar daftar di atas — dihitung sebagai pekerjaan terpisah."
         ],
@@ -178,13 +615,6 @@
             "isi": "Aplikasi berjalan penuh, disertai dokumentasi dan akun seluruh pengguna.",
             "durasi": "1 hari"
           }
-        ],
-        "syarat": [
-          "Pembayaran lisensi: 50% saat kesepakatan, 50% saat serah terima.",
-          "Biaya tahunan mulai berlaku pada tahun kedua; tahun pertama sudah termasuk lisensi.",
-          "Biaya tahunan mencakup pembaruan versi, perbaikan kesalahan, dan pendampingan teknis.",
-          "Kode sumber tidak termasuk dalam pembelian lisensi; tersedia sebagai kesepakatan terpisah.",
-          "Harga belum termasuk pajak yang berlaku."
         ]
       },
       "en": {
@@ -244,6 +674,10 @@
             "isi": "School profile, academic year, teachers, staff, study groups, students, alumni, and departed students."
           },
           {
+            "nama": "Alumni and leavers",
+            "isi": "Records of graduated and departed students, kept apart from active data, with Excel export."
+          },
+          {
             "nama": "Timetable and subjects",
             "isi": "Subject setup and class timetables per study group."
           },
@@ -264,6 +698,10 @@
             "isi": "Billing details, payment transactions, and savings deposits and withdrawals."
           },
           {
+            "nama": "Student savings",
+            "isi": "Cash deposits and withdrawals on student savings, with balances, reports, and notices to parents."
+          },
+          {
             "nama": "School finances",
             "isi": "Cash categories plus income and expenditure records."
           },
@@ -273,7 +711,15 @@
           },
           {
             "nama": "WhatsApp notifications",
-            "isi": "Automatic messages to parents for attendance, violations, and transaction receipts."
+            "isi": "Attendance, discipline, payments, and savings are reported to parents the same day. The sender runs on your own server, not a subscription service."
+          },
+          {
+            "nama": "Password recovery",
+            "isi": "Users reset their own password with a one-time code, without waiting for an admin."
+          },
+          {
+            "nama": "Announcements",
+            "isi": "School announcements every role can read, written by the admin, the office, or the finance desk."
           },
           {
             "nama": "In-app guidance",
@@ -284,17 +730,49 @@
             "isi": "Initial data loaded from Excel files, with quick search on every data table."
           }
         ],
+        "manfaat": [
+          {
+            "pekerjaan": "Monthly attendance summary",
+            "sebelum": "Tallied by hand from each class register",
+            "sesudah": "Already summarised, ready to print or export to Excel",
+            "hemat": "~6 hours a month"
+          },
+          {
+            "pekerjaan": "Answering a parent about a bill",
+            "sebelum": "Searched through the cash book and receipt files",
+            "sesudah": "The payment history for that student opens in seconds",
+            "hemat": "~10 minutes down to under a minute"
+          },
+          {
+            "pekerjaan": "Telling parents their child is absent",
+            "sebelum": "Phoned one by one when there was time",
+            "sesudah": "A WhatsApp message goes out the same day on its own",
+            "hemat": "No more late notice"
+          },
+          {
+            "pekerjaan": "Preparing the school financial report",
+            "sebelum": "Retyped from several books and Excel files",
+            "sesudah": "Income and spending reports export by category and period",
+            "hemat": "~1 working day a month"
+          },
+          {
+            "pekerjaan": "Collecting student discipline records",
+            "sebelum": "Scattered across each teacher's own notebook",
+            "sesudah": "Gathered into one history per student with its points",
+            "hemat": "Student-affairs summaries need no re-collecting"
+          }
+        ],
         "termasuk": [
           "Usage licence for one school, with no cap on users or student numbers.",
           "Installation on the school's server or a host of your choosing.",
           "Migration of your existing data from current Excel files.",
           "Identity setup: name, logo, letterhead, and numbering formats.",
           "Online training for administrators and teacher representatives.",
-          "Three months of support after handover."
+          "Two months of support after handover."
         ],
         "tidakTermasuk": [
           "Server, domain, and SSL certificate costs (we can help arrange these).",
-          "Third-party WhatsApp delivery service fees.",
+          "A dedicated WhatsApp number for sending notices, along with the sender service that runs on the same server.",
           "Hardware such as computers, scanners, or printers.",
           "New modules beyond the list above — quoted as separate work."
         ],
@@ -324,24 +802,17 @@
             "isi": "The system fully running, with documentation and accounts for every user.",
             "durasi": "1 day"
           }
-        ],
-        "syarat": [
-          "Licence payment: 50% on agreement, 50% on handover.",
-          "The annual fee starts in the second year; the first year is included in the licence.",
-          "The annual fee covers version updates, bug fixes, and technical support.",
-          "Source code is not included in the licence; it is available as a separate agreement.",
-          "Prices are exclusive of applicable taxes."
         ]
       }
     },
     {
       "key": "e_raport",
+      "nomor": "002",
       "slug": {
         "id": "aplikasi-e-raport",
         "en": "e-raport-application"
       },
-      "licenseUsd": 240,
-      "annualUsd": 60,
+      "licenseIdr": 4000000,
       "shots": [
         {
           "name": "e-raport-2",
@@ -365,7 +836,7 @@
         }
       ],
       "id": {
-        "tagline": "Raport digital untuk SMP dan PKBM yang punya banyak mata pelajaran muatan lokal.",
+        "tagline": "Raport digital untuk sekolah dan lembaga pendidikan yang punya banyak mata pelajaran muatan lokal.",
         "ringkasan": [
           "Aplikasi raport yang mengikuti daftar mata pelajaran sekolah Anda sendiri, termasuk muatan lokal yang tidak tertampung aplikasi bawaan dinas.",
           "Mendukung dua kurikulum sekaligus, KTSP 2006 dan K13, sehingga sekolah yang sedang beralih tidak perlu dua sistem terpisah.",
@@ -441,6 +912,10 @@
             "isi": "Pencatatan nilai kegiatan di luar mata pelajaran."
           },
           {
+            "nama": "Prestasi siswa",
+            "isi": "Pencatatan prestasi siswa yang ikut tercetak di rapor."
+          },
+          {
             "nama": "Deskripsi otomatis",
             "isi": "Deskripsi capaian tiap siswa disusun dari kompetensi dasar yang dinilai."
           },
@@ -453,12 +928,52 @@
             "isi": "Leger nilai per kelas dan rekap kehadiran siswa, dapat diunduh ke Excel."
           },
           {
+            "nama": "Catatan wali kelas dan kenaikan kelas",
+            "isi": "Catatan wali kelas per siswa serta penetapan naik atau tidak naik kelas."
+          },
+          {
             "nama": "Cetak raport dan kartu",
             "isi": "Berkas raport dan kartu pelajar siap cetak dalam format PDF."
           },
           {
+            "nama": "Pengumuman",
+            "isi": "Pengumuman sekolah yang terbaca guru, wali kelas, dan siswa."
+          },
+          {
             "nama": "Impor Excel",
             "isi": "Pemasukan data dan nilai secara massal lewat berkas Excel."
+          }
+        ],
+        "manfaat": [
+          {
+            "pekerjaan": "Menyusun deskripsi nilai di rapor",
+            "sebelum": "Ditulis ulang untuk tiap siswa tiap mata pelajaran",
+            "sesudah": "Disusun sendiri dari capaian kompetensi dasarnya",
+            "hemat": "± 3–4 jam per kelas per semester"
+          },
+          {
+            "pekerjaan": "Mengetahui guru yang belum menginput nilai",
+            "sebelum": "Ditanyakan satu per satu ke gurunya",
+            "sesudah": "Terlihat di papan kelengkapan per guru dan per mata pelajaran",
+            "hemat": "Dari beberapa hari jadi sekali lihat"
+          },
+          {
+            "pekerjaan": "Menghitung predikat dan ketuntasan",
+            "sebelum": "Dihitung tangan mengikuti KKM tiap mata pelajaran",
+            "sesudah": "Dihitung sistem dari ambang dan rentang predikat yang disetel sekolah",
+            "hemat": "± 2 jam per kelas"
+          },
+          {
+            "pekerjaan": "Mencetak rapor dan leger",
+            "sebelum": "Formatnya disusun ulang tiap semester",
+            "sesudah": "Siap cetak PDF dengan format yang sama tiap semester",
+            "hemat": "± 1 hari kerja per semester"
+          },
+          {
+            "pekerjaan": "Menangani mata pelajaran muatan lokal",
+            "sebelum": "Tidak tertampung di aplikasi bawaan, dicatat terpisah",
+            "sesudah": "Terdaftar seperti mata pelajaran lain dan ikut masuk rapor",
+            "hemat": "Tidak ada lagi penggabungan manual"
           }
         ],
         "termasuk": [
@@ -467,7 +982,7 @@
           "Pemasukan data awal guru, kelas, peserta didik, dan mata pelajaran dari berkas Excel.",
           "Penyesuaian identitas sekolah, kop raport, dan tanda tangan kepala sekolah.",
           "Pelatihan daring untuk admin, wali kelas, dan perwakilan guru mata pelajaran.",
-          "Pendampingan tiga bulan pertama setelah serah terima."
+          "Pendampingan dua bulan pertama setelah serah terima."
         ],
         "tidakTermasuk": [
           "Biaya server, domain, dan sertifikat SSL (dapat kami bantu pengadaannya).",
@@ -501,17 +1016,10 @@
             "isi": "Aplikasi berjalan penuh beserta dokumentasi dan akun seluruh pengguna.",
             "durasi": "1 hari"
           }
-        ],
-        "syarat": [
-          "Pembayaran lisensi: 50% saat kesepakatan, 50% saat serah terima.",
-          "Biaya tahunan mulai berlaku pada tahun kedua; tahun pertama sudah termasuk lisensi.",
-          "Biaya tahunan mencakup pembaruan versi, perbaikan kesalahan, dan pendampingan teknis.",
-          "Kode sumber tidak termasuk dalam pembelian lisensi; tersedia sebagai kesepakatan terpisah.",
-          "Harga belum termasuk pajak yang berlaku."
         ]
       },
       "en": {
-        "tagline": "Digital report cards for junior high schools carrying many local-content subjects.",
+        "tagline": "Digital report cards for schools and education providers carrying many local-content subjects.",
         "ringkasan": [
           "A report-card application that follows your own subject list, including the local-content subjects the government-issued tool cannot hold.",
           "Supports two curricula side by side, KTSP 2006 and K13, so a school mid-transition does not need two separate systems.",
@@ -587,6 +1095,10 @@
             "isi": "Recording marks for activities outside the subject list."
           },
           {
+            "nama": "Student achievements",
+            "isi": "Records of student achievements that carry onto the report card."
+          },
+          {
             "nama": "Automatic descriptions",
             "isi": "Each student's description assembled from the competencies assessed."
           },
@@ -599,12 +1111,52 @@
             "isi": "Per-class mark ledger and student attendance summary, exportable to Excel."
           },
           {
+            "nama": "Homeroom notes and promotion",
+            "isi": "Homeroom notes per student and the decision to promote or hold back."
+          },
+          {
             "nama": "Report and card printing",
             "isi": "Report cards and student ID cards ready to print as PDF."
           },
           {
+            "nama": "Announcements",
+            "isi": "School announcements readable by teachers, homeroom teachers, and students."
+          },
+          {
             "nama": "Excel import",
             "isi": "Bulk loading of data and marks from Excel files."
+          }
+        ],
+        "manfaat": [
+          {
+            "pekerjaan": "Writing the mark descriptions on a report card",
+            "sebelum": "Retyped for every student and every subject",
+            "sesudah": "Assembled on its own from the basic competencies reached",
+            "hemat": "~3–4 hours per class per term"
+          },
+          {
+            "pekerjaan": "Finding out which teachers have not entered marks",
+            "sebelum": "Asked teacher by teacher",
+            "sesudah": "Visible on the completeness board per teacher and per subject",
+            "hemat": "From several days to one glance"
+          },
+          {
+            "pekerjaan": "Working out predicates and pass marks",
+            "sebelum": "Calculated by hand against each subject's threshold",
+            "sesudah": "Calculated by the system from the thresholds and predicate bands the school sets",
+            "hemat": "~2 hours per class"
+          },
+          {
+            "pekerjaan": "Printing report cards and the ledger",
+            "sebelum": "The format was rebuilt every term",
+            "sesudah": "Print-ready PDF in the same format every term",
+            "hemat": "~1 working day per term"
+          },
+          {
+            "pekerjaan": "Handling local-content subjects",
+            "sebelum": "No room for them in the government tool, so kept separately",
+            "sesudah": "Registered like any other subject and carried into the report card",
+            "hemat": "No more merging by hand"
           }
         ],
         "termasuk": [
@@ -613,7 +1165,7 @@
           "Loading your initial teacher, class, student, and subject data from Excel files.",
           "School identity setup, report letterhead, and head teacher signature.",
           "Online training for administrators, homeroom teachers, and teacher representatives.",
-          "Three months of support after handover."
+          "Two months of support after handover."
         ],
         "tidakTermasuk": [
           "Server, domain, and SSL certificate costs (we can help arrange these).",
@@ -647,24 +1199,17 @@
             "isi": "The system fully running, with documentation and accounts for every user.",
             "durasi": "1 day"
           }
-        ],
-        "syarat": [
-          "Licence payment: 50% on agreement, 50% on handover.",
-          "The annual fee starts in the second year; the first year is included in the licence.",
-          "The annual fee covers version updates, bug fixes, and technical support.",
-          "Source code is not included in the licence; it is available as a separate agreement.",
-          "Prices are exclusive of applicable taxes."
         ]
       }
     },
     {
       "key": "st-smartpoint",
+      "nomor": "003",
       "slug": {
         "id": "st-smartpoint",
         "en": "st-smartpoint"
       },
-      "licenseUsd": 200,
-      "annualUsd": 50,
+      "licenseIdr": 3500000,
       "shots": [
         {
           "name": "st-smartpoint-4",
@@ -690,8 +1235,8 @@
       "id": {
         "tagline": "Aplikasi kasir berbasis web untuk toko, minimarket, dan usaha kecil.",
         "ringkasan": [
-          "Sistem kasir yang berjalan di peramban, sehingga bisa dipakai dari komputer kasir mana pun tanpa memasang perangkat lunak tambahan.",
-          "Layar kasir dirancang untuk dipakai cepat: seluruh alur bisa dijalankan lewat pintasan papan ketik tanpa menyentuh tetikus.",
+          "Sistem kasir yang berjalan di browser, sehingga bisa dipakai dari komputer kasir mana pun tanpa memasang perangkat lunak tambahan.",
+          "Layar kasir dirancang untuk dipakai cepat: seluruh alur bisa dijalankan lewat pintasan keyboard tanpa menyentuh mouse.",
           "Satu produk dapat dijual dalam satuan berbeda — per bungkus atau per slop — dengan stok yang tetap terhitung benar.",
           "Tersedia dua jalur: beli lisensi siap pakai, atau dibangun khusus mengikuti alur toko Anda."
         ],
@@ -725,7 +1270,7 @@
           },
           {
             "nama": "Layar kasir",
-            "isi": "Pencarian produk cepat lewat nama atau pemindaian SKU."
+            "isi": "Cari produk cepat lewat nama atau kode produk; kodenya bisa dimasukkan dengan scan barcode."
           },
           {
             "nama": "Penjualan multi-satuan",
@@ -740,12 +1285,12 @@
             "isi": "Tombol nominal cepat dan opsi uang pas untuk mempersingkat antrean."
           },
           {
-            "nama": "Pintasan papan ketik",
-            "isi": "Cari, bayar, dan batal transaksi tanpa menyentuh tetikus."
+            "nama": "Pintasan keyboard",
+            "isi": "Cari (F1), bayar (F2), dan batal transaksi (F4) tanpa menyentuh mouse."
           },
           {
             "nama": "Cetak struk",
-            "isi": "Printer termal 58mm dan 80mm, atau kertas A4, sesuai pengaturan."
+            "isi": "Printer termal 58mm atau 80mm, atau kertas A4. Bisa mencetak sendiri setelah pembayaran dan membuka cash drawer."
           },
           {
             "nama": "Riwayat transaksi",
@@ -768,17 +1313,49 @@
             "isi": "Tren penjualan, produk terlaris, dan peringatan stok kritis."
           }
         ],
+        "manfaat": [
+          {
+            "pekerjaan": "Menutup kas harian",
+            "sebelum": "Dihitung tangan dari nota dan buku penjualan",
+            "sesudah": "Laporan harian per kasir tersedia begitu toko tutup",
+            "hemat": "± 45 menit per hari"
+          },
+          {
+            "pekerjaan": "Melayani satu pembeli di kasir",
+            "sebelum": "Harga dicari dan total dihitung manual",
+            "sesudah": "Cari produk, tekan bayar, kembalian dihitung sistem",
+            "hemat": "Antrean bergerak jauh lebih cepat"
+          },
+          {
+            "pekerjaan": "Mengetahui barang yang hampir habis",
+            "sebelum": "Baru ketahuan saat pembeli menanyakannya",
+            "sesudah": "Muncul sebagai peringatan stok kritis di dasbor",
+            "hemat": "Penjualan yang hilang karena barang kosong bisa dicegah"
+          },
+          {
+            "pekerjaan": "Menjual eceran dan grosir sekaligus",
+            "sebelum": "Dihitung manual, stok mudah selisih",
+            "sesudah": "Konversi satuan dihitung sistem, stok tetap benar",
+            "hemat": "Selisih stok karena salah hitung satuan hilang"
+          },
+          {
+            "pekerjaan": "Stok opname",
+            "sebelum": "Mencocokkan dengan catatan yang tidak lengkap",
+            "sesudah": "Dicocokkan dengan stok tercatat yang diperbarui tiap transaksi",
+            "hemat": "± setengah hari per periode"
+          }
+        ],
         "termasuk": [
           "Lisensi pemakaian untuk satu toko, tanpa batas jumlah komputer kasir.",
           "Pemasangan ke komputer server toko atau hosting pilihan Anda.",
           "Pemasukan data produk awal dari berkas Excel yang sudah ada.",
           "Penyesuaian identitas toko dan tata letak struk.",
           "Pelatihan untuk pemilik dan kasir.",
-          "Pendampingan tiga bulan pertama setelah serah terima."
+          "Pendampingan dua bulan pertama setelah serah terima."
         ],
         "tidakTermasuk": [
           "Biaya server, domain, dan sertifikat SSL bila dipasang daring.",
-          "Perangkat keras: komputer kasir, printer termal, pemindai kode batang, dan laci uang.",
+          "Perangkat keras: komputer kasir, printer termal, scanner barcode, dan cash drawer.",
           "Integrasi ke mesin EDC atau dompet digital — dihitung sebagai pekerjaan terpisah.",
           "Penambahan modul baru di luar daftar di atas."
         ],
@@ -808,13 +1385,6 @@
             "isi": "Aplikasi berjalan penuh beserta dokumentasi dan akun pengguna.",
             "durasi": "1 hari"
           }
-        ],
-        "syarat": [
-          "Pembayaran lisensi: 50% saat kesepakatan, 50% saat serah terima.",
-          "Biaya tahunan mulai berlaku pada tahun kedua; tahun pertama sudah termasuk lisensi.",
-          "Biaya tahunan mencakup pembaruan versi, perbaikan kesalahan, dan pendampingan teknis.",
-          "Kode sumber tidak termasuk dalam pembelian lisensi; tersedia sebagai kesepakatan terpisah.",
-          "Harga belum termasuk pajak yang berlaku."
         ]
       },
       "en": {
@@ -855,7 +1425,7 @@
           },
           {
             "nama": "Checkout screen",
-            "isi": "Fast product lookup by name or SKU scan."
+            "isi": "Fast product lookup by name or product code; the code can be entered with a barcode scan."
           },
           {
             "nama": "Multi-unit selling",
@@ -871,11 +1441,11 @@
           },
           {
             "nama": "Keyboard shortcuts",
-            "isi": "Search, pay, and cancel without touching a mouse."
+            "isi": "Search (F1), pay (F2), and void (F4) without touching the mouse."
           },
           {
             "nama": "Receipt printing",
-            "isi": "58mm and 80mm thermal printers, or A4 paper, per settings."
+            "isi": "Thermal 58mm or 80mm, or A4 paper. It can print on its own after payment and pop the cash drawer."
           },
           {
             "nama": "Transaction history",
@@ -898,13 +1468,45 @@
             "isi": "Sales trend, best-selling products, and critical stock alerts."
           }
         ],
+        "manfaat": [
+          {
+            "pekerjaan": "Closing the till for the day",
+            "sebelum": "Counted by hand from slips and the sales book",
+            "sesudah": "The daily report per cashier is ready the moment the shop closes",
+            "hemat": "~45 minutes a day"
+          },
+          {
+            "pekerjaan": "Serving one customer at the till",
+            "sebelum": "Prices looked up and totals worked out by hand",
+            "sesudah": "Find the product, press pay, the change is calculated for you",
+            "hemat": "The queue moves far faster"
+          },
+          {
+            "pekerjaan": "Knowing what is about to run out",
+            "sebelum": "Only noticed when a customer asked for it",
+            "sesudah": "Shown as a critical-stock warning on the dashboard",
+            "hemat": "Sales lost to empty shelves can be prevented"
+          },
+          {
+            "pekerjaan": "Selling loose and by the box at once",
+            "sebelum": "Worked out by hand, stock easily drifted",
+            "sesudah": "Unit conversion is calculated by the system and stock stays correct",
+            "hemat": "Stock drift from unit mistakes disappears"
+          },
+          {
+            "pekerjaan": "Stocktaking",
+            "sebelum": "Matched against incomplete records",
+            "sesudah": "Matched against recorded stock that updates on every transaction",
+            "hemat": "~half a day per cycle"
+          }
+        ],
         "termasuk": [
           "Usage licence for one shop, with no cap on the number of till computers.",
           "Installation on the shop's server computer or a host of your choosing.",
           "Loading your initial product data from existing Excel files.",
           "Shop identity setup and receipt layout configuration.",
           "Training for the owner and cashiers.",
-          "Three months of support after handover."
+          "Two months of support after handover."
         ],
         "tidakTermasuk": [
           "Server, domain, and SSL certificate costs if hosted online.",
@@ -938,24 +1540,17 @@
             "isi": "The system fully running, with documentation and user accounts.",
             "durasi": "1 day"
           }
-        ],
-        "syarat": [
-          "Licence payment: 50% on agreement, 50% on handover.",
-          "The annual fee starts in the second year; the first year is included in the licence.",
-          "The annual fee covers version updates, bug fixes, and technical support.",
-          "Source code is not included in the licence; it is available as a separate agreement.",
-          "Prices are exclusive of applicable taxes."
         ]
       }
     },
     {
       "key": "pamdes",
+      "nomor": "004",
       "slug": {
         "id": "st-pamdes",
         "en": "st-pamdes"
       },
-      "licenseUsd": 120,
-      "annualUsd": 30,
+      "licenseIdr": 2000000,
       "shots": [
         {
           "name": "pamdes-1",
@@ -980,6 +1575,7 @@
       ],
       "id": {
         "tagline": "Pendataan pelanggan dan tagihan air untuk pengelola air desa.",
+        "bukti": "Sudah berjalan melayani lebih dari 600 pelanggan air desa sejak 2023.",
         "ringkasan": [
           "Aplikasi pencatatan pelanggan, pemakaian air, dan pembayaran untuk badan pengelola air desa.",
           "Sudah berjalan pada instalasi nyata dengan lebih dari enam ratus pelanggan sejak 2023.",
@@ -1001,12 +1597,12 @@
         ],
         "peran": [
           {
-            "nama": "Admin",
-            "tugas": "Data pelanggan, tarif air, pengaturan biaya, laporan, dan pengelolaan pengguna."
+            "nama": "Petugas",
+            "tugas": "Seluruh menu: data pelanggan, tarif air, pencatatan pemakaian, penerimaan pembayaran, pencetakan kuitansi, dan laporan. Semua akun petugas memakai tingkat akses yang sama."
           },
           {
-            "nama": "Petugas",
-            "tugas": "Pencatatan pemakaian meter, penerimaan pembayaran, dan pencetakan bukti."
+            "nama": "Pelanggan",
+            "tugas": "Memeriksa tagihan airnya sendiri lewat halaman cek tagihan, tanpa perlu akun dan tanpa login."
           }
         ],
         "modul": [
@@ -1045,6 +1641,46 @@
           {
             "nama": "Impor dan ekspor",
             "isi": "Pemasukan data pelanggan lewat Excel serta ekspor laporan ke Excel dan PDF."
+          },
+          {
+            "nama": "Akun petugas",
+            "isi": "Penambahan akun petugas, pengaturan status aktif, dan penggantian kata sandi."
+          },
+          {
+            "nama": "Pengaturan dan identitas",
+            "isi": "Identitas pengelola, biaya administrasi dan pemeliharaan, serta ukuran kertas kuitansi."
+          }
+        ],
+        "manfaat": [
+          {
+            "pekerjaan": "Menghitung tagihan seluruh pelanggan",
+            "sebelum": "Dihitung tangan dari catatan meteran",
+            "sesudah": "Tagihan tersusun sendiri dari angka meteran, tarif, biaya pemeliharaan, dan biaya administrasi",
+            "hemat": "± 1–2 hari kerja per bulan"
+          },
+          {
+            "pekerjaan": "Mengetahui siapa yang belum bayar",
+            "sebelum": "Dicari di buku pembayaran",
+            "sesudah": "Status lunas dan belum lunas terlihat langsung di daftar",
+            "hemat": "Dari berjam-jam jadi sekali lihat"
+          },
+          {
+            "pekerjaan": "Menjawab pertanyaan pelanggan soal tagihan",
+            "sebelum": "Petugas membuka catatan bulan-bulan sebelumnya",
+            "sesudah": "Pelanggan memeriksa tagihannya sendiri tanpa perlu akun",
+            "hemat": "Pertanyaan yang masuk ke petugas jauh berkurang"
+          },
+          {
+            "pekerjaan": "Membuat kuitansi pembayaran",
+            "sebelum": "Ditulis tangan satu per satu",
+            "sesudah": "Dicetak dengan format dan ukuran kertas yang sudah disetel",
+            "hemat": "± 1 menit jadi beberapa detik"
+          },
+          {
+            "pekerjaan": "Menyusun laporan untuk pengurus",
+            "sebelum": "Direkap menjelang rapat",
+            "sesudah": "Laporan transaksi siap ekspor Excel atau cetak kapan saja",
+            "hemat": "± 1 hari kerja per bulan"
           }
         ],
         "termasuk": [
@@ -1053,7 +1689,7 @@
           "Pemasukan data pelanggan awal dari berkas Excel yang sudah ada.",
           "Penyesuaian identitas, tarif air, dan format bukti pembayaran.",
           "Pelatihan untuk admin dan petugas pencatat.",
-          "Pendampingan tiga bulan pertama setelah serah terima."
+          "Pendampingan dua bulan pertama setelah serah terima."
         ],
         "tidakTermasuk": [
           "Biaya server, domain, dan sertifikat SSL bila dipasang daring.",
@@ -1087,17 +1723,11 @@
             "isi": "Aplikasi berjalan penuh beserta dokumentasi dan akun pengguna.",
             "durasi": "1 hari"
           }
-        ],
-        "syarat": [
-          "Pembayaran lisensi: 50% saat kesepakatan, 50% saat serah terima.",
-          "Biaya tahunan mulai berlaku pada tahun kedua; tahun pertama sudah termasuk lisensi.",
-          "Biaya tahunan mencakup pembaruan versi, perbaikan kesalahan, dan pendampingan teknis.",
-          "Kode sumber tidak termasuk dalam pembelian lisensi; tersedia sebagai kesepakatan terpisah.",
-          "Harga belum termasuk pajak yang berlaku."
         ]
       },
       "en": {
         "tagline": "Customer records and water billing for village water management.",
+        "bukti": "Already running for more than six hundred village water customers since 2023.",
         "ringkasan": [
           "An application for recording customers, water usage, and payments for a village water body.",
           "Already running on a real installation serving more than six hundred customers since 2023.",
@@ -1119,12 +1749,12 @@
         ],
         "peran": [
           {
-            "nama": "Admin",
-            "tugas": "Customer data, water tariff, fee settings, reports, and user management."
+            "nama": "Officer",
+            "tugas": "Every menu: customer records, water tariff, usage recording, taking payments, printing receipts, and reports. All officer accounts share the same access level."
           },
           {
-            "nama": "Officer",
-            "tugas": "Recording meter readings, taking payments, and printing receipts."
+            "nama": "Customer",
+            "tugas": "Checks their own water bill on the bill-lookup page, with no account and no login."
           }
         ],
         "modul": [
@@ -1163,6 +1793,46 @@
           {
             "nama": "Import and export",
             "isi": "Customer data loaded from Excel, with reports exported to Excel and PDF."
+          },
+          {
+            "nama": "Officer accounts",
+            "isi": "Adding officer accounts, setting them active or inactive, and changing passwords."
+          },
+          {
+            "nama": "Settings and identity",
+            "isi": "The operator's identity, the admin and maintenance fees, and the receipt paper size."
+          }
+        ],
+        "manfaat": [
+          {
+            "pekerjaan": "Calculating bills for every customer",
+            "sebelum": "Worked out by hand from the meter notes",
+            "sesudah": "Bills assemble themselves from the reading, tariff, maintenance fee, and admin fee",
+            "hemat": "~1–2 working days a month"
+          },
+          {
+            "pekerjaan": "Knowing who has not paid",
+            "sebelum": "Searched through the payment book",
+            "sesudah": "Settled and outstanding status shows straight on the list",
+            "hemat": "From hours to one glance"
+          },
+          {
+            "pekerjaan": "Answering a customer about their bill",
+            "sebelum": "An officer opened the previous months' records",
+            "sesudah": "Customers check their own bill without needing an account",
+            "hemat": "Far fewer questions reach the officers"
+          },
+          {
+            "pekerjaan": "Writing payment receipts",
+            "sebelum": "Handwritten one at a time",
+            "sesudah": "Printed in the format and paper size already configured",
+            "hemat": "~1 minute down to seconds"
+          },
+          {
+            "pekerjaan": "Preparing reports for the committee",
+            "sebelum": "Summarised in the run-up to a meeting",
+            "sesudah": "Transaction reports export to Excel or print at any time",
+            "hemat": "~1 working day a month"
           }
         ],
         "termasuk": [
@@ -1171,7 +1841,7 @@
           "Loading your initial customer data from existing Excel files.",
           "Identity, water tariff, and receipt format configuration.",
           "Training for administrators and recording officers.",
-          "Three months of support after handover."
+          "Two months of support after handover."
         ],
         "tidakTermasuk": [
           "Server, domain, and SSL certificate costs if hosted online.",
@@ -1205,13 +1875,6 @@
             "isi": "The system fully running, with documentation and user accounts.",
             "durasi": "1 day"
           }
-        ],
-        "syarat": [
-          "Licence payment: 50% on agreement, 50% on handover.",
-          "The annual fee starts in the second year; the first year is included in the licence.",
-          "The annual fee covers version updates, bug fixes, and technical support.",
-          "Source code is not included in the licence; it is available as a separate agreement.",
-          "Prices are exclusive of applicable taxes."
         ]
       }
     }

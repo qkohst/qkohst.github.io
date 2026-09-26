@@ -1,5 +1,5 @@
 /* Indeks layanan: daftar seluruh layanan yang ditawarkan. */
-const { esc, each, icon, t, pageUrl, fmtUsd, fmtIdr, waLink, WA_TEKS } = require('../tools/lib');
+const { esc, each, icon, t, pageUrl, fmtUsd, fmtIdr, fmtRp, waLink, WA_TEKS } = require('../tools/lib');
 const { contactSection } = require('./partials');
 
 module.exports = function services(ctx, produk = []) {
@@ -64,7 +64,7 @@ ${produk.length ? `
         </div>
         <ul class="grid grid--services list-plain">
 ${each(produk, (x, i) => `          <li data-reveal data-reveal-delay="${i * 80}">
-            <a class="card card--link service-card service-card--produk" href="${esc(pageUrl('proposal', lang, x.slug[lang]))}">
+            <a class="card card--link service-card service-card--produk" href="${esc(pageUrl('project', lang, x.proyekSlug[lang]))}">
               <span class="service-card__media">
                 <picture>
                   <source type="image/avif" srcset="/assets/img/portfolio/${esc(x.thumb)}-480.avif 480w, /assets/img/portfolio/${esc(x.thumb)}-960.avif 960w" sizes="(min-width: 64rem) 16rem, (min-width: 40rem) 45vw, 90vw">
@@ -75,8 +75,7 @@ ${each(produk, (x, i) => `          <li data-reveal data-reveal-delay="${i * 80}
               <p class="card__text">${esc(x.ringkas)}</p>
               <p class="service-card__price">
                 <span class="service-card__from">${esc(ui.proposal.startFromLicense)}</span>
-                <strong>${esc(fmtUsd(x.licenseUsd))}</strong>
-                <span class="service-card__idr">${esc(fmtIdr(x.licenseUsd, cur))}</span>
+                <strong>${esc(fmtRp(x.licenseIdr))}</strong>
               </p>
             </a>
           </li>\n`)}        </ul>

@@ -662,55 +662,28 @@ function initChat() {
   else setTimeout(load, 4000);
 }
 
-/* --- Tombol unduh CV dengan status memuat --------------------------------
-   PDF-nya sudah jadi berkas statis hasil cetak Chrome sungguhan (teks asli,
-   bukan rasterisasi), jadi tidak ada yang perlu dibangkitkan di browser.
-   Yang ditambahkan di sini hanya umpan balik visual selama berkas diambil.
-   Bila fetch gagal karena alasan apa pun, tautannya dibiarkan berjalan
-   sebagaimana biasa. */
-function initUnduhCV() {
-  const tombol = $('[data-download-pdf]');
-  if (!tombol || !('fetch' in window)) return;
-
-  const labelAsli = tombol.innerHTML;
-
-  tombol.addEventListener('click', async e => {
-    if (tombol.classList.contains('is-loading')) { e.preventDefault(); return; }
-    const url = tombol.getAttribute('href');
-    const nama = url.split('/').pop();
-
-    e.preventDefault();
-    tombol.classList.add('is-loading');
-    tombol.setAttribute('aria-busy', 'true');
-    tombol.innerHTML = `<span class="spinner" aria-hidden="true"></span> ${tombol.dataset.labelLoading || ''}`;
-
-    try {
-      const r = await fetch(url, { cache: 'no-store' });
-      if (!r.ok) throw new Error(r.status);
-      const blob = await r.blob();
-      const objek = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = objek;
-      a.download = nama;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      // beri waktu peramban memulai unduhan sebelum URL dilepas
-      setTimeout(() => URL.revokeObjectURL(objek), 4000);
-    } catch (err) {
-      console.error('[main.js] unduh PDF gagal, membuka tautan langsung:', err);
-      window.location.href = url;
-    } finally {
-      tombol.classList.remove('is-loading');
-      tombol.removeAttribute('aria-busy');
-      tombol.innerHTML = labelAsli;
-    }
-  });
-}
 
 /* --- Tombol cetak pada halaman CV ---------------------------------------- */
 function initPrint() {
   $$('[data-print]').forEach(btn => btn.addEventListener('click', () => window.print()));
+
+  /* Nama berkas PDF hasil "Simpan sebagai PDF" diambil peramban dari
+     document.title. Judul halaman ini dirancang untuk hasil pencarian —
+     "Proposal Penawaran: St SmartPoint — Kukoh Santoso" — dan menjadi nama
+     berkas yang panjang serta memuat tanda baca yang canggung di folder unduhan.
+     Judul ditukar sesaat selama pencetakan lalu dikembalikan, sehingga SEO dan
+     nama berkas bisa sama-sama benar tanpa saling mengalahkan.
+
+     Dipasang lewat beforeprint/afterprint, bukan di dalam penangan klik, supaya
+     ikut berlaku ketika pengguna menekan Ctrl+P sendiri. */
+  const bernama = $('[data-pdf-name]');
+  if (!bernama) return;
+  const namaPdf = bernama.getAttribute('data-pdf-name');
+  if (!namaPdf) return;
+
+  let judulAsli = '';
+  addEventListener('beforeprint', () => { judulAsli = document.title; document.title = namaPdf; });
+  addEventListener('afterprint', () => { if (judulAsli) document.title = judulAsli; });
 }
 
 /* --- Tahun berjalan di footer -------------------------------------------- */
@@ -755,6 +728,6 @@ function initSkalaDokumen() {
   }, { passive: true });
 }
 
-for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initLangSwitch, initFilter, initFilterStuck, initGallery, initLightbox, initPrint, initUnduhCV, initSkalaDokumen, initBackToTop, initCopyLink, initChat, initYear]) {
+for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initLangSwitch, initFilter, initFilterStuck, initGallery, initLightbox, initPrint, initSkalaDokumen, initBackToTop, initCopyLink, initChat, initYear]) {
   try { init(); } catch (err) { console.error(`[main.js] ${init.name} gagal:`, err); }
 }

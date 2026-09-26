@@ -1,7 +1,7 @@
 /* Halaman CV. Tata letak A4 dua kolom mempertahankan struktur CV lama;
    seluruh isinya datang dari data/site.json, jadi selalu ikut konten situs.
    Entri disaring dengan showOn: 'cv'. */
-const { esc, each, icon, t, cvPdf, fmtMonth, fmtRange, yearsSince, shown } = require('../tools/lib');
+const { esc, each, icon, t, fmtMonth, fmtRange, yearsSince, shown } = require('../tools/lib');
 
 /** Meter blok tersegmen seperti pada CV lama (10 kotak per baris). */
 const skillRow = s => {
@@ -30,18 +30,21 @@ module.exports = function cv(ctx) {
   const socials = shown(site.socials, 'cv');
 
   const L = lang === 'id'
-    ? { about: 'Tentang Saya', unduh: 'Unduh PDF', menyiapkan: 'Menyiapkan berkas…', print: 'Cetak', back: 'Kembali ke beranda',
-        hint: 'Berkas PDF sudah disiapkan dalam satu halaman A4. Tombol Cetak membuka dialog cetak peramban.',
+    ? { about: 'Tentang Saya', simpan: 'Simpan sebagai PDF', back: 'Kembali ke beranda',
+        hint: 'Jendela cetak akan terbuka — pilih tujuan “Simpan sebagai PDF” untuk mendapatkan berkasnya, atau langsung cetak ke kertas A4.',
         exp: `Sekitar ${years} tahun pengalaman, dan terus berusaha mengasah kemampuan.` }
-    : { about: 'About Me', unduh: 'Download PDF', menyiapkan: 'Preparing file…', print: 'Print', back: 'Back to home',
-        hint: 'The PDF is prepared as a single A4 page. The Print button opens your browser print dialog.',
+    : { about: 'About Me', simpan: 'Save as PDF', back: 'Back to home',
+        hint: 'The print dialog will open — choose “Save as PDF” as the destination to get the file, or print straight to A4 paper.',
         exp: `Around ${years} years of experience, and always working to sharpen my skills.` };
 
+  /* Satu tombol, bukan "Unduh PDF" berdampingan dengan "Cetak". Berkas PDF statis
+     tidak lagi disimpan di repo: mesin cetak peramban menghasilkan PDF vektor
+     yang teksnya tetap bisa disalin dan dicari, tanpa menambah bobot repo dan
+     tanpa satu pun kilobita skrip tambahan di halaman. */
   return `
     <div class="cv-actions">
-      <a class="btn btn--primary" href="${esc(cvPdf(site.profile.handle, lang))}" download
-         data-download-pdf data-label-loading="${esc(L.menyiapkan)}">${icon('download')} ${esc(L.unduh)}</a>
-      <button class="btn btn--ghost" type="button" data-print>${esc(L.print)}</button>
+      <button class="btn btn--primary" type="button" data-print
+              data-pdf-name="${esc(`CV ${site.profile.name}`)}">${icon('download')} ${esc(L.simpan)}</button>
       <a class="btn btn--ghost" href="${lang === 'id' ? '/' : '/en/'}">${esc(L.back)}</a>
     </div>
     <p class="cv-hint">${esc(L.hint)}</p>

@@ -109,15 +109,12 @@ function fmtRange(from, to, lang, presentLabel) {
 }
 
 
-/** Format harga USD, tanpa desimal. */
-const fmtUsd = n => '$' + Number(n).toLocaleString('en-US');
+/** Satu-satunya pemformat harga di situs ini.
 
-/** Rupiah yang memang DISIMPAN sebagai rupiah, bukan hasil konversi dari dolar.
-    Dipakai halaman penawaran.
-
-    Bedanya dengan fmtIdr penting: fmtIdr mengalikan angka dolar dengan kurs,
-    sehingga rupiahnya ikut bergerak setiap kurs diperbarui — dan proposal harus
-    mencantumkan catatan kurs bertanggal untuk jujur soal itu. Harga yang bergerak
+    Seluruh harga disimpan langsung dalam rupiah dan tidak pernah dikonversi dari
+    mata uang lain. Sebelumnya harga disimpan dalam dolar lalu dikalikan kurs,
+    sehingga tiap halaman harga harus memuat catatan "kurs sekian per tanggal
+    sekian" — pengakuan terbuka bahwa angkanya bisa bergerak. Harga yang bergerak
     tidak bisa dimasukkan bendahara ke dalam anggaran. Angka di sini tetap. */
 const fmtRp = n => 'Rp' + Math.round(Number(n)).toLocaleString('id-ID');
 
@@ -125,14 +122,6 @@ const fmtRp = n => 'Rp' + Math.round(Number(n)).toLocaleString('id-ID');
     keputusan, bukan hasil kalkulator: Rp12.550.000 memberi kesan angkanya baru
     dikarang saat itu juga, Rp12.500.000 tidak. */
 const bulatRp = (n, ke = 500000) => Math.round(Number(n) / ke) * ke;
-
-/** Konversi USD ke rupiah lalu dibulatkan agar terbaca sebagai harga, bukan
-    hasil kalkulator. Kurs dan tanggalnya disimpan di data/site.json. */
-function fmtIdr(usd, cur) {
-  const kasar = Number(usd) * cur.idrPerUsd;
-  const bulat = Math.round(kasar / cur.roundIdrTo) * cur.roundIdrTo;
-  return 'Rp' + bulat.toLocaleString('id-ID');
-}
 
 /** "2026-09-11" -> "11 September 2026" / "11 September 2026" */
 const fmtDate = (iso, lang) => {
@@ -146,4 +135,4 @@ const yearsSince = start => Math.max(1, new Date().getFullYear() - start);
 /** Saring entri berdasarkan penanda showOn. */
 const shown = (arr, surface) => (arr || []).filter(x => !x.showOn || x.showOn.includes(surface));
 
-module.exports = { esc, join, each, icon, setIconVersion, setPrefixes, t, prefix, SEGMENT, pageUrl, waLink, WA_TEKS, absUrl, fmtMonth, fmtRange, fmtUsd, fmtIdr, fmtRp, bulatRp, fmtDate, yearsSince, shown };
+module.exports = { esc, join, each, icon, setIconVersion, setPrefixes, t, prefix, SEGMENT, pageUrl, waLink, WA_TEKS, absUrl, fmtMonth, fmtRange, fmtRp, bulatRp, fmtDate, yearsSince, shown };

@@ -2,14 +2,13 @@
    Nama teknologi sengaja tidak dicantumkan — calon klien menilai hasil dan
    proses kerja, bukan tumpukan teknologi. Harga ditampilkan sebagai titik awal
    dalam dua mata uang, dengan kurs dan tanggalnya disebut terbuka. */
-const { esc, each, icon, t, pageUrl, fmtUsd, fmtIdr, fmtDate, waLink, WA_TEKS } = require('../tools/lib');
+const { esc, each, icon, t, pageUrl, fmtRp, bulatRp, waLink, WA_TEKS } = require('../tools/lib');
 const { contactSection } = require('./partials');
 
 module.exports = function service(ctx, s) {
   const { site, lang, ui } = ctx;
   const x = t(s, lang);
   const sp = t(site.servicesPage, lang);
-  const cur = site.currency;
   const feat = site.pricingFeatures;
   const lain = site.services.filter(o => o.key !== s.key);
 
@@ -77,14 +76,15 @@ ${each(sp.process, (p, i) => `          <li class="step" data-reveal data-reveal
         <ul class="price-grid list-plain">
 ${each(site.pricing, tier => {
   const p = t(tier, lang);
-  // Harga tiap paket berskala terhadap titik awal layanan ini.
-  const mulai = Math.round(s.from * (tier.from / site.pricing[0].from));
+  /* Harga tiap paket berskala terhadap titik awal layanan ini. Dibulatkan ke
+     Rp100.000 supaya hasil perkalian tidak terbaca sebagai angka kalkulator. */
+  const mulai = bulatRp(s.fromIdr * (tier.fromIdr / site.pricing[0].fromIdr), 100000);
   return `          <li class="card price${tier.featured ? ' price--featured' : ''}" data-reveal>
             ${tier.featured ? `<span class="price__badge">${esc(lang === 'id' ? 'Paling dipilih' : 'Most popular')}</span>` : ''}
             <h3 class="price__name">${esc(p.name)}</h3>
             <p class="price__from">${esc(ui.startFrom)}</p>
-            <p class="price__amount">${esc(fmtUsd(mulai))}</p>
-            <p class="price__idr">${esc(fmtIdr(mulai, cur))} <span>· ${esc(ui.perProject)}</span></p>
+            <p class="price__amount">${esc(fmtRp(mulai))}</p>
+            <p class="price__idr"><span>${esc(ui.perProject)}</span></p>
             <p class="price__summary">${esc(p.summary)}</p>
             <ul class="price__features">
               <li>${icon('check')}<span>${esc(lang === 'id' ? `Estimasi ${tier.days} hari kerja` : `About ${tier.days} working days`)}</span></li>
@@ -97,10 +97,6 @@ ${each(tier.features, f => `              <li>${icon('check')}<span>${esc(feat[f
           </li>\n`;
 })}        </ul>
 
-        <p class="price-note" data-reveal>
-          ${esc(ui.rateNote.replace('{rate}', `1 USD ≈ ${fmtIdr(1, { ...cur, roundIdrTo: 1 })}`)
-                           .replace('{date}', fmtDate(cur.rateDate, lang)))}
-        </p>
       </div>
     </section>
 

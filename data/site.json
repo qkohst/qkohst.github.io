@@ -475,7 +475,7 @@
         "id": "pengembangan-web",
         "en": "web-development"
       },
-      "from": 80,
+      "fromIdr": 1400000,
       "id": {
         "title": "Pengembangan Web",
         "summary": "Membangun website dan aplikasi web sesuai alur kerja bisnis Anda.",
@@ -519,7 +519,7 @@
         "id": "desain-web",
         "en": "web-design"
       },
-      "from": 60,
+      "fromIdr": 1100000,
       "id": {
         "title": "Desain Web",
         "summary": "Menyusun tampilan dan alur halaman yang enak dipakai dan sesuai identitas Anda.",
@@ -563,7 +563,6 @@
         "id": "pengembangan-restful-api",
         "en": "restful-api-development"
       },
-      "from": 120,
       "id": {
         "title": "Pengembangan RESTful API",
         "summary": "Membangun API yang rapi dan terdokumentasi untuk aplikasi web maupun mobile.",
@@ -597,7 +596,8 @@
           "Documentation with sample requests and responses per endpoint",
           "A ready-to-run test collection"
         ]
-      }
+      },
+      "fromIdr": 2100000
     },
     {
       "key": "database-design",
@@ -607,7 +607,7 @@
         "id": "perancangan-basis-data",
         "en": "database-design"
       },
-      "from": 70,
+      "fromIdr": 1200000,
       "id": {
         "title": "Perancangan Basis Data",
         "summary": "Menyusun struktur data yang tahan tumbuh dan tidak menyulitkan di kemudian hari.",
@@ -709,7 +709,6 @@
   "pricing": [
     {
       "key": "basic",
-      "currency": "USD",
       "days": 6,
       "revisions": 2,
       "featured": false,
@@ -726,11 +725,10 @@
         "name": "Basic",
         "summary": "A simple website or application with its data management."
       },
-      "from": 80
+      "fromIdr": 1400000
     },
     {
       "key": "standard",
-      "currency": "USD",
       "days": 12,
       "revisions": 4,
       "featured": true,
@@ -748,11 +746,10 @@
         "name": "Standard",
         "summary": "A mid-sized system with workflows and user access control."
       },
-      "from": 160
+      "fromIdr": 2800000
     },
     {
       "key": "premium",
-      "currency": "USD",
       "days": 30,
       "revisions": 6,
       "featured": false,
@@ -770,7 +767,7 @@
         "name": "Premium",
         "summary": "A bespoke system with features shaped around your requirements."
       },
-      "from": 505
+      "fromIdr": 8900000
     }
   ],
   "pricingFeatures": {
@@ -840,7 +837,6 @@
       "startFrom": "Mulai dari",
       "perProject": "per proyek",
       "viewCertificate": "Lihat sertifikat",
-      "rateNote": "Kurs {rate} per {date}",
       "serviceDeliverables": "Yang Anda terima",
       "allServices": "Semua layanan",
       "otherServices": "Layanan lainnya",
@@ -1004,7 +1000,6 @@
       "startFrom": "Starting from",
       "perProject": "per project",
       "viewCertificate": "View certificate",
-      "rateNote": "Rate {rate} as of {date}",
       "serviceDeliverables": "What you receive",
       "allServices": "All services",
       "otherServices": "Other services",
@@ -1120,11 +1115,5 @@
         "addonCost": "Cost"
       }
     }
-  },
-  "currency": {
-    "$note": "Kurs diperbarui manual. Perbarui idrPerUsd dan rateDate bersamaan agar angka rupiah tetap jujur terhadap tanggalnya.",
-    "idrPerUsd": 17603,
-    "rateDate": "2026-09-11",
-    "roundIdrTo": 100000
   }
 }

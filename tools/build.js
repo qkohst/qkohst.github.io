@@ -325,7 +325,7 @@ const offerLd = (lang, p, judul, ringkas) => ({
 
 const serviceLd = (lang, svc) => {
   const x = svc ? t(svc, lang) : t(site.servicesPage, lang);
-  const dasar = svc ? svc.from : site.pricing[0].from;
+  const dasar = svc ? svc.fromIdr : site.pricing[0].fromIdr;
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -336,8 +336,8 @@ const serviceLd = (lang, svc) => {
     offers: site.pricing.map(tier => ({
       '@type': 'Offer',
       name: t(tier, lang).name,
-      price: Math.round(dasar * (tier.from / site.pricing[0].from)),
-      priceCurrency: tier.currency,
+      price: Math.round(dasar * (tier.fromIdr / site.pricing[0].fromIdr)),
+      priceCurrency: 'IDR',
       description: t(tier, lang).summary,
       url: absUrl(ORIGIN, svc ? pageUrl('service', lang, svc.slug[lang]) : pageUrl('services', lang))
     }))

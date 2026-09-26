@@ -1,11 +1,10 @@
 /* Indeks layanan: daftar seluruh layanan yang ditawarkan. */
-const { esc, each, icon, t, pageUrl, fmtUsd, fmtIdr, fmtRp, waLink, WA_TEKS } = require('../tools/lib');
+const { esc, each, icon, t, pageUrl, fmtRp, waLink, WA_TEKS } = require('../tools/lib');
 const { contactSection } = require('./partials');
 
 module.exports = function services(ctx, produk = []) {
   const { site, lang, ui } = ctx;
   const sp = t(site.servicesPage, lang);
-  const cur = site.currency;
 
   return `
     <section class="section section--banner">
@@ -37,8 +36,7 @@ ${each(site.services, (s, i) => {
               <p class="card__text">${esc(x.summary)}</p>
               <p class="service-card__price">
                 <span class="service-card__from">${esc(ui.startFrom)}</span>
-                <strong>${esc(fmtUsd(s.from))}</strong>
-                <span class="service-card__idr">${esc(fmtIdr(s.from, cur))}</span>
+                <strong>${esc(fmtRp(s.fromIdr))}</strong>
               </p>
             </a>
           </li>\n`;

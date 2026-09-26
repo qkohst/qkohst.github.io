@@ -1205,7 +1205,6 @@ li:last-child { margin-bottom: 0; }
   font-size: var(--step-1); letter-spacing: -.02em;
   font-variant-numeric: tabular-nums; color: var(--accent);
 }
-.service-card__idr { font-size: var(--step--1); color: var(--text-muted); font-variant-numeric: tabular-nums; }
 
 /* Gambar pratinjau pada kartu produk siap pakai.
 

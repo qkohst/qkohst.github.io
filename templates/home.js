@@ -1,5 +1,5 @@
 /* Beranda: hero, tentang, kemampuan, framework, resume, layanan, proyek pilihan, kontak. */
-const { esc, each, icon, t, pageUrl, fmtMonth, fmtRange, yearsSince, shown, waLink, WA_TEKS } = require('../tools/lib');
+const { esc, each, icon, t, pageUrl, fmtRp, fmtMonth, fmtRange, yearsSince, shown, waLink, WA_TEKS } = require('../tools/lib');
 const { projectCard, meter, contactSection } = require('./partials');
 
 module.exports = function home(ctx, projects) {
@@ -147,12 +147,20 @@ ${each(certificates, e => {
         <ul class="grid grid--4" style="list-style:none;margin:0;padding:0">
 ${each(site.services, (s, i) => {
   const x = t(s, lang);
+  /* Memakai kelas .service-card yang sama dengan halaman Layanan, bukan gaya
+     sebaris: kelas itulah yang menjadikan kartu sebuah kolom lentur, sehingga
+     baris harganya menempel ke dasar kartu dan keempatnya sejajar walau panjang
+     ringkasannya berbeda. Tanpa harga, section ini jadi satu-satunya tempat
+     layanan disebut tanpa angka. */
   return `          <li style="margin:0" data-reveal data-reveal-delay="${i * 80}">
-            <a class="card card--link" href="${esc(pageUrl('service', lang, s.slug[lang]))}"
-               style="display:block;text-decoration:none;color:inherit;height:100%">
+            <a class="card card--link service-card" href="${esc(pageUrl('service', lang, s.slug[lang]))}">
               <span class="card__icon">${icon(s.icon)}</span>
               <h3 class="card__title">${esc(x.title)}</h3>
               <p class="card__text">${esc(x.summary)}</p>
+              <p class="service-card__price">
+                <span class="service-card__from">${esc(ui.startFrom)}</span>
+                <strong>${esc(fmtRp(s.fromIdr))}</strong>
+              </p>
             </a>
           </li>
 `;

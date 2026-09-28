@@ -111,6 +111,41 @@ ${each(socials, s => `        <li style="margin:0"><a href="${esc(s.url)}" targe
   </footer>`;
 }
 
+/** Dialog sapaan yang mengantar pengunjung ke chat Crisp.
+
+    Peluncur Crisp sendiri hanya gelembung kecil di sudut, dan karena skripnya
+    sengaja ditunda ia belum ada sama sekali pada detik-detik awal. Pengunjung
+    yang mendarat dari hasil pencarian tidak punya isyarat bahwa pemilik situs
+    bisa diajak bicara langsung; dialog ini yang memberi isyarat itu.
+
+    Tidak dirender tanpa crispWebsiteId: tombolnya tidak akan punya tujuan. */
+function notif(ctx) {
+  if (!ctx.site.site.crispWebsiteId) return '';
+  const n = ctx.ui.notif;
+
+  return `
+  <dialog class="notif" data-notif aria-labelledby="notif-title">
+    <div class="notif__inner">
+      <button class="notif__close" type="button" data-notif-close
+              aria-label="${esc(n.close)}">${icon('close')}</button>
+      <p class="notif__avatar">
+        <picture>
+          <source type="image/avif" srcset="/assets/img/profile-480.avif">
+          <img src="/assets/img/profile-480.jpg" alt="" aria-hidden="true"
+               width="480" height="480" loading="lazy" decoding="async">
+        </picture>
+        <span class="notif__dot" aria-hidden="true"></span>
+      </p>
+      <h2 class="notif__title" id="notif-title">${esc(n.title)}</h2>
+      <p class="notif__text">${esc(n.text)}</p>
+      <div class="notif__actions">
+        <button class="btn btn--primary" type="button" data-notif-chat>${icon('chat')}${esc(n.cta)}</button>
+        <button class="btn btn--ghost btn--sm" type="button" data-notif-close>${esc(n.later)}</button>
+      </div>
+    </div>
+  </dialog>`;
+}
+
 /** Bungkus isi halaman menjadi dokumen HTML utuh. */
 function document_(ctx, body) {
   return `<!DOCTYPE html>
@@ -141,6 +176,7 @@ ${body}
       </div>
     </div>
   </dialog>
+${notif(ctx)}
 
   <button class="back-to-top" type="button" data-back-to-top tabindex="-1"
           aria-label="${esc(ctx.lang === 'id' ? 'Kembali ke atas' : 'Back to top')}">
@@ -153,4 +189,4 @@ ${footer(ctx)}
 `;
 }
 
-module.exports = { document: document_, head, header, footer };
+module.exports = { document: document_, head, header, footer, notif };

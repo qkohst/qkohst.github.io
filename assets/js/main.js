@@ -394,6 +394,32 @@ function initGallery() {
   perbarui();
 }
 
+/* --- Escape menutup dialog ------------------------------------------------
+   <dialog> modal seharusnya menutup sendiri saat Escape ditekan, dan memang
+   begitu — sampai skrip Crisp termuat. Sesudah itu TIDAK ADA dialog di halaman
+   ini yang lagi menerima permintaan tutup dari Escape: peristiwa 'cancel' tidak
+   pernah terbit, sementara keydown tetap sampai ke dialognya.
+
+   Diisolasi dengan <dialog> kosong yang baru dibuat, tanpa kode situs ini sama
+   sekali: gagal ditutup di halaman ber-Crisp, berhasil di halaman tanpa Crisp
+   (pamdes/). Jadi yang menelan permintaan tutup itu widget Crisp, bukan salah
+   satu modul di sini.
+
+   Karena keydown-nya masih sampai, Escape ditangani sendiri. Dialog yang tidak
+   bisa ditutup dengan Escape adalah jebakan bagi pengguna papan tuts — dan
+   pada lightbox, Escape adalah SATU-SATUNYA jalan keluar yang tidak menuntut
+   pengguna menemukan tombol tutup lebih dulu.
+
+   Dipakai bersama oleh lightbox dan dialog sapaan supaya perbaikannya hidup di
+   satu tempat: dialog ketiga yang ditambahkan nanti cukup memanggil ini. */
+function tutupDenganEscape(dialog) {
+  dialog.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    e.preventDefault();
+    dialog.close();
+  });
+}
+
 /* --- Lightbox (pengganti VenoBox) ---------------------------------------- */
 function initLightbox() {
   const dialog = $('[data-lightbox]');
@@ -527,6 +553,7 @@ function initLightbox() {
   $('[data-lightbox-close]', dialog)?.addEventListener('click', () => dialog.close());
   // klik di area gelap menutup, klik pada isi dialog tidak
   dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+  tutupDenganEscape(dialog);
   dialog.addEventListener('close', () => { track.innerHTML = ''; opener?.focus(); });
 }
 
@@ -619,6 +646,31 @@ function initCopyLink() {
 }
 
 /* --- Crisp: dimuat saat senggang agar tidak membebani muat awal ---------- */
+/* Pemuat Crisp diangkat ke lingkup modul karena initNotif ikut memakainya:
+   dialog sapaan harus bisa MEMAKSA Crisp termuat saat tombolnya ditekan,
+   padahal muatnya sengaja ditunda demi muat awal yang ringan. Nilai awalnya
+   fungsi kosong supaya pemanggilan sebelum initChat berjalan tidak melempar. */
+let muatChat = () => {};
+
+/* Antrean pra-muat Crisp tidak selalu memproses 'do' — persoalan yang sama
+   sudah terbukti pada 'config' di initChat. Karena itu perintahnya ditahan
+   sampai SDK benar-benar siap; kalau tidak, tombolnya diam saja dan pengunjung
+   menyimpulkan chatnya rusak.
+
+   chat:show didahulukan: peluncur bisa dalam keadaan tersembunyi, dan
+   chat:open pada peluncur tersembunyi tidak menampilkan apa pun. */
+function bukaChat() {
+  muatChat();
+  let sisa = 60;                      // ~12 detik, cukup untuk jaringan lambat
+  const tunggu = setInterval(() => {
+    if (window.$crisp && typeof window.$crisp.is === 'function') {
+      clearInterval(tunggu);
+      window.$crisp.push(['do', 'chat:show']);
+      window.$crisp.push(['do', 'chat:open']);
+    } else if (--sisa <= 0) clearInterval(tunggu);
+  }, 200);
+}
+
 function initChat() {
   const id = document.documentElement.dataset.crisp;
   if (!id) return;
@@ -651,6 +703,8 @@ function initChat() {
     document.head.appendChild(s);
   };
 
+  muatChat = load;
+
   const events = ['pointerdown', 'keydown', 'touchstart'];
   const onFirstInteraction = () => {
     events.forEach(e => removeEventListener(e, onFirstInteraction));
@@ -660,6 +714,78 @@ function initChat() {
 
   if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 6000 });
   else setTimeout(load, 4000);
+}
+
+/* --- Dialog sapaan yang mengantar ke chat -------------------------------- */
+function initNotif() {
+  const dialog = $('[data-notif]');
+  if (!dialog || typeof dialog.showModal !== 'function') return;
+  // Tanpa Crisp, tombol ajakannya tidak punya tujuan — lebih baik diam.
+  if (!document.documentElement.dataset.crisp) return;
+
+  const KUNCI = 'notif-chat';
+  const JEDA = 30 * 864e5;            // 30 hari dalam milidetik
+  const TUNDA = 6000;                 // sapaan menunggu pengunjung membaca dulu
+
+  /* Yang disimpan adalah WAKTU, bukan penanda sudah/belum. Penanda permanen
+     membungkam sapaan ini selamanya, termasuk bagi pengunjung yang kembali
+     berbulan-bulan kemudian dengan kebutuhan baru — justru orang yang paling
+     layak disapa. Dengan timestamp, sapaannya pulih sendiri setelah jedanya
+     lewat. Dibungkus try/catch: mode privat bisa menolak penyimpanan. */
+  let dulu = 0;
+  try { dulu = Number(localStorage.getItem(KUNCI)) || 0; } catch {}
+  if (Date.now() - dulu < JEDA) return;
+
+  let selesai = false;
+  const tandai = () => { try { localStorage.setItem(KUNCI, String(Date.now())); } catch {} };
+
+  const tampil = () => {
+    if (selesai) return;
+    // Dua dialog modal bertumpuk mengacaukan fokus dan backdrop. Lightbox yang
+    // sedang terbuka juga berarti perhatian pengunjung sedang di tempat lain.
+    if ($('dialog[open]')) return;
+    // Di tab latar, showModal() tidak terlihat siapa pun sementara hitungan 30
+    // harinya tetap tercatat — sapaannya hangus tanpa pernah sempat dibaca.
+    if (document.hidden) {
+      document.addEventListener('visibilitychange', tampil, { once: true });
+      return;
+    }
+    selesai = true;
+    // Ditandai saat TAMPIL, bukan saat ditutup: pengunjung yang memuat ulang
+    // halaman tanpa menyentuh dialognya tidak boleh disapa dua kali.
+    tandai();
+    dialog.showModal();
+  };
+
+  const jam = setTimeout(tampil, TUNDA);
+
+  /* Scroll adalah tanda pengunjung benar-benar menyimak, jadi sapaannya
+     dipercepat. Tetapi showModal() membekukan gulir halaman, dan membekukannya
+     di tengah gerakan terbaca sebagai halaman tersangkut — karena itu dialog
+     baru dibuka setelah gulirnya mereda. */
+  let redam;
+  const onScroll = () => {
+    if (scrollY < innerHeight * 0.6) return;
+    clearTimeout(redam);
+    redam = setTimeout(() => {
+      removeEventListener('scroll', onScroll);
+      clearTimeout(jam);
+      tampil();
+    }, 500);
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+
+  // Kontrak penutupan sama dengan lightbox: tombol dan klik area gelap.
+  for (const btn of $$('[data-notif-close]', dialog)) {
+    btn.addEventListener('click', () => dialog.close());
+  }
+  dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+  tutupDenganEscape(dialog);
+
+  $('[data-notif-chat]', dialog)?.addEventListener('click', () => {
+    dialog.close();
+    bukaChat();
+  });
 }
 
 
@@ -728,6 +854,8 @@ function initSkalaDokumen() {
   }, { passive: true });
 }
 
-for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initLangSwitch, initFilter, initFilterStuck, initGallery, initLightbox, initPrint, initSkalaDokumen, initBackToTop, initCopyLink, initChat, initYear]) {
+/* initNotif WAJIB sesudah initChat: dialog sapaan memakai muatChat, dan
+   variabel itu baru terisi di dalam initChat. */
+for (const init of [initTheme, initNav, initHeader, initReveal, initScrollSpy, initLangSwitch, initFilter, initFilterStuck, initGallery, initLightbox, initPrint, initSkalaDokumen, initBackToTop, initCopyLink, initChat, initNotif, initYear]) {
   try { init(); } catch (err) { console.error(`[main.js] ${init.name} gagal:`, err); }
 }

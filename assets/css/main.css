@@ -1363,6 +1363,7 @@ li:last-child { margin-bottom: 0; }
   }
   [data-reveal] { opacity: 1; transform: none; }
   .meter__fill { width: var(--level, 0%); }
+  .notif__inner, .notif::backdrop { animation: none; }
   @view-transition { navigation: none; }
 }
 
@@ -1389,7 +1390,7 @@ li:last-child { margin-bottom: 0; }
 
 /* --- 17. Cetak ---------------------------------------------------------- */
 @media print {
-  .header, .footer, .skip-link, .filters, .gallery__nav, .project__arrow, .toast { display: none !important; }
+  .header, .footer, .skip-link, .filters, .gallery__nav, .project__arrow, .toast, .notif { display: none !important; }
   body { background: #fff; color: #000; }
   a { text-decoration: none; color: #000; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
@@ -1467,4 +1468,99 @@ li:last-child { margin-bottom: 0; }
   .brand { gap: var(--sp-2); }
   .brand__name { font-size: var(--step--1); }
   .lang-switch a { padding: .3rem .45rem; }
+}
+
+/* --- 19. Dialog sapaan --------------------------------------------------- */
+/* Peringatan yang sama seperti pada .lightbox: JANGAN menyetel position di
+   sini. <dialog> yang dibuka lewat showModal() memakai position: fixed dari
+   UA, dan menimpanya menarik dialog kembali ke aliran dokumen. */
+.notif {
+  border: 0; padding: 0; background: transparent;
+  max-width: min(92vw, 27rem);
+}
+
+/* Backdropnya lebih ringan daripada lightbox (.92): ini sapaan, bukan
+   penampil gambar — halaman di belakangnya harus tetap terbaca sebagai
+   konteks, bukan digelapkan sampai hilang. */
+.notif::backdrop {
+  background: rgba(5, 9, 8, .72);
+  backdrop-filter: blur(4px);
+  animation: notif-latar var(--dur) var(--ease-out);
+}
+
+.notif__inner {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-6);
+  background: var(--surface-hi);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  animation: notif-masuk var(--dur) var(--ease);
+}
+
+/* Target sentuh 2,25rem meski ikonnya kecil: tombol tutup yang sempit pada
+   dialog yang tidak diminta pengunjung adalah jebakan, bukan kerapian. */
+.notif__close {
+  position: absolute; top: var(--sp-3); right: var(--sp-3);
+  width: 2.25rem; height: 2.25rem;
+  display: grid; place-items: center;
+  padding: 0; border: 0; border-radius: var(--radius-full);
+  background: transparent; color: var(--text-faint); cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+.notif__close:hover { color: var(--text); background: var(--surface); }
+.notif__close svg { width: 1.15rem; height: 1.15rem; }
+
+/* Pemotong bulat ada di <picture>, BUKAN di pembungkusnya. Kalau
+   .notif__avatar yang diberi overflow: hidden, titik "sedang aktif" di
+   sudutnya ikut terpotong — padahal justru bagian yang menonjol itu yang
+   membuatnya terbaca sebagai lencana. */
+.notif__avatar {
+  position: relative;
+  width: 4.5rem; height: 4.5rem; margin: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--accent), var(--shadow-md);
+}
+.notif__avatar picture {
+  display: block; width: 100%; height: 100%;
+  border-radius: 50%; overflow: hidden;
+}
+.notif__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Cincin setebal latar kartu membuat titiknya terbaca menempel pada foto,
+   bukan mengapung entah di mana. */
+.notif__dot {
+  position: absolute; right: .1rem; bottom: .1rem;
+  width: .85rem; height: .85rem;
+  border-radius: 50%;
+  background: #22c55e;
+  border: 2px solid var(--surface-hi);
+}
+
+.notif__title { margin: 0; font-size: var(--step-1); line-height: 1.3; }
+.notif__text { margin: 0; color: var(--text-muted); font-size: var(--step-0); }
+
+.notif__actions {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: var(--sp-3); margin-top: var(--sp-1);
+}
+
+@keyframes notif-masuk {
+  from { opacity: 0; transform: translateY(12px) scale(.96); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes notif-latar {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (max-width: 30rem) {
+  .notif__inner { padding: var(--sp-5); gap: var(--sp-3); }
+  /* Dua tombol yang terbelah di tengah baris terbaca sebagai pilihan yang
+     sama bobotnya; ditumpuk, urutannya yang menentukan. */
+  .notif__actions { flex-direction: column; align-self: stretch; }
+  .notif__actions .btn { width: 100%; }
 }

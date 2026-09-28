@@ -849,6 +849,13 @@
       "relatedTitle": "Proyek Lainnya",
       "relatedNone": "Belum ada proyek lain pada kategori ini.",
       "viewAllInCategory": "Lihat semua di kategori ini",
+      "notif": {
+        "title": "Halo, ada yang bisa saya bantu?",
+        "text": "Punya rencana proyek atau sekadar ingin bertanya? Kirim pesan langsung ke saya di sini — biasanya saya balas pada hari yang sama.",
+        "cta": "Mulai chat",
+        "later": "Nanti saja",
+        "close": "Tutup pemberitahuan"
+      },
       "proposal": {
         "docTitle": "Proposal Penawaran",
         "viewProposal": "Lihat penawaran",
@@ -1012,6 +1019,13 @@
       "relatedTitle": "Other Projects",
       "relatedNone": "No other projects in this category yet.",
       "viewAllInCategory": "See all in this category",
+      "notif": {
+        "title": "Hello — anything I can help with?",
+        "text": "Planning a project, or just have a question? Send me a message right here — I usually reply the same day.",
+        "cta": "Start chat",
+        "later": "Maybe later",
+        "close": "Close notification"
+      },
       "proposal": {
         "docTitle": "Proposal",
         "viewProposal": "View proposal",

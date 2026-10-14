@@ -146,7 +146,9 @@
             </div>
 
             <div class="stack" style="margin-top:var(--sp-6)" data-reveal>
-              <p>This is the result of implementing the Unirow Tuban E-Thesis RESTful API into a website-based system</p>
+              <p>RESTful API Web Client is the interface side of the E-Thesis system at PGRI Ronggolawe University Tuban. All of its data is read and written through the E-Thesis RESTful API, so these web pages never touch the database directly — their job is purely to present and collect data through the API. It is built with Laravel.</p>
+              <p>The system follows a student&#39;s thesis journey from beginning to end: title submission, proposal guidance, the proposal seminar, thesis guidance, and the final defence. Each stage has its own status and reviewers, and what appears on screen adapts to the role currently signed in — Admin, Study Programme Admin, Lecturer, or Student.</p>
+              <p>Proposal seminar and thesis defence results are summarised into reports the study programme can print. Keeping the client separate from the API lets the same system be shared with a mobile application without duplicating the logic in two places.</p>
 
               <h2 style="font-size:var(--step-2);margin-top:var(--sp-5)">Key Features</h2>
               <ul class="feature-list">
@@ -275,6 +277,26 @@
             </div>
           </a>
         </li>
+        <li class="project" data-category="pendidikan" data-reveal>
+          <a class="project__card" href="/projects/e-raport/">
+            <div class="project__media">
+              <picture>
+                <source type="image/avif" srcset="/assets/img/portfolio/e-raport-3-480.avif 480w, /assets/img/portfolio/e-raport-3-960.avif 960w" sizes="(min-width: 64rem) 20rem, (min-width: 40rem) 45vw, 90vw">
+                <img src="/assets/img/portfolio/e-raport-3-960.jpg" alt="Screenshot 1 of 10 — E-Raport Application" width="960" height="540" loading="lazy" decoding="async">
+              </picture>
+              <span class="project__arrow" aria-hidden="true"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=59b55608#i-arrow-right"></use></svg></span>
+            </div>
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="tag tag--accent">Education</span>
+                <span class="tag">Laravel</span>
+              </div>
+              <h3 class="project__title">E-Raport Application</h3>
+              <p class="project__summary">A digital report-card application for junior high schools and PKBM with many local-content subjects.</p>
+              <span class="project__date">December 2021</span>
+            </div>
+          </a>
+        </li>
         </ul>
         <p style="margin-top:var(--sp-5)" data-reveal>
           <a class="btn btn--ghost" href="/projects/#pendidikan">
@@ -347,6 +369,6 @@
       </ul>
     </div>
   </footer>
-  <script type="module" src="/assets/js/main.js?v=07292048"></script>
+  <script type="module" src="/assets/js/main.js?v=2f461649"></script>
 </body>
 </html>

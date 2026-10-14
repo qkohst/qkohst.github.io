@@ -138,9 +138,19 @@
             </div>
 
             <div class="stack" style="margin-top:var(--sp-6)" data-reveal>
-              <p>This is the result of implementing the Unirow Tuban E-Thesis RESTful API into a mobile-based system developed using flutter.</p>
+              <p>RESTful API Mobile Client is an Android application built with Flutter that brings the E-Thesis data of PGRI Ronggolawe University Tuban within reach of a phone. It shares its data source with the web client: everything it shows is fetched through the E-Thesis RESTful API rather than from a local database.</p>
+              <p>Users sign in with the same account they use on the web, then browse the academic data they need — the list of faculties, study programmes along with their status, and the list of proposal seminar participants complete with programme and completion status.</p>
+              <p>The project was built to show that one well-designed API can serve two kinds of client at once. With Flutter, the interface is written once and stays consistent across screen sizes.</p>
 
-
+              <h2 style="font-size:var(--step-2);margin-top:var(--sp-5)">Key Features</h2>
+              <ul class="feature-list">
+                <li>Sign in with the same E-Thesis account used on the web client.</li>
+                <li>Faculty list with abbreviations and status.</li>
+                <li>Study programme list with the faculty each belongs to.</li>
+                <li>Proposal seminar participant list with completion status.</li>
+                <li>All data fetched straight from the E-Thesis RESTful API.</li>
+                <li>Flutter interface that stays consistent across Android screen sizes.</li>
+              </ul>
             </div>
           </div>
 
@@ -258,6 +268,26 @@
             </div>
           </a>
         </li>
+        <li class="project" data-category="pendidikan" data-reveal>
+          <a class="project__card" href="/projects/e-raport/">
+            <div class="project__media">
+              <picture>
+                <source type="image/avif" srcset="/assets/img/portfolio/e-raport-3-480.avif 480w, /assets/img/portfolio/e-raport-3-960.avif 960w" sizes="(min-width: 64rem) 20rem, (min-width: 40rem) 45vw, 90vw">
+                <img src="/assets/img/portfolio/e-raport-3-960.jpg" alt="Screenshot 1 of 10 — E-Raport Application" width="960" height="540" loading="lazy" decoding="async">
+              </picture>
+              <span class="project__arrow" aria-hidden="true"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=59b55608#i-arrow-right"></use></svg></span>
+            </div>
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="tag tag--accent">Education</span>
+                <span class="tag">Laravel</span>
+              </div>
+              <h3 class="project__title">E-Raport Application</h3>
+              <p class="project__summary">A digital report-card application for junior high schools and PKBM with many local-content subjects.</p>
+              <span class="project__date">December 2021</span>
+            </div>
+          </a>
+        </li>
         </ul>
         <p style="margin-top:var(--sp-5)" data-reveal>
           <a class="btn btn--ghost" href="/projects/#pendidikan">
@@ -330,6 +360,6 @@
       </ul>
     </div>
   </footer>
-  <script type="module" src="/assets/js/main.js?v=07292048"></script>
+  <script type="module" src="/assets/js/main.js?v=2f461649"></script>
 </body>
 </html>

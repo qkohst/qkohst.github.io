@@ -148,6 +148,8 @@
             <div class="stack" style="margin-top:var(--sp-6)" data-reveal>
               <p>This API provides services for managing tree data, species, locations, users, and supports authentication as well as analytical reports related to forestry.</p>
               <p>The API supports HTTP methods (GET, POST, PUT, DELETE) with detailed documentation on parameters and response structures.</p>
+              <p>Its data is layered: species and locations act as references for every tree record, so a tree is always tied to its kind and to the area where it was planted. That structure is what makes tree growth reports and forest health analysis computable without trawling through raw records one by one.</p>
+              <p>Access is guarded through user registration and authentication, while the notification service pushes important alerts to the people concerned whenever a condition needs following up. Because its responses are uniform and documented, the API can serve web clients and field devices alike without special handling on either side.</p>
 
               <h2 style="font-size:var(--step-2);margin-top:var(--sp-5)">Key Features</h2>
               <ul class="feature-list">
@@ -347,6 +349,6 @@
       </ul>
     </div>
   </footer>
-  <script type="module" src="/assets/js/main.js?v=07292048"></script>
+  <script type="module" src="/assets/js/main.js?v=2f461649"></script>
 </body>
 </html>

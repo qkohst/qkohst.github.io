@@ -66,6 +66,36 @@ function initNav() {
 /* --- Reveal saat masuk layar (pengganti AOS) -----------------------------
    Elemen bersaudara yang tersingkap pada gulir yang sama diberi jeda
    berurutan, sehingga grid kartu masuk seperti gelombang, bukan serentak. */
+const REVEAL_STAGGER = 70;    // ms antar-saudara
+const REVEAL_MAX_STEPS = 6;   // batas agar grid panjang tidak menunggu lama
+
+/* Mainkan ulang animasi reveal pada sekumpulan elemen yang sudah tersingkap.
+   Transisi dimatikan sementara, kelas is-revealed dilepas, lalu gaya dipaksa
+   dihitung ulang sebelum semuanya dipasang kembali.
+
+   Mematikan transisi di langkah pertama BUKAN kehati-hatian berlebih. Melepas
+   kelas saja justru memulai transisi mundur: pada saat reflow, opacity baru
+   bergerak sepersekian dari 1 menuju 0, bukan sudah sampai di 0. Kelas yang
+   langsung dipasang lagi kemudian membalik arah dari angka itu — kartu hanya
+   berkedip samar lalu diam. Dengan transition:none, keadaan tersembunyi
+   terkunci lebih dulu, sehingga transisi berikutnya benar-benar mulai dari
+   nol seperti saat halaman pertama kali dimuat. */
+function putarUlangReveal(elemen) {
+  if (reduceMotion || !elemen.length) return;
+  elemen.forEach(el => {
+    el.style.transition = 'none';
+    el.classList.remove('is-revealed');
+    el.style.setProperty('--reveal-delay', '0ms');
+  });
+  void elemen[0].offsetWidth;
+  elemen.forEach((el, i) => {
+    el.style.transition = '';
+    el.style.setProperty('--reveal-delay',
+      `${Math.min(i, REVEAL_MAX_STEPS) * REVEAL_STAGGER}ms`);
+    el.classList.add('is-revealed');
+  });
+}
+
 function initReveal() {
   const items = $$('[data-reveal]');
   if (!items.length) return;
@@ -75,8 +105,6 @@ function initReveal() {
     return;
   }
 
-  const STAGGER = 70;   // ms antar-saudara
-  const MAX_STEPS = 6;  // batas agar grid panjang tidak menunggu lama
   let batch = [];
   let flush = null;
 
@@ -94,7 +122,8 @@ function initReveal() {
         .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)
         .forEach((el, i) => {
           const own = Number(el.dataset.revealDelay || 0);
-          el.style.setProperty('--reveal-delay', `${own + Math.min(i, MAX_STEPS) * STAGGER}ms`);
+          el.style.setProperty('--reveal-delay',
+            `${own + Math.min(i, REVEAL_MAX_STEPS) * REVEAL_STAGGER}ms`);
           el.classList.add('is-revealed');
         });
       batch = [];
@@ -234,18 +263,25 @@ function initFilter() {
   const counter = $('[data-filter-count]');
   const tombol = $$('[data-filter]', bar);
 
-  const terapkan = (mau, gulir) => {
+  const terapkan = (mau, { gulir = false, animasi = false } = {}) => {
     const btn = tombol.find(b => b.dataset.filter === mau);
     if (!btn) return false;
     tombol.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
 
-    let tampil = 0;
+    const terpilih = [];
     for (const item of items) {
       const cocok = mau === 'all' || item.dataset.category === mau;
       item.hidden = !cocok;
-      if (cocok) tampil++;
+      if (cocok) terpilih.push(item);
     }
-    if (counter) counter.textContent = counter.dataset.template.replace('{n}', tampil);
+    if (counter) counter.textContent = counter.dataset.template.replace('{n}', terpilih.length);
+
+    // Berpindah tab terasa seperti daftar baru yang dimuat, bukan kartu yang
+    // tiba-tiba bertukar: kartu yang lolos saring disingkapkan ulang dengan
+    // jeda berurutan yang sama seperti saat halaman pertama kali dibuka.
+    // Tidak dilakukan pada pemanggilan awal, karena di sana initReveal yang
+    // memegang kendali dan dua sumber animasi akan saling menimpa.
+    if (animasi) putarUlangReveal(terpilih.filter(el => el.hasAttribute('data-reveal')));
     if (gulir) keAwalDaftar();
     return true;
   };
@@ -274,18 +310,18 @@ function initFilter() {
   bar.addEventListener('click', e => {
     const btn = e.target.closest('[data-filter]');
     if (!btn) return;
-    terapkan(btn.dataset.filter, true);
+    terapkan(btn.dataset.filter, { gulir: true, animasi: true });
   });
 
   // Tautan "lihat semua di kategori ini" dari halaman detail proyek datang
   // sebagai /projects/#<kategori>. Tanpa penanganan ini, tandanya diabaikan
   // dan halaman terbuka pada "Semua".
-  const dariTanda = () => {
+  const dariTanda = (animasi = false) => {
     const kunci = decodeURIComponent((location.hash || '').slice(1));
-    if (kunci) terapkan(kunci, false);
+    if (kunci) terapkan(kunci, { animasi });
   };
   dariTanda();
-  addEventListener('hashchange', dariTanda);
+  addEventListener('hashchange', () => dariTanda(true));
 }
 
 /* --- Bar filter: tandai saat menempel di bawah header -------------------- */

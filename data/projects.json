@@ -271,7 +271,9 @@
       "title": "Sistem Login Lengkap",
       "summary": "Sistem autentikasi lengkap dengan manajemen peran dan menu, dibangun dengan CodeIgniter 3.",
       "body": [
-        "Dikembangkan menggunakan CodeIgniter 3 dengan DBMS MySQL."
+        "Sistem Login Lengkap adalah kerangka autentikasi siap pakai yang dibangun di atas CodeIgniter 3 dan MySQL. Alih-alih berhenti pada pemeriksaan nama pengguna dan kata sandi, sistem ini sudah membawa perangkat yang biasanya baru dipikirkan belakangan: pendaftaran mandiri, penyuntingan profil, dan penggantian kata sandi.",
+        "Yang membedakannya ada pada kendali akses. Peran pengguna, menu, dan submenu disimpan sebagai data di basis data, bukan ditulis permanen di dalam kode. Menu yang muncul menyesuaikan peran akun yang sedang masuk, dan menambah modul baru cukup dilakukan lewat antarmuka pengelolaan menu tanpa menyentuh berkas tampilan.",
+        "Karena susunannya netral terhadap jenis aplikasi, proyek ini dipakai sebagai fondasi awal ketika sebuah aplikasi CodeIgniter baru harus langsung memiliki banyak peran pengguna. Kodenya terbuka di GitHub."
       ],
       "features": [
         "Masuk",
@@ -287,7 +289,9 @@
       "title": "Complete Login System",
       "summary": "A complete authentication system with role and menu management, built on CodeIgniter 3.",
       "body": [
-        "Developed using CodeIgniter 3 with MySQL DBMS."
+        "Complete Login System is a ready-to-use authentication skeleton built on CodeIgniter 3 and MySQL. Rather than stopping at checking a username and password, it already ships the pieces usually left for later: self-registration, profile editing, and password changes.",
+        "What sets it apart is access control. User roles, menus, and submenus live in the database as data rather than being hard-coded. The menu a visitor sees adapts to the role of the account currently signed in, and adding a new module is done through the menu management screens without touching a view file.",
+        "Because its structure is neutral about what the application does, the project is used as a starting foundation whenever a new CodeIgniter application needs multiple user roles from day one. The source is open on GitHub."
       ],
       "features": [
         "Login",
@@ -455,7 +459,9 @@
       "title": "Klien Web RESTful API",
       "summary": "Penerapan RESTful API E-Skripsi Unirow Tuban ke dalam sistem berbasis web.",
       "body": [
-        "Ini adalah hasil penerapan RESTful API E-Skripsi Universitas PGRI Ronggolawe Tuban ke dalam sistem berbasis web."
+        "Klien Web RESTful API adalah sisi antarmuka dari sistem E-Skripsi Universitas PGRI Ronggolawe Tuban. Seluruh datanya diambil dan dikirim lewat RESTful API E-Skripsi, sehingga halaman web ini tidak pernah menyentuh basis data secara langsung — perannya murni menyajikan dan mengumpulkan data melalui API. Dibangun dengan Laravel.",
+        "Sistem ini mengikuti perjalanan skripsi seorang mahasiswa dari awal sampai akhir: pengajuan judul, bimbingan proposal, seminar proposal, bimbingan skripsi, lalu sidang akhir. Setiap tahap memiliki status dan pemeriksanya sendiri, dan apa yang terlihat di layar menyesuaikan peran yang sedang masuk — Admin, Admin Program Studi, Dosen, atau Mahasiswa.",
+        "Hasil seminar proposal dan sidang skripsi dirangkum menjadi laporan yang dapat dicetak oleh program studi. Memisahkan klien dari API membuat sistem yang sama dapat dipakai bersama aplikasi mobile tanpa menduplikasi logika di dua tempat."
       ],
       "features": [
         "Multi pengguna (Admin, Admin Prodi, Mahasiswa, Dosen).",
@@ -471,7 +477,9 @@
       "title": "RESTful API Web Client",
       "summary": "A web-based client implementing the Unirow Tuban E-Thesis RESTful API.",
       "body": [
-        "This is the result of implementing the Unirow Tuban E-Thesis RESTful API into a website-based system"
+        "RESTful API Web Client is the interface side of the E-Thesis system at PGRI Ronggolawe University Tuban. All of its data is read and written through the E-Thesis RESTful API, so these web pages never touch the database directly — their job is purely to present and collect data through the API. It is built with Laravel.",
+        "The system follows a student's thesis journey from beginning to end: title submission, proposal guidance, the proposal seminar, thesis guidance, and the final defence. Each stage has its own status and reviewers, and what appears on screen adapts to the role currently signed in — Admin, Study Programme Admin, Lecturer, or Student.",
+        "Proposal seminar and thesis defence results are summarised into reports the study programme can print. Keeping the client separate from the API lets the same system be shared with a mobile application without duplicating the logic in two places."
       ],
       "features": [
         "Multi user (Admin, Admin Prodi, Mahasiswa, Dosen).",
@@ -586,7 +594,9 @@
       "title": "Aplikasi E-Raport",
       "summary": "Aplikasi raport digital untuk sekolah setingkat SMP dan PKBM dengan banyak muatan lokal.",
       "body": [
-        "Aplikasi ini dibangun dengan framework Laravel 7.0 dan DBMS MySQL menggunakan templat AdminLTE. Cocok digunakan lembaga pendidikan setingkat SMP atau PKBM yang memiliki banyak mata pelajaran muatan lokal sehingga tidak dapat memakai aplikasi E-Raport dari Dinas Pendidikan."
+        "E-Raport adalah aplikasi penilaian dan pelaporan hasil belajar yang dibangun dengan framework Laravel 7.0, DBMS MySQL, dan templat AdminLTE. Aplikasi ini ditujukan bagi lembaga pendidikan setingkat SMP atau PKBM yang memiliki banyak mata pelajaran muatan lokal, sehingga tidak dapat memakai aplikasi E-Raport bawaan Dinas Pendidikan.",
+        "Bentuk penilaian ditentukan oleh kurikulum yang dipakai sekolah, dan aplikasi ini menampung keduanya: KTSP 2006 maupun Kurikulum 2013. Peran penggunanya dipisahkan sesuai tugas masing-masing — admin menyiapkan data induk, guru mata pelajaran mengisi nilai, wali kelas merangkum dan mengesahkan, lalu siswa melihat hasilnya.",
+        "Pengisian nilai tidak harus dilakukan satu per satu: data dan nilai dapat diunggah sekaligus lewat impor Excel, sementara data induk serta leger nilai siswa dapat ditarik kembali ke Excel untuk diarsipkan. Berkas raport dan kartu pelajar dihasilkan langsung dalam format PDF yang siap dicetak, dan seluruh tampilannya responsif sehingga guru tetap dapat mengisi nilai dari ponsel."
       ],
       "features": [
         "Multi pengguna (Admin, Guru, Wali Kelas, Siswa).",
@@ -601,7 +611,9 @@
       "title": "E-Raport Application",
       "summary": "A digital report-card application for junior high schools and PKBM with many local-content subjects.",
       "body": [
-        "This application is built with the laravel 7.0 framework and MySQL DBMS using a template from the LTE admin. Suitable for use in equivalent junior high school education institutions or PKBM which have many local content subjects so they cannot use the E report application from the Education Office."
+        "E-Raport is a grading and report-card application built with the Laravel 7.0 framework, MySQL, and the AdminLTE template. It is aimed at junior-high-level schools and PKBM institutions that carry many local-content subjects and therefore cannot use the E-Raport application issued by the Education Office.",
+        "The shape of the assessment depends on the curriculum a school follows, and this application accommodates both: KTSP 2006 and the 2013 Curriculum. User roles are separated along the lines of actual duties — admins prepare the master data, subject teachers enter marks, homeroom teachers summarise and sign off, and students view the result.",
+        "Marks do not have to be keyed in one at a time: data and scores can be uploaded in bulk through Excel import, while master data and the student mark ledger can be pulled back out to Excel for archiving. Report cards and student ID cards are produced directly as print-ready PDFs, and the whole interface is responsive so teachers can enter marks from a phone."
       ],
       "features": [
         "Multi users (Admin, Teacher, Homeroom, Student).",
@@ -651,17 +663,35 @@
       "title": "Klien Mobile RESTful API",
       "summary": "Penerapan RESTful API E-Skripsi Unirow Tuban ke dalam aplikasi mobile berbasis Flutter.",
       "body": [
-        "Ini adalah hasil penerapan RESTful API E-Skripsi Universitas PGRI Ronggolawe Tuban ke dalam sistem berbasis mobile yang dikembangkan menggunakan Flutter."
+        "Klien Mobile RESTful API adalah aplikasi Android yang dibangun dengan Flutter untuk menyajikan data E-Skripsi Universitas PGRI Ronggolawe Tuban langsung dari genggaman. Aplikasi ini berbagi sumber data yang sama dengan klien webnya: seluruh isinya diambil lewat RESTful API E-Skripsi, bukan dari basis data lokal.",
+        "Pengguna masuk dengan akun yang sama seperti di web, lalu menelusuri data akademik yang dibutuhkan — daftar fakultas, program studi beserta statusnya, hingga daftar peserta seminar proposal lengkap dengan program studi dan status penyelesaiannya.",
+        "Proyek ini dikerjakan untuk membuktikan bahwa satu API yang dirancang baik dapat melayani dua jenis klien sekaligus. Dengan Flutter, antarmukanya disusun sekali dan tetap konsisten di berbagai ukuran layar."
       ],
-      "features": []
+      "features": [
+        "Masuk dengan akun E-Skripsi yang sama seperti di klien web.",
+        "Daftar fakultas beserta singkatan dan statusnya.",
+        "Daftar program studi lengkap dengan fakultas penaungnya.",
+        "Daftar peserta seminar proposal beserta status penyelesaiannya.",
+        "Seluruh data diambil langsung dari RESTful API E-Skripsi.",
+        "Antarmuka Flutter yang konsisten di berbagai ukuran layar Android."
+      ]
     },
     "en": {
       "title": "RESTful API Mobile Client",
       "summary": "A Flutter mobile client implementing the Unirow Tuban E-Thesis RESTful API.",
       "body": [
-        "This is the result of implementing the Unirow Tuban E-Thesis RESTful API into a mobile-based system developed using flutter."
+        "RESTful API Mobile Client is an Android application built with Flutter that brings the E-Thesis data of PGRI Ronggolawe University Tuban within reach of a phone. It shares its data source with the web client: everything it shows is fetched through the E-Thesis RESTful API rather than from a local database.",
+        "Users sign in with the same account they use on the web, then browse the academic data they need — the list of faculties, study programmes along with their status, and the list of proposal seminar participants complete with programme and completion status.",
+        "The project was built to show that one well-designed API can serve two kinds of client at once. With Flutter, the interface is written once and stays consistent across screen sizes."
       ],
-      "features": []
+      "features": [
+        "Sign in with the same E-Thesis account used on the web client.",
+        "Faculty list with abbreviations and status.",
+        "Study programme list with the faculty each belongs to.",
+        "Proposal seminar participant list with completion status.",
+        "All data fetched straight from the E-Thesis RESTful API.",
+        "Flutter interface that stays consistent across Android screen sizes."
+      ]
     }
   },
   {
@@ -710,17 +740,41 @@
       "title": "RESTful API E-Skripsi",
       "summary": "RESTful API dan dokumentasi E-Skripsi Unirow Tuban dengan format balasan JSON.",
       "body": [
-        "Ini adalah RESTful API (Application Programming Interface) beserta dokumentasi E-Skripsi Universitas PGRI Ronggolawe Tuban yang dapat Anda gunakan untuk membangun berbagai aplikasi. API ini menerapkan arsitektur REST dengan format balasan JSON yang didukung hampir semua bahasa pemrograman sehingga mudah diintegrasikan ke aplikasi Anda."
+        "Ini adalah RESTful API beserta dokumentasinya untuk sistem E-Skripsi — monitoring dan evaluasi tugas akhir mahasiswa — Universitas PGRI Ronggolawe Tuban. API ini menerapkan arsitektur REST dengan format balasan JSON yang didukung hampir semua bahasa pemrograman, sehingga mudah diintegrasikan ke aplikasi mana pun.",
+        "Setiap balasan memakai amplop yang sama: status, pesan keterangan, dan data. Bentuk yang konsisten ini membuat klien cukup menulis satu penangan balasan untuk seluruh titik akhir, baik ketika permintaan berhasil maupun gagal. Kode status HTTP dipakai sesuai maknanya dan didaftar lengkap di dokumentasi, sehingga penyebab kegagalan dapat dibedakan tanpa menebak isi pesan.",
+        "Titik akhirnya dikelompokkan menurut peran dan alur akademik — autentikasi, profil, data fakultas dan program studi, sampai tahapan skripsi — dan setiap kelompok dirinci beserta parameter serta contoh balasannya. Akses dijaga dengan API Key yang diperoleh lewat pendaftaran, dan versinya diawali pada jalur /api/v1 agar perubahan di kemudian hari tidak merusak klien yang sudah berjalan.",
+        "API inilah yang kemudian dipakai bersama oleh klien web dan klien mobile E-Skripsi, membuktikan bahwa logika akademiknya cukup ditulis dan dipelihara satu kali."
       ],
-      "features": []
+      "features": [
+        "Arsitektur REST dengan format balasan JSON.",
+        "Amplop balasan yang seragam: status, pesan, dan data.",
+        "Autentikasi: masuk, ganti kata sandi, dan keluar.",
+        "Titik akhir data fakultas dan program studi beserta operasi CRUD-nya.",
+        "Titik akhir tahapan skripsi: pengajuan judul, bimbingan, seminar, dan sidang.",
+        "Akses dijaga dengan API Key yang diperoleh lewat pendaftaran.",
+        "Jalur berversi (/api/v1) agar klien lama tetap berjalan.",
+        "Situs dokumentasi mandiri berisi parameter, contoh balasan, dan tabel kode status HTTP."
+      ]
     },
     "en": {
       "title": "RESTful API E-Skripsi",
       "summary": "A RESTful API and documentation for the Unirow Tuban E-Thesis system, with JSON responses.",
       "body": [
-        "This is a RESTful API (Application Programming Interface) & E-Thesis Documentation at PGRI Ronggolawe University Tuban that you can use to create various applications, by implementing a REST architecture with JSON reply format which is supported by almost all programming languages ​​so that it is easily integrated into your application."
+        "This is a RESTful API and its documentation for the E-Thesis system — final-project monitoring and evaluation — at PGRI Ronggolawe University Tuban. It follows a REST architecture with JSON responses supported by virtually every programming language, which makes it straightforward to integrate into any application.",
+        "Every response uses the same envelope: status, message, and data. That consistency lets a client write a single response handler for all endpoints, whether the request succeeded or failed. HTTP status codes are used for what they mean and are listed in full in the documentation, so a failure can be told apart without guessing from the message text.",
+        "Endpoints are grouped by role and by the academic flow — authentication, profile, faculty and study programme data, through to the thesis stages — and each group is documented with its parameters and sample responses. Access is guarded by an API key obtained through registration, and the path is versioned from the start at /api/v1 so later changes do not break clients already in production.",
+        "This is the API the E-Thesis web client and mobile client both consume, proving the academic logic only needs to be written and maintained once."
       ],
-      "features": []
+      "features": [
+        "REST architecture with JSON responses.",
+        "Uniform response envelope: status, message, and data.",
+        "Authentication: login, change password, and logout.",
+        "Faculty and study programme endpoints with full CRUD operations.",
+        "Thesis stage endpoints: title submission, guidance, seminar, and defence.",
+        "Access guarded by an API key obtained through registration.",
+        "Versioned path (/api/v1) so existing clients keep working.",
+        "Self-hosted documentation site with parameters, sample responses, and an HTTP status code table."
+      ]
     }
   },
   {
@@ -769,7 +823,9 @@
       "title": "Manajemen Karyawan",
       "summary": "Sistem pengelolaan data karyawan, gaji, divisi, dan departemen berbasis Laravel.",
       "body": [
-        "Sistem ini dibangun dengan framework Laravel dan basis data MySQL menggunakan Bootstrap CSS."
+        "Manajemen Karyawan adalah aplikasi personalia berbasis web yang merapikan data karyawan, gaji, divisi, dan departemen ke dalam satu basis data. Dibangun dengan Laravel dan MySQL, dengan antarmuka Bootstrap yang menyesuaikan diri dari layar ponsel sampai monitor lebar.",
+        "Data induknya disusun bertingkat — negara, provinsi, dan kota menjadi rujukan bagi data karyawan — sehingga alamat dan penempatan tercatat konsisten, bukan diketik ulang setiap kali. Pencarian dapat menggabungkan beberapa kolom sekaligus, dan daftar panjang dipecah dengan penomoran halaman agar tetap ringan dibuka.",
+        "Keamanan akses mendapat perhatian tersendiri: akun terkunci selama lima menit setelah tiga kali percobaan masuk yang gagal, dan pemulihan kata sandi tersedia bagi pengguna yang lupa. Seluruh data olahannya dapat dibawa keluar sebagai berkas Excel maupun PDF untuk kebutuhan laporan, dan setiap formulir divalidasi sebelum datanya tersimpan. Kodenya terbuka di GitHub."
       ],
       "features": [
         "Masuk dan keluar, lupa kata sandi (akun terkunci 5 menit setelah 3 kali percobaan gagal).",
@@ -790,7 +846,9 @@
       "title": "Employee Management",
       "summary": "A Laravel system for managing employee data, salaries, divisions, and departments.",
       "body": [
-        "This system is built with the laravel framework and MySQL database using bootstrap CSS."
+        "Employee Management is a web-based HR application that gathers employee, salary, division, and department data into a single database. It is built with Laravel and MySQL, with a Bootstrap interface that adapts from phone screens to wide monitors.",
+        "Its master data is layered — countries, states, and cities act as references for employee records — so addresses and placements are recorded consistently instead of being retyped each time. Search can combine several fields at once, and long lists are broken up with pagination to keep pages light.",
+        "Access security gets its own attention: an account locks for five minutes after three failed login attempts, and password recovery is available for users who forget theirs. Everything the system holds can be taken out as Excel or PDF files for reporting, and every form is validated before data is stored. The source is open on GitHub."
       ],
       "features": [
         "Login and logout, forget password (Lock account in 5 minutes after 3 failed attempts).",
@@ -910,17 +968,41 @@
       "title": "Indonesia Peduli",
       "summary": "Situs penggalangan dana bantuan daring yang terhubung dengan pembayaran online.",
       "body": [
-        "Indonesia Peduli adalah situs yang dibangun khusus untuk menggalang dana bantuan atau donasi secara daring. Dibangun dengan Laravel 7.x dan terhubung dengan pembayaran online."
+        "Indonesia Peduli adalah situs penggalangan dana daring tempat siapa pun dapat membuka program donasi dan menerima bantuan langsung dari donatur. Dibangun dengan Laravel 7.x dan terhubung ke gerbang pembayaran daring, sehingga donasi masuk tanpa perlu konfirmasi transfer manual.",
+        "Setiap program donasi tampil beserta kisahnya sendiri: target dana, jumlah yang sudah terkumpul berikut kekurangannya, jumlah donatur, dan tanggal berakhir, dilengkapi batang kemajuan yang bergerak seiring donasi bertambah. Pengunjung dapat membaca kisah penggalang, melihat daftar donatur, meninggalkan komentar, serta menyukai dan membagikan program ke media sosial.",
+        "Kepercayaan menjadi titik berat rancangannya. Halaman transparansi dan tab penyaluran dana memperlihatkan ke mana dana yang terkumpul dibelanjakan, sementara menu “Donasi Saya” merangkum riwayat donasi tiap pengguna. Kodenya terbuka di GitHub."
       ],
-      "features": []
+      "features": [
+        "Daftar dan detail program donasi beserta kisah penggalangnya.",
+        "Batang kemajuan: dana terkumpul, kekurangan, dan tanggal berakhir.",
+        "Pembayaran daring yang terhubung gerbang pembayaran.",
+        "Daftar donatur, komentar, dan tombol suka pada tiap program.",
+        "Berbagi program ke media sosial.",
+        "Halaman transparansi dan rincian penyaluran dana.",
+        "Riwayat donasi pribadi lewat menu “Donasi Saya”.",
+        "Pendaftaran dan masuk akun donatur.",
+        "Halaman tanya jawab dan tentang kami."
+      ]
     },
     "en": {
       "title": "Indonesia Peduli",
       "summary": "An online fundraising site for donations, built with Laravel and integrated with online payments.",
       "body": [
-        "Indonesia Peduli is a website that was built specifically to raise aid funds / donations online. Built with laravel 7.x and integrated with online payments."
+        "Indonesia Peduli is an online fundraising site where anyone can open a donation campaign and receive support directly from donors. It is built with Laravel 7.x and connected to an online payment gateway, so donations arrive without manual transfer confirmation.",
+        "Every campaign is presented with its own story: the funding target, the amount raised and what is still missing, the number of donors, and the closing date, together with a progress bar that moves as donations come in. Visitors can read the organiser's story, see the donor list, leave comments, and like or share a campaign on social media.",
+        "Trust is the centre of the design. A transparency page and a fund distribution tab show where the money collected is spent, while the “My Donations” menu gathers each user's giving history. The source is open on GitHub."
       ],
-      "features": []
+      "features": [
+        "Campaign listing and detail pages with the organiser's story.",
+        "Progress bar: funds raised, shortfall, and closing date.",
+        "Online payments through a payment gateway.",
+        "Donor list, comments, and a like button on every campaign.",
+        "Share a campaign to social media.",
+        "Transparency page and fund distribution breakdown.",
+        "Personal giving history through the “My Donations” menu.",
+        "Donor account registration and login.",
+        "FAQ and about pages."
+      ]
     }
   },
   {
@@ -1211,22 +1293,36 @@
       "title": "Website Sekolah",
       "summary": "Situs berita sekolah sekaligus kanal penerimaan peserta didik baru untuk MTs Manba'ul Huda.",
       "body": [
-        "Sistem ini dibangun dengan framework Laravel dan basis data MySQL menggunakan Bootstrap CSS."
+        "Website MTs Manba'ul Huda menggabungkan dua kebutuhan sekolah ke dalam satu sistem: kanal berita untuk mengabarkan kegiatan madrasah kepada wali murid dan masyarakat, serta penerimaan peserta didik baru secara daring. Dibangun dengan Laravel, MySQL, dan antarmuka Bootstrap.",
+        "Di balik halaman publiknya terdapat dasbor pengelola dengan menu data induk, data PPDB daring, dan data berita. Dari sana pengelola menerbitkan serta menyunting berita tanpa perlu menyentuh kode, juga membuka atau menutup masa pendaftaran lewat satu penanda status yang langsung tercermin di halaman informasi pendaftaran.",
+        "Data pendaftar yang masuk tersimpan rapi di basis data dan dapat ditinjau panitia kapan saja, sehingga rekap pendaftaran tidak lagi bergantung pada lembaran kertas yang mudah tercecer."
       ],
       "features": [
-        "Situs berita sekolah.",
-        "Penerimaan peserta didik baru."
+        "Situs berita sekolah dengan pengelolaan artikel dari dasbor.",
+        "Penerimaan peserta didik baru secara daring.",
+        "Penanda status pendaftaran: dibuka atau ditutup.",
+        "Halaman informasi pendaftaran untuk calon peserta didik.",
+        "Pengelolaan data induk madrasah.",
+        "Rekap data pendaftar untuk panitia.",
+        "Area pengelola terproteksi di balik halaman masuk."
       ]
     },
     "en": {
       "title": "School Website",
       "summary": "A school news site with a new-student admission channel for MTs Manba'ul Huda.",
       "body": [
-        "This system is built with the laravel framework and MySQL database using bootstrap CSS."
+        "The MTs Manba'ul Huda website brings two school needs together in one system: a news channel for telling parents and the wider community about madrasah activities, and online admission for new students. It is built with Laravel, MySQL, and a Bootstrap interface.",
+        "Behind the public pages sits an administrator dashboard with master data, online admission data, and news sections. From there staff publish and edit news without touching code, and open or close the registration period with a single status flag that is reflected immediately on the public admission information page.",
+        "Applicant data that comes in is stored tidily in the database and can be reviewed by the committee at any time, so the registration recap no longer depends on paper sheets that are easily misplaced."
       ],
       "features": [
-        "School news website.",
-        "New student Admission"
+        "School news site with article management from the dashboard.",
+        "Online new-student admission.",
+        "Registration status flag: open or closed.",
+        "Admission information page for prospective students.",
+        "Madrasah master data management.",
+        "Applicant recap for the admission committee.",
+        "Protected administrator area behind a login page."
       ]
     }
   },
@@ -1300,7 +1396,9 @@
       "title": "Hotel Megaria",
       "summary": "Sistem manajemen hotel mencakup data, penggajian, aset, laporan, dan keamanan.",
       "body": [
-        "Situs ini adalah sistem manajemen hotel bernama Megaria Hotel. Sistem ini dirancang untuk membantu operasional hotel, meliputi pengelolaan data, penggajian, aset, laporan, keamanan, dan pengaturan global. Antarmuka yang sederhana dengan navigasi yang jelas memudahkan pengguna mengakses fitur yang tersedia."
+        "Situs ini adalah sistem manajemen hotel bernama Megaria Hotel. Sistem ini dirancang untuk membantu operasional hotel, meliputi pengelolaan data, penggajian, aset, laporan, keamanan, dan pengaturan global. Antarmuka yang sederhana dengan navigasi yang jelas memudahkan pengguna mengakses fitur yang tersedia.",
+        "Modulnya mengikuti bagian-bagian yang berjalan di belakang layar sebuah hotel: data induk menyimpan kategori, pemasok, dan rujukan yang dipakai seluruh sistem; data SP merapikan dokumen resmi serta catatan administratif; penggajian menangani perhitungan gaji karyawan; sedangkan modul aset melacak inventaris dari perabot kamar sampai peralatan operasional.",
+        "Dasbornya berperan sebagai titik masuk yang merangkum operasional harian sekaligus pintasan ke modul utama, sementara laporan dapat disusun dan diekspor begitu manajemen membutuhkan ringkasan. Di sisi pengelolaan, pengaturan keamanan dan hak akses menjaga agar tiap pengguna hanya menjangkau modul yang menjadi tanggung jawabnya, dan pengaturan global menyimpan konfigurasi tingkat sistem di satu tempat."
       ],
       "features": [
         "Dasbor: gambaran umum operasional hotel dan akses cepat ke modul utama.",
@@ -1318,7 +1416,9 @@
       "title": "Megaria Hotel",
       "summary": "A hotel management system covering data, payroll, assets, reporting, and security.",
       "body": [
-        "This website is a hotel management system called Megaria Hotel. It is designed to assist hotel operations, including data management, payroll, assets, reports, security, and global settings. With a simple user interface and clear navigation, users can easily access the available features."
+        "This website is a hotel management system called Megaria Hotel. It is designed to assist hotel operations, including data management, payroll, assets, reports, security, and global settings. With a simple user interface and clear navigation, users can easily access the available features.",
+        "Its modules follow the parts of a hotel that run behind the scenes: master data holds the categories, suppliers, and references the whole system draws on; the SP records keep official documents and administrative notes in order; payroll handles employee salary calculation; and the asset module tracks inventory from room furnishings to operational equipment.",
+        "The dashboard acts as the entry point, summarising the day's operations while offering shortcuts into the main modules, and reports can be generated and exported the moment management needs a summary. On the administrative side, security and access-rights settings keep each user within the modules they are responsible for, while global settings keep system-wide configuration in one place."
       ],
       "features": [
         "Dashboard: Overview of hotel operations and quick access to main modules.",
@@ -1704,7 +1804,9 @@
       "title": "St Pamdes",
       "summary": "Aplikasi pendataan pelanggan dan transaksi pembayaran air untuk pengelola air desa.",
       "body": [
-        "Aplikasi ini dibangun dengan framework Laravel 7.0 dan DBMS MySQL. Pamdes hadir sebagai solusi untuk membantu pendataan pelanggan dan transaksi pembayaran air."
+        "St Pamdes dibuat untuk pengelola air desa (Pamdes) yang sebelumnya mencatat pelanggan, angka meter, dan pembayaran di buku tulis. Aplikasi ini memindahkan seluruh alur tersebut ke satu sistem berbasis web yang dibangun dengan Laravel 7.0 dan DBMS MySQL.",
+        "Siklus bulanannya mengikuti kebiasaan petugas di lapangan: angka meter dicatat per pelanggan, selisih pemakaiannya dihitung menjadi tagihan, lalu pembayaran dicatat dan bukti pembayarannya dicetak di tempat. Ukuran kertas bukti dapat diatur agar cocok dengan pencetak struk maupun kertas biasa yang tersedia di kantor desa.",
+        "Pelanggan dapat memeriksa tagihannya sendiri tanpa perlu datang ke kantor, sementara pengelola memantau pemasukan lewat laporan transaksi. Untuk pemindahan data awal maupun pelaporan ke perangkat desa, datanya dapat diimpor dan diekspor sebagai berkas Excel, dan laporannya diunduh dalam format PDF."
       ],
       "features": [
         "Pendataan pelanggan",
@@ -1722,7 +1824,9 @@
       "title": "St Pamdes",
       "summary": "A customer data and water payment application for village water management.",
       "body": [
-        "This application is built with the laravel 7.0 framework and MySQL DBMS. Pamdes is a solution to assist in customer data collection and water payment transactions."
+        "St Pamdes was built for village water managers (Pamdes) who used to record customers, meter readings, and payments in a notebook. The application moves that whole routine into a single web-based system built with Laravel 7.0 and MySQL.",
+        "Its monthly cycle follows what officers already do in the field: meter readings are recorded per customer, the difference in usage becomes a bill, then the payment is recorded and the receipt printed on the spot. The receipt paper size is configurable so it fits either a receipt printer or the ordinary paper the village office has at hand.",
+        "Customers can check their own bills without coming to the office, while managers follow income through transaction reports. For the initial data migration and for reporting to the village administration, data can be imported and exported as Excel files, and reports downloaded as PDF."
       ],
       "features": [
         "Customer Data Collection",
@@ -1783,22 +1887,36 @@
       "title": "Situs Penerimaan Peserta Didik Baru",
       "summary": "Situs informasi dan rekapitulasi pendaftaran peserta didik baru untuk PKBM Nurul Jadid.",
       "body": [
-        "Sistem ini dibangun dengan framework Laravel dan basis data MySQL menggunakan Bootstrap CSS."
+        "Situs Penerimaan Peserta Didik Baru PKBM Nurul Jadid Tambakboyo memindahkan pendaftaran yang sebelumnya dilayani di meja sekolah menjadi proses daring yang dapat diselesaikan calon peserta didik dari rumah. Dibangun dengan Laravel, MySQL, dan antarmuka Bootstrap.",
+        "Halaman depannya memperkenalkan program yang diselenggarakan lembaga — pendidikan kesetaraan paket A, B, dan C, Pendidikan Keaksaraan Fungsional, serta kursus komputer — lalu mengarahkan pengunjung ke alur pendaftaran yang dijelaskan langkah demi langkah, mulai dari berkas yang perlu disiapkan sampai konfirmasi setelah formulir terkirim.",
+        "Formulir pendaftarannya menampung identitas peserta didik, asal sekolah, dan alamat sesuai Kartu Keluarga, dengan pilihan tertutup pada bidang yang seharusnya seragam agar datanya tidak berantakan sejak awal. Semua pendaftar yang masuk terkumpul dalam laporan rekapitulasi yang bisa dibuka panitia kapan saja untuk memantau jumlah dan rincian pendaftaran."
       ],
       "features": [
-        "Informasi penerimaan peserta didik baru.",
-        "Laporan rekapitulasi pendaftaran."
+        "Halaman informasi program dan penerimaan peserta didik baru.",
+        "Alur pendaftaran daring yang dijelaskan langkah demi langkah.",
+        "Formulir pendaftaran daring: identitas peserta didik, asal sekolah, dan alamat.",
+        "Pilihan tertutup pada jenjang, agama, kewarganegaraan, dan tahun lulus.",
+        "Halaman daftar pendaftar yang dapat dilihat publik.",
+        "Laporan rekapitulasi pendaftaran untuk panitia.",
+        "Tampilan responsif dari ponsel sampai desktop."
       ]
     },
     "en": {
       "title": "New Student Admission Site",
       "summary": "A new-student admission information and registration recap site for PKBM Nurul Jadid.",
       "body": [
-        "This system is built with the laravel framework and MySQL database using bootstrap CSS."
+        "The New Student Admission site for PKBM Nurul Jadid Tambakboyo moves a registration that used to be handled at the school's front desk into an online process prospective students can finish from home. It is built with Laravel, MySQL, and a Bootstrap interface.",
+        "The front page introduces the programmes the institution runs — equivalency education packages A, B, and C, Functional Literacy Education, and computer courses — then points visitors to a registration flow explained step by step, from the documents to prepare through to the confirmation sent after the form is submitted.",
+        "The registration form collects the student's identity, previous school, and the address as written on their family card, using closed option lists wherever the answers should be uniform so the data does not get messy at the source. Every submission is gathered into a recap report the committee can open at any time to track registration numbers and details."
       ],
       "features": [
-        "New Student Admission Information.",
-        "Registration recapitulation report."
+        "Programme information and new-student admission pages.",
+        "Online registration flow explained step by step.",
+        "Online registration form: student identity, previous school, and address.",
+        "Closed option lists for level, religion, citizenship, and graduation year.",
+        "Publicly viewable list of registered applicants.",
+        "Registration recap report for the committee.",
+        "Responsive layout from phone to desktop."
       ]
     }
   },
@@ -1913,17 +2031,35 @@
       "title": "Rental Mobil",
       "summary": "Sistem pengelolaan data rental mobil berbasis desktop yang dibangun dengan Java.",
       "body": [
-        "Sistem pengelolaan data rental mobil berbasis Java."
+        "Rental Mobil adalah aplikasi desktop berbasis Java yang dipakai untuk mengelola data penyewaan mobil dari satu jendela kerja. Antarmukanya dirakit dengan Java Swing dan berjalan langsung di komputer petugas, sehingga tidak memerlukan peramban, server web, maupun koneksi internet.",
+        "Aplikasi dibuka dengan halaman masuk yang dilengkapi pendaftaran akun petugas sebelum menu data dapat diakses. Di dalamnya, data induk seperti merek dan unit mobil dikelola lewat formulir yang disandingkan dengan tabelnya: hasil penambahan, perubahan, dan penghapusan langsung terlihat pada daftar di sebelahnya tanpa perlu berpindah jendela.",
+        "Setiap daftar dibekali pencarian cepat agar catatan tertentu tetap mudah ditemukan ketika datanya sudah menumpuk. Proyek ini dikerjakan sebagai latihan membangun aplikasi desktop berbasis basis data yang utuh — autentikasi pengguna, relasi antartabel, sampai operasi CRUD — dan kodenya terbuka di GitHub."
       ],
-      "features": []
+      "features": [
+        "Autentikasi petugas: halaman masuk beserta pendaftaran akun baru.",
+        "Data induk merek mobil: tambah, ubah, dan hapus dari satu layar.",
+        "Pengelolaan data unit mobil yang disewakan.",
+        "Pencatatan data transaksi penyewaan.",
+        "Pencarian cepat pada setiap daftar data.",
+        "Berjalan sebagai aplikasi desktop Java Swing, tanpa peramban."
+      ]
     },
     "en": {
       "title": "Car Rental",
       "summary": "A Java-based desktop system for managing car rental data.",
       "body": [
-        "Java-based car rental data management system."
+        "Car Rental is a Java desktop application for managing car rental data from a single working window. Its interface is built with Java Swing and runs directly on the operator's computer, so it needs no browser, no web server, and no internet connection.",
+        "The application opens on a login screen with operator account registration before the data menus become available. Inside, master data such as car brands and units is managed through forms placed beside their tables: additions, edits, and deletions appear in the adjacent list immediately, without switching windows.",
+        "Every list carries a quick search so a particular record stays easy to find once the data piles up. The project was built as an exercise in assembling a complete database-backed desktop application — user authentication, table relationships, and full CRUD — and its source is open on GitHub."
       ],
-      "features": []
+      "features": [
+        "Operator authentication: login screen plus new account registration.",
+        "Car brand master data: add, edit, and delete from one screen.",
+        "Management of the rental car units on offer.",
+        "Recording of rental transaction data.",
+        "Quick search on every data list.",
+        "Runs as a Java Swing desktop application, no browser required."
+      ]
     }
   },
   {
@@ -2091,7 +2227,9 @@
       "title": "Jejaring Sosial Laravel",
       "summary": "Aplikasi jejaring sosial dengan unggahan, komentar, suka, dan sistem ikuti.",
       "body": [
-        "Dikembangkan menggunakan Laravel dengan DBMS MySQL."
+        "Jejaring Sosial Laravel adalah aplikasi media sosial ringkas yang mengangkat alur inti sebuah linimasa: pengguna mendaftar, menulis unggahan, lalu saling menyukai dan mengomentari unggahan satu sama lain. Dibangun dengan Laravel dan basis data MySQL.",
+        "Hubungan antarpengguna ditangani lewat sistem ikuti dan berhenti mengikuti. Linimasa tiap orang dirangkai dari unggahan akun yang ia ikuti, sehingga isinya berbeda untuk setiap pengguna — bagian inilah yang menjadi latihan utama dalam menyusun relasi banyak-ke-banyak dan kueri Eloquent yang tetap ringan saat datanya bertambah.",
+        "Kebutuhan dasar akun tersedia lengkap sejak awal: pendaftaran, masuk, penyuntingan profil, dan penggantian kata sandi. Kodenya terbuka di GitHub dan dapat dipakai sebagai titik awal aplikasi sosial berskala kecil."
       ],
       "features": [
         "Masuk",
@@ -2108,7 +2246,9 @@
       "title": "Social Network",
       "summary": "A social network application with posts, comments, likes, and a follow system.",
       "body": [
-        "Developed using Laravel with MySQL DBMS."
+        "Social Network is a compact social media application built around the core loop of a timeline: users register, write posts, then like and comment on each other's posts. It is built with Laravel and a MySQL database.",
+        "Relationships between users are handled through a follow and unfollow system. Each person's timeline is assembled from the posts of the accounts they follow, so its contents differ for every user — this is where most of the work went, into many-to-many relationships and Eloquent queries that stay light as the data grows.",
+        "The basic account needs are covered from the start: registration, login, profile editing, and password changes. The source is open on GitHub and can serve as a starting point for a small-scale social application."
       ],
       "features": [
         "Login",
@@ -2168,7 +2308,9 @@
       "title": "Sistem Manajemen Surat",
       "summary": "Pengelolaan surat masuk dan keluar beserta klasifikasi, unggahan berkas, dan cetak agenda.",
       "body": [
-        "Sistem ini dibangun dengan framework Laravel dan basis data MySQL menggunakan templat AdminLTE."
+        "Sistem Manajemen Surat menggantikan buku agenda surat yang biasa ditulis tangan dengan pencatatan digital yang dapat ditelusuri kembali. Surat masuk dan surat keluar dicatat lengkap beserta nomor, tanggal, asal atau tujuan, dan klasifikasinya. Dibangun dengan Laravel, MySQL, dan templat AdminLTE.",
+        "Setiap catatan dapat dilampiri berkas hasil pindai, sehingga dokumen aslinya tidak perlu dicari lagi di lemari arsip — semuanya terkumpul dalam galeri berkas yang bisa dibuka langsung dari daftar surat. Klasifikasi surat dikelola sebagai data tersendiri agar penomoran dan pengelompokannya tetap mengikuti aturan kearsipan yang berlaku di instansi.",
+        "Akses dipisahkan menjadi dua peran, Admin dan Petugas, dengan kewenangan yang berbeda. Ketika agenda perlu dilaporkan atau diarsipkan secara fisik, daftar surat masuk dan surat keluar dapat dicetak langsung dari sistem. Kodenya terbuka di GitHub."
       ],
       "features": [
         "Multi pengguna (Admin, Petugas).",
@@ -2183,7 +2325,9 @@
       "title": "Mail Management System",
       "summary": "Incoming and outgoing mail management with classification, file uploads, and agenda printing.",
       "body": [
-        "This system is built with the laravel framework and MySQL database using a template from the admin LTE."
+        "The Mail Management System replaces the hand-written mail agenda book with digital records that can be traced back later. Incoming and outgoing mail is recorded with its number, date, sender or recipient, and classification. It is built with Laravel, MySQL, and the AdminLTE template.",
+        "Each record can carry an attached scan, so the original document no longer has to be hunted down in a filing cabinet — everything is gathered in a file gallery that opens straight from the mail list. Mail classifications are managed as their own data so numbering and grouping keep following the archival rules in force at the institution.",
+        "Access is split into two roles, Admin and Officer, with different authority. When the agenda needs to be reported or archived on paper, the incoming and outgoing mail lists can be printed straight from the system. The source is open on GitHub."
       ],
       "features": [
         "Multi user (Admin, Officer).",
@@ -2258,6 +2402,8 @@
       "summary": "Sistem backoffice platform Treeport untuk pengelolaan data dan operasi administratif.",
       "body": [
         "Aplikasi web ini berfungsi sebagai sistem backoffice untuk platform Treeport, menyediakan fitur penting untuk penanganan data dan operasi administratif yang efisien. Antarmukanya yang bersih membuat navigasi mudah dan interaksi terasa ringan.",
+        "Isinya berpusat pada katalog: kategori induk menata kelompok produk agar operasional tetap rapi, sementara produk induk menangani variasi tiap produk secara terperinci sehingga satu produk dengan banyak varian tidak perlu didata berulang kali. Di sampingnya tersedia pengelolaan dokumen kebijakan privasi perusahaan yang dapat disunting langsung dari sistem.",
+        "Dasbornya menyajikan ikhtisar cepat aktivitas sistem beserta sapaan yang dipersonalisasi, menjadi titik awal sebelum pengguna masuk ke modul yang ia perlukan. Pengelolaan akun dan pengaturan akses berjalan berdampingan: data pengguna dapat dibuat, diubah, dan dihapus, sedangkan peran beserta izinnya menentukan sejauh mana tiap akun boleh bertindak.",
         "Platform ini mengoptimalkan tugas administratif dan penataan data demi meningkatkan efisiensi operasional."
       ],
       "features": [
@@ -2274,6 +2420,8 @@
       "summary": "A back-office management system for the Treeport platform, handling data and administration.",
       "body": [
         "This web application serves as a back-office management system for the Treeport platform, offering essential features for efficient data handling and administrative operations. Its clean interface ensures easy navigation and user-friendly interactions.",
+        "Its contents centre on the catalogue: master categories organise product groups so operations stay tidy, while master products handle each product's variations in detail, sparing a many-variant product from being entered over and over. Alongside them sits management of the company privacy policy document, editable directly from the system.",
+        "The dashboard offers a quick overview of system activity together with a personalised greeting, acting as a starting point before users move into the module they need. Account management and access settings work side by side: user records can be created, edited, and deleted, while roles and their permissions decide how far each account may act.",
         "This platform optimizes administrative tasks and data organization to boost operational efficiency."
       ],
       "features": [
@@ -2333,7 +2481,9 @@
       "summary": "RESTful API untuk data pohon, spesies, lokasi, pengguna, dan laporan analitik kehutanan.",
       "body": [
         "API ini menyediakan layanan untuk mengelola data pohon, spesies, lokasi, dan pengguna, serta mendukung autentikasi dan laporan analitik terkait kehutanan.",
-        "API ini mendukung metode HTTP (GET, POST, PUT, DELETE) dengan dokumentasi terperinci mengenai parameter dan struktur balasan."
+        "API ini mendukung metode HTTP (GET, POST, PUT, DELETE) dengan dokumentasi terperinci mengenai parameter dan struktur balasan.",
+        "Datanya tersusun bertingkat: spesies dan lokasi menjadi rujukan bagi tiap catatan pohon, sehingga satu pohon selalu terhubung dengan jenis dan kawasan penanamannya. Dari susunan itulah laporan pertumbuhan pohon dan analisis kesehatan hutan dapat dihitung tanpa perlu menelusuri data mentah satu per satu.",
+        "Akses dijaga lewat pendaftaran dan autentikasi pengguna, sementara layanan notifikasi mengirimkan peringatan penting kepada pihak yang berkepentingan ketika ada kondisi yang perlu ditindaklanjuti. Karena balasannya seragam dan terdokumentasi, API ini dapat dipakai klien web maupun perangkat lapangan tanpa penyesuaian khusus di tiap sisi."
       ],
       "features": [
         "Manajemen pohon: menambah, memperbarui, menghapus, dan mengambil data pohon.",
@@ -2349,7 +2499,9 @@
       "summary": "A RESTful API for tree, species, location, and user data, with forestry analytics reports.",
       "body": [
         "This API provides services for managing tree data, species, locations, users, and supports authentication as well as analytical reports related to forestry.",
-        "The API supports HTTP methods (GET, POST, PUT, DELETE) with detailed documentation on parameters and response structures."
+        "The API supports HTTP methods (GET, POST, PUT, DELETE) with detailed documentation on parameters and response structures.",
+        "Its data is layered: species and locations act as references for every tree record, so a tree is always tied to its kind and to the area where it was planted. That structure is what makes tree growth reports and forest health analysis computable without trawling through raw records one by one.",
+        "Access is guarded through user registration and authentication, while the notification service pushes important alerts to the people concerned whenever a condition needs following up. Because its responses are uniform and documented, the API can serve web clients and field devices alike without special handling on either side."
       ],
       "features": [
         "Tree Management: Add, update, delete, and retrieve tree data.",

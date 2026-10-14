@@ -13,8 +13,8 @@ module.exports = function project(ctx, p, semuaProyek = [], penawaran = null) {
   const { lang, ui, site } = ctx;
   const c = t(p, lang);
   const link = p.link;
-  // Maksimal tiga proyek lain pada kategori yang sama, terbaru lebih dulu.
-  const terkait = semuaProyek.filter(o => o.key !== p.key && o.category === p.category).slice(0, 3);
+  // Maksimal empat proyek lain pada kategori yang sama, terbaru lebih dulu.
+  const terkait = semuaProyek.filter(o => o.key !== p.key && o.category === p.category).slice(0, 4);
 
   return `
     <section class="section section--banner">

@@ -146,9 +146,22 @@
             </div>
 
             <div class="stack" style="margin-top:var(--sp-6)" data-reveal>
-              <p>This is a RESTful API (Application Programming Interface) &amp; E-Thesis Documentation at PGRI Ronggolawe University Tuban that you can use to create various applications, by implementing a REST architecture with JSON reply format which is supported by almost all programming languages ​​so that it is easily integrated into your application.</p>
+              <p>This is a RESTful API and its documentation for the E-Thesis system — final-project monitoring and evaluation — at PGRI Ronggolawe University Tuban. It follows a REST architecture with JSON responses supported by virtually every programming language, which makes it straightforward to integrate into any application.</p>
+              <p>Every response uses the same envelope: status, message, and data. That consistency lets a client write a single response handler for all endpoints, whether the request succeeded or failed. HTTP status codes are used for what they mean and are listed in full in the documentation, so a failure can be told apart without guessing from the message text.</p>
+              <p>Endpoints are grouped by role and by the academic flow — authentication, profile, faculty and study programme data, through to the thesis stages — and each group is documented with its parameters and sample responses. Access is guarded by an API key obtained through registration, and the path is versioned from the start at /api/v1 so later changes do not break clients already in production.</p>
+              <p>This is the API the E-Thesis web client and mobile client both consume, proving the academic logic only needs to be written and maintained once.</p>
 
-
+              <h2 style="font-size:var(--step-2);margin-top:var(--sp-5)">Key Features</h2>
+              <ul class="feature-list">
+                <li>REST architecture with JSON responses.</li>
+                <li>Uniform response envelope: status, message, and data.</li>
+                <li>Authentication: login, change password, and logout.</li>
+                <li>Faculty and study programme endpoints with full CRUD operations.</li>
+                <li>Thesis stage endpoints: title submission, guidance, seminar, and defence.</li>
+                <li>Access guarded by an API key obtained through registration.</li>
+                <li>Versioned path (/api/v1) so existing clients keep working.</li>
+                <li>Self-hosted documentation site with parameters, sample responses, and an HTTP status code table.</li>
+              </ul>
             </div>
           </div>
 
@@ -338,6 +351,6 @@
       </ul>
     </div>
   </footer>
-  <script type="module" src="/assets/js/main.js?v=07292048"></script>
+  <script type="module" src="/assets/js/main.js?v=2f461649"></script>
 </body>
 </html>

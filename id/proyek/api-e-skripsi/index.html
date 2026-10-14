@@ -146,9 +146,22 @@
             </div>
 
             <div class="stack" style="margin-top:var(--sp-6)" data-reveal>
-              <p>Ini adalah RESTful API (Application Programming Interface) beserta dokumentasi E-Skripsi Universitas PGRI Ronggolawe Tuban yang dapat Anda gunakan untuk membangun berbagai aplikasi. API ini menerapkan arsitektur REST dengan format balasan JSON yang didukung hampir semua bahasa pemrograman sehingga mudah diintegrasikan ke aplikasi Anda.</p>
+              <p>Ini adalah RESTful API beserta dokumentasinya untuk sistem E-Skripsi — monitoring dan evaluasi tugas akhir mahasiswa — Universitas PGRI Ronggolawe Tuban. API ini menerapkan arsitektur REST dengan format balasan JSON yang didukung hampir semua bahasa pemrograman, sehingga mudah diintegrasikan ke aplikasi mana pun.</p>
+              <p>Setiap balasan memakai amplop yang sama: status, pesan keterangan, dan data. Bentuk yang konsisten ini membuat klien cukup menulis satu penangan balasan untuk seluruh titik akhir, baik ketika permintaan berhasil maupun gagal. Kode status HTTP dipakai sesuai maknanya dan didaftar lengkap di dokumentasi, sehingga penyebab kegagalan dapat dibedakan tanpa menebak isi pesan.</p>
+              <p>Titik akhirnya dikelompokkan menurut peran dan alur akademik — autentikasi, profil, data fakultas dan program studi, sampai tahapan skripsi — dan setiap kelompok dirinci beserta parameter serta contoh balasannya. Akses dijaga dengan API Key yang diperoleh lewat pendaftaran, dan versinya diawali pada jalur /api/v1 agar perubahan di kemudian hari tidak merusak klien yang sudah berjalan.</p>
+              <p>API inilah yang kemudian dipakai bersama oleh klien web dan klien mobile E-Skripsi, membuktikan bahwa logika akademiknya cukup ditulis dan dipelihara satu kali.</p>
 
-
+              <h2 style="font-size:var(--step-2);margin-top:var(--sp-5)">Fitur Utama</h2>
+              <ul class="feature-list">
+                <li>Arsitektur REST dengan format balasan JSON.</li>
+                <li>Amplop balasan yang seragam: status, pesan, dan data.</li>
+                <li>Autentikasi: masuk, ganti kata sandi, dan keluar.</li>
+                <li>Titik akhir data fakultas dan program studi beserta operasi CRUD-nya.</li>
+                <li>Titik akhir tahapan skripsi: pengajuan judul, bimbingan, seminar, dan sidang.</li>
+                <li>Akses dijaga dengan API Key yang diperoleh lewat pendaftaran.</li>
+                <li>Jalur berversi (/api/v1) agar klien lama tetap berjalan.</li>
+                <li>Situs dokumentasi mandiri berisi parameter, contoh balasan, dan tabel kode status HTTP.</li>
+              </ul>
             </div>
           </div>
 
@@ -338,6 +351,6 @@
       </ul>
     </div>
   </footer>
-  <script type="module" src="/assets/js/main.js?v=07292048"></script>
+  <script type="module" src="/assets/js/main.js?v=2f461649"></script>
 </body>
 </html>

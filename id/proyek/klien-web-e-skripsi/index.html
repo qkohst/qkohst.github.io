@@ -146,7 +146,9 @@
             </div>
 
             <div class="stack" style="margin-top:var(--sp-6)" data-reveal>
-              <p>Ini adalah hasil penerapan RESTful API E-Skripsi Universitas PGRI Ronggolawe Tuban ke dalam sistem berbasis web.</p>
+              <p>Klien Web RESTful API adalah sisi antarmuka dari sistem E-Skripsi Universitas PGRI Ronggolawe Tuban. Seluruh datanya diambil dan dikirim lewat RESTful API E-Skripsi, sehingga halaman web ini tidak pernah menyentuh basis data secara langsung — perannya murni menyajikan dan mengumpulkan data melalui API. Dibangun dengan Laravel.</p>
+              <p>Sistem ini mengikuti perjalanan skripsi seorang mahasiswa dari awal sampai akhir: pengajuan judul, bimbingan proposal, seminar proposal, bimbingan skripsi, lalu sidang akhir. Setiap tahap memiliki status dan pemeriksanya sendiri, dan apa yang terlihat di layar menyesuaikan peran yang sedang masuk — Admin, Admin Program Studi, Dosen, atau Mahasiswa.</p>
+              <p>Hasil seminar proposal dan sidang skripsi dirangkum menjadi laporan yang dapat dicetak oleh program studi. Memisahkan klien dari API membuat sistem yang sama dapat dipakai bersama aplikasi mobile tanpa menduplikasi logika di dua tempat.</p>
 
               <h2 style="font-size:var(--step-2);margin-top:var(--sp-5)">Fitur Utama</h2>
               <ul class="feature-list">
@@ -275,6 +277,26 @@
             </div>
           </a>
         </li>
+        <li class="project" data-category="pendidikan" data-reveal>
+          <a class="project__card" href="/id/proyek/e-raport/">
+            <div class="project__media">
+              <picture>
+                <source type="image/avif" srcset="/assets/img/portfolio/e-raport-3-480.avif 480w, /assets/img/portfolio/e-raport-3-960.avif 960w" sizes="(min-width: 64rem) 20rem, (min-width: 40rem) 45vw, 90vw">
+                <img src="/assets/img/portfolio/e-raport-3-960.jpg" alt="Tangkapan layar 1 dari 10 — Aplikasi E-Raport" width="960" height="540" loading="lazy" decoding="async">
+              </picture>
+              <span class="project__arrow" aria-hidden="true"><svg class="" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=59b55608#i-arrow-right"></use></svg></span>
+            </div>
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="tag tag--accent">Pendidikan</span>
+                <span class="tag">Laravel</span>
+              </div>
+              <h3 class="project__title">Aplikasi E-Raport</h3>
+              <p class="project__summary">Aplikasi raport digital untuk sekolah setingkat SMP dan PKBM dengan banyak muatan lokal.</p>
+              <span class="project__date">Desember 2021</span>
+            </div>
+          </a>
+        </li>
         </ul>
         <p style="margin-top:var(--sp-5)" data-reveal>
           <a class="btn btn--ghost" href="/id/proyek/#pendidikan">
@@ -347,6 +369,6 @@
       </ul>
     </div>
   </footer>
-  <script type="module" src="/assets/js/main.js?v=07292048"></script>
+  <script type="module" src="/assets/js/main.js?v=2f461649"></script>
 </body>
 </html>

@@ -21,7 +21,7 @@ module.exports = function home(ctx, projects) {
         <div data-reveal>
           <span class="hero__eyebrow">
             <span class="hero__dot" aria-hidden="true"></span>
-            ${esc(lang === 'id' ? 'Tersedia untuk proyek baru' : 'Available for new projects')}
+            ${esc(ui.hero.available)}
           </span>
           <h1 class="hero__title">${esc(site.profile.name)}<br><span class="hero__role">${esc(p.role)}</span></h1>
           <p class="hero__tagline">${esc(p.tagline)}</p>
@@ -31,8 +31,8 @@ module.exports = function home(ctx, projects) {
           </div>
           <dl class="hero__stats">
             <div class="hero__stat"><strong>${years}+</strong><span>${esc(ui.experienceSuffix)}</span></div>
-            <div class="hero__stat"><strong>${projects.length}</strong><span>${esc(lang === 'id' ? 'proyek selesai' : 'projects delivered')}</span></div>
-            <div class="hero__stat"><strong>${frameworks.length}</strong><span>${esc(ui.sections.frameworks.toLowerCase())}</span></div>
+            <div class="hero__stat"><strong>${projects.length}</strong><span>${esc(ui.hero.projectsStat)}</span></div>
+            <div class="hero__stat"><strong>${frameworks.length}</strong><span>${esc(ui.hero.frameworksStat)}</span></div>
           </dl>
         </div>
         <div class="hero__portrait" data-reveal data-reveal-delay="120">
@@ -56,9 +56,9 @@ module.exports = function home(ctx, projects) {
             <p>${esc(p.about2)}</p>
           </div>
           <ul class="info-list" style="margin:0">
-            <li><span class="k">Email</span><span class="v">${esc(c.email)}</span></li>
-            <li><span class="k">WhatsApp</span><span class="v">${esc(c.phone)}</span></li>
-            <li><span class="k">${esc(lang === 'id' ? 'Lokasi' : 'Location')}</span><span class="v">${esc(t(c, lang).addressShort)}</span></li>
+            <li><span class="k">${esc(ui.labels.email)}</span><span class="v">${esc(c.email)}</span></li>
+            <li><span class="k">${esc(ui.labels.whatsapp)}</span><span class="v">${esc(c.phone)}</span></li>
+            <li><span class="k">${esc(ui.labels.location)}</span><span class="v">${esc(t(c, lang).addressShort)}</span></li>
             <li><span class="k">${esc(ui.sections.education)}</span><span class="v">${esc(t(education[0], lang).degree)}</span></li>
           </ul>
         </div>
@@ -68,8 +68,8 @@ module.exports = function home(ctx, projects) {
     <section class="section" id="skills">
       <div class="container">
         <div class="section__head" data-reveal>
-          <span class="section__eyebrow">${esc(lang === 'id' ? 'Kemampuan' : 'Skills')}</span>
-          <h2>${esc(`${ui.sections.skills} & ${ui.sections.frameworks}`)}</h2>
+          <span class="section__eyebrow">${esc(ui.labels.skillsEyebrow)}</span>
+          <h2>${esc(ui.labels.skillsTitle)}</h2>
         </div>
         <div class="grid grid--2">
           <div data-reveal>
@@ -176,15 +176,13 @@ ${each(site.services, (s, i) => {
         <div class="section__head" data-reveal>
           <span class="section__eyebrow">${esc(ui.nav.portfolio)}</span>
           <h2>${esc(ui.sections.portfolio)}</h2>
-          <p class="section__lead">${esc(lang === 'id'
-            ? 'Sebagian proyek yang pernah saya kerjakan.'
-            : 'A selection of projects I have delivered.')}</p>
+          <p class="section__lead">${esc(ui.labels.portfolioLead)}</p>
         </div>
         <ul class="project-grid" style="list-style:none;margin:0;padding:0">
 ${each(featured, p2 => projectCard(p2, lang, ui, { reveal: true }))}
         </ul>
         <p style="margin-top:var(--sp-6)">
-          <a class="btn btn--ghost" href="${esc(pageUrl('projects', lang))}">${esc(lang === 'id' ? 'Lihat semua proyek' : 'View all projects')} ${icon('arrow-right')}</a>
+          <a class="btn btn--ghost" href="${esc(pageUrl('projects', lang))}">${esc(ui.labels.viewAllProjects)} ${icon('arrow-right')}</a>
         </p>
       </div>
     </section>

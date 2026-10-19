@@ -20,7 +20,11 @@ function initTheme() {
   const sync = () => {
     const dark = current() === 'dark';
     btn.setAttribute('aria-pressed', String(dark));
-    btn.setAttribute('aria-label', btn.dataset[dark ? 'labelLight' : 'labelDark'] || 'Toggle theme');
+    /* Label datang dari data-label-*, yang selalu dirender dalam bahasa halaman.
+       Tanpa atribut itu lebih baik label lama dibiarkan daripada dipaksa ke teks
+       berbahasa tunggal yang salah di separuh situs. */
+    const label = btn.dataset[dark ? 'labelLight' : 'labelDark'];
+    if (label) btn.setAttribute('aria-label', label);
     $$('[data-theme-icon]', btn).forEach(i => {
       i.hidden = i.dataset.themeIcon !== (dark ? 'dark' : 'light');
     });
@@ -370,7 +374,9 @@ function initGallery() {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'gallery__dot';
-      b.setAttribute('aria-label', (dots.dataset.template || 'Gambar {n}').replace('{n}', i + 1));
+      // Cadangan sengaja hanya angka: templatnya berbahasa halaman, dan teks
+      // cadangan berbahasa tunggal akan bocor ke versi bahasa yang lain.
+      b.setAttribute('aria-label', (dots.dataset.template || '{n}').replace('{n}', i + 1));
       b.addEventListener('click', () => { hentikanOtomatis(); ke(i); });
       dots.appendChild(b);
       return b;

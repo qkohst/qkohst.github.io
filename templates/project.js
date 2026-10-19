@@ -6,8 +6,6 @@ const { projectCard, shareList } = require('./partials');
    terisi judul proyek dan bahasa halaman. Tautan dokumentasi Postman tetap
    ditampilkan sebagai tombol sekunder karena memang berguna dibuka sendiri;
    tautan repositori tidak lagi ditawarkan sebagai tombol. */
-const DOC_LABEL = { id: 'Lihat dokumentasi API', en: 'View API documentation' };
-
 
 module.exports = function project(ctx, p, semuaProyek = [], penawaran = null) {
   const { lang, ui, site } = ctx;
@@ -19,7 +17,7 @@ module.exports = function project(ctx, p, semuaProyek = [], penawaran = null) {
   return `
     <section class="section section--banner">
       <div class="container-wide">
-        <nav class="breadcrumb" aria-label="${esc(lang === 'id' ? 'Remah roti' : 'Breadcrumb')}">
+        <nav class="breadcrumb" aria-label="${esc(ui.a11y.breadcrumb)}">
           <ol>
             <li><a href="${esc(pageUrl('home', lang))}">${esc(ui.nav.home)}</a></li>
             <li><a href="${esc(pageUrl('projects', lang))}">${esc(ui.sections.portfolio)}</a></li>
@@ -41,7 +39,7 @@ module.exports = function project(ctx, p, semuaProyek = [], penawaran = null) {
           <div>
             <div class="gallery" data-gallery data-reveal>
               <div class="gallery__track" data-gallery-track tabindex="0" role="group"
-                   aria-label="${esc(lang === 'id' ? 'Galeri tangkapan layar' : 'Screenshot gallery')}">
+                   aria-label="${esc(ui.a11y.gallery)}">
 ${each(p.images, (img, i) => `                <figure class="gallery__slide" style="margin:0">
                   <picture>
                     <source type="image/avif" srcset="/assets/img/portfolio/${esc(img.name)}-960.avif 960w, /assets/img/portfolio/${esc(img.name)}-1440.avif 1440w" sizes="(min-width: 56rem) 46rem, 92vw">
@@ -53,12 +51,12 @@ ${each(p.images, (img, i) => `                <figure class="gallery__slide" sty
 
               <div class="gallery__nav">
                 <span class="gallery__dots" data-gallery-dots role="tablist"
-                      data-template="${esc(lang === 'id' ? 'Gambar {n}' : 'Image {n}')}"></span>
+                      data-template="${esc(ui.a11y.imageN)}"></span>
                 <span class="gallery__count" data-gallery-count
-                      data-template="${esc(lang === 'id' ? '{n} dari {total}' : '{n} of {total}')}">1 / ${p.images.length}</span>
+                      data-template="${esc(ui.a11y.imageCounter)}">1 / ${p.images.length}</span>
                 <span style="display:flex;gap:var(--sp-2)">
-                  <button class="icon-btn" type="button" data-gallery-prev aria-label="${esc(lang === 'id' ? 'Gambar sebelumnya' : 'Previous image')}">${icon('arrow-left')}</button>
-                  <button class="icon-btn" type="button" data-gallery-next aria-label="${esc(lang === 'id' ? 'Gambar berikutnya' : 'Next image')}">${icon('arrow-right')}</button>
+                  <button class="icon-btn" type="button" data-gallery-prev aria-label="${esc(ui.a11y.prevImage)}">${icon('arrow-left')}</button>
+                  <button class="icon-btn" type="button" data-gallery-next aria-label="${esc(ui.a11y.nextImage)}">${icon('arrow-right')}</button>
                 </span>
               </div>
             </div>
@@ -91,7 +89,7 @@ ${each(c.features, f => `                <li>${esc(f)}</li>\n`)}              </
               ${icon('whatsapp')} ${esc(ui.askAboutProject)}
             </a>
             ${penawaran ? `<a class="btn btn--ghost" style="width:100%;margin-top:var(--sp-3)" href="${esc(pageUrl('proposal', lang, penawaran.slug[lang]))}">${icon('download')} ${esc(ui.proposal.viewProposal)}</a>` : ''}
-            ${link && link.type === 'postman' ? `<a class="btn btn--ghost" style="width:100%;margin-top:var(--sp-3)" href="${esc(link.url)}" target="_blank" rel="noopener noreferrer">${icon('external')} ${esc(DOC_LABEL[lang])}</a>` : ''}
+            ${link && link.type === 'postman' ? `<a class="btn btn--ghost" style="width:100%;margin-top:var(--sp-3)" href="${esc(link.url)}" target="_blank" rel="noopener noreferrer">${icon('external')} ${esc(ui.labels.apiDocs)}</a>` : ''}
             </div>
           </aside>
         </div>

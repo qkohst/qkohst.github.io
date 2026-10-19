@@ -8,7 +8,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { esc, pageUrl, absUrl, t, setIconVersion, setPrefixes } = require('./lib');
+const { esc, fill, pageUrl, absUrl, t, setIconVersion, setPrefixes } = require('./lib');
 const layout = require('../templates/layout');
 const homeTpl = require('../templates/home');
 const projectsTpl = require('../templates/projects');
@@ -366,9 +366,7 @@ for (const lang of LANGS) {
 
   // indeks portofolio
   {
-    const desc = lang === 'id'
-      ? `Kumpulan ${projects.length} proyek karya ${site.profile.name}: aplikasi web, RESTful API, aplikasi mobile, dan desktop.`
-      : `A collection of ${projects.length} projects by ${site.profile.name}: web applications, RESTful APIs, mobile, and desktop software.`;
+    const desc = fill(ui.seo.projectsDesc, { n: projects.length, name: site.profile.name });
     const ctx = ctxFor({
       lang, kind: 'projects',
       title: `${ui.sections.portfolio} — ${site.profile.name}`,
@@ -384,19 +382,19 @@ for (const lang of LANGS) {
 
   // halaman jasa
   {
-    const sp = t(site.servicesPage, lang);
     const ctx = ctxFor({
       lang, kind: 'services',
       // Judul indeks harus berbeda dari halaman detail "Pengembangan Web",
       // kalau tidak keduanya memakai judul yang sama persis.
       title: `${ui.sections.services} — ${site.profile.name}`,
-      description: lang === 'id'
-        ? `Empat layanan pengembangan web oleh ${site.profile.name}: pengembangan web, desain web, RESTful API, dan perancangan basis data.`
-        : `Four web development services by ${site.profile.name}: web development, web design, RESTful APIs, and database design.`,
+      description: fill(ui.seo.servicesDesc, { name: site.profile.name }),
       navKey: 'services',
       jsonld: [serviceLd(lang), breadcrumbLd([
         { name: ui.nav.home, url: pageUrl('home', lang) },
-        { name: sp.title, url: pageUrl('services', lang) }
+        // Breadcrumb terstruktur harus menyebut nama yang sama dengan breadcrumb
+        // yang terlihat (services.js:15). Sebelumnya memakai sp.title, sehingga
+        // data terstruktur indeks Layanan berbunyi "Web Development".
+        { name: ui.sections.services, url: pageUrl('services', lang) }
       ])]
     });
     /* Produk siap pakai dirangkum di sini, bukan di templat, supaya templat
@@ -468,9 +466,7 @@ for (const lang of LANGS) {
     const ctx = ctxFor({
       lang, kind: 'cv',
       title: `CV — ${site.profile.name}`,
-      description: lang === 'id'
-        ? `Curriculum vitae ${site.profile.name}: riwayat pendidikan, pengalaman kerja, sertifikat, dan kemampuan teknis. Dapat dicetak atau disimpan sebagai PDF.`
-        : `Curriculum vitae of ${site.profile.name}: education, work experience, certificates, and technical skills. Printable and saveable as PDF.`,
+      description: fill(ui.seo.cvDesc, { name: site.profile.name }),
       navKey: null,
       noindex: true,
       jsonld: [personLd(lang)],
@@ -510,16 +506,14 @@ for (const lang of LANGS) {
    noindex agar stub-nya sendiri tidak ikut terindeks. */
 function redirectStub(to, lang) {
   const abs = absUrl(ORIGIN, to);
-  const teks = lang === 'id'
-    ? { judul: 'Halaman telah dipindahkan', ajak: 'Lanjutkan ke halaman baru' }
-    : { judul: 'This page has moved', ajak: 'Continue to the new page' };
+  const teks = site.ui[lang].seo;
   return `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, follow">
-<title>${esc(teks.judul)}</title>
+<title>${esc(teks.movedTitle)}</title>
 <link rel="canonical" href="${esc(abs)}">
 <meta http-equiv="refresh" content="0; url=${esc(to)}">
 <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#080c0b;color:#e7efed;
@@ -528,8 +522,8 @@ a{color:#14c8a6}</style>
 </head>
 <body>
 <div>
-<p>${esc(teks.judul)}.</p>
-<p><a href="${esc(to)}">${esc(teks.ajak)} &rarr;</a></p>
+<p>${esc(teks.movedTitle)}.</p>
+<p><a href="${esc(to)}">${esc(teks.movedCta)} &rarr;</a></p>
 </div>
 </body>
 </html>
@@ -569,10 +563,15 @@ for (const r of PINDAH) {
   redirects.push({ from: path.join(r.dari, 'index.html'), to: r.ke });
 }
 
+/* Bahasa stub mengikuti bahasa halaman TUJUAN, dibaca dari prefiks path-nya.
+   Sebelumnya setiap stub dirender 'id', termasuk yang mengarah ke halaman
+   Inggris — jadi /en/ menyambut pengunjung berbahasa Inggris dengan
+   <html lang="id"> dan "Halaman telah dipindahkan". */
+const langTujuan = to => (to.startsWith(`${site.site.pathPrefix.id}/`) ? 'id' : 'en');
 for (const r of redirects) {
   const file = path.join(OUT, r.from);
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, redirectStub(r.to, 'id'));
+  fs.writeFileSync(file, redirectStub(r.to, langTujuan(r.to)));
 }
 
 /* --- sitemap.xml + robots.txt -------------------------------------------- */

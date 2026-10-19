@@ -1,6 +1,6 @@
 /* Kerangka dokumen: <head> SEO lengkap, header, footer.
    Semua halaman melewati fungsi ini agar blok SEO tidak pernah lupa dipasang. */
-const { esc, each, icon, t, pageUrl, absUrl } = require('../tools/lib');
+const { esc, each, icon, t, fill, SOCIAL_NAME, pageUrl, absUrl } = require('../tools/lib');
 
 /** Skrip anti-kedip. Harus inline dan sebelum CSS: menetapkan tema sebelum
     paint pertama, kalau tidak halaman akan berkedip terang lebih dulu.
@@ -64,7 +64,7 @@ function header(ctx) {
         <span class="brand__name">${esc(site.profile.brandName || site.profile.name)}</span>
       </a>
 
-      <nav class="nav" id="site-nav" aria-label="${esc(ui.nav.home)}">
+      <nav class="nav" id="site-nav" aria-label="${esc(ui.a11y.mainNav)}">
 ${each(nav, n => `        <a class="nav__link${n.current ? ' is-active' : ''}" href="${esc(n.href)}"${n.key === 'home' ? ' data-nav-home' : ''}${n.current ? ' aria-current="page"' : ''}>${esc(n.label)}</a>\n`)}
       </nav>
 
@@ -76,15 +76,15 @@ ${each(nav, n => `        <a class="nav__link${n.current ? ' is-active' : ''}" h
 
         <button class="icon-btn" type="button" data-theme-toggle
                 aria-pressed="false"
-                data-label-dark="${esc(lang === 'id' ? 'Aktifkan mode gelap' : 'Switch to dark mode')}"
-                data-label-light="${esc(lang === 'id' ? 'Aktifkan mode terang' : 'Switch to light mode')}">
+                data-label-dark="${esc(ui.a11y.themeDark)}"
+                data-label-light="${esc(ui.a11y.themeLight)}">
           <span data-theme-icon="light">${icon('moon')}</span>
           <span data-theme-icon="dark" hidden>${icon('sun')}</span>
         </button>
 
         <button class="icon-btn nav-toggle" type="button" data-nav-toggle
                 aria-expanded="false" aria-controls="site-nav"
-                aria-label="${esc(lang === 'id' ? 'Buka menu' : 'Open menu')}">
+                aria-label="${esc(ui.a11y.openMenu)}">
           <span data-nav-icon="menu">${icon('menu')}</span>
           <span data-nav-icon="close" hidden>${icon('close')}</span>
         </button>
@@ -94,7 +94,7 @@ ${each(nav, n => `        <a class="nav__link${n.current ? ' is-active' : ''}" h
 }
 
 function footer(ctx) {
-  const { site, lang, ui } = ctx;
+  const { site, ui } = ctx;
   const socials = site.socials.filter(s => s.showOn.includes('site'));
 
   return `
@@ -102,10 +102,10 @@ function footer(ctx) {
     <div class="container-wide footer__inner">
       <p class="footer__text">
         © <span data-year>${new Date().getFullYear()}</span> ${esc(site.profile.name)} ·
-        ${esc(lang === 'id' ? 'Web Developer · Tuban, Jawa Timur' : 'Web Developer · Tuban, East Java, Indonesia')}
+        ${esc(ui.labels.footerTagline)}
       </p>
       <ul class="socials" style="list-style:none;margin:0;padding:0">
-${each(socials, s => `        <li style="margin:0"><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(s.key)}">${icon(s.icon)}</a></li>\n`)}
+${each(socials, s => `        <li style="margin:0"><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(fill(ui.a11y.socialLink, { platform: SOCIAL_NAME[s.key] || s.key }))}">${icon(s.icon)}</a></li>\n`)}
       </ul>
     </div>
   </footer>`;
@@ -153,7 +153,7 @@ function document_(ctx, body) {
 <head>${head(ctx)}
 </head>
 <body>
-  <a class="skip-link" href="#main">${esc(ctx.lang === 'id' ? 'Lompat ke konten' : 'Skip to content')}</a>
+  <a class="skip-link" href="#main">${esc(ctx.ui.a11y.skipToContent)}</a>
 ${header(ctx)}
   <main id="main">
 ${body}
@@ -161,25 +161,25 @@ ${body}
   <dialog class="lightbox" data-lightbox>
     <div class="lightbox__inner">
       <button class="lightbox__close" type="button" data-lightbox-close
-              aria-label="${esc(ctx.lang === 'id' ? 'Tutup' : 'Close')}">${icon('close')}</button>
+              aria-label="${esc(ctx.ui.a11y.closeDialog)}">${icon('close')}</button>
       <div class="lightbox__stage">
         <div class="lightbox__track" data-lightbox-track></div>
         <button class="lightbox__nav lightbox__nav--prev" type="button" data-lightbox-prev hidden
-                aria-label="${esc(ctx.lang === 'id' ? 'Gambar sebelumnya' : 'Previous image')}">${icon('arrow-left')}</button>
+                aria-label="${esc(ctx.ui.a11y.prevImage)}">${icon('arrow-left')}</button>
         <button class="lightbox__nav lightbox__nav--next" type="button" data-lightbox-next hidden
-                aria-label="${esc(ctx.lang === 'id' ? 'Gambar berikutnya' : 'Next image')}">${icon('arrow-right')}</button>
+                aria-label="${esc(ctx.ui.a11y.nextImage)}">${icon('arrow-right')}</button>
       </div>
       <div class="lightbox__bar">
         <span class="lightbox__caption" data-lightbox-caption></span>
         <span class="lightbox__count" data-lightbox-count hidden
-              data-template="${esc(ctx.lang === 'id' ? '{n} dari {total}' : '{n} of {total}')}"></span>
+              data-template="${esc(ctx.ui.a11y.imageCounter)}"></span>
       </div>
     </div>
   </dialog>
 ${notif(ctx)}
 
   <button class="back-to-top" type="button" data-back-to-top tabindex="-1"
-          aria-label="${esc(ctx.lang === 'id' ? 'Kembali ke atas' : 'Back to top')}">
+          aria-label="${esc(ctx.ui.a11y.backToTop)}">
     ${icon('arrow-up')}
   </button>
 ${footer(ctx)}

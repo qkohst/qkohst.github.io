@@ -21,7 +21,7 @@
     "summary": "Aplikasi kasir (POS) berbasis web untuk toko dan minimarket: penjualan, stok, pembelian dari supplier, dan laporan dalam satu sistem.",
     "body": [
       "St SmartPoint adalah aplikasi Point of Sale berbasis web untuk toko kelontong, minimarket, dan usaha kecil yang membutuhkan sistem kasir sederhana namun lengkap. Karena berjalan di peramban, aplikasi ini bisa dipakai dari komputer kasir mana pun yang terhubung ke jaringan toko tanpa perlu memasang perangkat lunak tambahan.",
-      "Layar kasir dirancang untuk dipakai cepat: produk dicari dengan mengetik nama atau memindai SKU, subtotal dan kembalian dihitung langsung, dan seluruh alur bisa dijalankan lewat pintasan papan ketik tanpa menyentuh tetikus. Satu produk dapat dijual dalam satuan berbeda — misalnya rokok per bungkus atau per slop — dengan stok yang tetap terhitung benar.",
+      "Layar kasir mengutamakan kecepatan: produk dicari dengan mengetik nama atau memindai SKU, subtotal dan kembalian dihitung langsung, dan seluruh alur bisa dijalankan lewat pintasan papan ketik tanpa menyentuh tetikus. Satu produk dapat dijual dalam satuan berbeda — misalnya rokok per bungkus atau per slop — dengan stok yang tetap terhitung benar.",
       "Sisi admin menangani data master, pencatatan pembelian dari supplier yang otomatis menambah stok, serta laporan penjualan harian, per produk, dan per kasir yang dapat diekspor ke Excel. Dashboard menampilkan tren penjualan, produk terlaris, dan peringatan stok menipis."
     ],
     "features": [

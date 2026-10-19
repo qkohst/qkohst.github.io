@@ -34,11 +34,11 @@
         "Web Developer",
         "Freelancer"
       ],
-      "tagline": "Membangun aplikasi web yang rapi, cepat, dan mudah dirawat.",
-      "about": "Saya Kukoh Santoso, pengembang web asal Tuban, Jawa Timur. Sejak 2021 saya membangun dan merawat aplikasi web untuk lembaga pemerintah, perusahaan, dan sekolah — mulai dari sistem manajemen pembelajaran, backoffice pengadaan dan produksi, hingga RESTful API yang dipakai aplikasi web maupun mobile.",
-      "aboutCv": "Saya Kukoh Santoso, asal Tuban, Jawa Timur. Saya orang yang punya dorongan kuat untuk terus mempelajari hal baru. Saat ini saya menekuni pengembangan perangkat lunak.",
-      "seoDescription": "Kukoh Santoso (qkohst) — Web Developer asal Tuban, Jawa Timur. Berpengalaman membangun aplikasi web dengan Laravel, CodeIgniter, dan Silverstripe.",
-      "about2": "Pekerjaan saya mencakup kedua sisi: merancang struktur basis data dan logika di sisi server, sekaligus menyusun antarmuka yang enak dipakai. Yang saya utamakan adalah kode yang rapi, mudah dirawat, dan benar-benar menyelesaikan masalah penggunanya."
+      "tagline": "Membangun aplikasi web yang tetap cepat dan mudah dirawat.",
+      "about": "Saya Kukoh Santoso, Web Developer asal Tuban, Jawa Timur. Sejak 2021 saya membangun dan merawat aplikasi web untuk lembaga pemerintah, perusahaan, dan sekolah — dari sistem manajemen pembelajaran dan backoffice pengadaan hingga RESTful API.",
+      "aboutCv": "Saya Kukoh Santoso, Web Developer asal Tuban, Jawa Timur. Saya mengerjakan aplikasi web dari sisi server sampai antarmuka, dengan perhatian pada kode yang rapi dan mudah dirawat.",
+      "seoDescription": "Kukoh Santoso (qkohst) — Web Developer di Tuban, Jawa Timur. Sejak 2021 membangun aplikasi web dan RESTful API untuk pemerintah, perusahaan, dan sekolah.",
+      "about2": "Pekerjaan saya mencakup kedua sisi: merancang basis data dan logika sisi server, sekaligus menyusun antarmuka yang enak dipakai. Hasilnya sistem yang masih mudah dikembangkan setahun kemudian, bukan yang harus dibangun ulang dari awal."
     },
     "en": {
       "role": "Web Developer",
@@ -46,11 +46,11 @@
         "Web Developer",
         "Freelancer"
       ],
-      "tagline": "Building web applications that are clean, fast, and maintainable.",
-      "about": "I am Kukoh Santoso, a web developer based in Tuban, East Java, Indonesia. Since 2021 I have built and maintained web applications for government bodies, companies, and schools — from learning management systems and procurement or production back-offices to RESTful APIs consumed by web and mobile clients.",
-      "aboutCv": "I'm Kukoh Santoso, from Tuban, East Java, Indonesia. I'm a person with a strong passion for learning new things. Currently I'm focused on software development.",
-      "seoDescription": "Kukoh Santoso (qkohst) — Web Developer based in Tuban, East Java, Indonesia. Experienced in building web applications with Laravel, CodeIgniter, and Silverstripe.",
-      "about2": "My work covers both sides: designing the database structure and server-side logic, and building interfaces that are pleasant to use. What matters most to me is code that stays clean, stays maintainable, and actually solves the user problem."
+      "tagline": "Building web applications that stay fast and easy to maintain.",
+      "about": "I am Kukoh Santoso, a Web Developer based in Tuban, East Java, Indonesia. Since 2021 I have built and maintained web applications for government bodies, companies, and schools — from learning management systems and procurement back-offices to RESTful APIs.",
+      "aboutCv": "I am Kukoh Santoso, a Web Developer based in Tuban, East Java, Indonesia. I work on web applications from the server side through to the interface, with care for code that stays clean and easy to maintain.",
+      "seoDescription": "Kukoh Santoso (qkohst) — Web Developer in Tuban, East Java, Indonesia. Building web applications and RESTful APIs for government, companies, and schools.",
+      "about2": "My work covers both sides: designing the database and server-side logic, and building interfaces that are pleasant to use. The result is a system that is still easy to extend a year later, not one that has to be rebuilt from scratch."
     },
     "brandName": "Qkoh St",
     "$brandNote": "Nama pendek untuk header. Nama lengkap tetap dipakai di judul halaman, CV, dan data terstruktur."
@@ -319,13 +319,13 @@
         "role": "Web Developer",
         "org": "Bizmatic ID",
         "orgType": "Perusahaan",
-        "summary": "Membangun dan merawat website serta aplikasi web, menangani sisi antarmuka sekaligus sisi server."
+        "summary": "Membangun dan merawat website serta aplikasi web klien, menangani sisi antarmuka sekaligus sisi server."
       },
       "en": {
         "role": "Web Developer",
         "org": "Bizmatic ID",
         "orgType": "Company",
-        "summary": "Builds and maintains websites and web applications, handling both the front-end and the back-end."
+        "summary": "Build and maintain client websites and web applications, handling both the front-end and the back-end."
       }
     },
     {
@@ -339,13 +339,13 @@
         "role": "Back-end Web Developer",
         "org": "Morning Glory Enterprise",
         "orgType": "Software House",
-        "summary": "Bertanggung jawab atas logika aplikasi di sisi server dan integrasinya dengan hasil kerja pengembang front-end."
+        "summary": "Membangun dan merawat logika sisi server untuk aplikasi web produksi, serta mengintegrasikan RESTful API yang dipakai klien web dan mobile."
       },
       "en": {
         "role": "Back-end Web Developer",
         "org": "Morning Glory Enterprise",
         "orgType": "Software House",
-        "summary": "Responsible for server-side web application logic and integration of the work front-end developers do."
+        "summary": "Built and maintained server-side logic for production web applications, and integrated RESTful APIs consumed by web and mobile clients."
       }
     },
     {
@@ -359,13 +359,13 @@
         "role": "Staf IT & Pengajar",
         "org": "PKBM Nurul Jadid Tambakboyo",
         "orgType": "Sekolah",
-        "summary": "Mengelola data pendidikan sekolah dan mengajar mata pelajaran Teknologi Informasi dan Komunikasi."
+        "summary": "Mengelola pendataan pendidikan sekolah dan mengajar mata pelajaran Teknologi Informasi dan Komunikasi."
       },
       "en": {
         "role": "IT Staff & Teacher",
         "org": "PKBM Nurul Jadid Tambakboyo",
         "orgType": "School",
-        "summary": "Manages school education data and teaches Informatics and Communication Engineering."
+        "summary": "Managed school education records and taught Information and Communication Technology."
       }
     },
     {
@@ -379,13 +379,13 @@
         "role": "Staf IT & Pengajar",
         "org": "SMP Darut Tauhid Tambakboyo",
         "orgType": "Sekolah",
-        "summary": "Merawat perangkat komputer di laboratorium, mengelola data pendidikan sekolah, dan mengajar Teknologi Informasi dan Komunikasi."
+        "summary": "Merawat perangkat laboratorium komputer, menangani pendataan pendidikan, dan mengajar Teknologi Informasi dan Komunikasi."
       },
       "en": {
         "role": "IT Staff & Teacher",
         "org": "SMP Darut Tauhid Tambakboyo",
         "orgType": "School",
-        "summary": "Maintains computer equipment in the laboratory, manages school education data, and teaches Informatics and Communication Engineering."
+        "summary": "Maintained the computer laboratory, handled education records, and taught Information and Communication Technology."
       }
     },
     {
@@ -397,13 +397,13 @@
         "role": "Junior Graphic Designer",
         "org": "PT. Laut Bonang Rembang",
         "orgType": "Perusahaan",
-        "summary": "Menyusun prototipe desain sesuai sasaran klien, memunculkan ide dan konsep baru, serta mengembangkan desain interaktif."
+        "summary": "Menyusun prototipe desain sesuai arahan klien dan mengembangkan konsep desain interaktif."
       },
       "en": {
         "role": "Junior Graphic Designer",
         "org": "PT. Laut Bonang Rembang",
         "orgType": "Company",
-        "summary": "Develops design prototypes according to client goals, generating new ideas and concepts and developing interactive designs."
+        "summary": "Produced design prototypes to client briefs and developed interactive design concepts."
       }
     }
   ],
@@ -419,12 +419,12 @@
       "id": {
         "title": "Front-End Web",
         "issuer": "Dicoding Indonesia",
-        "summary": "Lulus kelas Membuat Front-End Web untuk Pemula di Dicoding Indonesia."
+        "summary": "Menyelesaikan kelas Membuat Front-End Web untuk Pemula."
       },
       "en": {
         "title": "Front-End Web",
         "issuer": "Dicoding Indonesia",
-        "summary": "Graduated from the Creating Front-End Web for Beginners class at Dicoding Indonesia."
+        "summary": "Completed the Front-End Web for Beginners class."
       }
     },
     {
@@ -438,12 +438,12 @@
       "id": {
         "title": "Lulusan Terbaik",
         "issuer": "Universitas PGRI Ronggolawe Tuban",
-        "summary": "Lulusan terbaik Teknik Informatika Universitas PGRI Ronggolawe Tuban tahun 2021."
+        "summary": "Lulus sebagai peringkat pertama di program studi Teknik Informatika."
       },
       "en": {
         "title": "Best Graduate",
         "issuer": "PGRI Ronggolawe Tuban University",
-        "summary": "Best graduate of Informatics Engineering at PGRI Ronggolawe Tuban University in 2021."
+        "summary": "Graduated top of the Informatics Engineering programme."
       }
     },
     {
@@ -457,12 +457,12 @@
       "id": {
         "title": "Laravel Web Development",
         "issuer": "Sanbercode",
-        "summary": "Lulus kursus Laravel yang diselenggarakan Sanbercode pada Oktober 2020."
+        "summary": "Menyelesaikan kursus pengembangan aplikasi web dengan Laravel."
       },
       "en": {
         "title": "Laravel Web Development",
         "issuer": "Sanbercode",
-        "summary": "Passed the Laravel course organised by Sanbercode in October 2020."
+        "summary": "Completed a course in building web applications with Laravel."
       }
     }
   ],
@@ -646,13 +646,14 @@
   ],
   "servicesPage": {
     "screenshots": 9,
+    "$identitasNote": "Blok ini mewakili halaman INDEKS layanan, bukan salah satu layanannya. title dan heading dipakai pada data terstruktur indeks (serviceType dan description, build.js:326-333). body belum dirender di mana pun, tapi tetap ditulis tentang keempat layanan agar tidak lagi menjadi salinan basi dari services[0].",
     "id": {
-      "title": "Pengembangan Web",
-      "heading": "Website dan aplikasi web yang dibangun untuk dipakai jangka panjang",
+      "title": "Layanan Pengembangan Web",
+      "heading": "Empat layanan pengembangan web: pengembangan web, desain web, RESTful API, dan perancangan basis data.",
       "body": [
-        "Saya membantu bisnis, lembaga, dan perorangan membangun website maupun aplikasi web sesuai kebutuhan nyata — bukan sekadar tampilan yang bagus, tapi sistem yang benar-benar memudahkan pekerjaan sehari-hari.",
-        "Lingkup yang biasa saya kerjakan: profil perusahaan, sistem manajemen internal, alur pemesanan dan transaksi, pengelolaan data beserta pelaporannya, serta integrasi antar sistem. Saya juga menangani perbaikan dan pengembangan lanjutan untuk website yang sudah berjalan.",
-        "Setelah serah terima ada masa pendampingan, jadi Anda tidak ditinggal begitu saja saat sistemnya mulai dipakai."
+        "Empat layanan yang saling melengkapi: pengembangan web, desain web, pengembangan RESTful API, dan perancangan basis data.",
+        "Anda bisa mengambil satu saja — misalnya hanya rancangan basis data untuk dikerjakan tim Anda sendiri — atau menggabungkan keempatnya menjadi satu pengerjaan dari perancangan sampai serah terima.",
+        "Tiap layanan punya titik awal harganya sendiri dan menyesuaikan lingkup pekerjaan. Setelah serah terima ada masa pendampingan."
       ],
       "process": [
         {
@@ -676,12 +677,12 @@
       "processTitle": "Cara kerja saya"
     },
     "en": {
-      "title": "Web Development",
-      "heading": "Websites and web applications built to last",
+      "title": "Web Development Services",
+      "heading": "Four web development services: web development, web design, RESTful APIs, and database design.",
       "body": [
-        "I help businesses, institutions, and individuals build websites and web applications around real needs — not just something that looks good, but a system that genuinely makes day-to-day work easier.",
-        "The work I usually take on: company profiles, internal management systems, ordering and transaction flows, data management and reporting, and integration between systems. I also handle fixes and further development for sites that are already running.",
-        "After handover there is a support period, so you are not left on your own once the system goes into daily use."
+        "Four services that complement each other: web development, web design, RESTful API development, and database design.",
+        "Take just one — a database design for your own team to build on, say — or combine all four into a single engagement from design through handover.",
+        "Each service has its own starting price and adjusts with the scope of work. After handover there is a support period."
       ],
       "process": [
         {
@@ -856,6 +857,67 @@
         "later": "Nanti saja",
         "close": "Tutup pemberitahuan"
       },
+      "hero": {
+        "available": "Terbuka untuk proyek baru",
+        "projectsStat": "proyek diselesaikan",
+        "frameworksStat": "framework dipakai"
+      },
+      "labels": {
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "location": "Lokasi",
+        "address": "Alamat",
+        "skillsEyebrow": "Kemampuan",
+        "skillsTitle": "Kemampuan Teknis",
+        "process": "Proses",
+        "pricingEyebrow": "Harga",
+        "pricingTitle": "Paket dan perkiraan biaya",
+        "mostPopular": "Paling dipilih",
+        "requestQuote": "Minta penawaran",
+        "estimateDays": "Estimasi {n} hari kerja",
+        "revisions": "{n} kali revisi",
+        "apiDocs": "Lihat dokumentasi API",
+        "viewAllProjects": "Lihat semua proyek",
+        "portfolioLead": "Sebagian proyek yang sudah saya selesaikan untuk klien.",
+        "projectsLead": "Aplikasi yang saya bangun untuk lembaga pemerintah, perusahaan, dan sekolah — dari aplikasi web dan RESTful API hingga aplikasi desktop.",
+        "showingProjects": "Menampilkan {n} proyek",
+        "servicesHeading": "Layanan pengembangan web dari perancangan sampai serah terima",
+        "servicesLead": "Empat layanan yang saling melengkapi. Anda bisa mengambil satu saja, atau menggabungkannya menjadi satu pengerjaan utuh.",
+        "contactLead": "Punya rencana proyek atau ingin bertanya lebih dulu? Pilih kanal yang paling nyaman — biasanya saya balas pada hari yang sama.",
+        "description": "Deskripsi.",
+        "from": "Dari",
+        "socialMedia": "Media Sosial",
+        "savePdf": "Simpan sebagai PDF",
+        "backHome": "Kembali ke beranda",
+        "printHint": "Jendela cetak akan terbuka — pilih tujuan “Simpan sebagai PDF” untuk mendapatkan berkasnya, atau langsung cetak ke kertas A4.",
+        "cvExperience": "{n}+ tahun membangun aplikasi web untuk lembaga pemerintah, perusahaan, dan sekolah.",
+        "footerTagline": "Web Developer · Tuban, Jawa Timur, Indonesia"
+      },
+      "a11y": {
+        "skipToContent": "Lompat ke konten",
+        "mainNav": "Navigasi utama",
+        "openMenu": "Buka menu",
+        "themeDark": "Aktifkan mode gelap",
+        "themeLight": "Aktifkan mode terang",
+        "closeDialog": "Tutup",
+        "prevImage": "Gambar sebelumnya",
+        "nextImage": "Gambar berikutnya",
+        "backToTop": "Kembali ke atas",
+        "breadcrumb": "Jejak navigasi",
+        "gallery": "Galeri tangkapan layar",
+        "imageCounter": "{n} dari {total}",
+        "imageN": "Gambar {n}",
+        "qrAlt": "Kode QR menuju qkohst.github.io",
+        "socialLink": "Profil {platform} saya",
+        "skillLevel": "{n} dari 100"
+      },
+      "seo": {
+        "projectsDesc": "{n} proyek yang dibangun {name} untuk lembaga pemerintah, perusahaan, dan sekolah: aplikasi web, RESTful API, mobile, dan desktop.",
+        "servicesDesc": "Empat layanan pengembangan web oleh {name}: pengembangan web, desain web, RESTful API, dan perancangan basis data.",
+        "cvDesc": "Curriculum vitae {name}: riwayat pendidikan, pengalaman kerja, sertifikat, dan kemampuan teknis. Dapat dicetak atau disimpan sebagai PDF.",
+        "movedTitle": "Halaman telah dipindahkan",
+        "movedCta": "Lanjutkan ke halaman baru"
+      },
       "proposal": {
         "docTitle": "Proposal Penawaran",
         "viewProposal": "Lihat penawaran",
@@ -964,7 +1026,7 @@
         "home": "Home",
         "about": "About",
         "resume": "Resume",
-        "portfolio": "Project",
+        "portfolio": "Projects",
         "services": "Services",
         "contact": "Contact"
       },
@@ -981,7 +1043,7 @@
         "certificate": "Certificates",
         "experience": "Experience",
         "services": "Services",
-        "portfolio": "Project",
+        "portfolio": "Projects",
         "contact": "Contact",
         "projectInfo": "Project Information",
         "keyFeatures": "Key Features",
@@ -1025,6 +1087,67 @@
         "cta": "Start chat",
         "later": "Maybe later",
         "close": "Close notification"
+      },
+      "hero": {
+        "available": "Open for new projects",
+        "projectsStat": "projects delivered",
+        "frameworksStat": "frameworks used"
+      },
+      "labels": {
+        "email": "Email",
+        "whatsapp": "WhatsApp",
+        "location": "Location",
+        "address": "Address",
+        "skillsEyebrow": "Skills",
+        "skillsTitle": "Technical Skills",
+        "process": "Process",
+        "pricingEyebrow": "Pricing",
+        "pricingTitle": "Packages and indicative pricing",
+        "mostPopular": "Most popular",
+        "requestQuote": "Request a quote",
+        "estimateDays": "About {n} working days",
+        "revisions": "{n} revisions",
+        "apiDocs": "View API documentation",
+        "viewAllProjects": "View all projects",
+        "portfolioLead": "A selection of the projects I have delivered for clients.",
+        "projectsLead": "Applications I built for government bodies, companies, and schools — from web apps and RESTful APIs to desktop software.",
+        "showingProjects": "Showing {n} projects",
+        "servicesHeading": "Web development services, from design through handover",
+        "servicesLead": "Four services that complement each other. Take just one, or combine them into a single end-to-end engagement.",
+        "contactLead": "Planning a project, or want to ask first? Pick whichever channel suits you — I usually reply the same day.",
+        "description": "Description.",
+        "from": "From",
+        "socialMedia": "Social Media",
+        "savePdf": "Save as PDF",
+        "backHome": "Back to home",
+        "printHint": "The print dialog will open — choose “Save as PDF” as the destination to get the file, or print straight to A4 paper.",
+        "cvExperience": "{n}+ years building web applications for government bodies, companies, and schools.",
+        "footerTagline": "Web Developer · Tuban, East Java, Indonesia"
+      },
+      "a11y": {
+        "skipToContent": "Skip to content",
+        "mainNav": "Main navigation",
+        "openMenu": "Open menu",
+        "themeDark": "Switch to dark mode",
+        "themeLight": "Switch to light mode",
+        "closeDialog": "Close",
+        "prevImage": "Previous image",
+        "nextImage": "Next image",
+        "backToTop": "Back to top",
+        "breadcrumb": "Breadcrumb",
+        "gallery": "Screenshot gallery",
+        "imageCounter": "{n} of {total}",
+        "imageN": "Image {n}",
+        "qrAlt": "QR code to qkohst.github.io",
+        "socialLink": "My {platform} profile",
+        "skillLevel": "{n} out of 100"
+      },
+      "seo": {
+        "projectsDesc": "{n} projects built by {name} for government bodies, companies, and schools: web applications, RESTful APIs, mobile, and desktop software.",
+        "servicesDesc": "Four web development services by {name}: web development, web design, RESTful APIs, and database design.",
+        "cvDesc": "Curriculum vitae of {name}: education, work experience, certificates, and technical skills. Printable and saveable as PDF.",
+        "movedTitle": "This page has moved",
+        "movedCta": "Continue to the new page"
       },
       "proposal": {
         "docTitle": "Proposal",

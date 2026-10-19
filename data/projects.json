@@ -59,38 +59,38 @@
     ],
     "id": {
       "title": "ASMARINE",
-      "summary": "Platform digital untuk menunjang operasional PT Anugrah Sukses Marine di industri maritim.",
+      "summary": "Backoffice PT Anugrah Sukses Marine: dokumen, SDM, penjualan, pengadaan, dan keuangan dalam satu sistem.",
       "body": [
-        "Situs PT Anugrah Sukses Marine adalah platform digital yang dirancang untuk menunjang operasional perusahaan secara modern dan efisien. Dengan antarmuka yang bersih dan profesional, platform ini menyediakan berbagai fitur penting yang merapikan pengelolaan data dan proses bisnis di industri maritim.",
-        "Navigasi yang intuitif membuat platform ini menjadi solusi digital yang dapat diandalkan untuk mengelola proses bisnis maritim secara efisien dan akurat."
+        "Sistem backoffice untuk PT Anugrah Sukses Marine, perusahaan yang bergerak di industri maritim. Delapan modul menyatukan pekerjaan yang sebelumnya tersebar: arsip dokumen, data karyawan, penjualan, pengadaan, keuangan, sampai pemeliharaan peralatan.",
+        "Setiap modul punya pencatatan dan pelaporannya sendiri, lalu dirangkum di pelaporan terintegrasi — sehingga manajemen melihat kondisi perusahaan tanpa menarik data dari delapan tempat berbeda."
       ],
       "features": [
-        "Manajemen dokumen terpusat: pengelolaan dokumen penting perusahaan secara aman dan terstruktur.",
-        "SDM dan umum: mengoptimalkan pengelolaan data karyawan serta kebutuhan administrasi kantor.",
-        "Penjualan dan pemasaran: alat untuk memantau dan meningkatkan kinerja penjualan serta strategi pemasaran.",
-        "Manajemen operasional: menyederhanakan pemantauan operasional harian perusahaan.",
-        "Sistem pembelian: pengelolaan permintaan pengadaan dan pembelian secara efisien.",
-        "Keuangan: menyajikan laporan keuangan yang akurat untuk analisis bisnis yang lebih baik.",
-        "Teknik dan pemeliharaan: memastikan peralatan dan infrastruktur perusahaan tetap dalam kondisi optimal.",
-        "Pelaporan terintegrasi: penyajian data menyeluruh untuk menopang pengambilan keputusan strategis."
+        "Manajemen dokumen terpusat: arsip dokumen perusahaan tersimpan terstruktur dengan hak akses per pengguna.",
+        "SDM dan umum: data karyawan dan kebutuhan administrasi kantor dikelola di satu modul.",
+        "Penjualan dan pemasaran: pencatatan transaksi penjualan beserta pemantauan kinerjanya.",
+        "Manajemen operasional: pemantauan kegiatan operasional harian perusahaan.",
+        "Sistem pembelian: permintaan pengadaan diajukan, disetujui, dan dilacak dalam satu alur.",
+        "Keuangan: pencatatan transaksi beserta laporan keuangan yang bisa diekspor.",
+        "Teknik dan pemeliharaan: jadwal dan riwayat perawatan peralatan serta infrastruktur.",
+        "Pelaporan terintegrasi: data dari seluruh modul dirangkum menjadi satu laporan."
       ]
     },
     "en": {
       "title": "ASMARINE",
-      "summary": "A digital platform supporting PT Anugrah Sukses Marine's operations in the maritime industry.",
+      "summary": "A back-office for PT Anugrah Sukses Marine: documents, HR, sales, procurement, and finance in one system.",
       "body": [
-        "The PT. Anugrah Sukses Marine website is a digital platform designed to support the company's operations in a modern and efficient way. With a clean and professional interface, it offers a variety of essential features that streamline data management and business processes in the maritime industry.",
-        "With a user-friendly interface and intuitive navigation, this platform serves as a reliable digital solution for efficiently and accurately managing maritime business processes."
+        "A back-office system for PT Anugrah Sukses Marine, a company in the maritime industry. Eight modules bring together work that was previously scattered: document archives, employee records, sales, procurement, finance, and equipment maintenance.",
+        "Each module keeps its own records and reports, which then feed the integrated reporting module — so management can see the state of the company without pulling data from eight separate places."
       ],
       "features": [
-        "Centralized Document Management: Secure and well-structured management of important company documents.",
-        "HR and General Affairs: Optimizes employee data management and office administrative needs.",
-        "Sales and Marketing: Tools to monitor and improve sales performance and marketing strategies.",
-        "Operations Management: Simplifies daily operational monitoring for the company.",
-        "Purchasing System: Efficient management of procurement requests and purchases.",
-        "Finance: Provides accurate financial reports for better business analysis.",
-        "Technical and Maintenance: Ensures that company equipment and infrastructure remain in optimal condition.",
-        "Integrated Reporting: Comprehensive data presentation to support strategic decision-making."
+        "Centralised document management: company documents archived in a structured store with per-user access rights.",
+        "HR and general affairs: employee records and office administration handled in a single module.",
+        "Sales and marketing: sales transactions recorded alongside performance tracking.",
+        "Operations management: monitoring of the company's day-to-day operational activity.",
+        "Purchasing: procurement requests raised, approved, and tracked in one flow.",
+        "Finance: transaction records plus exportable financial reports.",
+        "Technical and maintenance: schedules and history for equipment and infrastructure upkeep.",
+        "Integrated reporting: data from every module rolled up into a single report."
       ]
     }
   },
@@ -180,48 +180,48 @@
       "title": "Backoffice DLIK OJK",
       "summary": "Sistem backoffice LMS untuk mengelola pelatihan, webinar, dan peringkat peserta di OJK.",
       "body": [
-        "Situs ini adalah Learning Management System (LMS) yang dirancang untuk mengelola program pelatihan, webinar, serta ringkasan peringkat peserta berdasarkan aktivitas mereka. Sistem ini menyediakan pelacakan pembelajaran, analisis kebutuhan pelatihan, dan laporan statistik bagi administrator.",
-        "Platform ini dibangun untuk meningkatkan efektivitas pelatihan digital, menyajikan analitik data peserta, dan memungkinkan interaksi yang fleksibel dalam proses e-learning."
+        "Backoffice Learning Management System milik OJK. Administrator menyusun materi pelatihan, menjadwalkan webinar, dan memantau keterlibatan peserta dari satu panel.",
+        "Keterlibatan peserta dihitung menjadi poin yang bisa ditukar dengan merchandise. Dasbor peringkat dan laporan statistik memberi gambaran siapa yang aktif dan materi mana yang paling banyak diikuti."
       ],
       "features": [
-        "Dasbor peringkat tertinggi: menampilkan peringkat peserta berdasarkan aktivitas pelatihan.",
-        "Memuat rincian seperti nama pengguna, periode pelatihan, surel, total poin, hadiah, dan frekuensi.",
-        "Dilengkapi pencarian dan penyaringan berdasarkan periode pelatihan.",
-        "Memungkinkan pengguna mengekspor data ke format Excel dan CSV.",
-        "Manajemen pelatihan dan webinar: memudahkan pengelolaan pelatihan e-learning.",
-        "Admin dapat menyusun materi pelatihan dalam berbagai format seperti video, dokumen, dan kuis interaktif.",
-        "Pengguna dapat mengikuti webinar yang dikelola di dalam sistem.",
-        "Tersedia dasbor webinar untuk memantau statistik peserta dan efektivitas webinar.",
-        "Poin belajar dan hadiah: sistem memberikan poin kepada peserta sesuai keterlibatan mereka dalam pelatihan.",
-        "Peserta dapat menukarkan poin dengan hadiah seperti merchandise (kaus, tas, pouch, dan lainnya).",
-        "Manajemen templat: admin dapat membuat dan mengelola templat untuk keperluan seperti penyusunan laporan atau sertifikat pelatihan.",
-        "Obrolan dan forum: fitur interaktif untuk berdiskusi, bertanya, dan berbagi wawasan seputar pelatihan dan webinar.",
-        "Notifikasi dan profil pengguna: pengguna menerima pemberitahuan mengenai jadwal pelatihan dan webinar.",
-        "Setiap peserta memiliki halaman profil yang menyimpan informasi pribadi dan riwayat pelatihan."
+        "Dasbor peringkat tertinggi: peringkat peserta dihitung dari aktivitas pelatihan mereka.",
+        "Rinciannya memuat nama pengguna, periode pelatihan, surel, total poin, hadiah, dan frekuensi.",
+        "Pencarian dan penyaringan berdasarkan periode pelatihan.",
+        "Ekspor data ke format Excel dan CSV.",
+        "Manajemen pelatihan dan webinar: pengelolaan kelas e-learning beserta jadwalnya.",
+        "Materi pelatihan dapat disusun sebagai video, dokumen, atau kuis interaktif.",
+        "Webinar dijadwalkan dan diikuti langsung dari dalam sistem.",
+        "Dasbor webinar memantau jumlah peserta dan tingkat kehadirannya.",
+        "Poin belajar dan hadiah: poin diberikan sesuai keterlibatan peserta dalam pelatihan.",
+        "Poin dapat ditukar dengan merchandise seperti kaus, tas, dan pouch.",
+        "Manajemen templat: templat laporan dan sertifikat pelatihan dibuat dan dikelola admin.",
+        "Obrolan dan forum: ruang diskusi dan tanya jawab seputar pelatihan dan webinar.",
+        "Notifikasi: pemberitahuan jadwal pelatihan dan webinar dikirim ke peserta.",
+        "Profil pengguna: tiap peserta punya halaman berisi data pribadi dan riwayat pelatihannya."
       ]
     },
     "en": {
       "title": "Backoffice DLIK OJK",
       "summary": "A back-office LMS for managing training programmes, webinars, and participant rankings at OJK.",
       "body": [
-        "This website is a Learning Management System (LMS) designed to manage training programs, webinars, and participant ranking summaries based on their activities. The system provides learning tracking, training needs analysis, and statistical reports for administrators.",
-        "This platform is designed to enhance digital training effectiveness, provide participant data analytics, and enable flexible interaction in e-learning processes."
+        "A back-office Learning Management System for OJK. Administrators assemble training material, schedule webinars, and monitor participant engagement from a single panel.",
+        "Engagement is converted into points that participants redeem for merchandise. The ranking dashboard and statistical reports show who is active and which material draws the most attendance."
       ],
       "features": [
-        "Highest Ranking Dashboard Displays participant rankings based on their training activities.",
-        "Includes details such as User Name, Training Period, Email, Total Points, Rewards, and Frequency.",
-        "Features search and filtering options based on training periods.",
-        "Allows users to export data in Excel and CSV formats.",
-        "Training and Webinar Management Facilitates e-learning training management.",
-        "Admins can organize training materials in various formats such as videos, documents, and interactive quizzes.",
-        "Users can participate in webinars managed within the system.",
-        "A webinar dashboard is available to track participant statistics and webinar effectiveness.",
-        "Learning Points & Rewards The system awards learning points to participants based on their engagement in training.",
-        "Participants can redeem rewards such as merchandise (T-shirts, bags, pouches, etc.) based on accumulated points.",
-        "Management Template Admins can create and manage templates for various purposes, such as report generation or training certificates.",
-        "Chat & Forum An interactive feature that allows users to discuss, ask questions, and share insights related to training and webinars.",
-        "Notifications & User Profile Users receive notifications about training schedules and webinars.",
-        "Each participant has a user profile page storing personal information and training history."
+        "Top ranking dashboard: participant rankings calculated from their training activity.",
+        "Details cover user name, training period, email, total points, rewards, and frequency.",
+        "Search and filtering by training period.",
+        "Data export to Excel and CSV.",
+        "Training and webinar management: e-learning classes and their schedules.",
+        "Training material can be assembled as video, documents, or interactive quizzes.",
+        "Webinars are scheduled and attended from inside the system.",
+        "A webinar dashboard tracks attendee numbers and turnout.",
+        "Learning points and rewards: points awarded according to a participant's engagement.",
+        "Points can be redeemed for merchandise such as T-shirts, bags, and pouches.",
+        "Template management: report and certificate templates created and maintained by admins.",
+        "Chat and forum: a space for discussion and questions about training and webinars.",
+        "Notifications: training and webinar schedule alerts sent to participants.",
+        "User profile: each participant has a page holding personal data and training history."
       ]
     }
   },
@@ -276,13 +276,13 @@
         "Karena susunannya netral terhadap jenis aplikasi, proyek ini dipakai sebagai fondasi awal ketika sebuah aplikasi CodeIgniter baru harus langsung memiliki banyak peran pengguna. Kodenya terbuka di GitHub."
       ],
       "features": [
-        "Masuk",
-        "Pendaftaran",
-        "Ubah profil",
-        "Ganti kata sandi",
-        "Kelola peran pengguna",
-        "Kelola menu pengguna",
-        "Kelola submenu pengguna"
+        "Masuk dengan nama pengguna dan kata sandi.",
+        "Pendaftaran akun mandiri.",
+        "Penyuntingan profil pengguna.",
+        "Penggantian kata sandi.",
+        "Kelola peran pengguna sebagai data, bukan di dalam kode.",
+        "Kelola menu yang tampil sesuai peran akun.",
+        "Kelola submenu di bawah tiap menu."
       ]
     },
     "en": {
@@ -294,13 +294,13 @@
         "Because its structure is neutral about what the application does, the project is used as a starting foundation whenever a new CodeIgniter application needs multiple user roles from day one. The source is open on GitHub."
       ],
       "features": [
-        "Login",
-        "Register",
-        "Edit Profile",
-        "Change Password",
-        "Manage user roles",
-        "Manage menu user",
-        "Manage sub menu user"
+        "Login with username and password.",
+        "Self-service account registration.",
+        "User profile editing.",
+        "Password changes.",
+        "Manage user roles as data rather than in code.",
+        "Manage the menus shown for each role.",
+        "Manage the submenus under each menu."
       ]
     }
   },
@@ -374,42 +374,42 @@
       "title": "Dinamika",
       "summary": "Sistem manajemen pengadaan untuk merapikan alur pemesanan, persetujuan, harga, dan persediaan.",
       "body": [
-        "Dinamika adalah sistem manajemen pengadaan menyeluruh yang dirancang untuk menyederhanakan proses pembelian. Sistem ini menyediakan alur kerja yang efisien dan transparan untuk mengelola pesanan pembelian, persetujuan, penetapan harga, serta pelacakan persediaan. Hasilnya, kendali atas aktivitas pengadaan menjadi lebih baik sehingga efisiensi operasional dan pengambilan keputusan ikut meningkat.",
-        "Sistem ini cocok bagi perusahaan yang ingin membenahi operasi pengadaan, memperketat kendali biaya, dan memastikan koordinasi yang mulus antara proses pembelian, persediaan, dan persetujuan."
+        "Sistem manajemen pengadaan yang menyatukan alur pembelian dari hulu ke hilir. Draf pesanan disusun, ditinjau, dan disetujui berjenjang sebelum barang diterima dan dicatat ke persediaan.",
+        "Penetapan harga jual dan daftar harga punya alur persetujuannya sendiri, sehingga perubahan harga meninggalkan jejak dan tidak bisa diubah sepihak."
       ],
       "features": [
-        "Dasbor: menyajikan gambaran umum aktivitas pengadaan dan metrik utama.",
-        "Persetujuan harga jual: mengelola dan menyetujui penyesuaian harga produk.",
-        "Persetujuan tabung: menangani proses persetujuan terkait transaksi tabung.",
-        "Manajemen daftar harga: memelihara informasi harga produk.",
-        "Draf pesanan pembelian: memungkinkan pengguna menyusun dan mengelola draf PO sebelum disetujui.",
-        "Persetujuan draf PO: meninjau dan menyetujui draf pesanan pembelian.",
-        "Manajemen pesanan pembelian: melacak, mengelola, dan menyetujui pesanan pembelian.",
-        "Pengadaan: mengawasi aktivitas pembelian dan transaksi dengan pemasok.",
-        "Penerimaan barang: mencatat dan mengelola penerimaan barang yang dibeli.",
-        "Retur pembelian: mengelola pengembalian barang bila diperlukan.",
-        "Manajemen pemesanan: menangani reservasi produk untuk perencanaan pengadaan."
+        "Dasbor: ikhtisar aktivitas pengadaan beserta angka-angka pokoknya.",
+        "Persetujuan harga jual: penyesuaian harga produk diajukan dan disetujui berjenjang.",
+        "Persetujuan tabung: alur persetujuan khusus untuk transaksi tabung.",
+        "Manajemen daftar harga: pemeliharaan daftar harga produk.",
+        "Draf pesanan pembelian: draf PO disusun dan disunting sebelum diajukan.",
+        "Persetujuan draf PO: peninjauan dan persetujuan draf pesanan pembelian.",
+        "Manajemen pesanan pembelian: pelacakan PO dari pengajuan sampai penyelesaian.",
+        "Pengadaan: pencatatan aktivitas pembelian dan transaksi dengan pemasok.",
+        "Penerimaan barang: pencatatan barang yang diterima beserta kesesuaiannya dengan PO.",
+        "Retur pembelian: pengelolaan pengembalian barang ke pemasok.",
+        "Manajemen pemesanan: reservasi produk sebagai dasar perencanaan pengadaan."
       ]
     },
     "en": {
       "title": "Dinamika",
       "summary": "A procurement management system that streamlines purchase orders, approvals, pricing, and inventory.",
       "body": [
-        "Dinamika is a comprehensive procurement management system designed to streamline the purchasing process. It provides an efficient and transparent workflow for managing purchase orders, approvals, pricing, and inventory tracking. The system ensures better control over procurement activities, enhancing operational efficiency and decision-making.",
-        "This system is ideal for businesses looking to improve their procurement operations, enhance cost control, and ensure seamless coordination between purchasing, inventory, and approval processes."
+        "A procurement management system that joins up the purchasing flow end to end. Orders are drafted, reviewed, and approved in stages before goods are received and booked into inventory.",
+        "Sales pricing and the pricelist each carry their own approval flow, so price changes leave a trail and cannot be altered unilaterally."
       ],
       "features": [
-        "Dashboard: Provides an overview of procurement activities and key metrics.",
-        "Sales Price Approval: Manages and approves price adjustments for products.",
-        "Cylinder Approval: Handles approval processes related to cylinder transactions.",
-        "Pricelist Management: Maintains product pricing information.",
-        "Draft Purchase Order (PO): Allows users to create and manage draft purchase orders before approval.",
-        "Draft PO Approval: Reviews and approves draft purchase orders.",
-        "Purchase Order (PO) Management: Tracks, manages, and approves purchase orders.",
-        "Procurement: Oversees purchasing activities and vendor transactions.",
-        "Goods Receipt: Records and manages the receipt of purchased goods.",
-        "Purchase Return: Manages the return of purchased goods when necessary.",
-        "Booking Management: Handles product reservations for procurement planning."
+        "Dashboard: an overview of procurement activity and its headline figures.",
+        "Sales price approval: product price adjustments raised and approved in stages.",
+        "Cylinder approval: a dedicated approval flow for cylinder transactions.",
+        "Pricelist management: upkeep of product pricing.",
+        "Draft purchase orders: POs drafted and edited before submission.",
+        "Draft PO approval: review and sign-off on draft purchase orders.",
+        "Purchase order management: PO tracking from submission through completion.",
+        "Procurement: records of purchasing activity and supplier transactions.",
+        "Goods receipt: received goods recorded and checked against the PO.",
+        "Purchase returns: handling of goods returned to suppliers.",
+        "Booking management: product reservations as the basis for procurement planning."
       ]
     }
   },
@@ -464,13 +464,13 @@
         "Hasil seminar proposal dan sidang skripsi dirangkum menjadi laporan yang dapat dicetak oleh program studi. Memisahkan klien dari API membuat sistem yang sama dapat dipakai bersama aplikasi mobile tanpa menduplikasi logika di dua tempat."
       ],
       "features": [
-        "Multi pengguna (Admin, Admin Prodi, Mahasiswa, Dosen).",
-        "Menangani proses pengajuan judul skripsi.",
-        "Menangani proses bimbingan proposal.",
-        "Menangani proses seminar proposal.",
-        "Menangani proses bimbingan skripsi.",
-        "Menangani proses sidang skripsi.",
-        "Menyusun laporan hasil seminar proposal dan sidang skripsi."
+        "Empat peran pengguna: Admin, Admin Program Studi, Dosen, dan Mahasiswa.",
+        "Pengajuan judul skripsi beserta persetujuannya.",
+        "Bimbingan proposal antara mahasiswa dan dosen pembimbing.",
+        "Penjadwalan seminar proposal beserta hasilnya.",
+        "Bimbingan skripsi sampai draf akhir.",
+        "Sidang skripsi beserta keputusannya.",
+        "Laporan hasil seminar proposal dan sidang skripsi yang siap dicetak."
       ]
     },
     "en": {
@@ -482,13 +482,13 @@
         "Proposal seminar and thesis defence results are summarised into reports the study programme can print. Keeping the client separate from the API lets the same system be shared with a mobile application without duplicating the logic in two places."
       ],
       "features": [
-        "Multi user (Admin, Admin Prodi, Mahasiswa, Dosen).",
-        "Handling the process of submitting a thesis title.",
-        "Handling the proposal guidance process.",
-        "Handling the proposal seminar process.",
-        "Handling the thesis guidance process.",
-        "Handling the thesis trial process.",
-        "Make reports on the results of seminar proposals and thesis hearings."
+        "Four user roles: Admin, Study Programme Admin, Lecturer, and Student.",
+        "Thesis title submission and its approval.",
+        "Proposal guidance sessions between student and supervisor.",
+        "Proposal seminar scheduling and its results.",
+        "Thesis guidance sessions through to the final draft.",
+        "The final thesis defence and its verdict.",
+        "Printable reports of proposal seminar and thesis defence results."
       ]
     }
   },
@@ -599,12 +599,12 @@
         "Pengisian nilai tidak harus dilakukan satu per satu: data dan nilai dapat diunggah sekaligus lewat impor Excel, sementara data induk serta leger nilai siswa dapat ditarik kembali ke Excel untuk diarsipkan. Berkas raport dan kartu pelajar dihasilkan langsung dalam format PDF yang siap dicetak, dan seluruh tampilannya responsif sehingga guru tetap dapat mengisi nilai dari ponsel."
       ],
       "features": [
-        "Multi pengguna (Admin, Guru, Wali Kelas, Siswa).",
-        "Tampilan responsif.",
-        "Mendukung dua jenis kurikulum, yaitu KTSP 2006 dan K13.",
-        "Dilengkapi impor Excel untuk menu masukan data dan nilai.",
-        "Data induk dan leger nilai siswa dapat diunduh dalam format Excel.",
-        "Berkas raport dan kartu pelajar dapat diunduh dalam format PDF."
+        "Empat peran pengguna: Admin, Guru, Wali Kelas, dan Siswa.",
+        "Tampilan responsif, nilai dapat diisi dari ponsel.",
+        "Dua kurikulum didukung: KTSP 2006 dan Kurikulum 2013.",
+        "Impor Excel untuk memasukkan data dan nilai sekaligus.",
+        "Data induk dan leger nilai siswa dapat diekspor ke Excel.",
+        "Raport dan kartu pelajar dihasilkan sebagai PDF siap cetak."
       ]
     },
     "en": {
@@ -616,12 +616,12 @@
         "Marks do not have to be keyed in one at a time: data and scores can be uploaded in bulk through Excel import, while master data and the student mark ledger can be pulled back out to Excel for archiving. Report cards and student ID cards are produced directly as print-ready PDFs, and the whole interface is responsive so teachers can enter marks from a phone."
       ],
       "features": [
-        "Multi users (Admin, Teacher, Homeroom, Student).",
-        "Responsive Display.",
-        "Supports 2 Types of Curriculum, namely Curriculum KTSP 2006 & K13.",
-        "Supported with Import Excel for data and value input menu.",
-        "Master & Leger Student Value data can be downloaded into Excel format.",
-        "Report files and student IDs can be downloaded in PDF format."
+        "Four user roles: Admin, Teacher, Homeroom Teacher, and Student.",
+        "Responsive layout, so marks can be entered from a phone.",
+        "Two curricula supported: KTSP 2006 and the 2013 Curriculum.",
+        "Excel import for entering data and marks in bulk.",
+        "Master data and the student mark ledger export to Excel.",
+        "Report cards and student ID cards produced as print-ready PDFs."
       ]
     }
   },
@@ -828,18 +828,18 @@
         "Keamanan akses mendapat perhatian tersendiri: akun terkunci selama lima menit setelah tiga kali percobaan masuk yang gagal, dan pemulihan kata sandi tersedia bagi pengguna yang lupa. Seluruh data olahannya dapat dibawa keluar sebagai berkas Excel maupun PDF untuk kebutuhan laporan, dan setiap formulir divalidasi sebelum datanya tersimpan. Kodenya terbuka di GitHub."
       ],
       "features": [
-        "Masuk dan keluar, lupa kata sandi (akun terkunci 5 menit setelah 3 kali percobaan gagal).",
-        "Kelola karyawan (tambah, ubah, dan hapus).",
-        "Kelola negara, kota, dan provinsi (tambah, ubah, dan hapus).",
-        "Kelola pengguna (tambah, ubah, dan hapus).",
-        "Kelola gaji (tambah, ubah, dan hapus).",
-        "Kelola divisi (tambah, ubah, dan hapus).",
-        "Kelola departemen (tambah, ubah, dan hapus).",
-        "Menyusun laporan (ekspor ke Excel dan PDF).",
-        "Pencarian (dengan kombinasi beberapa kolom).",
-        "Penomoran halaman",
-        "Validasi",
-        "Responsif"
+        "Masuk dan keluar, beserta pemulihan kata sandi. Akun terkunci 5 menit setelah 3 percobaan gagal.",
+        "Kelola data karyawan: tambah, ubah, dan hapus.",
+        "Kelola data negara, provinsi, dan kota sebagai rujukan alamat.",
+        "Kelola akun pengguna: tambah, ubah, dan hapus.",
+        "Kelola data gaji: tambah, ubah, dan hapus.",
+        "Kelola data divisi: tambah, ubah, dan hapus.",
+        "Kelola data departemen: tambah, ubah, dan hapus.",
+        "Laporan yang dapat diekspor ke Excel dan PDF.",
+        "Pencarian yang dapat menggabungkan beberapa kolom sekaligus.",
+        "Penomoran halaman pada setiap daftar data.",
+        "Validasi setiap formulir sebelum data tersimpan.",
+        "Tampilan responsif dari ponsel sampai monitor lebar."
       ]
     },
     "en": {
@@ -851,18 +851,18 @@
         "Access security gets its own attention: an account locks for five minutes after three failed login attempts, and password recovery is available for users who forget theirs. Everything the system holds can be taken out as Excel or PDF files for reporting, and every form is validated before data is stored. The source is open on GitHub."
       ],
       "features": [
-        "Login and logout, forget password (Lock account in 5 minutes after 3 failed attempts).",
-        "Manage employees (Add, edit and delete).",
-        "Manage countries, cities, states (Add, edit and delete).",
-        "Manage users (Add, edit and delete).",
-        "Manage salary (Add, edit and delete).",
-        "Manage division (Add, edit and delete).",
-        "Manage departments (Add, edit and delete).",
-        "Make reports (export to Excel and PDF).",
-        "Search (with multiple combine fields).",
-        "Pagination",
-        "Validation",
-        "Responsive"
+        "Login and logout plus password recovery. Accounts lock for 5 minutes after 3 failed attempts.",
+        "Manage employee records: add, edit, and delete.",
+        "Manage country, state, and city data as address references.",
+        "Manage user accounts: add, edit, and delete.",
+        "Manage salary records: add, edit, and delete.",
+        "Manage division records: add, edit, and delete.",
+        "Manage department records: add, edit, and delete.",
+        "Reports exportable to Excel and PDF.",
+        "Search that can combine several fields at once.",
+        "Pagination on every data list.",
+        "Validation on every form before data is stored.",
+        "Responsive layout from phone to wide monitor."
       ]
     }
   },
@@ -1075,50 +1075,50 @@
       "title": "LMS Eksternal OJK",
       "summary": "LMS berisi modul pelatihan dan webinar dengan sistem poin dan hadiah bagi peserta.",
       "body": [
-        "Situs ini adalah Learning Management System (LMS) yang menyediakan beragam modul pelatihan dan webinar bagi pengguna. Sistem ini dirancang untuk membantu peserta memahami materi melalui modul pembelajaran interaktif, serta memberikan hadiah berdasarkan keterlibatan mereka dalam kegiatan belajar.",
-        "LMS ini cocok bagi organisasi, perusahaan, atau lembaga yang ingin mengelola program pelatihan dan meningkatkan efektivitas pembelajaran digital."
+        "Learning Management System yang dipakai peserta dari luar OJK untuk mengikuti modul pelatihan dan webinar. Materinya tersedia sebagai video, dokumen, dan kuis interaktif, dan kemajuan tiap peserta tercatat per modul.",
+        "Keterlibatan peserta dihitung menjadi poin yang dapat ditukar dengan merchandise. Modul yang sudah dituntaskan menghasilkan sertifikat yang templatnya dikelola admin."
       ],
       "features": [
-        "Dasbor modul pembelajaran: menampilkan daftar modul yang direkomendasikan.",
-        "Pengguna dapat mencari dan menyaring modul berdasarkan kategori atau penilaian.",
-        "Setiap modul memuat rincian seperti jumlah peserta, penilaian, dan statistik penyelesaian.",
-        "Manajemen pelatihan dan webinar: menyajikan materi belajar berupa video, dokumen, dan kuis interaktif.",
-        "Pengguna dapat mengikuti webinar yang diselenggarakan admin.",
-        "Tersedia dasbor webinar untuk memantau statistik peserta dan mengevaluasi efektivitas webinar.",
-        "Sistem poin dan hadiah: peserta memperoleh poin belajar sesuai keterlibatannya.",
-        "Poin dapat ditukar dengan hadiah seperti merchandise eksklusif (kaus, tas, dan lainnya).",
-        "Pencarian dan penyaringan modul: pengguna dapat mencari modul berdasarkan judul atau kategori.",
-        "Fitur pengurutan A-Z memudahkan penemuan modul yang dicari.",
-        "Manajemen sertifikat dan templat: admin dapat mengelola sertifikat bagi peserta yang menuntaskan modul tertentu.",
-        "Tersedia fitur manajemen templat untuk menyusun dan mengelola laporan.",
-        "Forum diskusi dan obrolan: memungkinkan peserta berinteraksi, berdiskusi, dan berbagi wawasan seputar modul pelatihan.",
-        "Dilengkapi notifikasi untuk pembaruan jadwal webinar dan pengingat pelatihan.",
-        "Profil pengguna: setiap peserta memiliki halaman profil untuk melacak riwayat belajar, kemajuan modul, dan poin yang terkumpul."
+        "Dasbor modul pembelajaran: daftar modul yang direkomendasikan untuk peserta.",
+        "Modul dapat dicari dan disaring menurut kategori atau penilaian.",
+        "Tiap modul memuat jumlah peserta, penilaian, dan statistik penyelesaiannya.",
+        "Manajemen pelatihan dan webinar: materi belajar berupa video, dokumen, dan kuis interaktif.",
+        "Webinar yang diselenggarakan admin dapat diikuti langsung dari sistem.",
+        "Dasbor webinar memantau jumlah peserta dan tingkat kehadirannya.",
+        "Sistem poin dan hadiah: poin belajar diberikan sesuai keterlibatan peserta.",
+        "Poin dapat ditukar dengan merchandise seperti kaus dan tas.",
+        "Pencarian modul: modul dapat dicari menurut judul atau kategori.",
+        "Pengurutan A–Z untuk menelusuri daftar modul yang panjang.",
+        "Manajemen sertifikat: sertifikat diterbitkan bagi peserta yang menuntaskan modul.",
+        "Manajemen templat untuk menyusun templat laporan dan sertifikat.",
+        "Forum diskusi dan obrolan: ruang tanya jawab seputar modul pelatihan.",
+        "Notifikasi pembaruan jadwal webinar dan pengingat pelatihan.",
+        "Profil pengguna: riwayat belajar, kemajuan modul, dan poin yang terkumpul."
       ]
     },
     "en": {
       "title": "LMS External OJK",
       "summary": "An LMS offering training modules and webinars with a points-and-rewards system for participants.",
       "body": [
-        "This website is a Learning Management System (LMS) that provides various training modules and webinars for users. It is designed to help participants understand materials through interactive learning modules and offers rewards based on their engagement in learning activities.",
-        "This LMS is ideal for organizations, companies, or institutions looking to manage training programs and enhance the effectiveness of digital learning."
+        "A Learning Management System used by participants outside OJK to take training modules and webinars. Material is available as video, documents, and interactive quizzes, and each participant's progress is recorded per module.",
+        "Engagement is counted as points redeemable for merchandise. Completed modules produce certificates whose templates are managed by admins."
       ],
       "features": [
-        "Learning Module Dashboard Displays a list of recommended modules.",
-        "Users can search and filter modules based on categories or ratings.",
-        "Each module includes details such as the number of participants, ratings, and completion statistics.",
-        "Training & Webinar Management Offers various learning materials in the form of videos, documents, and interactive quizzes.",
-        "Users can join webinars organized by the admin.",
-        "A webinar dashboard is available to track participant statistics and evaluate webinar effectiveness.",
-        "Points & Rewards System Participants earn learning points based on their engagement.",
-        "Points can be redeemed for rewards such as exclusive merchandise (T-shirts, bags, etc.).",
-        "Module Search & Filter Users can search for modules by title or category.",
-        "The A-Z sorting feature makes it easier to find desired modules.",
-        "Certification & Template Management Admins can manage certificates for participants who complete certain modules.",
-        "A template management feature is available for creating and managing reports.",
-        "Discussion Forum & Chat Allows participants to interact, discuss, and share insights about training modules.",
-        "Includes notifications for webinar schedule updates and training reminders.",
-        "User Profile Each participant has a personal profile page to track their learning history, module progress, and accumulated points."
+        "Learning module dashboard: a list of modules recommended for the participant.",
+        "Modules can be searched and filtered by category or rating.",
+        "Each module shows its participant count, rating, and completion statistics.",
+        "Training and webinar management: learning material as video, documents, and interactive quizzes.",
+        "Webinars run by admins can be attended from inside the system.",
+        "A webinar dashboard tracks attendee numbers and turnout.",
+        "Points and rewards: learning points awarded according to engagement.",
+        "Points can be redeemed for merchandise such as T-shirts and bags.",
+        "Module search: modules can be found by title or category.",
+        "A–Z sorting for working through a long module list.",
+        "Certificate management: certificates issued to participants who complete a module.",
+        "Template management for report and certificate templates.",
+        "Discussion forum and chat: a space for questions about training modules.",
+        "Notifications for webinar schedule updates and training reminders.",
+        "User profile: learning history, module progress, and accumulated points."
       ]
     }
   },
@@ -1200,50 +1200,50 @@
       "title": "LMS Internal OJK",
       "summary": "Sistem manajemen pelatihan dan e-learning internal OJK, lengkap dengan analisis kebutuhan pelatihan.",
       "body": [
-        "Situs ini adalah sistem manajemen pelatihan dan e-learning yang dikembangkan untuk memfasilitasi pelatihan dan pengembangan kompetensi di lingkungan Otoritas Jasa Keuangan (OJK). Sistem ini dirancang untuk mengelola berbagai aspek pelatihan, termasuk kursus e-learning, catatan riwayat pelatihan, dan Training Needs Analysis (TNA) untuk pemantauan serta evaluasi.",
-        "Dengan antarmuka modern dan navigasi yang mudah, pengguna dapat mengakses fitur-fitur utama untuk meningkatkan efektivitas pembelajaran dan pengelolaan pelatihan.",
-        "Sistem ini dibangun untuk meningkatkan efisiensi pelaksanaan pelatihan serta menopang pembelajaran digital yang fleksibel dan terukur."
+        "Sistem manajemen pelatihan dan e-learning untuk pegawai di lingkungan Otoritas Jasa Keuangan. Cakupannya kursus daring, riwayat pelatihan tiap pegawai, dan Training Needs Analysis sebagai dasar penyusunan program.",
+        "TNA memetakan kesenjangan kompetensi lalu merekomendasikan pelatihan yang sesuai, sehingga program yang dijalankan punya dasar data, bukan sekadar daftar usulan.",
+        "Administrator memantau keterlibatan peserta dan efektivitas tiap kursus dari satu dasbor, sedangkan pegawai melihat kemajuan belajar dan sertifikasi yang sudah diperolehnya."
       ],
       "features": [
-        "Kursus e-learning: menyediakan beragam kursus daring yang dapat diakses peserta pelatihan.",
-        "Memuat materi pelatihan berupa video, dokumen, kuis, dan modul interaktif.",
-        "Memungkinkan peserta memantau kemajuan belajarnya secara langsung.",
-        "TNA (Training Needs Analysis): memudahkan identifikasi kebutuhan pelatihan bagi pegawai atau peserta.",
-        "Membantu memetakan kesenjangan kompetensi dan merekomendasikan program pelatihan yang sesuai.",
-        "Pemantauan: menyediakan fitur untuk memantau pelaksanaan pelatihan dan keterlibatan peserta.",
-        "Administrator dapat melihat statistik partisipasi dan efektivitas kursus.",
-        "Riwayat pelatihan: menampilkan daftar pelatihan yang pernah diikuti pengguna.",
-        "Mencatat pencapaian dan sertifikasi yang diperoleh.",
-        "Webinar OJKI dan dasbor webinar: mengelola dan menyelenggarakan webinar terkait program pelatihan.",
-        "Dasbor menyajikan gambaran umum data peserta dan kinerja webinar.",
-        "Kelola: digunakan administrator untuk mengelola modul pembelajaran, akun peserta, dan jadwal pelatihan.",
-        "Notifikasi dan profil pengguna: mengirim pemberitahuan mengenai kegiatan pelatihan dan jadwal webinar.",
-        "Pengguna dapat memperbarui informasi pribadi dan melihat status pelatihannya."
+        "Kursus e-learning: kursus daring yang dapat diakses peserta pelatihan.",
+        "Materinya berupa video, dokumen, kuis, dan modul interaktif.",
+        "Peserta memantau kemajuan belajarnya sendiri per kursus.",
+        "TNA (Training Needs Analysis): identifikasi kebutuhan pelatihan tiap pegawai.",
+        "Kesenjangan kompetensi dipetakan beserta rekomendasi pelatihannya.",
+        "Pemantauan: pelaksanaan pelatihan dan keterlibatan peserta terpantau per program.",
+        "Administrator melihat statistik partisipasi dan efektivitas tiap kursus.",
+        "Riwayat pelatihan: daftar pelatihan yang pernah diikuti tiap pengguna.",
+        "Pencapaian dan sertifikasi yang diperoleh ikut tercatat.",
+        "Webinar OJKI: webinar terkait program pelatihan dikelola dan diselenggarakan di sistem.",
+        "Dasbor webinar merangkum data peserta dan kinerja tiap webinar.",
+        "Kelola: modul pembelajaran, akun peserta, dan jadwal pelatihan diatur administrator.",
+        "Notifikasi: pemberitahuan kegiatan pelatihan dan jadwal webinar.",
+        "Profil pengguna: data pribadi diperbarui sendiri, status pelatihan terbaca langsung."
       ]
     },
     "en": {
       "title": "LMS Internal OJK",
       "summary": "An internal training and e-learning management system for OJK, including Training Needs Analysis.",
       "body": [
-        "This website is a Training and E-Learning Management System developed to facilitate training and competency development within the Otoritas Jasa Keuangan (OJK). The system is designed to manage various aspects of training, including e-learning courses, training history records, and Training Needs Analysis (TNA) for monitoring and evaluation.",
-        "With a modern interface and user-friendly navigation, users can easily access key features to enhance learning effectiveness and training management.",
-        "This system is designed to improve efficiency in training execution and support flexible, measurable digital learning."
+        "A training and e-learning management system for staff within the Otoritas Jasa Keuangan. Its scope covers online courses, each employee's training history, and Training Needs Analysis as the basis for programme planning.",
+        "TNA maps competency gaps and then recommends suitable training, so the programmes that run rest on data rather than on a list of suggestions.",
+        "Administrators follow participant engagement and course effectiveness from one dashboard, while staff see their own learning progress and the certifications they have earned."
       ],
       "features": [
-        "E-Learning Course Provides various online courses accessible to training participants.",
-        "Includes training materials such as videos, documents, quizzes, and interactive modules.",
-        "Allows participants to track their learning progress in real-time.",
-        "TNA (Training Needs Analysis) Facilitates the identification of training needs for employees or participants.",
-        "Helps determine competency gaps and recommends suitable training programs.",
-        "Monitoring Offers monitoring features to track training implementation and participant engagement.",
-        "Administrators can view participation statistics and course effectiveness.",
-        "Training History Displays a list of training sessions attended by users.",
-        "Records achievements and certifications earned.",
-        "OJKI Webinar & Webinar Dashboard Manages and hosts webinars related to training programs.",
-        "The dashboard provides an overview of participant data and webinar performance.",
-        "Management (Kelola) Used by administrators to manage learning modules, participant accounts, and training schedules.",
-        "Notifications & User Profile Sends alerts regarding training activities and webinar schedules.",
-        "Users can update personal information and view their training status."
+        "E-learning courses: online courses available to training participants.",
+        "Material comes as video, documents, quizzes, and interactive modules.",
+        "Participants track their own learning progress per course.",
+        "TNA (Training Needs Analysis): identification of each employee's training needs.",
+        "Competency gaps are mapped along with the training recommended to close them.",
+        "Monitoring: training delivery and participant engagement tracked per programme.",
+        "Administrators see participation statistics and the effectiveness of each course.",
+        "Training history: a list of the training each user has attended.",
+        "Achievements and certifications earned are recorded alongside it.",
+        "OJKI webinars: webinars tied to training programmes managed and hosted in the system.",
+        "A webinar dashboard summarises participant data and each webinar's performance.",
+        "Management: learning modules, participant accounts, and training schedules set by admins.",
+        "Notifications: alerts for training activities and webinar schedules.",
+        "User profile: personal data updated by the user, training status visible at a glance."
       ]
     }
   },
@@ -1396,40 +1396,40 @@
       "title": "Hotel Megaria",
       "summary": "Sistem manajemen hotel mencakup data, penggajian, aset, laporan, dan keamanan.",
       "body": [
-        "Situs ini adalah sistem manajemen hotel bernama Megaria Hotel. Sistem ini dirancang untuk membantu operasional hotel, meliputi pengelolaan data, penggajian, aset, laporan, keamanan, dan pengaturan global. Antarmuka yang sederhana dengan navigasi yang jelas memudahkan pengguna mengakses fitur yang tersedia.",
+        "Sistem manajemen hotel untuk Hotel Megaria. Cakupannya pekerjaan di belakang meja depan: data induk, dokumen administratif, penggajian, aset, laporan, keamanan, dan pengaturan tingkat sistem.",
         "Modulnya mengikuti bagian-bagian yang berjalan di belakang layar sebuah hotel: data induk menyimpan kategori, pemasok, dan rujukan yang dipakai seluruh sistem; data SP merapikan dokumen resmi serta catatan administratif; penggajian menangani perhitungan gaji karyawan; sedangkan modul aset melacak inventaris dari perabot kamar sampai peralatan operasional.",
         "Dasbornya berperan sebagai titik masuk yang merangkum operasional harian sekaligus pintasan ke modul utama, sementara laporan dapat disusun dan diekspor begitu manajemen membutuhkan ringkasan. Di sisi pengelolaan, pengaturan keamanan dan hak akses menjaga agar tiap pengguna hanya menjangkau modul yang menjadi tanggung jawabnya, dan pengaturan global menyimpan konfigurasi tingkat sistem di satu tempat."
       ],
       "features": [
-        "Dasbor: gambaran umum operasional hotel dan akses cepat ke modul utama.",
+        "Dasbor: ikhtisar operasional hotel beserta akses cepat ke modul utama.",
         "Data SP: pengelolaan dokumen resmi dan catatan administratif.",
-        "Data induk: mengelola kategori, pemasok, dan rujukan sistem.",
-        "Penggajian: pengelolaan gaji dan penggajian karyawan.",
-        "Laporan: menyusun dan mengekspor laporan operasional.",
-        "Aset: mengelola inventaris hotel dan melacak aset.",
+        "Data induk: kategori, pemasok, dan rujukan yang dipakai seluruh sistem.",
+        "Penggajian: perhitungan gaji karyawan beserta riwayatnya.",
+        "Laporan: penyusunan laporan operasional yang dapat diekspor.",
+        "Aset: pencatatan inventaris hotel dan pelacakan kondisinya.",
         "Keamanan: kendali akses pengguna dan pengaturan keamanan sistem.",
-        "Pengaturan global: konfigurasi dan preferensi tingkat sistem.",
-        "Manajemen pengguna: mengelola akun pengguna dan hak akses."
+        "Pengaturan global: konfigurasi tingkat sistem tersimpan di satu tempat.",
+        "Manajemen pengguna: pengelolaan akun beserta hak aksesnya."
       ]
     },
     "en": {
       "title": "Megaria Hotel",
       "summary": "A hotel management system covering data, payroll, assets, reporting, and security.",
       "body": [
-        "This website is a hotel management system called Megaria Hotel. It is designed to assist hotel operations, including data management, payroll, assets, reports, security, and global settings. With a simple user interface and clear navigation, users can easily access the available features.",
+        "A hotel management system for Megaria Hotel. Its scope is the work behind the front desk: master data, administrative documents, payroll, assets, reports, security, and system-wide settings.",
         "Its modules follow the parts of a hotel that run behind the scenes: master data holds the categories, suppliers, and references the whole system draws on; the SP records keep official documents and administrative notes in order; payroll handles employee salary calculation; and the asset module tracks inventory from room furnishings to operational equipment.",
         "The dashboard acts as the entry point, summarising the day's operations while offering shortcuts into the main modules, and reports can be generated and exported the moment management needs a summary. On the administrative side, security and access-rights settings keep each user within the modules they are responsible for, while global settings keep system-wide configuration in one place."
       ],
       "features": [
-        "Dashboard: Overview of hotel operations and quick access to main modules.",
-        "Data SP: Management of official documents and administrative records.",
-        "Master Data: Manage categories, suppliers, and system references.",
-        "Payroll: Employee salary and payroll management.",
-        "Reports: Generate and export operational reports.",
-        "Assets: Manage hotel inventory and track assets.",
-        "Security: User access control and system security settings.",
-        "Global Settings: System-wide configurations and preferences.",
-        "User Management: Manage user accounts and access rights."
+        "Dashboard: an overview of hotel operations plus quick access to the main modules.",
+        "SP records: management of official documents and administrative notes.",
+        "Master data: categories, suppliers, and references drawn on by the whole system.",
+        "Payroll: employee salary calculation and its history.",
+        "Reports: operational reports assembled and exported.",
+        "Assets: hotel inventory recorded and its condition tracked.",
+        "Security: user access control and system security settings.",
+        "Global settings: system-wide configuration held in one place.",
+        "User management: accounts and their access rights."
       ]
     }
   },
@@ -1495,38 +1495,38 @@
       "title": "MG Schedule",
       "summary": "Platform penjadwalan proyek dan manajemen tugas dengan kalender dinamis serta pelaporan.",
       "body": [
-        "MG Schedule adalah platform manajemen jadwal milik Morning Glory Enterprise yang menawarkan solusi intuitif dan efisien untuk penjadwalan proyek dan manajemen tugas. Platform ini dirancang untuk merapikan alur kerja, mengoptimalkan pembagian tugas, dan mempererat kolaborasi di dalam organisasi.",
-        "Platform ini memungkinkan tim berkolaborasi secara efektif, menyusun prioritas tugas, dan menuntaskan proyek tepat waktu. Dengan tampilan kalender yang enak dilihat dan fitur pelaporan yang tajam, MG Schedule menjadi alat yang mengubah cara pengelolaan proyek perusahaan."
+        "MG Schedule adalah platform penjadwalan proyek milik Morning Glory Enterprise. Tugas dan jadwal proyek ditampilkan dalam kalender harian, mingguan, dan bulanan, lalu dirangkum menjadi laporan harian dan mingguan.",
+        "Selain penjadwalan, sistem ini mencatat waktu pengerjaan, lembur, dan kuota cuti anggota tim — angka yang biasanya tersebar di berkas terpisah."
       ],
       "features": [
-        "Ikhtisar dasbor: tampilan kalender dinamis yang menyajikan tugas dan jadwal proyek harian, mingguan, dan bulanan untuk pengelolaan waktu yang efisien.",
-        "Manajemen proyek induk: kendali menyeluruh atas proyek berjalan dan mendatang, termasuk pelacakan status dan pengelolaan tonggak capaian.",
-        "Pengelompokan tugas: menata tugas berdasarkan jenis dan prioritas agar pelaksanaannya berjalan lancar.",
-        "Pelacakan waktu: memantau waktu yang dihabiskan pada berbagai tugas dan proyek untuk analisis produktivitas.",
-        "Pembaruan proyek: mengikuti perubahan proyek dan pembaruan tugas terkini.",
-        "Manajemen lembur: memantau dan mengelola lembur proyek demi menjaga efisiensi.",
-        "Laporan harian dan mingguan: menyusun laporan terperinci untuk melacak kemajuan dan mengenali hambatan.",
-        "Manajemen kuota cuti: pelacakan kuota cuti anggota tim secara langsung.",
-        "Antarmuka ramah pengguna: desain bersih dengan tata letak yang mudah dinavigasi untuk mendorong produktivitas."
+        "Dasbor: kalender yang menampilkan tugas dan jadwal proyek per hari, minggu, dan bulan.",
+        "Manajemen proyek induk: proyek berjalan dan mendatang beserta status dan tonggak capaiannya.",
+        "Pengelompokan tugas: tugas ditata menurut jenis dan prioritas.",
+        "Pelacakan waktu: waktu pengerjaan tiap tugas dan proyek dicatat untuk analisis.",
+        "Pembaruan proyek: riwayat perubahan proyek dan tugas terkini.",
+        "Manajemen lembur: pencatatan dan persetujuan lembur proyek.",
+        "Laporan harian dan mingguan: laporan kemajuan yang menunjukkan hambatan sejak awal.",
+        "Manajemen kuota cuti: kuota cuti tiap anggota tim terpantau langsung.",
+        "Antarmuka: tata letak sederhana dengan navigasi yang langsung ke modul."
       ]
     },
     "en": {
       "title": "MG Schedule",
       "summary": "A project scheduling and task management platform with a dynamic calendar and reporting.",
       "body": [
-        "The MGE (Morning Glory Enterprise) Schedule Management Platform offers an intuitive and efficient solution for project scheduling and task management. The platform is designed to streamline workflows, optimize task allocation, and enhance collaboration within the organization.",
-        "This platform empowers teams to collaborate effectively, prioritize tasks, and deliver projects on time. With its visually appealing calendar and insightful reporting features, MGE Schedule is a game-changing tool for managing enterprise projects efficiently."
+        "MG Schedule is Morning Glory Enterprise's project scheduling platform. Tasks and project schedules appear in daily, weekly, and monthly calendar views, then roll up into daily and weekly reports.",
+        "Beyond scheduling, it records time spent, overtime, and team leave quotas — figures that usually end up scattered across separate files."
       ],
       "features": [
-        "Dashboard Overview: A dynamic calendar display that presents tasks and project schedules for each day, week, and month, allowing for efficient time management.",
-        "Master Project Management: Comprehensive control over ongoing and upcoming projects, including status tracking and milestone management.",
-        "Task Categorization: Organize tasks by type and priority to ensure smooth execution of responsibilities.",
-        "Time Tracking: Monitor the time spent on different tasks and projects for better productivity analysis.",
-        "Project Updates: Stay informed with the latest project changes and task updates.",
-        "Overtime Management: Monitor and manage project overtime to maintain efficiency.",
-        "Daily and Weekly Reporting: Generate detailed reports to track progress and identify potential bottlenecks.",
-        "Leave Quota Management: Real-time tracking of available leave quotas for team members.",
-        "User-Friendly Interface: Clean design with an easy-to-navigate layout to boost user productivity."
+        "Dashboard: a calendar showing tasks and project schedules by day, week, and month.",
+        "Master project management: current and upcoming projects with their status and milestones.",
+        "Task categorisation: tasks arranged by type and priority.",
+        "Time tracking: time spent on each task and project recorded for analysis.",
+        "Project updates: a history of recent project and task changes.",
+        "Overtime management: project overtime recorded and approved.",
+        "Daily and weekly reporting: progress reports that surface bottlenecks early.",
+        "Leave quota management: each team member's leave balance tracked live.",
+        "Interface: a plain layout with navigation straight into each module."
       ]
     }
   },
@@ -1592,40 +1592,40 @@
       "title": "Pabrik Plastik",
       "summary": "Sistem manajemen pabrik plastik untuk produksi, persediaan, limbah, dan transaksi.",
       "body": [
-        "Proyek ini adalah sistem manajemen pabrik plastik yang menyeluruh, dirancang untuk merapikan proses produksi, pelacakan persediaan, dan pengelolaan operasional. Sistem ini memuat modul pemantauan stok bahan, manajemen produksi roll dan kemasan, pelacakan limbah, serta penanganan transaksi. Dilengkapi kemampuan pelaporan dan ekspor data, sistem ini memastikan alokasi sumber daya yang efisien dan gambaran operasional yang selalu terkini."
+        "Sistem manajemen pabrik plastik yang mengikuti alur produksi dari bahan sampai barang jadi. Modulnya mencakup pemantauan stok bahan, produksi roll dan kemasan, pengumpulan roll, pengepakan, dan pengelolaan limbah. Transaksi operasional dicatat dan laporannya dapat diekspor ke Excel."
       ],
       "features": [
-        "Dasbor: menyajikan ikhtisar terpusat berupa total berat bahan, jumlah kelompok, dan kategori stok sehingga data produksi terbaca jelas.",
-        "Data induk: mengelola data pokok sistem seperti kategori, pemasok, dan rujukan lainnya.",
-        "Produksi roll: melacak dan mengelola kegiatan produksi roll.",
-        "Produksi kemasan: memantau dan mengelola proses produksi kemasan.",
-        "Produksi barang jadi: menangani produksi produk akhir yang siap didistribusikan.",
-        "Pengumpulan roll: mengelola pengumpulan dan pemakaian persediaan roll.",
-        "Manajemen limbah: memantau dan mengelola limbah produksi demi efisiensi sumber daya.",
-        "Pengepakan: mengawasi proses pengepakan produk jadi.",
-        "Transaksi: mencatat dan mengelola transaksi operasional terkait produksi dan perpindahan sumber daya.",
-        "Pelaporan: menyusun laporan terperinci dan mengekspor data ke Excel untuk dianalisis.",
-        "Manajemen pengguna: mengelola akun pengguna dan hak akses demi mengamankan operasional sistem."
+        "Dasbor: total berat bahan, jumlah kelompok, dan kategori stok terbaca dalam satu tampilan.",
+        "Data induk: kategori, pemasok, dan rujukan lain yang dipakai seluruh sistem.",
+        "Produksi roll: pencatatan dan pengelolaan kegiatan produksi roll.",
+        "Produksi kemasan: pemantauan proses produksi kemasan.",
+        "Produksi barang jadi: produksi produk akhir yang siap didistribusikan.",
+        "Pengumpulan roll: pencatatan pengumpulan dan pemakaian persediaan roll.",
+        "Manajemen limbah: pencatatan limbah produksi beserta asalnya.",
+        "Pengepakan: pencatatan proses pengepakan produk jadi.",
+        "Transaksi: transaksi operasional produksi dan perpindahan bahan dicatat di satu modul.",
+        "Pelaporan: laporan terperinci yang dapat diekspor ke Excel.",
+        "Manajemen pengguna: akun pengguna beserta hak aksesnya."
       ]
     },
     "en": {
       "title": "Plastic Factory",
       "summary": "A plastic factory management system covering production, inventory, waste, and transactions.",
       "body": [
-        "This project is a comprehensive Plastic Factory Management System designed to streamline production processes, inventory tracking, and operational management. The system features modules for material stock monitoring, production roll and packaging management, waste tracking, and transaction handling. Equipped with reporting and data export capabilities, it ensures efficient resource allocation and real-time operational insights."
+        "A plastic factory management system that follows the production flow from raw material through to finished goods. Its modules cover material stock monitoring, roll and packaging production, roll collection, packing, and waste management. Operational transactions are recorded and their reports export to Excel."
       ],
       "features": [
-        "Dashboard: Provides a centralized overview of total material weight, group counts, and stock categories, ensuring a clear snapshot of production data.",
-        "Master: Manage essential master data for the system, such as categories, suppliers, and other references.",
-        "Production: Production Roll: Track and manage roll production activities.",
-        "Production Packaging: Monitor and manage packaging production processes.",
-        "Finished Goods Production: Handle production of final products ready for distribution.",
-        "Roll Collection: Manage roll inventory collection and usage.",
-        "Waste Management: Monitor and manage production waste to optimize resource efficiency.",
-        "Packing: Oversee the packing process for finished products.",
-        "Transactions: Record and manage operational transactions related to production and resource movements.",
-        "Reporting: Generate detailed reports and export data to Excel for analysis.",
-        "User Management: Manage user accounts and control access rights to secure system operations."
+        "Dashboard: total material weight, group counts, and stock categories in a single view.",
+        "Master data: categories, suppliers, and other references used across the system.",
+        "Roll production: recording and management of roll production activity.",
+        "Packaging production: monitoring of the packaging production process.",
+        "Finished goods production: production of final products ready for distribution.",
+        "Roll collection: records of roll inventory collected and consumed.",
+        "Waste management: production waste recorded along with where it came from.",
+        "Packing: records of the packing process for finished products.",
+        "Transactions: production and material-movement transactions recorded in one module.",
+        "Reporting: detailed reports exportable to Excel.",
+        "User management: user accounts and their access rights."
       ]
     }
   },
@@ -1675,30 +1675,30 @@
       "title": "API Pabrik Plastik",
       "summary": "RESTful API untuk operasional pabrik plastik: produk, pelanggan, pesanan, dan pelaporan.",
       "body": [
-        "API ini dirancang untuk mengelola berbagai aspek operasional pabrik plastik, meliputi manajemen produk, manajemen pelanggan, pemrosesan pesanan, autentikasi pengguna, dan pelaporan. Setiap endpoint mengikuti metode HTTP yang sesuai (GET, POST, PUT, DELETE) dan memerlukan parameter tertentu agar penanganan data berjalan efisien.",
-        "Dengan struktur RESTful, API ini memastikan integrasi yang mulus dengan sistem lain dan meningkatkan efisiensi pengelolaan data."
+        "RESTful API yang melayani operasional pabrik plastik: data produk, pelanggan, pesanan, dan pelaporannya. Tiap titik akhir memakai metode HTTP sesuai maknanya — GET, POST, PUT, DELETE — beserta parameter yang didaftar di dokumentasinya.",
+        "Autentikasi pengguna menjaga akses, dan format balasannya seragam di seluruh titik akhir sehingga klien cukup menulis satu penangan balasan."
       ],
       "features": [
-        "Manajemen produk (operasi CRUD untuk produk).",
-        "Manajemen pelanggan (operasi CRUD untuk pelanggan).",
-        "Manajemen pesanan (membuat, memperbarui, dan menghapus pesanan).",
-        "Sistem autentikasi pengguna.",
-        "Laporan dan analitik untuk wawasan bisnis."
+        "Manajemen produk: operasi CRUD untuk data produk.",
+        "Manajemen pelanggan: operasi CRUD untuk data pelanggan.",
+        "Manajemen pesanan: pesanan dibuat, diperbarui, dan dihapus lewat API.",
+        "Autentikasi pengguna sebagai penjaga akses tiap titik akhir.",
+        "Titik akhir pelaporan yang mengembalikan rekap operasional dalam format JSON."
       ]
     },
     "en": {
       "title": "Plastic Factory API",
       "summary": "A RESTful API for plastic factory operations: products, customers, orders, and reporting.",
       "body": [
-        "This API is designed to manage various aspects of a plastic factory's operations, including product management, customer management, order processing, user authentication, and reporting. Each endpoint follows the appropriate HTTP methods (GET, POST, PUT, DELETE) and requires specific parameters to handle data efficiently.",
-        "With a RESTful structure, this API ensures seamless integration with other systems and improves efficiency in data management."
+        "A RESTful API serving plastic factory operations: product, customer, and order data plus its reporting. Each endpoint uses the HTTP method that matches its meaning — GET, POST, PUT, DELETE — with the parameters listed in its documentation.",
+        "User authentication guards access, and the response format is uniform across every endpoint, so a client only needs one response handler."
       ],
       "features": [
-        "Product management (CRUD operations for products).",
-        "Customer management (CRUD operations for customers).",
-        "Order management (creating, updating, and deleting orders).",
-        "User authentication system.",
-        "Reports and analytics for business insights."
+        "Product management: CRUD operations on product data.",
+        "Customer management: CRUD operations on customer data.",
+        "Order management: orders created, updated, and deleted through the API.",
+        "User authentication guarding access to every endpoint.",
+        "Reporting endpoints that return operational summaries as JSON."
       ]
     }
   },
@@ -1809,15 +1809,15 @@
         "Pelanggan dapat memeriksa tagihannya sendiri tanpa perlu datang ke kantor, sementara pengelola memantau pemasukan lewat laporan transaksi. Untuk pemindahan data awal maupun pelaporan ke perangkat desa, datanya dapat diimpor dan diekspor sebagai berkas Excel, dan laporannya diunduh dalam format PDF."
       ],
       "features": [
-        "Pendataan pelanggan",
-        "Pencatatan pemakaian air",
-        "Pencatatan transaksi pembayaran",
-        "Cetak bukti pembayaran",
-        "Laporan transaksi",
-        "Cek tagihan",
-        "Impor dan ekspor Excel",
-        "Ekspor PDF",
-        "Pengaturan ukuran kertas bukti pembayaran"
+        "Pendataan pelanggan air desa.",
+        "Pencatatan angka meter dan pemakaian air per pelanggan.",
+        "Pencatatan transaksi pembayaran tagihan.",
+        "Cetak bukti pembayaran langsung setelah transaksi.",
+        "Laporan transaksi untuk memantau pemasukan.",
+        "Cek tagihan yang dapat dibuka pelanggan sendiri.",
+        "Impor dan ekspor data sebagai berkas Excel.",
+        "Ekspor laporan dalam format PDF.",
+        "Pengaturan ukuran kertas bukti pembayaran."
       ]
     },
     "en": {
@@ -1829,15 +1829,15 @@
         "Customers can check their own bills without coming to the office, while managers follow income through transaction reports. For the initial data migration and for reporting to the village administration, data can be imported and exported as Excel files, and reports downloaded as PDF."
       ],
       "features": [
-        "Customer Data Collection",
-        "Water Usage Recording",
-        "Payment Transaction Recording",
-        "Print Proof of Payment",
-        "Transaction Reports",
-        "Check bill",
-        "Import & Export Excel",
-        "Export PDF",
-        "Payment Proof Paper Size Settings"
+        "Village water customer records.",
+        "Meter readings and water usage recorded per customer.",
+        "Bill payment transactions recorded.",
+        "Payment receipt printed right after the transaction.",
+        "Transaction reports for following income.",
+        "Bill checking that customers can open themselves.",
+        "Data import and export as Excel files.",
+        "Report export as PDF.",
+        "Receipt paper size settings."
       ]
     }
   },
@@ -1966,30 +1966,30 @@
       "title": "API Properti",
       "summary": "RESTful API untuk manajemen properti: listing, penyewa, pembayaran sewa, dan laporan.",
       "body": [
-        "API ini dirancang untuk mengelola berbagai aspek sistem manajemen properti, meliputi daftar properti, manajemen penyewa, pembayaran sewa, autentikasi pengguna, dan pelaporan. Setiap endpoint mengikuti metode HTTP yang sesuai (GET, POST, PUT, DELETE) dan memerlukan parameter tertentu agar penanganan data berjalan efisien.",
-        "Dengan struktur RESTful, API ini memastikan integrasi yang mulus dengan sistem lain dan meningkatkan efisiensi pengelolaan data."
+        "RESTful API untuk sistem manajemen properti: daftar properti, data penyewa, dan pembayaran sewa. Tiap titik akhir memakai metode HTTP sesuai maknanya — GET, POST, PUT, DELETE — beserta parameter yang didaftar di dokumentasinya.",
+        "Autentikasi pengguna menjaga akses, dan format balasannya seragam di seluruh titik akhir sehingga klien web maupun mobile memakai penangan yang sama."
       ],
       "features": [
-        "Manajemen properti (operasi CRUD untuk properti).",
-        "Manajemen penyewa (operasi CRUD untuk penyewa).",
-        "Manajemen pembayaran sewa (mencatat, memperbarui, dan menghapus pembayaran).",
-        "Sistem autentikasi pengguna.",
-        "Laporan dan analitik untuk wawasan bisnis."
+        "Manajemen properti: operasi CRUD untuk data properti.",
+        "Manajemen penyewa: operasi CRUD untuk data penyewa.",
+        "Pembayaran sewa: pembayaran dicatat, diperbarui, dan dihapus lewat API.",
+        "Autentikasi pengguna sebagai penjaga akses tiap titik akhir.",
+        "Titik akhir pelaporan yang mengembalikan rekap sewa dalam format JSON."
       ]
     },
     "en": {
       "title": "Property API",
       "summary": "A RESTful API for property management: listings, tenants, rent payments, and reporting.",
       "body": [
-        "This API is designed to manage various aspects of a property management system, including property listings, tenant management, rent payments, user authentication, and reporting. Each endpoint follows the appropriate HTTP methods (GET, POST, PUT, DELETE) and requires specific parameters to handle data efficiently.",
-        "With a RESTful structure, this API ensures seamless integration with other systems and improves efficiency in data management."
+        "A RESTful API for a property management system: property listings, tenant records, and rent payments. Each endpoint uses the HTTP method that matches its meaning — GET, POST, PUT, DELETE — with the parameters listed in its documentation.",
+        "User authentication guards access, and the response format is uniform across every endpoint, so web and mobile clients share the same handler."
       ],
       "features": [
-        "Property management (CRUD operations for properties).",
-        "Tenant management (CRUD operations for tenants).",
-        "Rent payment management (recording, updating, and deleting payments).",
-        "User authentication system.",
-        "Reports and analytics for business insights."
+        "Property management: CRUD operations on property data.",
+        "Tenant management: CRUD operations on tenant data.",
+        "Rent payments: payments recorded, updated, and deleted through the API.",
+        "User authentication guarding access to every endpoint.",
+        "Reporting endpoints that return rent summaries as JSON."
       ]
     }
   },
@@ -2232,14 +2232,14 @@
         "Kebutuhan dasar akun tersedia lengkap sejak awal: pendaftaran, masuk, penyuntingan profil, dan penggantian kata sandi. Kodenya terbuka di GitHub dan dapat dipakai sebagai titik awal aplikasi sosial berskala kecil."
       ],
       "features": [
-        "Masuk",
-        "Pendaftaran",
-        "Ubah profil",
-        "Ganti kata sandi",
-        "Buat unggahan",
-        "Komentari unggahan",
-        "Sukai unggahan",
-        "Ikuti / berhenti mengikuti"
+        "Masuk dengan akun terdaftar.",
+        "Pendaftaran akun baru.",
+        "Penyuntingan profil pengguna.",
+        "Penggantian kata sandi.",
+        "Menulis unggahan baru.",
+        "Mengomentari unggahan pengguna lain.",
+        "Menyukai unggahan.",
+        "Mengikuti dan berhenti mengikuti pengguna lain."
       ]
     },
     "en": {
@@ -2251,14 +2251,14 @@
         "The basic account needs are covered from the start: registration, login, profile editing, and password changes. The source is open on GitHub and can serve as a starting point for a small-scale social application."
       ],
       "features": [
-        "Login",
-        "Register",
-        "Edit Profile",
-        "Change Password",
-        "Create Post",
-        "Comment Post",
-        "Like Post",
-        "Follow / Unfollow"
+        "Login with a registered account.",
+        "New account registration.",
+        "User profile editing.",
+        "Password changes.",
+        "Write a new post.",
+        "Comment on another user's post.",
+        "Like a post.",
+        "Follow and unfollow other users."
       ]
     }
   },
@@ -2313,12 +2313,12 @@
         "Akses dipisahkan menjadi dua peran, Admin dan Petugas, dengan kewenangan yang berbeda. Ketika agenda perlu dilaporkan atau diarsipkan secara fisik, daftar surat masuk dan surat keluar dapat dicetak langsung dari sistem. Kodenya terbuka di GitHub."
       ],
       "features": [
-        "Multi pengguna (Admin, Petugas).",
+        "Dua peran pengguna: Admin dan Petugas.",
         "Mengelola data surat masuk dan surat keluar.",
-        "Mengunggah berkas surat masuk dan surat keluar.",
+        "Mengunggah berkas hasil pindai surat masuk dan surat keluar.",
         "Mengelola klasifikasi surat.",
         "Mencetak agenda surat masuk dan surat keluar.",
-        "Melihat galeri berkas surat masuk dan surat keluar."
+        "Membuka galeri berkas surat masuk dan surat keluar."
       ]
     },
     "en": {
@@ -2330,12 +2330,12 @@
         "Access is split into two roles, Admin and Officer, with different authority. When the agenda needs to be reported or archived on paper, the incoming and outgoing mail lists can be printed straight from the system. The source is open on GitHub."
       ],
       "features": [
-        "Multi user (Admin, Officer).",
-        "Manage incoming and outgoing mail data.",
-        "Upload incoming and outgoing mail files",
-        "Manage mail Classification",
-        "Print the agenda for incoming and outgoing letters",
-        "View the gallery of incoming and outgoing mail files."
+        "Two user roles: Admin and Officer.",
+        "Manage incoming and outgoing mail records.",
+        "Upload scanned files for incoming and outgoing mail.",
+        "Manage mail classifications.",
+        "Print the incoming and outgoing mail agenda.",
+        "Browse the file gallery for incoming and outgoing mail."
       ]
     }
   },
@@ -2401,36 +2401,36 @@
       "title": "TreePort",
       "summary": "Sistem backoffice platform Treeport untuk pengelolaan data dan operasi administratif.",
       "body": [
-        "Aplikasi web ini berfungsi sebagai sistem backoffice untuk platform Treeport, menyediakan fitur penting untuk penanganan data dan operasi administratif yang efisien. Antarmukanya yang bersih membuat navigasi mudah dan interaksi terasa ringan.",
+        "Sistem backoffice untuk platform Treeport. Isinya menangani katalog produk, dokumen kebijakan, dan pengelolaan akun beserta hak aksesnya.",
         "Isinya berpusat pada katalog: kategori induk menata kelompok produk agar operasional tetap rapi, sementara produk induk menangani variasi tiap produk secara terperinci sehingga satu produk dengan banyak varian tidak perlu didata berulang kali. Di sampingnya tersedia pengelolaan dokumen kebijakan privasi perusahaan yang dapat disunting langsung dari sistem.",
         "Dasbornya menyajikan ikhtisar cepat aktivitas sistem beserta sapaan yang dipersonalisasi, menjadi titik awal sebelum pengguna masuk ke modul yang ia perlukan. Pengelolaan akun dan pengaturan akses berjalan berdampingan: data pengguna dapat dibuat, diubah, dan dihapus, sedangkan peran beserta izinnya menentukan sejauh mana tiap akun boleh bertindak.",
-        "Platform ini mengoptimalkan tugas administratif dan penataan data demi meningkatkan efisiensi operasional."
+        "Katalog, dokumen, dan akun dikelola dari satu panel, sehingga admin tidak berpindah sistem untuk pekerjaan yang saling berkaitan."
       ],
       "features": [
-        "Dasbor: pusat kendali yang menyajikan ikhtisar cepat aktivitas sistem beserta sapaan yang dipersonalisasi.",
-        "Kategori induk: mengelola dan menata berbagai kategori produk agar operasional lebih rapi.",
-        "Produk induk (variasi Flurry): menangani variasi produk secara terperinci demi pengelolaan produk yang menyeluruh.",
-        "Kebijakan privasi induk: menyusun dan memelihara dokumentasi kebijakan privasi perusahaan.",
-        "Pengaturan pengguna induk: mengelola data pengguna, termasuk membuat, mengubah, dan menghapus akun.",
-        "Pengaturan akses: mengatur peran dan izin pengguna demi pengelolaan akses yang aman dan efisien."
+        "Dasbor: ikhtisar aktivitas sistem beserta sapaan yang dipersonalisasi.",
+        "Kategori induk: pengelompokan produk agar katalog tetap tertata.",
+        "Produk induk (variasi Flurry): variasi tiap produk ditangani terperinci, sehingga produk banyak varian tidak didata berulang.",
+        "Kebijakan privasi: dokumen kebijakan privasi perusahaan disunting langsung dari sistem.",
+        "Pengaturan pengguna: akun pengguna dibuat, diubah, dan dihapus dari satu tempat.",
+        "Pengaturan akses: peran beserta izinnya menentukan sejauh mana tiap akun boleh bertindak."
       ]
     },
     "en": {
       "title": "TreePort",
       "summary": "A back-office management system for the Treeport platform, handling data and administration.",
       "body": [
-        "This web application serves as a back-office management system for the Treeport platform, offering essential features for efficient data handling and administrative operations. Its clean interface ensures easy navigation and user-friendly interactions.",
+        "A back-office system for the Treeport platform. It handles the product catalogue, policy documents, and account management with access rights.",
         "Its contents centre on the catalogue: master categories organise product groups so operations stay tidy, while master products handle each product's variations in detail, sparing a many-variant product from being entered over and over. Alongside them sits management of the company privacy policy document, editable directly from the system.",
         "The dashboard offers a quick overview of system activity together with a personalised greeting, acting as a starting point before users move into the module they need. Account management and access settings work side by side: user records can be created, edited, and deleted, while roles and their permissions decide how far each account may act.",
-        "This platform optimizes administrative tasks and data organization to boost operational efficiency."
+        "Catalogue, documents, and accounts are managed from one panel, so admins do not switch systems for work that belongs together."
       ],
       "features": [
-        "Dashboard: A central hub providing a quick overview of system activities and a personalized welcome for users.",
-        "Master Category: Manage and organize various product categories for streamlined operations.",
-        "Master Product (Flurry Variations): Handle detailed product variations to ensure comprehensive product management.",
-        "Master Privacy Policy: Configure and maintain company privacy policy documentation.",
-        "Settings: Master User: Manage user data, including creation, editing, and deletion of user accounts.",
-        "Access Settings: Control user roles and permissions to ensure secure and efficient access management."
+        "Dashboard: an overview of system activity with a personalised greeting.",
+        "Master category: product grouping that keeps the catalogue organised.",
+        "Master product (Flurry variations): each product's variations handled in detail, so a many-variant product is not entered repeatedly.",
+        "Privacy policy: the company privacy policy document edited directly in the system.",
+        "User settings: user accounts created, edited, and deleted from one place.",
+        "Access settings: roles and their permissions decide how far each account may act."
       ]
     }
   },
@@ -2480,36 +2480,36 @@
       "title": "API TreePort",
       "summary": "RESTful API untuk data pohon, spesies, lokasi, pengguna, dan laporan analitik kehutanan.",
       "body": [
-        "API ini menyediakan layanan untuk mengelola data pohon, spesies, lokasi, dan pengguna, serta mendukung autentikasi dan laporan analitik terkait kehutanan.",
-        "API ini mendukung metode HTTP (GET, POST, PUT, DELETE) dengan dokumentasi terperinci mengenai parameter dan struktur balasan.",
+        "RESTful API yang melayani data kehutanan platform Treeport: catatan pohon, spesies, lokasi penanaman, dan penggunanya.",
+        "Metode HTTP dipakai sesuai maknanya — GET, POST, PUT, DELETE — dan tiap titik akhir didokumentasikan beserta parameter serta struktur balasannya.",
         "Datanya tersusun bertingkat: spesies dan lokasi menjadi rujukan bagi tiap catatan pohon, sehingga satu pohon selalu terhubung dengan jenis dan kawasan penanamannya. Dari susunan itulah laporan pertumbuhan pohon dan analisis kesehatan hutan dapat dihitung tanpa perlu menelusuri data mentah satu per satu.",
         "Akses dijaga lewat pendaftaran dan autentikasi pengguna, sementara layanan notifikasi mengirimkan peringatan penting kepada pihak yang berkepentingan ketika ada kondisi yang perlu ditindaklanjuti. Karena balasannya seragam dan terdokumentasi, API ini dapat dipakai klien web maupun perangkat lapangan tanpa penyesuaian khusus di tiap sisi."
       ],
       "features": [
-        "Manajemen pohon: menambah, memperbarui, menghapus, dan mengambil data pohon.",
-        "Manajemen spesies: mengelola data spesies pohon.",
-        "Manajemen lokasi: mengelola data kawasan hutan dan area penanaman.",
-        "Manajemen pengguna: pendaftaran, autentikasi, dan pengelolaan pengguna.",
-        "Laporan dan analitik: data pertumbuhan pohon dan analisis kesehatan hutan.",
-        "Notifikasi: mengirim peringatan penting kepada pengguna."
+        "Manajemen pohon: catatan pohon ditambah, diperbarui, dihapus, dan diambil.",
+        "Manajemen spesies: data spesies pohon sebagai rujukan tiap catatan.",
+        "Manajemen lokasi: data kawasan hutan dan area penanaman.",
+        "Manajemen pengguna: pendaftaran, autentikasi, dan pengelolaan akun.",
+        "Pelaporan: data pertumbuhan pohon dan analisis kesehatan hutan.",
+        "Notifikasi: peringatan dikirim ketika ada kondisi yang perlu ditindaklanjuti."
       ]
     },
     "en": {
       "title": "TreePort API",
       "summary": "A RESTful API for tree, species, location, and user data, with forestry analytics reports.",
       "body": [
-        "This API provides services for managing tree data, species, locations, users, and supports authentication as well as analytical reports related to forestry.",
-        "The API supports HTTP methods (GET, POST, PUT, DELETE) with detailed documentation on parameters and response structures.",
+        "A RESTful API serving the forestry data of the Treeport platform: tree records, species, planting locations, and users.",
+        "HTTP methods are used for what they mean — GET, POST, PUT, DELETE — and every endpoint is documented with its parameters and response structure.",
         "Its data is layered: species and locations act as references for every tree record, so a tree is always tied to its kind and to the area where it was planted. That structure is what makes tree growth reports and forest health analysis computable without trawling through raw records one by one.",
         "Access is guarded through user registration and authentication, while the notification service pushes important alerts to the people concerned whenever a condition needs following up. Because its responses are uniform and documented, the API can serve web clients and field devices alike without special handling on either side."
       ],
       "features": [
-        "Tree Management: Add, update, delete, and retrieve tree data.",
-        "Species Management: Manage tree species data.",
-        "Location Management: Manage forest and planting area data.",
-        "User Management: User registration, authentication, and management.",
-        "Reports & Analytics: Tree growth data and forest health analysis.",
-        "Notifications: Send important alerts to users."
+        "Tree management: tree records added, updated, deleted, and retrieved.",
+        "Species management: tree species data as the reference for each record.",
+        "Location management: forest area and planting area data.",
+        "User management: registration, authentication, and account handling.",
+        "Reporting: tree growth data and forest health analysis.",
+        "Notifications: alerts sent when a condition needs following up."
       ]
     }
   },
@@ -2599,7 +2599,7 @@
       "summary": "Aplikasi kasir (POS) berbasis web untuk toko dan minimarket: penjualan, stok, pembelian dari supplier, dan laporan dalam satu sistem.",
       "body": [
         "St SmartPoint adalah aplikasi Point of Sale berbasis web untuk toko kelontong, minimarket, dan usaha kecil yang membutuhkan sistem kasir sederhana namun lengkap. Karena berjalan di peramban, aplikasi ini bisa dipakai dari komputer kasir mana pun yang terhubung ke jaringan toko tanpa perlu memasang perangkat lunak tambahan.",
-        "Layar kasir dirancang untuk dipakai cepat: produk dicari dengan mengetik nama atau memindai SKU, subtotal dan kembalian dihitung langsung, dan seluruh alur bisa dijalankan lewat pintasan papan ketik tanpa menyentuh tetikus. Satu produk dapat dijual dalam satuan berbeda — misalnya rokok per bungkus atau per slop — dengan stok yang tetap terhitung benar.",
+        "Layar kasir mengutamakan kecepatan: produk dicari dengan mengetik nama atau memindai SKU, subtotal dan kembalian dihitung langsung, dan seluruh alur bisa dijalankan lewat pintasan papan ketik tanpa menyentuh tetikus. Satu produk dapat dijual dalam satuan berbeda — misalnya rokok per bungkus atau per slop — dengan stok yang tetap terhitung benar.",
         "Sisi admin menangani data master, pencatatan pembelian dari supplier yang otomatis menambah stok, serta laporan penjualan harian, per produk, dan per kasir yang dapat diekspor ke Excel. Dashboard menampilkan tren penjualan, produk terlaris, dan peringatan stok menipis."
       ],
       "features": [

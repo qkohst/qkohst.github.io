@@ -80,14 +80,12 @@ function contactSection(site, lang, ui) {
         <div class="section__head" data-reveal>
           <span class="section__eyebrow">${esc(ui.nav.contact)}</span>
           <h2>${esc(ui.sections.contact)}</h2>
-          <p class="section__lead">${esc(lang === 'id'
-            ? 'Punya proyek atau pertanyaan? Hubungi lewat kanal mana pun di bawah ini.'
-            : 'Got a project or a question? Reach me through any of the channels below.')}</p>
+          <p class="section__lead">${esc(ui.labels.contactLead)}</p>
         </div>
         <div class="grid grid--3" data-reveal>
-${contactCard('mail', 'Email', c.email, `mailto:${c.email}`)}
-${contactCard('whatsapp', 'WhatsApp', c.phone, waLink(c.phoneE164, WA_TEKS.umum[lang]()))}
-${contactCard('map-pin', lang === 'id' ? 'Alamat' : 'Address', cl.addressShort, c.mapsUrl)}
+${contactCard('mail', ui.labels.email, c.email, `mailto:${c.email}`)}
+${contactCard('whatsapp', ui.labels.whatsapp, c.phone, waLink(c.phoneE164, WA_TEKS.umum[lang]()))}
+${contactCard('map-pin', ui.labels.address, cl.addressShort, c.mapsUrl)}
         </div>
       </div>
     </section>`;

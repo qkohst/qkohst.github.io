@@ -1236,7 +1236,7 @@
         "tagline": "Aplikasi kasir berbasis web untuk toko, minimarket, dan usaha kecil.",
         "ringkasan": [
           "Sistem kasir yang berjalan di browser, sehingga bisa dipakai dari komputer kasir mana pun tanpa memasang perangkat lunak tambahan.",
-          "Layar kasir dirancang untuk dipakai cepat: seluruh alur bisa dijalankan lewat pintasan keyboard tanpa menyentuh mouse.",
+          "Layar kasir mengutamakan kecepatan: seluruh alur bisa dijalankan lewat pintasan keyboard tanpa menyentuh mouse.",
           "Satu produk dapat dijual dalam satuan berbeda — per bungkus atau per slop — dengan stok yang tetap terhitung benar.",
           "Tersedia dua jalur: beli lisensi siap pakai, atau dibangun khusus mengikuti alur toko Anda."
         ],

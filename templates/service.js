@@ -2,7 +2,7 @@
    Nama teknologi sengaja tidak dicantumkan — calon klien menilai hasil dan
    proses kerja, bukan tumpukan teknologi. Harga ditampilkan sebagai titik awal
    dalam dua mata uang, dengan kurs dan tanggalnya disebut terbuka. */
-const { esc, each, icon, t, pageUrl, fmtRp, bulatRp, waLink, WA_TEKS } = require('../tools/lib');
+const { esc, each, icon, t, fill, pageUrl, fmtRp, bulatRp, waLink, WA_TEKS } = require('../tools/lib');
 const { contactSection } = require('./partials');
 
 module.exports = function service(ctx, s) {
@@ -18,7 +18,7 @@ module.exports = function service(ctx, s) {
   return `
     <section class="section section--banner">
       <div class="container">
-        <nav class="breadcrumb" aria-label="${esc(lang === 'id' ? 'Remah roti' : 'Breadcrumb')}">
+        <nav class="breadcrumb" aria-label="${esc(ui.a11y.breadcrumb)}">
           <ol>
             <li><a href="${esc(pageUrl('home', lang))}">${esc(ui.nav.home)}</a></li>
             <li><a href="${esc(pageUrl('services', lang))}">${esc(ui.sections.services)}</a></li>
@@ -53,7 +53,7 @@ ${each(x.deliverables, d => `              <li>${esc(d)}</li>\n`)}            </
     <section class="section section--subtle">
       <div class="container">
         <div class="section__head" data-reveal>
-          <span class="section__eyebrow">${esc(lang === 'id' ? 'Proses' : 'Process')}</span>
+          <span class="section__eyebrow">${esc(ui.labels.process)}</span>
           <h2>${esc(sp.processTitle)}</h2>
         </div>
         <ol class="steps list-plain">
@@ -68,8 +68,8 @@ ${each(sp.process, (p, i) => `          <li class="step" data-reveal data-reveal
     <section class="section" id="pricing">
       <div class="container">
         <div class="section__head" data-reveal>
-          <span class="section__eyebrow">${esc(lang === 'id' ? 'Harga' : 'Pricing')}</span>
-          <h2>${esc(lang === 'id' ? 'Paket dan perkiraan biaya' : 'Packages and indicative pricing')}</h2>
+          <span class="section__eyebrow">${esc(ui.labels.pricingEyebrow)}</span>
+          <h2>${esc(ui.labels.pricingTitle)}</h2>
           <p class="section__lead">${esc(sp.priceNote)}</p>
         </div>
 
@@ -80,19 +80,19 @@ ${each(site.pricing, tier => {
      Rp100.000 supaya hasil perkalian tidak terbaca sebagai angka kalkulator. */
   const mulai = bulatRp(s.fromIdr * (tier.fromIdr / site.pricing[0].fromIdr), 100000);
   return `          <li class="card price${tier.featured ? ' price--featured' : ''}" data-reveal>
-            ${tier.featured ? `<span class="price__badge">${esc(lang === 'id' ? 'Paling dipilih' : 'Most popular')}</span>` : ''}
+            ${tier.featured ? `<span class="price__badge">${esc(ui.labels.mostPopular)}</span>` : ''}
             <h3 class="price__name">${esc(p.name)}</h3>
             <p class="price__from">${esc(ui.startFrom)}</p>
             <p class="price__amount">${esc(fmtRp(mulai))}</p>
             <p class="price__idr"><span>${esc(ui.perProject)}</span></p>
             <p class="price__summary">${esc(p.summary)}</p>
             <ul class="price__features">
-              <li>${icon('check')}<span>${esc(lang === 'id' ? `Estimasi ${tier.days} hari kerja` : `About ${tier.days} working days`)}</span></li>
-              <li>${icon('check')}<span>${esc(lang === 'id' ? `${tier.revisions} kali revisi` : `${tier.revisions} revisions`)}</span></li>
+              <li>${icon('check')}<span>${esc(fill(ui.labels.estimateDays, { n: tier.days }))}</span></li>
+              <li>${icon('check')}<span>${esc(fill(ui.labels.revisions, { n: tier.revisions }))}</span></li>
 ${each(tier.features, f => `              <li>${icon('check')}<span>${esc(feat[f][lang])}</span></li>\n`)}            </ul>
             <a class="btn ${tier.featured ? 'btn--primary' : 'btn--ghost'}" style="width:100%"
                href="${esc(waPaket(p.name))}" target="_blank" rel="noopener noreferrer">
-              ${esc(lang === 'id' ? 'Minta penawaran' : 'Request a quote')}
+              ${esc(ui.labels.requestQuote)}
             </a>
           </li>\n`;
 })}        </ul>

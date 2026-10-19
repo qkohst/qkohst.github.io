@@ -20,6 +20,22 @@ const icon = (name, cls = '') =>
 /** Ambil blok bahasa dari objek {id, en}. */
 const t = (obj, lang) => (obj && obj[lang]) || {};
 
+/** Isi placeholder {nama} pada string katalog ui.
+    Copy yang perlu menyisipkan nilai disimpan sebagai "Menampilkan {n} proyek",
+    bukan dipotong jadi dua string yang harus disusun ulang di templat — susunan
+    kalimat berbeda antar bahasa, dan potongan tidak bisa ditukar urutannya. */
+const fill = (str, vals) =>
+  Object.entries(vals).reduce((s, [k, v]) => s.split(`{${k}}`).join(String(v)), String(str ?? ''));
+
+/** Nama platform media sosial untuk label aksesibilitas.
+    Netral bahasa: nama diri, tidak diterjemahkan — alasan yang sama dengan nama
+    teknologi. Tetap di sini karena socials[] di data hanya menyimpan key mesin
+    dan handle, bukan nama platform yang layak dibacakan pembaca layar. */
+const SOCIAL_NAME = {
+  github: 'GitHub', linkedin: 'LinkedIn', instagram: 'Instagram',
+  facebook: 'Facebook', twitter: 'X', youtube: 'YouTube', gitlab: 'GitLab'
+};
+
 /** Prefiks path per bahasa, disetel dari data/site.json oleh build.js.
     Bahasa default memakai prefiks kosong sehingga menempati akar situs. */
 let PREFIX = { id: '', en: '/en' };
@@ -135,4 +151,4 @@ const yearsSince = start => Math.max(1, new Date().getFullYear() - start);
 /** Saring entri berdasarkan penanda showOn. */
 const shown = (arr, surface) => (arr || []).filter(x => !x.showOn || x.showOn.includes(surface));
 
-module.exports = { esc, join, each, icon, setIconVersion, setPrefixes, t, prefix, SEGMENT, pageUrl, waLink, WA_TEKS, absUrl, fmtMonth, fmtRange, fmtRp, bulatRp, fmtDate, yearsSince, shown };
+module.exports = { esc, join, each, icon, setIconVersion, setPrefixes, t, fill, SOCIAL_NAME, prefix, SEGMENT, pageUrl, waLink, WA_TEKS, absUrl, fmtMonth, fmtRange, fmtRp, bulatRp, fmtDate, yearsSince, shown };

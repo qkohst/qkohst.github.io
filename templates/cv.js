@@ -1,15 +1,18 @@
 /* Halaman CV. Tata letak A4 dua kolom mempertahankan struktur CV lama;
    seluruh isinya datang dari data/site.json, jadi selalu ikut konten situs.
    Entri disaring dengan showOn: 'cv'. */
-const { esc, each, icon, t, fmtMonth, fmtRange, yearsSince, shown } = require('../tools/lib');
+const { esc, each, icon, t, fill, pageUrl, fmtMonth, fmtRange, yearsSince, shown } = require('../tools/lib');
 
-/** Meter blok tersegmen seperti pada CV lama (10 kotak per baris). */
-const skillRow = s => {
+/** Meter blok tersegmen seperti pada CV lama (10 kotak per baris).
+    Label aksesibilitasnya ikut bahasa halaman: sebelumnya "dari 100" ditulis
+    langsung di sini, sehingga CV berbahasa Inggris pun membacakannya dalam
+    bahasa Indonesia. */
+const skillRow = (ui) => s => {
   const on = Math.round(s.level / 10);
   return `
             <div class="cv-skill">
               <span class="cv-skill__name">${esc(s.name)}</span>
-              <span class="cv-skill__blocks" role="img" aria-label="${s.level} dari 100">
+              <span class="cv-skill__blocks" role="img" aria-label="${esc(fill(ui.a11y.skillLevel, { n: s.level }))}">
 ${Array.from({ length: 10 }, (_, i) => `                <i${i < on ? ' class="on"' : ''}></i>`).join('\n')}
               </span>
             </div>`;
@@ -29,25 +32,21 @@ module.exports = function cv(ctx) {
   const certificates = shown(site.certificates, 'cv');
   const socials = shown(site.socials, 'cv');
 
-  const L = lang === 'id'
-    ? { about: 'Tentang Saya', simpan: 'Simpan sebagai PDF', back: 'Kembali ke beranda',
-        hint: 'Jendela cetak akan terbuka — pilih tujuan “Simpan sebagai PDF” untuk mendapatkan berkasnya, atau langsung cetak ke kertas A4.',
-        exp: `Sekitar ${years} tahun pengalaman, dan terus berusaha mengasah kemampuan.` }
-    : { about: 'About Me', simpan: 'Save as PDF', back: 'Back to home',
-        hint: 'The print dialog will open — choose “Save as PDF” as the destination to get the file, or print straight to A4 paper.',
-        exp: `Around ${years} years of experience, and always working to sharpen my skills.` };
-
   /* Satu tombol, bukan "Unduh PDF" berdampingan dengan "Cetak". Berkas PDF statis
      tidak lagi disimpan di repo: mesin cetak peramban menghasilkan PDF vektor
      yang teksnya tetap bisa disalin dan dicari, tanpa menambah bobot repo dan
-     tanpa satu pun kilobita skrip tambahan di halaman. */
+     tanpa satu pun kilobita skrip tambahan di halaman.
+
+     Tujuan tombol "beranda" diambil dari pageUrl, bukan ditulis tangan:
+     sebelumnya kedua bahasa tertukar — CV Indonesia mengarah ke "/" (beranda
+     Inggris) dan CV Inggris ke "/en/" yang hanya stub redirect. */
   return `
     <div class="cv-actions">
       <button class="btn btn--primary" type="button" data-print
-              data-pdf-name="${esc(`CV ${site.profile.name}`)}">${icon('download')} ${esc(L.simpan)}</button>
-      <a class="btn btn--ghost" href="${lang === 'id' ? '/' : '/en/'}">${esc(L.back)}</a>
+              data-pdf-name="${esc(`CV ${site.profile.name}`)}">${icon('download')} ${esc(ui.labels.savePdf)}</button>
+      <a class="btn btn--ghost" href="${esc(pageUrl('home', lang))}">${esc(ui.labels.backHome)}</a>
     </div>
-    <p class="cv-hint">${esc(L.hint)}</p>
+    <p class="cv-hint">${esc(ui.labels.printHint)}</p>
 
     <article class="cv-page" data-doc-scale>
       <div class="cv-col cv-col--left">
@@ -63,10 +62,10 @@ module.exports = function cv(ctx) {
         <p class="cv-role">${esc(p.role)}</p>
 
         <section class="cv-block">
-          <h2 class="cv-h">${esc(L.about)}</h2>
+          <h2 class="cv-h">${esc(ui.sections.about)}</h2>
           <div class="cv-rule"></div>
           <p class="cv-text">${esc(p.aboutCv)}</p>
-          <p class="cv-text">${esc(L.exp)}</p>
+          <p class="cv-text">${esc(fill(ui.labels.cvExperience, { n: years }))}</p>
           <ul class="cv-contact">
             <li>${icon('map-pin')}<span>${esc(cl.address)}</span></li>
             <li>${icon('phone')}<span>${esc(c.phone)}</span></li>
@@ -77,7 +76,7 @@ module.exports = function cv(ctx) {
         <section class="cv-block">
           <h2 class="cv-h">${esc(ui.sections.skills)}</h2>
           <div class="cv-rule"></div>
-${each(skills, skillRow)}
+${each(skills, skillRow(ui))}
         </section>
 
         <section class="cv-block">
@@ -88,7 +87,7 @@ ${each(frameworks, f => `            <li>${esc(f.name)}</li>\n`)}          </ul>
         </section>
 
         <section class="cv-block">
-          <h2 class="cv-h">${esc(lang === 'id' ? 'Media Sosial' : 'Social Media')}</h2>
+          <h2 class="cv-h">${esc(ui.labels.socialMedia)}</h2>
           <div class="cv-rule"></div>
           <ul class="cv-social">
 ${each(socials, s => `            <li>${icon(s.icon)}<span>${esc(s.label)}</span></li>\n`)}          </ul>
@@ -119,7 +118,7 @@ ${each(experience, e => {
             <p class="cv-entry__date">${esc(fmtRange(e.from, e.to, lang, ui.present))}</p>
             <h3 class="cv-entry__title">${esc(x.role)}</h3>
             <p class="cv-entry__org">${esc(x.orgType)} | <span>${esc(x.org)}</span></p>
-            <p class="cv-entry__text"><b>${esc(lang === 'id' ? 'Deskripsi.' : 'Description.')}</b> ${esc(x.summary)}</p>
+            <p class="cv-entry__text"><b>${esc(ui.labels.description)}</b> ${esc(x.summary)}</p>
           </div>\n`;
 })}        </section>
 
@@ -131,8 +130,8 @@ ${each(certificates, e => {
   return `          <div class="cv-entry">
             <p class="cv-entry__date">${esc(fmtMonth(e.date, lang))}</p>
             <h3 class="cv-entry__title">${esc(x.title)}</h3>
-            <p class="cv-entry__org">${esc(lang === 'id' ? 'Dari' : 'From')} | <span>${esc(x.issuer)}</span></p>
-            <p class="cv-entry__text"><b>${esc(lang === 'id' ? 'Deskripsi.' : 'Description.')}</b> ${esc(x.summary)}</p>
+            <p class="cv-entry__org">${esc(ui.labels.from)} | <span>${esc(x.issuer)}</span></p>
+            <p class="cv-entry__text"><b>${esc(ui.labels.description)}</b> ${esc(x.summary)}</p>
           </div>\n`;
 })}        </section>
 
@@ -140,7 +139,7 @@ ${each(certificates, e => {
           <h2 class="cv-h">${esc(ui.sections.otherInfo)}</h2>
           <div class="cv-rule"></div>
           <div class="cv-other">
-            <img src="/assets/img/qr-site.png" alt="${esc(lang === 'id' ? 'Kode QR menuju qkohst.github.io' : 'QR code to qkohst.github.io')}"
+            <img src="/assets/img/qr-site.png" alt="${esc(ui.a11y.qrAlt)}"
                  width="240" height="240" loading="lazy" decoding="async">
             <p>${esc(ui.cvQrNote)}</p>
           </div>

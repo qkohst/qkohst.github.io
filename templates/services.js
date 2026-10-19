@@ -9,7 +9,7 @@ module.exports = function services(ctx, produk = []) {
   return `
     <section class="section section--banner">
       <div class="container">
-        <nav class="breadcrumb" aria-label="${esc(lang === 'id' ? 'Remah roti' : 'Breadcrumb')}">
+        <nav class="breadcrumb" aria-label="${esc(ui.a11y.breadcrumb)}">
           <ol>
             <li><a href="${esc(pageUrl('home', lang))}">${esc(ui.nav.home)}</a></li>
             <li><span aria-current="page">${esc(ui.sections.services)}</span></li>
@@ -18,12 +18,8 @@ module.exports = function services(ctx, produk = []) {
 
         <div class="section__head" data-reveal>
           <span class="section__eyebrow">${esc(ui.nav.services)}</span>
-          <h1>${esc(lang === 'id'
-            ? 'Layanan pengembangan web dari perancangan sampai serah terima'
-            : 'Web development services, from design through handover')}</h1>
-          <p class="section__lead">${esc(lang === 'id'
-            ? 'Empat layanan yang saling melengkapi. Anda bisa mengambil satu saja, atau menggabungkannya menjadi satu pengerjaan utuh.'
-            : 'Four services that complement each other. Take just one, or combine them into a single end-to-end engagement.')}</p>
+          <h1>${esc(ui.labels.servicesHeading)}</h1>
+          <p class="section__lead">${esc(ui.labels.servicesLead)}</p>
         </div>
 
         <ul class="grid grid--services list-plain">
@@ -83,7 +79,7 @@ ${each(produk, (x, i) => `          <li data-reveal data-reveal-delay="${i * 80}
     <section class="section">
       <div class="container">
         <div class="section__head" data-reveal>
-          <span class="section__eyebrow">${esc(lang === 'id' ? 'Proses' : 'Process')}</span>
+          <span class="section__eyebrow">${esc(ui.labels.process)}</span>
           <h2>${esc(sp.processTitle)}</h2>
           <p class="section__lead">${esc(sp.priceNote)}</p>
         </div>
